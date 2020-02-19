@@ -8,7 +8,8 @@ const signUpInitialState = {
     isLoading:false,
     isError:false,
     isLoggedIn:false,
-    token:''
+    token:'',
+
 }
 
 function signUpReducer(state, action){
@@ -24,8 +25,27 @@ function signUpReducer(state, action){
                 isLoading: false,
                 isError:false,
             }
+        case 'signUpError':
+            return {
+                email:'',
+                password:'',
+                password2:'',
+                firstName:'',
+                lastName:'',
+                isLoading:false,
+                isError:true,
+                isLoggedIn:false,
+                token:''
+            }
+        case 'handleChange':
+            return {
+                ...state,
+                [action.name]:action.value
+            }
     }
 
-    return state
+    return state;
 }
+
+export default signUpReducer;
 
