@@ -24,6 +24,8 @@ function signUpReducer(state, action){
                 ...state,
                 isLoading: false,
                 isError:false,
+                token: action.token,
+                isLoggedIn: true,
             }
         case 'signUpError':
             return {

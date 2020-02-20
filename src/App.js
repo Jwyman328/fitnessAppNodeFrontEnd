@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
+//pages
 import SignUpPage from './pages/signUp'
+import HomePage from './pages/home'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +16,10 @@ function App() {
     <div className="App">
       <Router >
             <switch>
-                <Route path='/'><SignUpPage /></Route>
+                <Route exact path='/'><SignUpPage /></Route>
+            </switch>
+            <switch>
+                <Route exact path='/home'><HomePage /></Route>
             </switch>
         </Router>
     </div>

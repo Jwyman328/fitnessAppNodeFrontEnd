@@ -6,24 +6,30 @@ import axios from 'axios'
 //http://localhost:3001/
 //http://enigmatic-springs-36428.herokuapp.com
 
-async function signUpAction(state){
+/**
+ * Create a user given the entered signup state.
+ * 
+ * Dispatch the recieved jwt token to the signUpReducer if user creation successful.
+ * Dispatch signUpError if failure creating a user.
+ * @param {object} state -- current state of signup submission attempt.
+ * @param {*} dispatch  -- dispatcher sending an action object to the signUpReducer.
+ */
+async function signUpAction(state,dispatch){
     const {email,password, password2,firstName,lastName,isLoading, isError, isLoggedIn,token} = state;
 
+    // check re-typed password compatability
     if (password !== password2){
-        return({type:'signUpError'})
+        dispatch({type:'signUpError'})
     }else{
-        // try to create, if token then success else error
         try{
-            // dispatch action of loading?
             const signUpDataStringify = JSON.stringify({email:email,password:password})
             const response = await axios.post('http://localhost:3000/user/create/',{method:'POST',data:signUpDataStringify,
             headers:{ 'Content-Type': 'application/json'}})
-            
             // if succesful dispatch success
-            console.log(response.data)
-            return{type:'signUpSuccess'}
+            const responseDataToken = await response.data.token
+            dispatch({type:'signUpSuccess', token:responseDataToken})
         }catch(error){
-            // dispatch error 
+             dispatch({type:'signUpError'})
         }
 }
 }
