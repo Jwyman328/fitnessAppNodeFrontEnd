@@ -75,7 +75,7 @@ describe('failed user login attempt', () => {
     beforeEach(() => {
         moxios.install();
         moxios.stubRequest('http://localhost:3001/user/login',{ status: 400, response: { token: 'mockToken' }})
-        element = render(<LoginPage />)
+        element = render(<Router><LoginPage /></Router>)
 
     })
 

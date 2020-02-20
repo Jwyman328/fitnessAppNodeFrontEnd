@@ -2,7 +2,7 @@ import React, {useReducer, useEffect} from 'react';
 import loginReducer from '../reducers/loginReducer'
 import loginAction from '../actions/loginUser'
 import handleInputAction from "../actions/handleInput";
-import {  Redirect } from "react-router-dom";
+import {  Redirect, Link, withRouter } from "react-router-dom";
 import initialState from '../initialState/loginInitialState'
 
 function LoginPage(props) {
@@ -33,11 +33,19 @@ function LoginPage(props) {
         //action to login the user
     }
 
+    const goToSignUp = () => {
+        props.history.push('/')
+    }
+
     return (
         <div>
+            <div>
+                <button onClick={goToSignUp}>SignUp</button>
+            </div>
             {isError? <div data-testid='errorMsg'>Error on login, please try again</div>: null}
             {isLoggedIn? <Redirect to='/home' /> :null}
             {isLoading? <div>Loading</div>: 
+
             <form>
                 <label>
                     email:
@@ -54,4 +62,4 @@ function LoginPage(props) {
     );
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);
