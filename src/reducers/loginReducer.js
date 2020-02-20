@@ -3,12 +3,12 @@ import React, {useReducer} from 'react'
 
 function loginReducer(state, action){
     switch(action.type){
-        case 'signUpAttempt':
+        case 'loginAttempt':
             return {
                 ...state,
                 isLoading:true,
             }
-        case 'signUpSuccess':
+        case 'loginSuccess':
             return {
                 ...state,
                 isLoading: false,
@@ -16,7 +16,7 @@ function loginReducer(state, action){
                 token: action.token,
                 isLoggedIn: true,
             }
-        case 'signUpError':
+        case 'loginError':
             return {
                 ...state,
                 email:'',

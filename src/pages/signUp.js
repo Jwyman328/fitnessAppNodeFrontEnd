@@ -3,18 +3,7 @@ import signUpReducer from "../reducers/signUpReducer";
 import handleInputAction from "../actions/handleInput";
 import signUpAction from "../actions/signUp";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-
-const signUpInitialState = {
-    email: "",
-    password: "",
-    password2: "",
-    firstName: "",
-    lastName: "",
-    isLoading: false,
-    isError: false,
-    isLoggedIn: false,
-    token: ""
-  };
+import signUpInitialState from '../initialState/signUpInitialState'
 
 function SignUpPage(props) {
 
@@ -46,6 +35,7 @@ function SignUpPage(props) {
   return (
     <div>
       sign up page
+      <Link data-testid='loginLink' to='/login'>login Page</Link>
       {isLoggedIn? <Redirect to='/home'/> :null }
       {isError ? <div data-testid='errorMsg'>Error creating user, please try again</div> : null}
       {isLoading ? (
@@ -105,6 +95,7 @@ function SignUpPage(props) {
           <button data-testid='signUpButton' onClick={handleClick}>Submit</button>
         </form>
       )}
+
     </div>
   );
 }

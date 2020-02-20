@@ -22,8 +22,8 @@ async function signUpAction(state,dispatch){
         dispatch({type:'signUpError'})
     }else{
         try{
-            const signUpDataStringify = JSON.stringify({email:email,password:password})
-            const response = await axios.post('http://localhost:3000/user/create/',{method:'POST',data:signUpDataStringify,
+            const signUpData = {email:email,password:password}
+            const response = await axios.post('http://localhost:3001/user/create/',{method:'POST',data:signUpData,
             headers:{ 'Content-Type': 'application/json'}})
             // if succesful dispatch success
             const responseDataToken = await response.data.token

@@ -13,7 +13,7 @@ import homePage from '../pages/home'
 let element;
 describe('Test input onChange values', () =>{
     beforeEach(()=> {
-        element = render(<SignUpPage />)
+        element = renderWithRouter(<SignUpPage />, '/')
     })
     
 
@@ -43,8 +43,12 @@ describe('Test signup request', () => {
         //element = renderWithRouter(<SignUpPage />)
 
         moxios.install()
-        moxios.stubRequest('http://localhost:3000/user/create/',{ status: 200, response: { token: 'mockToken' }})
+        moxios.stubRequest('http://localhost:3001/user/create/',{ status: 200, response: { token: 'mockToken' }})
         //mock going to the next page 
+    })
+
+    afterEach(() => {
+        moxios.uninstall()
     })
     test('stop from creating a user by entering two different passwords', async() => {
 
