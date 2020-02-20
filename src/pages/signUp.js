@@ -47,7 +47,7 @@ function SignUpPage(props) {
     <div>
       sign up page
       {isLoggedIn? <Redirect to='/home'/> :null }
-      {isError ? <div> Error creating user, please try again </div> : null}
+      {isError ? <div data-testid='errorMsg'>Error creating user, please try again</div> : null}
       {isLoading ? (
         <div> loading </div>
       ) : (
@@ -55,6 +55,7 @@ function SignUpPage(props) {
           <label>
             email:
             <input
+              data-testid='emailInput'
               type="text"
               name="email"
               value={email}
@@ -62,8 +63,29 @@ function SignUpPage(props) {
             />
           </label>
           <label>
+            First Name:
+            <input
+              data-testid='firstNameInput'
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={e => handleChange(e)}
+            />
+          </label>
+          <label>
+            Last Name:
+            <input
+              data-testid='firstNameInput'
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={e => handleChange(e)}
+            />
+          </label>
+          <label>
             password:
             <input
+              data-testid='passwordInput'
               type="password"
               name="password"
               value={password}
@@ -73,13 +95,14 @@ function SignUpPage(props) {
           <label>
             password 2:
             <input
+              data-testid='passwordInput2'
               type="password"
               name="password2"
               value={password2}
               onChange={e => handleChange(e)}
             />
           </label>
-          <button onClick={handleClick}>Submit</button>
+          <button data-testid='signUpButton' onClick={handleClick}>Submit</button>
         </form>
       )}
     </div>

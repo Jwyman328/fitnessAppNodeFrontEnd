@@ -2,8 +2,10 @@ import React from 'react';
 
 function homePage(props) {
     return (
-        <div>
-            welcome to login page
+        <div >
+           <h1 data-testid='homeHeader'>
+            welcome to home page
+            </h1> 
         </div>  
     );
 }

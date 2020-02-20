@@ -3,7 +3,7 @@ import './App.css';
 //pages
 import SignUpPage from './pages/signUp'
 import HomePage from './pages/home'
-
+import LoginPage from './pages/login'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,12 +15,15 @@ function App() {
   return (
     <div className="App">
       <Router >
-            <switch>
+            <Switch>
                 <Route exact path='/'><SignUpPage /></Route>
-            </switch>
-            <switch>
+            </Switch>
+            <Switch>
                 <Route exact path='/home'><HomePage /></Route>
-            </switch>
+            </Switch>
+            <Switch>
+              <Route exact path='/login'><LoginPage /></Route>
+            </Switch>
         </Router>
     </div>
   );

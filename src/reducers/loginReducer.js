@@ -1,6 +1,7 @@
 import React, {useReducer} from 'react'
 
-function signUpReducer(state, action){
+
+function loginReducer(state, action){
     switch(action.type){
         case 'signUpAttempt':
             return {
@@ -10,11 +11,6 @@ function signUpReducer(state, action){
         case 'signUpSuccess':
             return {
                 ...state,
-                email:'',
-                password:'',
-                password2:'',
-                firstName:'',
-                lastName:'',
                 isLoading: false,
                 isError:false,
                 token: action.token,
@@ -25,9 +21,6 @@ function signUpReducer(state, action){
                 ...state,
                 email:'',
                 password:'',
-                password2:'',
-                firstName:'',
-                lastName:'',
                 isLoading:false,
                 isError:true,
                 isLoggedIn:false,
@@ -43,5 +36,5 @@ function signUpReducer(state, action){
     return state;
 }
 
-export default signUpReducer;
+export default loginReducer;
 
