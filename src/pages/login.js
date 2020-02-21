@@ -1,22 +1,40 @@
-import React, {useReducer, useEffect} from 'react';
+import React, {useReducer, useEffect, useContext} from 'react';
 import loginReducer from '../reducers/loginReducer'
 import loginAction from '../actions/loginUser'
 import handleInputAction from "../actions/handleInput";
 import {  Redirect, Link, withRouter } from "react-router-dom";
 import initialState from '../initialState/loginInitialState'
 
+import {store} from '../store/globalStore'
+
+/**
+ * Log in an existing user.
+ * @param {*} props 
+ */
 function LoginPage(props) {
-    //set up a reducer
-    // [state,dispatch] = useReducer(reducer,initialState)
+   
+    const contextState = useContext(store)
+    const {globalState, globalDispatch} = contextState;
+    
     const [state, dispatch] = useReducer(loginReducer, initialState)
     const {email,password,token,isLoading,isLoggedIn,isError} = state;
     
+    /**
+     * Set the global state to the user being logged in.
+     * 
+     * Only set global state once a token has been recieved back from the server.
+     */
+    useEffect(() => {
+        if (token){
+            globalDispatch({type:'userLoggedIn',token: token})
+        }
+    },[token,globalState])
+
     /**
      * Dispatch action that will make all input changes.
      * @param {*} e -- onChange event
      */
     const handleChange = (e) =>{
-        console.log(e.target.name, e.target.value)
         dispatch(handleInputAction(e.target.name,  e.target.value))
     }
     /**
@@ -33,15 +51,8 @@ function LoginPage(props) {
         //action to login the user
     }
 
-    const goToSignUp = () => {
-        props.history.push('/')
-    }
-
     return (
         <div>
-            <div>
-                <button onClick={goToSignUp}>SignUp</button>
-            </div>
             {isError? <div data-testid='errorMsg'>Error on login, please try again</div>: null}
             {isLoggedIn? <Redirect to='/home' /> :null}
             {isLoading? <div>Loading</div>: 

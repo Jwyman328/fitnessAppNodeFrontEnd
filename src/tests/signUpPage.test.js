@@ -6,19 +6,27 @@ import SignUpPage from '../pages/signUp'
 import App from '../App'
 import { render, fireEvent, waitForElement } from '@testing-library/react'
 import { Router } from 'react-router-dom'
-import renderWithRouter from './setUpTests'
+import renderWithRouter from './testUtils/setUpTests'
 import { createMemoryHistory } from 'history'
 import homePage from '../pages/home'
+
+//set up global context for tests 
+import { StateProvider } from '../store/globalStore';
+
 
 let element;
 describe('Test input onChange values', () =>{
     beforeEach(()=> {
-        element = renderWithRouter(<SignUpPage />, '/')
+        element = renderWithRouter(<StateProvider><SignUpPage /></StateProvider>, '/signUp')
+        const {getByTestId} = element;
+
+        
     })
     
 
     test('test email input accepts email', () => {
         const {getByTestId} = element;
+
         const emailInput = getByTestId('emailInput')
         expect(emailInput.name).toBe('email')
     })
@@ -52,8 +60,12 @@ describe('Test signup request', () => {
     })
     test('stop from creating a user by entering two different passwords', async() => {
 
-        const element2 = renderWithRouter(<App/>,'/')
+        //Provide App with global context
+        const element2 = renderWithRouter(<StateProvider><App/></StateProvider>,'/')
         const {getByTestId, getByText} = element2;
+        // navigate to signUp page
+        const signUpLink = getByTestId('navigateToSignUp')
+        fireEvent.click(signUpLink)
         //enter an email 
         const emailInput = getByTestId('emailInput')
         fireEvent.change(emailInput,{target: {value: 'testEmail@gmail.com'}})
@@ -72,7 +84,7 @@ describe('Test signup request', () => {
     })
     
      test('create a user and be logged in', async() => {
-        element = renderWithRouter(<App/>,'/')
+        element = renderWithRouter(<StateProvider><App/></StateProvider>,'/')
         const {getByTestId, getByText} = element;
         //enter an email 
         const emailInput = getByTestId('emailInput')

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import './App.css';
+
 //pages
 import SignUpPage from './pages/signUp'
 import HomePage from './pages/home'
@@ -10,31 +11,29 @@ import ChallengePage from './pages/ChallengePage'
 import ViewResults from './pages/ViewResults'
 import Rules from './pages/Rules'
 import HowTo from './pages/HowTo'
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+//Routing
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 // nav bars
 import NavBar from './components/navbar'
 import LoginNav from './components/loginNavBar'
-function App() {
-  return (
-    <div className="App">
-       <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossOrigin="anonymous"/>
 
-      <NavBar />
-      <div><br></br></div>
+/**
+ * Router component to handle all application routing.
+ * 
+ * Navbar is top level component that will be caught with every route.
+ */
+function App() {
+
+  return (
+
+    <div className="App">
       <Router >
             <Switch>
-                <Route exact path='/'><SignUpPage /></Route>
+              <Route  path='/'><NavBar /></Route>
+            </Switch>
+            <Switch>
+                <Route exact path='/signup'><SignUpPage /></Route>
             </Switch>
             <Switch>
                 <Route exact path='/home'><HomePage /></Route>

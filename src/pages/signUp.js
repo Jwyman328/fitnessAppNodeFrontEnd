@@ -1,14 +1,25 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 import signUpReducer from "../reducers/signUpReducer";
 import handleInputAction from "../actions/handleInput";
 import signUpAction from "../actions/signUp";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import signUpInitialState from '../initialState/signUpInitialState'
+import {store} from '../store/globalStore'
 
 function SignUpPage(props) {
+  //global state
+  const contextState = useContext(store)
+  const {globalState, globalDispatch} = contextState;
 
+  // signUp state
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
   const {email,password,password2,firstName,lastName,isLoading,isError,isLoggedIn,token} = state;
+
+  useEffect(() =>{
+    if (token){
+      globalDispatch({type:'userLoggedIn',token: token})
+  }
+  })
 
   /**
    * Dispatch action to handle change of input value
@@ -28,14 +39,12 @@ function SignUpPage(props) {
    */
   const handleClick = e => {
     e.preventDefault();
-    console.log("clicked");
     dispatch("signupAttempt");
     signUpAction(state,dispatch);
   };
   return (
     <div>
       sign up page
-      <Link data-testid='loginLink' to='/login'>login Page</Link>
       {isLoggedIn? <Redirect to='/home'/> :null }
       {isError ? <div data-testid='errorMsg'>Error creating user, please try again</div> : null}
       {isLoading ? (

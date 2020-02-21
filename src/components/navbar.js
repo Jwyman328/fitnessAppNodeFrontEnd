@@ -1,34 +1,26 @@
 import React from 'react'
-import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap'
+import {withRouter} from "react-router-dom";
 
-function MainNavBar(){
+/**
+ * Nav bar for page to navigate to other pages.
+ * @param {*} props -- accept history from withRouter
+ */
+function MainNavBar(props){
+    const handleClick = (destination) => {
+        props.history.push(destination)
+    }
     return(
-    <Container>
-    <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="/home">Home</Navbar.Brand>
-    <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link href="/inputPoints">Input Points</Nav.Link>
-    </Navbar.Collapse>
-    <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link href="/GoalPage">Goals</Nav.Link>
-    </Navbar.Collapse> 
-    <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link href="/Challenges">challenges</Nav.Link>
-    </Navbar.Collapse> 
-    <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link href="/ViewResults">View Results</Nav.Link>
-    </Navbar.Collapse> 
-    <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link href="/rules">Rules</Nav.Link>
-    </Navbar.Collapse> 
-    <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link href="/HowTo">How To</Nav.Link>
-    </Navbar.Collapse> 
-    <NavDropdown title="Account" id="basic-nav-dropdown">
-        <NavDropdown.Item href="logOut">Log Out</NavDropdown.Item>
-      </NavDropdown>
-  </Navbar>
-  </Container>
+  <div>    
+    < button data-testid='navigateToHome' onClick={() => handleClick('/Home')}>Home</ button>
+    < button data-testid='navigateToInputPoints'  onClick={() => handleClick('/inputPoints')}>Input Points</ button>
+    < button data-testid='navigateToSignUp' onClick={() => handleClick('/signUp')}>Sign up</ button>
+    < button data-testid='navigateToLogin' onClick={() => handleClick('/login')}>Log in</ button>
+    < button data-testid='navigateGoalPage' onClick={() => handleClick('/GoalPage')}>Goals</ button>
+    < button data-testid='navigateToChallenges' onClick={() => handleClick('/Challenges')}>Challenges</ button>
+    < button data-testid='navigateViewResults' onClick={() => handleClick('/ViewResults')}>ViewResults</ button>
+      < button data-testid='navigateToHowTo' onClick={() => handleClick('/HowTo')}>How to</ button>
+      < button data-testid='navigateToLogOut' onClick={() => handleClick('/logOut')}>Log out</ button>
+  </div>
   )
 }
-export default MainNavBar;
+export default  withRouter(MainNavBar);

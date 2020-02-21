@@ -3,10 +3,12 @@ import { render, fireEvent, waitForElement, getByTestId } from '@testing-library
 import moxios from 'moxios';
 import LoginPage from '../pages/login';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import renderWithRouter from './setUpTests'
-import renderWithRouter2 from './renderWithRouter'
+import renderWithRouter from './testUtils/setUpTests'
+import renderWithRouter2 from './testUtils/renderWithRouter'
 import App from '../App'
 import { createMemoryHistory } from 'history'
+import { StateProvider } from '../store/globalStore';
+
 
 let element;
 describe('test login inputs', () => {
@@ -49,11 +51,12 @@ describe('mox form submit success', () => {
 
     test('login user successfully', async() => {
         // test entering username and password
-        const {container, getByTestId} = renderWithRouter2(<App />,{
+        // use StateProvider to provide global context
+        const {container, getByTestId} = renderWithRouter2(<StateProvider><App /></StateProvider>,{
             route: '/login',
           })
         // from landingPage navigate to loginPage
-        const loginLink = getByTestId('loginLink')
+        const loginLink = getByTestId('navigateToLogin')
         fireEvent.click(loginLink)
 
         //enter password
