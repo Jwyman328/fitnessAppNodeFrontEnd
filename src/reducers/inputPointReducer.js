@@ -13,12 +13,22 @@ function InputPointReducer(state,action){
             return {
                 ...state,
                 isLoading:true,
+                isSuccess:false,
+            }
+        case 'inputPointSuccess':
+            return {
+                ...state,
+                isLoading: false,
+                isError:false,
+                isSuccess:true,
             }
         case 'inputError':
             return{
                 ...state,
                 isError:true,
                 isLoading:false,
+                isSuccess:false,
+
             }
         case 'handleChange':
             return {

@@ -1,8 +1,9 @@
 import React from 'react';
 // initial point input state 
 const initialState = {
-    isLoading:'',
-    isError:'',
+    isLoading:false,
+    isError:false,
+    isSuccess:false,
     date: new Date().toISOString().split('T')[0],
     sleepHours:0,
     water100oz:false,

@@ -2,6 +2,7 @@ import React, {useReducer, useContext, useEffect} from 'react';
 import inputPointReducer from '../reducers/inputPointReducer'
 import inputPointInitialState from '../initialState/pointInputInitialState'
 
+import CreateInputPoint from '../actions/inputPointActions/createInputPoint'
 import {store} from '../store/globalStore'
 
 /**
@@ -10,7 +11,7 @@ import {store} from '../store/globalStore'
  */
 function InputPointsPage(props) {
     const [state, dispatch] = useReducer(inputPointReducer, inputPointInitialState)
-    const {isLoading, isError, date, sleepHours, water100oz, cleanEating, workoutIntenisty, workoutTime, steps} = state;
+    const {isLoading, isError,isSuccess, date, sleepHours, water100oz, cleanEating, workoutIntenisty, workoutTime, steps} = state;
 
     // global store containing the use token for making requests
     const contextState = useContext(store)
@@ -39,6 +40,7 @@ function InputPointsPage(props) {
     const handleClick = (e) => {
         e.preventDefault()
         dispatch({type:'inputPointSent'})
+        CreateInputPoint( state,dispatch,globalState.token)
     }
     return (
         <div>
@@ -77,6 +79,10 @@ function InputPointsPage(props) {
 
                 <button onClick={handleClick}>Submit points</button>
             </form>
+            {/* handle results of input point activity submission post request */}
+            {isSuccess? <div> new input successfully create </div>: null}
+            {isError? <div> Error on making new input activity, please try again</div>: null}
+
         </div>
     );
 }
