@@ -22,7 +22,6 @@ describe('point form inputs accept data',() => {
         const dateInput = getByTestId('dateInput')
         fireEvent.change(dateInput,{target: {value: '2020-12-20'}})
         expect(dateInput.value).toEqual('2020-12-20')
-
     })
 
     test('sleepHours can be changed', () => {
