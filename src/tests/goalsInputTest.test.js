@@ -44,10 +44,9 @@ describe('goal inputs', () => {
         const {getByTestId} = element;
         const dailyGoal = getByTestId('dailyGoal');
         fireEvent.click(dailyGoal)
-        //expect(dailyGoal.value).toBe('true')
-        //const dailyGoalValue = await waitForElement(() => expect(dailyGoal.checked).toBe(true))
         expect(dailyGoal.checked).toBe(true)
     })
+
     test('point goal starts at 0', () =>{
         const {getByTestId} = element;
         const pointGoal = getByTestId('pointGoal');
@@ -63,7 +62,6 @@ describe('mock a success post request', ()=>{
 
         moxios.install()
         moxios.stubRequest('http://localhost:3001/totalPointGoal/',{ status: 200})
-
     })
 
     afterEach(() => {
@@ -73,7 +71,6 @@ describe('mock a success post request', ()=>{
         const {getByTestId} = element;
         const submitButton = getByTestId('submitButton')
         fireEvent.click(submitButton)
-        //const successMSg = await waitForElement(() => expect(getByTestId('successMsg').innerHTML).toBe('Goal created successfully'))
         const successMsg = await waitForElement(() => getByTestId('successMsg'))
         expect(successMsg.innerHTML).toBe('Goal created successfully')
     })

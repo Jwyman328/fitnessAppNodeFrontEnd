@@ -3,18 +3,24 @@ import initialState from '../initialState/pointGoalInitialState';
 import goalReducer from '../reducers/goalReducer';
 import CreateGoal from '../actions/goalPageActions/createGoal'
 import {store} from '../store/globalStore'
-
+/**
+ * Allow user to create a total point goal.
+ * @param {*} props 
+ */
 function GoalsPage(props) {
     // global store containing the use token for making requests
     const contextState = useContext(store)
     const {globalState, globalDispatch} = contextState;
     
-    //goals page reducer
+    //goal's page reducer
     const [state, dispatch] = useReducer(goalReducer, initialState)
     const {goalStartDate, goalEndDate,dailyGoal, pointGoal,isSuccess, isLoading, isError} = state;
 
+    /**
+     * Handle change of each input.
+     * @param {*} e -input event 
+     */
     const handleChange = (e) => {
-        console.log(e.target.checked)
         if (e.target.type === 'checkbox'){
             dispatch({type:'handleCheckbox', name: e.target.name, checked: e.target.checked})
         }else{
@@ -22,6 +28,13 @@ function GoalsPage(props) {
         }
     }
 
+    /**
+     * Submit goal state input to server to create a goal.
+     * 
+     * Dispatch that the attempt goal creation has been attempted.
+     * Attempt to create goal, passing dispatcher, current state, and user's token.
+     * @param {*} e - event
+     */
     const handleSubmit = (e) => {
         //dispatch action of post request
         e.preventDefault()
