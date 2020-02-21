@@ -12,7 +12,6 @@ describe('goal inputs', () => {
     beforeEach(() => {
         element = render(<StateProvider><GoalsPage /></StateProvider>)
         today = new Date().toISOString().split('T')[0]
-
     })
 
     test('start date starts with todays date',()=>{
