@@ -77,11 +77,11 @@ function InputPointsPage(props) {
                 <input data-testid='cleanEatingInput' name='cleanEating' type='checkbox' value={cleanEating} checked={cleanEating} onChange={handleChange} />
                 </label>
 
-                <button onClick={handleClick}>Submit points</button>
+                <button data-testid='submitButton' onClick={handleClick}>Submit points</button>
             </form>
             {/* handle results of input point activity submission post request */}
-            {isSuccess? <div> new input successfully create </div>: null}
-            {isError? <div> Error on making new input activity, please try again</div>: null}
+            {isSuccess? <div data-testid='successMsg'>new input successfully create</div>: null}
+            {isError? <div data-testid='errorMsg'>Error on making new input activity, please try again</div>: null}
 
         </div>
     );

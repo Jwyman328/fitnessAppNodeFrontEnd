@@ -24,7 +24,7 @@ async function CreateInputPoint(state,dispatch,token){
         try{
             const response = await axios.post('http://localhost:3001/activityInput/',bodyParameters,config)
             // if succesful dispatch success
-            console.log(response, 'input response')            
+            //console.log(response, 'input response')            
             dispatch({type:'inputPointSuccess'})
         }catch(error){
              dispatch({type:'inputError'})

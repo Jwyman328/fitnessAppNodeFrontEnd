@@ -2,6 +2,8 @@ import React from 'react';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
 import moxios from 'moxios';
 import InputPointsPage from '../pages/inputPointsPage'
+import { StateProvider } from '../store/globalStore';
+
 
 let element;
 describe('point form inputs accept data',() => {
@@ -62,6 +64,45 @@ describe('point form inputs accept data',() => {
         fireEvent.click(cleanEating)
         expect(cleanEating.checked).toBe(true)
     })
+})
 
+describe('mock successful post request', () => {
+    beforeEach(() => {
+        moxios.install()
+        moxios.stubRequest('http://localhost:3001/activityInput/',{ status: 200})
+        element = render(<StateProvider><InputPointsPage /></StateProvider>)
+    })
+
+    afterEach(() => {
+        moxios.uninstall();
+    })
+
+    test('successful post shows success message', async() => {
+        const {getByTestId} = element;
+        const submitButton = getByTestId('submitButton');
+        fireEvent.click(submitButton);
+        const successMsg = await waitForElement(() => getByTestId('successMsg'))
+        expect(successMsg.innerHTML).toBe('new input successfully create')
+    })
+})
+
+describe('mock error on post request', () => {
+    beforeEach(() => {
+        moxios.install()
+        moxios.stubRequest('http://localhost:3001/activityInput/',{ status: 400})
+        element = render(<StateProvider><InputPointsPage /></StateProvider>)
+    })
+
+    afterEach(() => {
+        moxios.uninstall();
+    })
+
+    test('Error message shows on bad request', async() => {
+        const {getByTestId} = element;
+        const submitButton = getByTestId('submitButton');
+        fireEvent.click(submitButton)
+        const errorMsg = await waitForElement(() => getByTestId('errorMsg'))
+        expect(errorMsg.innerHTML).toBe('Error on making new input activity, please try again')
+    })
 
 })
