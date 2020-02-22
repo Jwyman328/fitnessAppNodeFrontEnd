@@ -3,14 +3,14 @@ import initialState from '../initialState/pointGoalInitialState';
 import goalReducer from '../reducers/goalReducer';
 import CreateGoal from '../actions/goalPageActions/createGoal'
 import {store} from '../store/globalStore'
+import {getGlobalState,dispatchInputChange} from '../utils/helperFunctions'
 /**
  * Allow user to create a total point goal.
  * @param {*} props 
  */
 function GoalsPage(props) {
     // global store containing the use token for making requests
-    const contextState = useContext(store)
-    const {globalState, globalDispatch} = contextState;
+    const globalState = getGlobalState(useContext(store))
     
     //goal's page reducer
     const [state, dispatch] = useReducer(goalReducer, initialState)
@@ -20,12 +20,8 @@ function GoalsPage(props) {
      * Handle change of each input.
      * @param {*} e -input event 
      */
-    const handleChange = (e) => {
-        if (e.target.type === 'checkbox'){
-            dispatch({type:'handleCheckbox', name: e.target.name, checked: e.target.checked})
-        }else{
-            dispatch({type:'handleChange', name:e.target.name, value:e.target.value})
-        }
+    const handleChange = (event) => {
+        dispatchInputChange(dispatch, event)
     }
 
     /**

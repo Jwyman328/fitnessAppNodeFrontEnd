@@ -3,31 +3,25 @@ import initialState from '../initialState/challengeInitialState';
 import CreateChallenge from '../actions/challengePageActions/createChallenge'
 import challengeReducer from '../reducers/challengeReducer'
 import {store} from '../store/globalStore'
+import {getGlobalState, dispatchInputChange} from '../utils/helperFunctions'
+
 
 
 function ChallengePage(props) {
     // global store containing the use token for making requests
-    const contextState = useContext(store)
-    const {globalState, globalDispatch} = contextState;
+    const globalState = getGlobalState(useContext(store));
     
     //goal's page reducer
     const [state, dispatch] = useReducer(challengeReducer, initialState)
-    const {challengeStartDate, challengeEndDate, title, challengeType, isSuccess, isLoading, isError} = state;
+    const {challengeStartDate, challengeEndDate, title,
+         challengeType, isSuccess, isLoading, isError} = state;
 
     /**
      * Handle change of each input.
      * @param {*} e -input event 
      */
-    useEffect(() => {
-        console.log(isSuccess, 'issz')
-    }, [isSuccess])
-
-    const handleChange = (e) => {
-        if (e.target.type === 'checkbox'){
-            dispatch({type:'handleCheckbox', name: e.target.name, checked: e.target.checked})
-        }else{
-            dispatch({type:'handleChange', name:e.target.name, value:e.target.value})
-        }
+    const handleChange = (event) => {
+        dispatchInputChange(dispatch, event)
     }
 
     /**
@@ -38,7 +32,6 @@ function ChallengePage(props) {
      * @param {*} e - event
      */
     const handleSubmit = (e) => {
-        //dispatch action of post request
         e.preventDefault()
         dispatch({type:'createChallengeAttempt'});
         CreateChallenge(state,dispatch, globalState.token);

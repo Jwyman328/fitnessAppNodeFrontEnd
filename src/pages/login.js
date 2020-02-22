@@ -6,16 +6,17 @@ import {  Redirect, Link, withRouter } from "react-router-dom";
 import initialState from '../initialState/loginInitialState'
 
 import {store} from '../store/globalStore'
+import {getGlobalState, getGlobalDispatcher} from '../utils/helperFunctions'
+
 
 /**
  * Log in an existing user.
  * @param {*} props 
  */
 function LoginPage(props) {
-   
-    const contextState = useContext(store)
-    const {globalState, globalDispatch} = contextState;
-    
+    const globalState = getGlobalState(useContext(store));
+    const globalDispatch = getGlobalDispatcher(useContext(store));
+
     const [state, dispatch] = useReducer(loginReducer, initialState)
     const {email,password,token,isLoading,isLoggedIn,isError} = state;
     

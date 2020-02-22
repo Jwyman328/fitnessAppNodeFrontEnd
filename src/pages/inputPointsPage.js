@@ -4,6 +4,7 @@ import inputPointInitialState from '../initialState/pointInputInitialState'
 
 import CreateInputPoint from '../actions/inputPointActions/createInputPoint'
 import {store} from '../store/globalStore'
+import {getGlobalState,dispatchInputChange} from '../utils/helperFunctions'
 
 /**
  * Input point data for a selected date.
@@ -14,25 +15,18 @@ function InputPointsPage(props) {
     const {isLoading, isError,isSuccess, date, sleepHours, water100oz, cleanEating, workoutIntenisty, workoutTime, steps} = state;
 
     // global store containing the use token for making requests
-    const contextState = useContext(store)
-    const {globalState, globalDispatch} = contextState;
-    
-    useEffect(() => {
-        console.log(globalState, 'gs')
-    })
+    const globalState= getGlobalState(useContext(store));
+
     /**
      * Handle input data change events.
      * 
      * Dispatch the associated event change to change the state of the input value.
      * @param {*} e -user event.
      */
-    const handleChange = (e) => {
-        if(e.target.type==='checkbox'){
-            dispatch({type:'handleCheckbox', name:e.target.name, checked: e.target.checked})
-        }else{
-            dispatch({type:'handleChange',name:e.target.name, value:e.target.value})
-        }
+    const handleChange = (event) => {
+        dispatchInputChange(dispatch, event)
     }
+
     /**
      * Submit point data to the server.
      * @param {*} e - event
