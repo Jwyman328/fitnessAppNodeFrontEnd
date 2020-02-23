@@ -45,6 +45,34 @@ describe('challenge inputs can accept data changes', () => {
     })
 })
 
+describe('mock getAllusers request returns mock users', () => {
+    beforeEach(() => {
+        moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/allUsers/',{ status: 200, response: ['testEmail@gmail.com','testEmail2@gmail.com']} )
+        element = render(<StateProvider><ChallengePage/></StateProvider>)
+    })
+
+    afterEach(() => {
+        moxios.uninstall()
+    })
+
+    test('All users request response data shows as userSelect options', async() => {
+        const {getByTestId} = element;
+        const selectedUserOption = await waitForElement(() => getByTestId('testEmail@gmail.com'))
+        const selectedUserOption2 = await waitForElement(() => getByTestId('testEmail2@gmail.com'))
+
+        expect(selectedUserOption.value).toBe('testEmail@gmail.com')
+        expect(selectedUserOption2.value).toBe('testEmail2@gmail.com')
+    })
+
+    test('All users request response data shows as unSelected to start', async() => {
+        const {getByTestId} = element;
+        const selectedUserOption = await waitForElement(() => getByTestId('testEmail@gmail.com'))
+        expect(selectedUserOption.selected).toBe(false)
+    })
+
+})
+
 describe('mock create challenge request returns success', () => {
     beforeEach(() => {
         moxios.install()
@@ -64,6 +92,7 @@ describe('mock create challenge request returns success', () => {
         expect(successMsg.innerHTML).toBe('Challenge created successfully')
     })
 })
+
 
 describe('mock create challenge request returns error', () => {
     beforeEach(() => {

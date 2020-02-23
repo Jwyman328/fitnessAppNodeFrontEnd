@@ -49,7 +49,7 @@ function ChallengePage(props) {
      * Create an aray of all users to select to invite toa challenge 
      */
     const createUserSelect = () => {
-        return allUsers.map(userEmail => <option value={userEmail}>{userEmail}</option>)
+        return allUsers.map(userEmail => <option key={userEmail} data-testid={userEmail} value={userEmail}>{userEmail}</option>)
     }
 
     return (
@@ -77,7 +77,7 @@ function ChallengePage(props) {
                     <option value="Workout">Workout</option>
                 </select>
                 {allUsers?    
-                <select multiple={true} data-testid='userEmails' name='userEmails' value={selectedUsers} onChange={handleAddSelectedUser}>
+                <select multiple={true} data-testid='selectUsersInput' name='userEmails' value={selectedUsers} onChange={handleAddSelectedUser}>
                   {createUserSelect()}
                     </select>
                      : null} 

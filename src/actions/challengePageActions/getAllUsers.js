@@ -9,9 +9,8 @@ import axios from 'axios'
  * @param {*} dispatch  -- dispatcher that sends an action object to the challengeReducer.
  */
 async function GetAllUsers(dispatch,token){
-        dispatch({type:'getAllUsertsAttempt'})
+        dispatch({type:'getAllUsersAttempt'})
         //post configureations with jwt token and input goal data
-        console.log(token)
         const config = {
             data:{ Authorization: `Bearer ${token}` },
             headers: { Authorization: `Bearer ${token}` }
@@ -23,7 +22,6 @@ async function GetAllUsers(dispatch,token){
         try{
             const response = await axios.get('http://localhost:3001/user/allUsers/', {headers: { Authorization: `Bearer ${token}` }},config)
             // if succesful dispatch success
-            console.log(response.data, 'ressy')
             dispatch({type:'getAllUsersSuccess', allUsers: response.data})
         }catch(error){
              dispatch({type:'getAllUsersError'})

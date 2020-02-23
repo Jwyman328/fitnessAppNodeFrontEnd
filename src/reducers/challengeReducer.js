@@ -51,6 +51,7 @@ function challengeReducer(state, action){
                 getAllUsersIsLoading: false,
                 getAllUsersIsError:false,
                 allUsers: action.allUsers,
+                selectedUsers:[],
             }
         
         case 'handleSelectedUsers':
