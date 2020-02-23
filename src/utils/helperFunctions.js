@@ -34,4 +34,23 @@ function dispatchInputChange(dispatch, event){
     }
 }
 
-export {getGlobalState,getGlobalDispatcher,dispatchInputChange}
+function getAllUsers(){
+
+}
+
+/**
+ * Add new user to the selected users, remove selected user if already in the selectedUsers array.
+ * @param {Array} selectedUsers -- All previously selected users
+ * @param {String} selectedUser -- new selected user.
+ */
+function handleSelectedUsers(selectedUsers, selectedUser){
+    if (selectedUsers.includes(selectedUser)){
+        selectedUsers  = selectedUsers.filter(selectedUserValue => 
+            selectedUserValue != selectedUser)     
+   }else{
+       selectedUsers.push(selectedUser)
+   }
+   return selectedUsers
+}
+
+export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers}

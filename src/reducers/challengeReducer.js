@@ -1,4 +1,5 @@
 import React from 'react'
+import {handleSelectedUsers} from '../utils/helperFunctions'
 
 function challengeReducer(state, action){
     switch(action.type){
@@ -31,6 +32,33 @@ function challengeReducer(state, action){
                 isSuccess:false,
                 isError:false,
                 isLoading:true,
+            }
+        case 'getAllUsersAttempt':
+            return {
+                ...state,
+                getAllUsersIsLoading: true,
+                getAllUsersIsError:false,
+            }
+        case 'getAllUsersError':
+            return {
+                ...state,
+                getAllUsersIsLoading: false,
+                getAllUsersIsError:true,
+            }
+        case 'getAllUsersSuccess':
+            return {
+                ...state,
+                getAllUsersIsLoading: false,
+                getAllUsersIsError:false,
+                allUsers: action.allUsers,
+            }
+        
+        case 'handleSelectedUsers':
+            let {selectedUsers} = {...state}
+            selectedUsers = handleSelectedUsers(selectedUsers,action.selectedUser)
+            return {
+                ...state,
+                selectedUsers: selectedUsers
             }
     }
     return state

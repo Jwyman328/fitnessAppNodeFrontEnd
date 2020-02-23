@@ -9,8 +9,10 @@ import axios from 'axios'
  * @param {*} dispatch  -- dispatcher that sends an action object to the challengeReducer.
  */
 async function CreateChallenge(state,dispatch,token){
-        const {challengeStartDate,challengeEndDate, title, challengeType,invitees} = state;
-        const createGoalInput = {challengeStartDate:challengeStartDate,challengeEndDate:challengeEndDate, title:title, challengeType:challengeType,invitees:invitees}
+        const {challengeStartDate,challengeEndDate, title, challengeType,selectedUsers} = state;
+        const createGoalInput = {challengeStartDate:challengeStartDate,
+            challengeEndDate:challengeEndDate, title:title, challengeType:challengeType,
+            invitees:selectedUsers}
         
         //post configureations with jwt token and input goal data
         const config = {

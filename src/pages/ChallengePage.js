@@ -4,7 +4,8 @@ import CreateChallenge from '../actions/challengePageActions/createChallenge'
 import challengeReducer from '../reducers/challengeReducer'
 import {store} from '../store/globalStore'
 import {getGlobalState, dispatchInputChange} from '../utils/helperFunctions'
-
+import getAllUsers from '../actions/challengePageActions/getAllUsers'
+import Select from 'react-select';
 
 
 function ChallengePage(props) {
@@ -13,7 +14,7 @@ function ChallengePage(props) {
     
     //goal's page reducer
     const [state, dispatch] = useReducer(challengeReducer, initialState)
-    const {challengeStartDate, challengeEndDate, title,
+    const {challengeStartDate, challengeEndDate, title,allUsers,selectedUsers,
          challengeType, isSuccess, isLoading, isError} = state;
 
     /**
@@ -22,6 +23,9 @@ function ChallengePage(props) {
      */
     const handleChange = (event) => {
         dispatchInputChange(dispatch, event)
+    }
+    const handleAddSelectedUser = (e) => {
+        dispatch({type:'handleSelectedUsers', selectedUser:e.target.value})
     }
 
     /**
@@ -35,6 +39,17 @@ function ChallengePage(props) {
         e.preventDefault()
         dispatch({type:'createChallengeAttempt'});
         CreateChallenge(state,dispatch, globalState.token);
+    }
+    let options = {}
+    useEffect(() => {
+        getAllUsers(dispatch, globalState.token)
+    },[])
+
+    /**
+     * Create an aray of all users to select to invite toa challenge 
+     */
+    const createUserSelect = () => {
+        return allUsers.map(userEmail => <option value={userEmail}>{userEmail}</option>)
     }
 
     return (
@@ -54,14 +69,19 @@ function ChallengePage(props) {
                     <input name='title' data-testid='title' type='text' value={title} onChange={handleChange} />    
                 </label>
 
-                <select data-testid='challengeType' name='challengeType' value={challengeType} onChange={handleChange}>
+                <select multiple={false} data-testid='challengeType' name='challengeType' value={challengeType} onChange={handleChange}>
                     <option value="sleep">Sleep</option>
                     <option value="Water">Water</option>
                     <option  value="Clean Eating">Clean Eating</option>
                     <option  value="totalPoints">Total Points</option>
                     <option value="Workout">Workout</option>
                 </select>
-
+                {allUsers?    
+                <select multiple={true} data-testid='userEmails' name='userEmails' value={selectedUsers} onChange={handleAddSelectedUser}>
+                  {createUserSelect()}
+                    </select>
+                     : null} 
+          
                 <button data-testid='submitButton' onClick={handleSubmit}>create challenge</button>
             </form>
            {isSuccess? <div data-testid="successMsg">Challenge created successfully</div> : null }

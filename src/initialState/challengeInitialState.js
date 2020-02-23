@@ -10,7 +10,10 @@ const initialState = {
     isSuccess:false,
     isError:false,
     isLoading:false,
-
+    getAllUsersIsLoading:false,
+    getAllUsersIsError:false,
+    allUsers:null,
+    selectedUsers:[],
 
 }
 
