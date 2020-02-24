@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {Table} from 'react-bootstrap'
-
+import {withRouter} from 'react-router-dom'
 /**
  * Return a table displaying all relevant point data, and links to update or view more.
  * 
@@ -8,11 +8,18 @@ import {Table} from 'react-bootstrap'
  */
 function DailyPointsTable(props){
   
-    const navigateToGraph = (pointDataId) => {
-        console.log('go to graph',pointDataId)
+    /**
+     * Route to a page displaying a graph an individual activity point data.
+     * 
+     * @param {Object} pointData -- individual activity point data for a specific date.
+     */
+    const navigateToGraph = (pointData) => {
+        console.log('go to graph',pointData)
+        props.history.push('/IndividualDailyPointGraph',{pointData: pointData})
     }
-    const navigateToUpdatePointInput = (pointDataId) => {
-        console.log('go to update',pointDataId)
+    
+    const navigateToUpdatePointInput = (pointData) => {
+        console.log('go to update',pointData)
     }
 
     /**
@@ -26,8 +33,8 @@ function DailyPointsTable(props){
                 <td>{individualPointData.date}</td>
                 <td>{individualPointData.totalPoints}</td>
                 <td>daily goal here</td>
-                <td><button onClick ={() => navigateToUpdatePointInput(individualPointData._id)}>update</button></td> 
-                <td><button onClick ={() => navigateToGraph(individualPointData._id)}>see graph</button></td>
+                <td><button onClick ={() => navigateToUpdatePointInput(individualPointData)}>update</button></td> 
+                <td><button onClick ={() => navigateToGraph(individualPointData)}>see graph</button></td>
             </tr>
         )
     }
@@ -73,4 +80,4 @@ function DailyPointsTable(props){
     )
 }
 
-export default DailyPointsTable;
+export default withRouter(DailyPointsTable);

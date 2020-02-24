@@ -14,6 +14,7 @@ import HowTo from './pages/HowTo'
 import PendingChallenges from './pages/PendingChallenges'
 import PastChallenges from './pages/PastChallenges'
 import CurrentFutureChallenges from './pages/CurrentFutureChallenges'
+import IndividualDailyPointGraph from './pages/IndividualDailyPointGraph'
 //Routing
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
@@ -72,6 +73,11 @@ function App() {
             <Switch>
               <Route exact path='/CurrentFutureChallenges'><CurrentFutureChallenges /></Route>
             </Switch>
+            <Switch>
+              <Route exact path='/IndividualDailyPointGraph'><IndividualDailyPointGraph /></Route>
+            </Switch>
+
+            
         </Router>
     </div>
   );
