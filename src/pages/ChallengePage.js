@@ -5,7 +5,6 @@ import challengeReducer from '../reducers/challengeReducer'
 import {store} from '../store/globalStore'
 import {getGlobalState, dispatchInputChange} from '../utils/helperFunctions'
 import getAllUsers from '../actions/challengePageActions/getAllUsers'
-import Select from 'react-select';
 
 
 function ChallengePage(props) {
@@ -29,7 +28,7 @@ function ChallengePage(props) {
     }
 
     /**
-     * Submit challenge state input to server to create a goal.
+     * Submit challenge state input to server to create a challenge.
      * 
      * Dispatch that the attempt challenge creation has been attempted.
      * Attempt to create goal, passing dispatcher, current state, and user's token.
