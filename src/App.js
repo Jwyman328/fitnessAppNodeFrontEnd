@@ -13,8 +13,10 @@ import Rules from './pages/Rules'
 import HowTo from './pages/HowTo'
 import PendingChallenges from './pages/PendingChallenges'
 import PastChallenges from './pages/PastChallenges'
+import CurrentFutureChallenges from './pages/CurrentFutureChallenges'
 //Routing
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+
 
 // nav bars
 import NavBar from './components/navbar'
@@ -67,10 +69,9 @@ function App() {
             <Switch>
               <Route exact path='/PastChallenges'><PastChallenges /></Route>
             </Switch>
-
-
-            
-
+            <Switch>
+              <Route exact path='/CurrentFutureChallenges'><CurrentFutureChallenges /></Route>
+            </Switch>
         </Router>
     </div>
   );

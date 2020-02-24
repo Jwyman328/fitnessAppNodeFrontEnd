@@ -21,8 +21,8 @@ function PastChallenges(props) {
     },[])
 
     const createPastChallengesCards = () => {
-        const pastChallengesCards = pastChallenges.map(pastChallenge => PastChallengesCard(pastChallenge))    
-        return pastChallengesCards
+        const PastChallengesCards = pastChallenges.map(pastChallenge => PastChallengesCard(pastChallenge))    
+        return PastChallengesCards
     }
 
     return (

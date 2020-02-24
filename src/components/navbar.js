@@ -22,6 +22,7 @@ function MainNavBar(props){
       < button data-testid='navigateToLogOut' onClick={() => handleClick('/logOut')}>Log out</ button>
       < button data-testid='navigateToPendingChallenges' onClick={() => handleClick('/PendingChallenges')}>Pending Challenges</ button>
       < button data-testid='navigateToPastChallenges' onClick={() => handleClick('/PastChallenges')}>Past Challenges</ button>
+      < button data-testid='navigateToCurrentFutureChallenges' onClick={() => handleClick('/CurrentFutureChallenges')}>Current future Challenges</ button>
 
       
       
