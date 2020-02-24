@@ -3,7 +3,7 @@ import moxios from 'moxios'
 import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
 import PendingChallenges from '../pages/PendingChallenges';
-import {pendingChallengeInitialInvitationData, pendingChallengeInvitationDataChanged} from './testUtils/testMockData/pendingChallengeInvitationData'
+import {pendingChallengeInitialInvitationData} from './testUtils/testMockData/pendingChallengeInvitationData'
 
 let element;
 describe('Mock pending challenge invitation get request success', () => {

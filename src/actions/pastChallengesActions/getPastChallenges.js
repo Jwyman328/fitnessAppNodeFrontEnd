@@ -23,7 +23,7 @@ async function getPastChallenges(dispatch,token){
         const response = await axios.get('http://localhost:3001/pastChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
         dispatch({type:'addPastChallenges', pastChallenges: response.data})
     }catch(error){
-         dispatch({type:'pendingChallengesFetchError'})
+         dispatch({type:'pastChallengesFetchError'})
     }
 
 }

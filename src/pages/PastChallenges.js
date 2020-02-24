@@ -24,13 +24,13 @@ function PastChallenges(props) {
         const pastChallengesCards = pastChallenges.map(pastChallenge => PastChallengesCard(pastChallenge))    
         return pastChallengesCards
     }
-    
+
     return (
         <div>
             past challenges
             {pastChallenges? createPastChallengesCards() : null }
             {isLoading? <div>loading past challenges </div> :null}
-            {isError? <div>Error loading past challenges </div> :null}
+            {isError? <div data-testid='isError'>Error loading past challenges</div> :null}
         </div>
     );
 }

@@ -12,7 +12,7 @@ import getAllPendingChallengeInvitations from './getAllPendingChallenges'
  * 
  */
 async function updateChallengeInvitationStatus(dispatch,token,id, newStatus){
-    dispatch({type:'pendingChallengesFetchAttempt'})
+    dispatch({type:'pendingChallengeUpdateAttempt'})
     const config = {
         data:{ Authorization: `Bearer ${token}`,"status": newStatus },
         headers: { Authorization: `Bearer ${token}` }
