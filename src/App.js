@@ -12,6 +12,7 @@ import ViewResults from './pages/ViewResults'
 import Rules from './pages/Rules'
 import HowTo from './pages/HowTo'
 import PendingChallenges from './pages/PendingChallenges'
+import PastChallenges from './pages/PastChallenges'
 //Routing
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
@@ -62,6 +63,9 @@ function App() {
             </Switch>
             <Switch>
               <Route exact path='/PendingChallenges'><PendingChallenges /></Route>
+            </Switch>
+            <Switch>
+              <Route exact path='/PastChallenges'><PastChallenges /></Route>
             </Switch>
 
 

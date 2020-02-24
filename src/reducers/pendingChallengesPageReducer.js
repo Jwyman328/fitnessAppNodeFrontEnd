@@ -27,20 +27,20 @@ function pendingChallengePageReducer(state,action){
                 updateisLoading: true,
                 updateisError:false,
             }
-        case 'pendingChallengeUpdateSuccess':{
+        case 'pendingChallengeUpdateSuccess':
             return {
                 ...state,
                 updateisLoading: false,
                 updateisError:false,
             }
-        }
-        case 'pendingChallengesUpdateError':{
+        
+        case 'pendingChallengesUpdateError':
             return {
                 ...state,
                 updateisLoading:false,
                 updateisError:true,
             }
-        }
+        
     }
     return state;
 

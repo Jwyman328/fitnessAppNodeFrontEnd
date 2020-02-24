@@ -10,8 +10,8 @@ import axios from 'axios'
  */
 async function CreateChallenge(state,dispatch,token){
         const {challengeStartDate,challengeEndDate, title, challengeType,selectedUsers} = state;
-        const createGoalInput = {challengeStartDate:challengeStartDate,
-            challengeEndDate:challengeEndDate, title:title, challengeType:challengeType,
+        const createGoalInput = {startDate:challengeStartDate,
+            endDate:challengeEndDate, title:title, challengeType:challengeType,
             invitees:selectedUsers}
         
         //post configureations with jwt token and input goal data

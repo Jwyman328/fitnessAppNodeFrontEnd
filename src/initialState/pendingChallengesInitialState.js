@@ -4,8 +4,8 @@ const initialState = {
     isLoading:false,
     isError:false,
     pendingChallenges:[],
-    updateisLoading: true,
-    upDateIsError:false,
+    updateisLoading: false,
+    updateIsError:false,
 }
 
 export default initialState;
