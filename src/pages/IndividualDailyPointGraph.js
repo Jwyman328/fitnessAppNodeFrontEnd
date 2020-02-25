@@ -38,7 +38,7 @@ function IndividualDailyPointGraph(props) {
 
   return (
     <div>
-      daily point graph
+      <h1 data-testid='graphPageHeader' graph page header>daily point graph</h1>
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );
