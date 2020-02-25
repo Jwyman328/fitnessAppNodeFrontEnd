@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
 import moxios from 'moxios';
-import InputPointsPage from '../pages/inputPointsPage'
+import InputPointsPage from '../pages/activity/inputPointsPage'
 import { StateProvider } from '../store/globalStore';
 
 

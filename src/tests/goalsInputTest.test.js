@@ -1,6 +1,6 @@
 import React from 'react'
 import moxios from 'moxios'
-import GoalsPage from '../pages/GoalsPage'
+import GoalsPage from '../pages/goals/GoalsPage'
 //set up global context for tests 
 import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'

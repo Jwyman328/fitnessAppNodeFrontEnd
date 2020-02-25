@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
 import moxios from 'moxios';
-import LoginPage from '../pages/login';
+import LoginPage from '../pages/auth/login';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import renderWithRouter from './testUtils/setUpTests'
 import renderWithRouter2 from './testUtils/renderWithRouter'

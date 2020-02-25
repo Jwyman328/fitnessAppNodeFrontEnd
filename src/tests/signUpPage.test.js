@@ -2,7 +2,7 @@
 // import moxios 
 import React from 'react'
 import moxios from 'moxios'
-import SignUpPage from '../pages/signUp'
+import SignUpPage from '../pages/auth/signUp'
 import App from '../App'
 import { render, fireEvent, waitForElement } from '@testing-library/react'
 import { Router } from 'react-router-dom'

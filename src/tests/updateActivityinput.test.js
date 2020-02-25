@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
 import moxios from 'moxios';
-import UpdateActivityInput from '../pages/UpdateActivityInput'
+import UpdateActivityInput from '../pages/activity/UpdateActivityInput'
 import { StateProvider } from '../store/globalStore';
 import activityInputData from './testUtils/testMockData/activityInputData'
 import App from '../App'

@@ -2,7 +2,7 @@ import React from 'react'
 import moxios from 'moxios'
 import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
-import CurrentFutureChallenges from '../pages/CurrentFutureChallenges'
+import CurrentFutureChallenges from '../pages/challenges/CurrentFutureChallenges'
 import futureChallengeData from './testUtils/testMockData/futureChallengeData'
 import currentChallengeData from './testUtils/testMockData/currentChallengeData'
 

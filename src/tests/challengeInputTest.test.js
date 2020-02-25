@@ -2,7 +2,7 @@ import React from 'react'
 import moxios from 'moxios'
 import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
-import ChallengePage from '../pages/ChallengePage';
+import ChallengePage from '../pages/challenges/ChallengePage';
 
 let element;
 const today = new Date().toISOString().split('T')[0]

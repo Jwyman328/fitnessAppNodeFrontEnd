@@ -2,7 +2,7 @@ import React from 'react'
 import moxios from 'moxios'
 import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
-import PastChallenges from '../pages/PastChallenges';
+import PastChallenges from '../pages/challenges/PastChallenges';
 import {pendingChallengeInitialInvitationData} from './testUtils/testMockData/pendingChallengeInvitationData'
 
 let element;
