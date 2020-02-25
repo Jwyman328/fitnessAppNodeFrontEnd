@@ -2,6 +2,7 @@ import React from 'react';
 
 const activityPointData = [{
 date: "2020-02-24T00:00:00.000Z",
+activityInput_id: "1234567",
 sleepPoints: 16.5,
 workoutPoints: 18,
 waterPoints: 10,

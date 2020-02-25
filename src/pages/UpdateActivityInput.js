@@ -70,7 +70,8 @@ function UpdateActivityInput(props) {
     }
 
   return (
-  <div>Update activity input
+  <div>
+      <h1 data-testid='updatePageHeader'>Update activity input</h1>
 
            {activityInput? <form>
                 <label>
@@ -107,10 +108,10 @@ function UpdateActivityInput(props) {
                 <button data-testid='submitButton' onClick={handleClick}>Submit points</button>
             </form> : null}
             {isLoadingActivityInput? <div>fetching activity...</div> :null}
-            {isErrorActivityInput?<div>Error fetching activity</div> :null}
+            {isErrorActivityInput?<div data-testid='activityInputfetchError'>Error fetching activity</div> :null}
             {isLoadingUpdateActivityInput?<div>updating activity...</div> :null}
-            {isErrorUpdateActivityInput?<div>Error updating activity</div> :null}
-            {upDateActivityInputSuccess?<div>Update successful! </div> :null}
+            {isErrorUpdateActivityInput?<div data-testid='updateErrorMsg'>Error updating activity</div> :null}
+            {upDateActivityInputSuccess?<div data-testid='updateSuccessMsg'>Update successful! </div> :null}
 
   </div>
   

@@ -52,5 +52,15 @@ describe('mock point results fetch request success, start at home page to use wi
         expect(graphPageHeader.innerHTML).toBe('daily point graph')
 
     } )
+    test('see update button navigates to individual update page' , async() => {
+        const {getByTestId} = element;
+        const navigateViewResults = getByTestId('navigateViewResults')
+        fireEvent.click(navigateViewResults)
+        const graphButton = await waitForElement(() =>  getByTestId('updateButton'));
+        fireEvent.click(graphButton)
+        const graphPageHeader = await waitForElement(() => getByTestId('updatePageHeader'))
+        expect(graphPageHeader.innerHTML).toBe('Update activity input')
+
+    } )
 
 })
