@@ -14,12 +14,12 @@ function DailyPointsTable(props){
      * @param {Object} pointData -- individual activity point data for a specific date.
      */
     const navigateToGraph = (pointData) => {
-        console.log('go to graph',pointData)
         props.history.push('/IndividualDailyPointGraph',{pointData: pointData})
     }
     
     const navigateToUpdatePointInput = (pointData) => {
-        console.log('go to update',pointData)
+        props.history.push('/IndividualActivityPointUpdate',{activityID: pointData.activityInput_id})
+
     }
 
     /**

@@ -27,6 +27,7 @@ function getGlobalDispatcher(store){
  * @param {*} event -- browser event.
  */
 function dispatchInputChange(dispatch, event){
+    console.log(event.target.type, 'evvy')
     if (event.target.type === 'checkbox'){
         dispatch({type:'handleCheckbox', name: event.target.name, checked: event.target.checked})
     }else{
