@@ -19,6 +19,7 @@ function MainNavBar(props){
     < button data-testid='navigateToChallenges' onClick={() => handleClick('/Challenges')}>Challenges</ button>
     < button data-testid='navigateViewResults' onClick={() => handleClick('/ViewResults')}>ViewResults</ button>
       < button data-testid='navigateToHowTo' onClick={() => handleClick('/HowTo')}>How to</ button>
+      < button data-testid='navigateToRules' onClick={() => handleClick('/Rules')}>Rules</ button>
       < button data-testid='navigateToLogOut' onClick={() => handleClick('/logOut')}>Log out</ button>
       < button data-testid='navigateToPendingChallenges' onClick={() => handleClick('/PendingChallenges')}>Pending Challenges</ button>
       < button data-testid='navigateToPastChallenges' onClick={() => handleClick('/PastChallenges')}>Past Challenges</ button>

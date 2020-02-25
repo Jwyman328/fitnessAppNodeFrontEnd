@@ -9,12 +9,10 @@ function HowTo(props) {
         <br></br>
 
         <h3> Step 1: Create a User: <Link to='/signup' >Signup  </Link>{/*signup */}  </h3>
-      
        
         <h3> Step 2: Compete against expectations: <Link to='/GoalPage' >Create Goal  </Link>  </h3>
         <ul>
             <li> Create daily point goals to see if you can beat your expectations </li>
-
         </ul>
         
         <h3> Step 3: Start Tracking: <Link to='/inputPoints' >Signup  </Link></h3>
@@ -22,8 +20,6 @@ function HowTo(props) {
         <li> Input your health data to generate points, including sleeping hours, workout time, steps, water and more </li>
         <br></br>
         </ul>
-
-        
         <h3> Step 4: View Results:{/*view results */}</h3>
         <ul>
         <li> View your health data graphs, tables and statistics  </li>

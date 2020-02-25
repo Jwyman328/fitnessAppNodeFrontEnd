@@ -19,8 +19,6 @@ describe('Test input onChange values', () =>{
     beforeEach(()=> {
         element = renderWithRouter(<StateProvider><SignUpPage /></StateProvider>, '/signUp')
         const {getByTestId} = element;
-
-        
     })
     
 
