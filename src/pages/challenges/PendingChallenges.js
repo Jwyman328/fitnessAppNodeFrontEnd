@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer, useContext } from "react";
-import { getGlobalState, dispatchInputChange } from "../utils/helperFunctions";
-import pendingChallengePageReducer from "../reducers/pendingChallengesPageReducer";
-import initialState from "../initialState/pendingChallengesInitialState";
-import getAllPendingChallengeInvitations from "../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
-import { store } from "../store/globalStore";
-import createPendingChallengeInvitationCard from "../components/pendingChallengeCard";
+import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions";
+import pendingChallengePageReducer from "../../reducers/pendingChallengesPageReducer";
+import initialState from "../../initialState/pendingChallengesInitialState";
+import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
+import { store } from "../../store/globalStore";
+import createPendingChallengeInvitationCard from "../../components/pendingChallengeCard";
 
 /**
  * Display user's pending challenges allowing user to accept or reject them.

@@ -2,20 +2,20 @@ import React, {useReducer} from 'react';
 import './App.css';
 
 //pages
-import SignUpPage from './pages/signUp'
+import SignUpPage from './pages/auth/signUp'
 import HomePage from './pages/home'
-import LoginPage from './pages/login'
-import InputPointsPage from './pages/inputPointsPage'
-import GoalPage from './pages/GoalsPage';
-import ChallengePage from './pages/ChallengePage'
+import LoginPage from './pages/auth/login'
+import InputPointsPage from './pages/activity/inputPointsPage'
+import GoalPage from './pages/goals/GoalsPage';
+import ChallengePage from './pages/challenges/ChallengePage'
 import ViewResults from './pages/ViewResults'
 import Rules from './pages/Rules'
 import HowTo from './pages/HowTo'
-import PendingChallenges from './pages/PendingChallenges'
-import PastChallenges from './pages/PastChallenges'
-import CurrentFutureChallenges from './pages/CurrentFutureChallenges'
-import IndividualDailyPointGraph from './pages/IndividualDailyPointGraph'
-import UpdateActivityInput from './pages/UpdateActivityInput'
+import PendingChallenges from './pages/challenges/PendingChallenges'
+import PastChallenges from './pages/challenges/PastChallenges'
+import CurrentFutureChallenges from './pages/challenges/CurrentFutureChallenges'
+import IndividualDailyPointGraph from './pages/graphs/IndividualDailyPointGraph'
+import UpdateActivityInput from './pages/activity/UpdateActivityInput'
 //Routing
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 

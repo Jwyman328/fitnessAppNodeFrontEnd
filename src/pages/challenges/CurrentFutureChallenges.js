@@ -1,12 +1,12 @@
 import React, { useEffect, useReducer, useContext } from "react";
-import { store } from "../store/globalStore";
-import { getGlobalState, dispatchInputChange } from "../utils/helperFunctions";
-import currentFutureChallengeReducer from "../reducers/currentFutureChallengePageReducer";
+import { store } from "../../store/globalStore";
+import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions";
+import currentFutureChallengeReducer from "../../reducers/currentFutureChallengePageReducer";
 
-import initialState from "../initialState/currentFutureChallengesInitialState";
-import getFutureChallenges from '../actions/currentFutureChallengesActions/getFutureChallengesAction'
-import getCurrentChallenges from '../actions/currentFutureChallengesActions/getCurrentChallengesAction'
-import ChallengeCard from "../components/pastChallengesCard";
+import initialState from "../../initialState/currentFutureChallengesInitialState";
+import getFutureChallenges from '../../actions/currentFutureChallengesActions/getFutureChallengesAction'
+import getCurrentChallenges from '../../actions/currentFutureChallengesActions/getCurrentChallengesAction'
+import ChallengeCard from "../../components/pastChallengesCard";
 
 /**
  * Display all current and future challenges.

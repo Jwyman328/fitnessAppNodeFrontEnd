@@ -1,9 +1,9 @@
 import React, {useReducer, useContext} from 'react';
-import initialState from '../initialState/pointGoalInitialState';
-import goalReducer from '../reducers/goalReducer';
-import CreateGoal from '../actions/goalPageActions/createGoal'
-import {store} from '../store/globalStore'
-import {getGlobalState,dispatchInputChange} from '../utils/helperFunctions'
+import initialState from '../../initialState/pointGoalInitialState';
+import goalReducer from '../../reducers/goalReducer';
+import CreateGoal from '../../actions/goalPageActions/createGoal'
+import {store} from '../../store/globalStore'
+import {getGlobalState,dispatchInputChange} from '../../utils/helperFunctions'
 /**
  * Allow user to create a total point goal.
  * @param {*} props 

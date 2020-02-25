@@ -1,12 +1,12 @@
 import React, {useReducer, useEffect, useContext} from 'react';
-import loginReducer from '../reducers/loginReducer'
-import loginAction from '../actions/loginUser'
-import handleInputAction from "../actions/handleInput";
+import loginReducer from '../../reducers/loginReducer'
+import loginAction from '../../actions/loginUser'
+import handleInputAction from "../../actions/handleInput";
 import {  Redirect, Link, withRouter } from "react-router-dom";
-import initialState from '../initialState/loginInitialState'
+import initialState from '../../initialState/loginInitialState'
 
-import {store} from '../store/globalStore'
-import {getGlobalState, getGlobalDispatcher} from '../utils/helperFunctions'
+import {store} from '../../store/globalStore'
+import {getGlobalState, getGlobalDispatcher} from '../../utils/helperFunctions'
 
 
 /**

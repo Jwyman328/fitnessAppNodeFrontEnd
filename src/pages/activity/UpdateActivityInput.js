@@ -1,13 +1,13 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import { withRouter } from "react-router-dom";
-import { getGlobalState, dispatchInputChange } from "../utils/helperFunctions";
-import { store } from "../store/globalStore";
-import UpdateActivityInputReducer from "../reducers/updateActivityInputReducer";
-import initialState from "../initialState/updateActivityInputInitialState";
-import getActivityInput from "../actions/updateActivityInputActions/getActivityInput";
-import inputPointReducer from "../reducers/inputPointReducer";
-import inputPointInitialState from "../initialState/pointInputInitialState";
-import updateActivityInput from '../actions/updateActivityInputActions/updateActivityInputAction';
+import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions";
+import { store } from "../../store/globalStore";
+import UpdateActivityInputReducer from "../../reducers/updateActivityInputReducer";
+import initialState from "../../initialState/updateActivityInputInitialState";
+import getActivityInput from "../../actions/updateActivityInputActions/getActivityInput";
+import inputPointReducer from "../../reducers/inputPointReducer";
+import inputPointInitialState from "../../initialState/pointInputInitialState";
+import updateActivityInput from '../../actions/updateActivityInputActions/updateActivityInputAction';
 
 function UpdateActivityInput(props) {
 

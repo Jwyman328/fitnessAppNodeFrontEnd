@@ -1,10 +1,10 @@
 import React, {useReducer, useContext, useEffect} from 'react';
-import inputPointReducer from '../reducers/inputPointReducer'
-import inputPointInitialState from '../initialState/pointInputInitialState'
+import inputPointReducer from '../../reducers/inputPointReducer'
+import inputPointInitialState from '../../initialState/pointInputInitialState'
 
-import CreateInputPoint from '../actions/inputPointActions/createInputPoint'
-import {store} from '../store/globalStore'
-import {getGlobalState,dispatchInputChange} from '../utils/helperFunctions'
+import CreateInputPoint from '../../actions/inputPointActions/createInputPoint'
+import {store} from '../../store/globalStore'
+import {getGlobalState,dispatchInputChange} from '../../utils/helperFunctions'
 
 /**
  * Input point data for a selected date.

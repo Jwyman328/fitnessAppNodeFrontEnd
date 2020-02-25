@@ -1,10 +1,10 @@
 import React, {useReducer, useContext, useEffect} from 'react';
-import initialState from '../initialState/challengeInitialState';
-import CreateChallenge from '../actions/challengePageActions/createChallenge'
-import challengeReducer from '../reducers/challengeReducer'
-import {store} from '../store/globalStore'
-import {getGlobalState, dispatchInputChange} from '../utils/helperFunctions'
-import getAllUsers from '../actions/challengePageActions/getAllUsers'
+import initialState from '../../initialState/challengeInitialState';
+import CreateChallenge from '../../actions/challengePageActions/createChallenge'
+import challengeReducer from '../../reducers/challengeReducer'
+import {store} from '../../store/globalStore'
+import {getGlobalState, dispatchInputChange} from '../../utils/helperFunctions'
+import getAllUsers from '../../actions/challengePageActions/getAllUsers'
 
 
 function ChallengePage(props) {

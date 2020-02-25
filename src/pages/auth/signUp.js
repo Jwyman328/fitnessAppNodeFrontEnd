@@ -1,11 +1,11 @@
 import React, { useReducer, useEffect, useContext } from "react";
-import signUpReducer from "../reducers/signUpReducer";
-import handleInputAction from "../actions/handleInput";
-import signUpAction from "../actions/signUp";
+import signUpReducer from "../../reducers/signUpReducer";
+import handleInputAction from "../../actions/handleInput";
+import signUpAction from "../../actions/signUp";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import signUpInitialState from '../initialState/signUpInitialState'
-import {store} from '../store/globalStore'
-import {getGlobalState, getGlobalDispatcher} from '../utils/helperFunctions'
+import signUpInitialState from '../../initialState/signUpInitialState'
+import {store} from '../../store/globalStore'
+import {getGlobalState, getGlobalDispatcher} from '../../utils/helperFunctions'
 
 
 function SignUpPage(props) {

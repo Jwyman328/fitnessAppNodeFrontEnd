@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import {createGraphData} from '../utils/graphHelperFunctions'
+import {createGraphData} from '../../utils/graphHelperFunctions'
 
 /**
  * Display bar graph for a specific  activity point input.
