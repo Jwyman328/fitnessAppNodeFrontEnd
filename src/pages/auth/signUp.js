@@ -46,17 +46,24 @@ function SignUpPage(props) {
     signUpAction(state,dispatch);
   };
   return (
-    <div>
+    <div className="rulePageContainer">
+      <div className="containerRules">
+      <h1>
       sign up page
+        </h1>
       {isLoggedIn? <Redirect to='/home'/> :null }
       {isError ? <div data-testid='errorMsg'>Error creating user, please try again</div> : null}
       {isLoading ? (
         <div> loading </div>
       ) : (
-        <form>
-          <label>
+        <form className="formContainer">
+          
+          <div className="formItem">
+          <label className='formTitle'>
             email:
             <input
+            size="25"
+            className="formInput"
               data-testid='emailInput'
               type="text"
               name="email"
@@ -64,9 +71,14 @@ function SignUpPage(props) {
               onChange={e => handleChange(e)}
             />
           </label>
-          <label>
+            </div> 
+          
+          <div className="formItem">
+          <label className='formTitle'>
             First Name:
             <input
+             size="15"
+             className="formInput"
               data-testid='firstNameInput'
               type="text"
               name="firstName"
@@ -74,9 +86,16 @@ function SignUpPage(props) {
               onChange={e => handleChange(e)}
             />
           </label>
-          <label>
+
+          </div> 
+
+
+          <div className="formItem">
+          <label className='formTitle'>
             Last Name:
             <input
+             size="15"
+             className="formInput"
               data-testid='firstNameInput'
               type="text"
               name="lastName"
@@ -84,9 +103,15 @@ function SignUpPage(props) {
               onChange={e => handleChange(e)}
             />
           </label>
-          <label>
+
+          </div>
+
+          <div className="formItem">
+          <label className='formTitle'>
             password:
             <input
+             size="15"
+             className="formInput"
               data-testid='passwordInput'
               type="password"
               name="password"
@@ -94,9 +119,13 @@ function SignUpPage(props) {
               onChange={e => handleChange(e)}
             />
           </label>
-          <label>
+          </div>
+          <div className="formItem">
+          <label className='formTitle'>
             password 2:
             <input
+             size="15"
+             className="formInput"
               data-testid='passwordInput2'
               type="password"
               name="password2"
@@ -104,10 +133,11 @@ function SignUpPage(props) {
               onChange={e => handleChange(e)}
             />
           </label>
-          <button data-testid='signUpButton' onClick={handleClick}>Submit</button>
+          </div>
         </form>
       )}
-
+        <button className='formItem' data-testid='signUpButton' onClick={handleClick}>Submit</button>
+    </div>
     </div>
   );
 }

@@ -13,13 +13,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    width: 70%;
+    width: 90%;
     border-width: 2px;
     border-color: chocolate;
     border-style: double;
     margin-top: 10%;
     border: 4mm ridge rgba(10, 50, 220, .6);
-    background-color: #EFECE4;
+    background-color: #DDE4FF;
+    box-shadow: 10px 5px 5px grey;
 }
 
 .rulesRow {
