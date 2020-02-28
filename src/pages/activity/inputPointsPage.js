@@ -155,6 +155,7 @@ function InputPointsPage(props) {
         <label className='formTitle'>
             Clean Eating:
             <input
+            
             size="15"
             className="formInput"
               data-testid="cleanEatingInput"

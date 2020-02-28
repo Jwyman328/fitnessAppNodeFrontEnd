@@ -106,6 +106,7 @@ function ChallengePage(props) {
             <label className="formTitle">
               Title:
               <input
+               placeholder='title here..'
                 input
                 size="15"
                 className="formInput"

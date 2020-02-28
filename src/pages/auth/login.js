@@ -68,8 +68,9 @@ function LoginPage(props) {
           <form className="formContainer">
             <div className="formItem">
               <label className="formTitle">
-                email:
+                
                 <input
+                placeholder='email'
                   size="25"
                   className="formInput"
                   type="text"
@@ -83,8 +84,9 @@ function LoginPage(props) {
 
             <div className="formItem">
               <label className="formTitle">
-                password:
+                
                 <input
+                placeholder='password'
                   size="25"
                   className="formInput"
                   type="password"

@@ -60,8 +60,9 @@ function SignUpPage(props) {
           
           <div className="formItem">
           <label className='formTitle'>
-            email:
+            
             <input
+            placeholder='email'
             size="25"
             className="formInput"
               data-testid='emailInput'
@@ -75,9 +76,10 @@ function SignUpPage(props) {
           
           <div className="formItem">
           <label className='formTitle'>
-            First Name:
+            
             <input
-             size="15"
+            placeholder='First Name'
+             size="25"
              className="formInput"
               data-testid='firstNameInput'
               type="text"
@@ -92,9 +94,10 @@ function SignUpPage(props) {
 
           <div className="formItem">
           <label className='formTitle'>
-            Last Name:
+           
             <input
-             size="15"
+            placeholder='Last Name'
+             size="25"
              className="formInput"
               data-testid='firstNameInput'
               type="text"
@@ -108,9 +111,10 @@ function SignUpPage(props) {
 
           <div className="formItem">
           <label className='formTitle'>
-            password:
+            
             <input
-             size="15"
+            placeholder='password'
+             size="25"
              className="formInput"
               data-testid='passwordInput'
               type="password"
@@ -122,9 +126,10 @@ function SignUpPage(props) {
           </div>
           <div className="formItem">
           <label className='formTitle'>
-            password 2:
+           
             <input
-             size="15"
+            placeholder='password2'
+             size="25"
              className="formInput"
               data-testid='passwordInput2'
               type="password"

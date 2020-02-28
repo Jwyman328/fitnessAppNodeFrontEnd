@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HowTo.css";
 import "./Rules.css";
+import LinkButton from '../components/linkButton'
 
 function HowTo(props) {
   return (
@@ -11,14 +12,13 @@ function HowTo(props) {
 
         <div className="subContainer">
           <h2 className="subTitle">
-            Step 1: Create a User: <Link to="/signup">Signup </Link>
+            Step 1: Create a User: <LinkButton destination='/signup' name='Signup' />
           </h2>
         </div>
 
         <div className="subContainer">
           <h2 className="subTitle">
-            Step 2: Compete against expectations:
-            <Link to="/GoalPage">Create Goal</Link>
+            Step 2: Set health goals: <LinkButton destination="/GoalPage" name='Create Goal' />
           </h2>
           <ul>
             <li className="subDiscrip">
@@ -29,7 +29,7 @@ function HowTo(props) {
 
         <div className="subContainer">
           <h2 className="subTitle">
-            Step 3: Start Tracking: <Link to="/inputPoints">Input points</Link>
+            Step 3: Start Tracking: <LinkButton destination="/inputPoints" name='Input points' />
           </h2>
           <ul>
             <li className="subDiscrip">
@@ -48,25 +48,40 @@ function HowTo(props) {
         </div>
         <div className="subContainer">
           <h2 className="subTitle">
-            Step 5: Create/Compete in Challenges:
-            <Link to="/Challenges">Create Challenge</Link>
+            Step 5: Create Challenges:
+            <LinkButton destination="/Challenges" name='Create Challenge' />
           </h2>
           <ul>
             <li className="subDiscrip">
               Create a challenge and Invite your
               friends to compete
             </li>
-            <li className="subDiscrip">
-              Accept challenge invitations from others:
-              <Link to="/PendingChallenges">Pending challenges</Link>
-            </li>
-            <li className="subDiscrip">
-              View current challenge data and leader board standings for each
-              challenge:
-              <Link to="/CurrentFutureChallenges">Current challenges</Link>
-            </li>
           </ul>
         </div>
+        <div className="subContainer">
+          <h2 className="subTitle">
+            Step 6: Join Challenges:
+            <LinkButton destination="/PendingChallenges" name='Pending Challenges' />
+          </h2>
+          <ul>
+          <li className="subDiscrip">
+              Accept challenge invitations from others:
+            </li>
+          </ul>
+      </div>
+      <div className="subContainer">
+          <h2 className="subTitle">
+            Step 7: Challenge results:
+            <LinkButton destination="/CurrentFutureChallenges" name='Results' />
+          </h2>
+          <ul>
+          <li className="subDiscrip">
+              View current challenge data and leader board standings for each
+              challenge:
+            </li>
+          </ul>
+      </div>
+
       </div>
     </div>
   );
