@@ -7,6 +7,7 @@ import initialState from "../../initialState/currentFutureChallengesInitialState
 import getFutureChallenges from '../../actions/currentFutureChallengesActions/getFutureChallengesAction'
 import getCurrentChallenges from '../../actions/currentFutureChallengesActions/getCurrentChallengesAction'
 import ChallengeCard from "../../components/pastChallengesCard";
+import ChallengeNavBar from '../../components/challengeNavBar'
 
 /**
  * Display all current and future challenges.
@@ -49,6 +50,7 @@ function CurrentFutureChallenges(props) {
 
   return (
     <div>
+      <ChallengeNavBar />
       <h2>current challenges</h2>
       {currentChallenges ? createChallengeCards(currentChallenges) : null}
       

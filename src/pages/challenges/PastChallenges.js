@@ -5,6 +5,7 @@ import pastChallengePageReducer from "../../reducers/pastChallengePageReducer";
 import initialState from '../../initialState/pastChallengeInitialState'
 import getPastChallenges from '../../actions/pastChallengesActions/getPastChallenges'
 import PastChallengesCard from '../../components/pastChallengesCard'
+import ChallengeNavBar from '../../components/challengeNavBar'
 
 /**
  * Display all past challenges.
@@ -27,6 +28,7 @@ function PastChallenges(props) {
 
     return (
         <div>
+            <ChallengeNavBar />
             past challenges
             {pastChallenges? createPastChallengesCards() : null }
             {isLoading? <div>loading past challenges </div> :null}

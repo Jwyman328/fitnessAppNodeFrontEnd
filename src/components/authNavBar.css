@@ -16,10 +16,13 @@
     height: 5vh;
     justify-content: space-around;
     align-items: center;
+    margin-top: 2vh;
 }
 
 .navLink{
     font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:grey;
 }
 
 

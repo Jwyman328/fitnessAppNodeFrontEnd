@@ -8,6 +8,7 @@ import {
   dispatchInputChange
 } from "../../utils/helperFunctions";
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
+import ChallengeNavBar from '../../components/challengeNavBar'
 
 function ChallengePage(props) {
   // global store containing the use token for making requests
@@ -68,6 +69,7 @@ function ChallengePage(props) {
 
   return (
     <div className="rulePageContainer">
+     <ChallengeNavBar />
       <div className="containerRules">
         <h1>challenge Page</h1>
 

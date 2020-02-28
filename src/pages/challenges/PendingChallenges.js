@@ -5,6 +5,7 @@ import initialState from "../../initialState/pendingChallengesInitialState";
 import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
 import { store } from "../../store/globalStore";
 import createPendingChallengeInvitationCard from "../../components/pendingChallengeCard";
+import ChallengeNavBar from '../../components/challengeNavBar'
 
 /**
  * Display user's pending challenges allowing user to accept or reject them.
@@ -30,7 +31,9 @@ function PendingChallengesPage(props) {
 
   return (
     <div>
+      <ChallengeNavBar />
       Pending Challenges
+
       <div>
         {pendingChallenges.length > 0 ? (
           <div>

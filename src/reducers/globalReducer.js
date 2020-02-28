@@ -6,7 +6,7 @@ import React from 'react';
  * @param {*} action 
  */
 function globalReducer(state,action){
-    console.log('in action')
+    console.log('in action', state,action)
 
     switch(action.type){
         case('userLoggedIn'):

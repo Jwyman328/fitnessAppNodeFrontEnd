@@ -1,6 +1,7 @@
 import React from 'react'
 import './authNavBar.css'
 import NavLink from './navLink'
+import LogOutButton from './logOutButton'
 
 function LoggedInNavBar(){
     return (
@@ -10,11 +11,9 @@ function LoggedInNavBar(){
             <NavLink destination='/GoalPage' linkName='Goals'/>
             <NavLink destination='/Challenges' linkName='Challenges'/>
             <NavLink destination='/viewResults' linkName='Results'/>
-
             <NavLink destination='/howTo' linkName='How To'/>
             <NavLink destination='/Rules' linkName='Rules'/>
-            <NavLink destination='/logOut' linkName='Logout'/>
-
+            <LogOutButton  linkName='Logout'/>
         </div>
     )
 }

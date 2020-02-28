@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import "./App.css";
 
 //pages
@@ -22,9 +22,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // nav bars
 import NavBar from "./components/navbar";
 import AuthNavBar from "./components/authNavBar";
-import LoginNav from "./components/loginNavBar";
 import LoggedInNavBar from './components/loggedInNavBar'
 import ChallengeNavBar from './components/challengeNavBar'
+
+// global state 
+import { store } from "./store/globalStore";
+import {
+  getGlobalState,
+  dispatchInputChange
+} from "./utils/helperFunctions";
 
 /**
  * Router component to handle all application routing.
@@ -32,29 +38,23 @@ import ChallengeNavBar from './components/challengeNavBar'
  * Navbar is top level component that will be caught with every route.
  */
 function App() {
+  const globalState = getGlobalState(useContext(store));
+  const {isLoggedIn} = globalState;
+
   return (
     <div className="App">
       <Router>
-        <Switch>
+       {isLoggedIn? null: <Switch>
           <Route path="/">
             <AuthNavBar />
           </Route>
-        </Switch>
-        <Switch>
-          <Route path="/">
-            <ChallengeNavBar />
-          </Route>
-        </Switch>
-        <Switch>
+       </Switch> }
+       { isLoggedIn? <Switch>
           <Route path="/">
             <LoggedInNavBar />
           </Route>
-        </Switch>
-        <Switch>
-          <Route path="/">
-            <NavBar />
-          </Route>
-        </Switch>
+        </Switch>:null}
+
 
         <Switch>
           <Route exact path="/signup">
