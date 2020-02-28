@@ -1,0 +1,33 @@
+
+.navContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    background-color: lightblue ;
+    height: 5vh;
+    justify-content: space-around;
+    align-items: center;
+}
+.subNavContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    background-color: white ;
+    height: 5vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navLink{
+    font-size: large;
+}
+
+
+.navLink:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.navLink:active {
+	position:relative;
+	top:1px;
+}
