@@ -5,10 +5,10 @@ import {
   dispatchInputChange
 } from "../../utils/helperFunctions";
 import { store } from "../../store/globalStore";
-import UpdateActivityInputReducer from "../../reducers/updateActivityInputReducer";
+import UpdateActivityInputReducer from "../../reducers/activityReducers/updateActivityInputReducer";
 import initialState from "../../initialState/updateActivityInputInitialState";
 import getActivityInput from "../../actions/updateActivityInputActions/getActivityInput";
-import inputPointReducer from "../../reducers/inputPointReducer";
+import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
 import inputPointInitialState from "../../initialState/pointInputInitialState";
 import updateActivityInput from "../../actions/updateActivityInputActions/updateActivityInputAction";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";

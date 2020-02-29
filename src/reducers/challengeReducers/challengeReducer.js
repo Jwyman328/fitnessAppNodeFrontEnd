@@ -1,5 +1,5 @@
 import React from 'react'
-import {handleSelectedUsers} from '../utils/helperFunctions'
+import {handleSelectedUsers} from '../../utils/helperFunctions'
 
 function challengeReducer(state, action){
     switch(action.type){

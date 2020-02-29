@@ -3,7 +3,7 @@ import updateChallengeInvitationStatus from '../../../actions/pendingChallengeIn
 import initialState from '../../../initialState/pendingChallengesInitialState'
 import getAllPendingChallengeInvitations from '../../../actions/pendingChallengeInvitationActions/getAllPendingChallenges'
 import {store} from '../../../store/globalStore'
-import pendingChallengePageReducer from '../../../reducers/pendingChallengesPageReducer'
+import pendingChallengePageReducer from '../../../reducers/challengeReducers/pendingChallengesPageReducer'
 
 import {getGlobalState, dispatchInputChange} from '../../../utils/helperFunctions'
 

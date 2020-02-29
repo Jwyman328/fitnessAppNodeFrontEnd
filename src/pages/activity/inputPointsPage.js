@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useEffect } from "react";
-import inputPointReducer from "../../reducers/inputPointReducer";
+import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
 import inputPointInitialState from "../../initialState/pointInputInitialState";
 
 import CreateInputPoint from "../../actions/inputPointActions/createInputPoint";

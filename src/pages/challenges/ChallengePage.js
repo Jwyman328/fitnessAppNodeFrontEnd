@@ -1,7 +1,7 @@
 import React, { useReducer, useContext, useEffect } from "react";
 import initialState from "../../initialState/challengeInitialState";
 import CreateChallenge from "../../actions/challengePageActions/createChallenge";
-import challengeReducer from "../../reducers/challengeReducer";
+import challengeReducer from "../../reducers/challengeReducers/challengeReducer";
 import { store } from "../../store/globalStore";
 import {
   getGlobalState,

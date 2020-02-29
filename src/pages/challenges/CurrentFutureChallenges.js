@@ -1,12 +1,12 @@
 import React, { useEffect, useReducer, useContext } from "react";
 import { store } from "../../store/globalStore";
 import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions";
-import currentFutureChallengeReducer from "../../reducers/currentFutureChallengePageReducer";
+import currentFutureChallengeReducer from "../../reducers/challengeReducers/currentFutureChallengePageReducer";
 
 import initialState from "../../initialState/currentFutureChallengesInitialState";
 import getFutureChallenges from '../../actions/currentFutureChallengesActions/getFutureChallengesAction'
 import getCurrentChallenges from '../../actions/currentFutureChallengesActions/getCurrentChallengesAction'
-//import ChallengeCard from "../../components/pastChallengesCard";
+
 import ChallengeNavBar from '../../components/challengeNavBar'
 import { Table } from "react-bootstrap";
 import '../../components/tables/DailyPointsTable.css'

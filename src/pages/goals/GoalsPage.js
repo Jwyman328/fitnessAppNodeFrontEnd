@@ -1,6 +1,6 @@
 import React, { useReducer, useContext } from "react";
 import initialState from "../../initialState/pointGoalInitialState";
-import goalReducer from "../../reducers/goalReducer";
+import goalReducer from "../../reducers/goalsReducer/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
 import GoalNavBar from '../../components/navBars/goalNavBar'
 import { store } from "../../store/globalStore";

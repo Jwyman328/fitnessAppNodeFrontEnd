@@ -7,6 +7,8 @@ import HomePage from "./pages/home";
 import LoginPage from "./pages/auth/login";
 import InputPointsPage from "./pages/activity/inputPointsPage";
 import GoalPage from "./pages/goals/GoalsPage";
+import PastGoals from './pages/goals/PastGoals'
+import CurrentFutureGoals from './pages/goals/currentFutureGoals'
 import ChallengePage from "./pages/challenges/ChallengePage";
 import ViewResults from "./pages/ViewResults";
 import Rules from "./pages/Rules";
@@ -14,6 +16,7 @@ import HowTo from "./pages/HowTo";
 import PendingChallenges from "./pages/challenges/PendingChallenges";
 import PastChallenges from "./pages/challenges/PastChallenges";
 import CurrentFutureChallenges from "./pages/challenges/CurrentFutureChallenges";
+
 import IndividualDailyPointGraph from "./pages/graphs/IndividualDailyPointGraph";
 import UpdateActivityInput from "./pages/activity/UpdateActivityInput";
 //Routing
@@ -79,6 +82,16 @@ function App() {
         <Switch>
           <Route exact path="/GoalPage">
             <GoalPage />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/CurrentFutureGoals">
+            <CurrentFutureGoals />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/PastGoals">
+            <PastGoals />
           </Route>
         </Switch>
         <Switch>

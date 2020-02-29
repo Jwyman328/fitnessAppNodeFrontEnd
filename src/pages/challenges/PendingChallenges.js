@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useContext } from "react";
 import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions";
-import pendingChallengePageReducer from "../../reducers/pendingChallengesPageReducer";
+import pendingChallengePageReducer from "../../reducers/challengeReducers/pendingChallengesPageReducer";
 import initialState from "../../initialState/pendingChallengesInitialState";
 import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
 import { store } from "../../store/globalStore";

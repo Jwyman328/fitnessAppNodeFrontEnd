@@ -1,7 +1,7 @@
 import React, {useEffect, useReducer, useContext} from 'react';
 import { store } from "../../store/globalStore";
 import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions";
-import pastChallengePageReducer from "../../reducers/pastChallengePageReducer";
+import pastChallengePageReducer from "../../reducers/challengeReducers/pastChallengePageReducer";
 import initialState from '../../initialState/pastChallengeInitialState'
 import getPastChallenges from '../../actions/pastChallengesActions/getPastChallenges'
 import ChallengeNavBar from '../../components/challengeNavBar'
