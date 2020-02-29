@@ -6,13 +6,13 @@ import LogOutButton from './logOutButton'
 function LoggedInNavBar(){
     return (
         <div className='navContainer'>
-            <NavLink destination='/home' linkName='Home'/>
-            <NavLink destination='/inputPoints' linkName='Input Points'/>
-            <NavLink destination='/GoalPage' linkName='Goals'/>
-            <NavLink destination='/Challenges' linkName='Challenges'/>
-            <NavLink destination='/viewResults' linkName='Results'/>
-            <NavLink destination='/howTo' linkName='How To'/>
-            <NavLink destination='/Rules' linkName='Rules'/>
+            <NavLink testid='navigateToHome' destination='/home' linkName='Home'/>
+            <NavLink testid='navigateToInputPoints' destination='/inputPoints' linkName='Input Points'/>
+            <NavLink testid='navigateGoalPage' destination='/GoalPage' linkName='Goals'/>
+            <NavLink testid='navigateToChallenges' destination='/Challenges' linkName='Challenges'/>
+            <NavLink testid='navigateViewResults' destination='/viewResults' linkName='Results'/>
+            <NavLink testid='navigateToHowTo' destination='/howTo' linkName='How To'/>
+            <NavLink testid='navigateToRules' destination='/Rules' linkName='Rules'/>
             <LogOutButton  linkName='Logout'/>
         </div>
     )

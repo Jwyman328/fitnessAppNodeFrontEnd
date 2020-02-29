@@ -5,10 +5,10 @@ import NavLink from './navLink'
 function AuthNavBar(){
     return (
         <div className='navContainer'>
-            <NavLink destination='/signup' linkName='Signup'/>
-            <NavLink destination='/login' linkName='login'/>
-            <NavLink destination='/howTo' linkName='How To'/>
-            <NavLink destination='/Rules' linkName='Rules'/>
+            <NavLink testid='navigateToSignUp' destination='/signup' linkName='Signup'/>
+            <NavLink testid='navigateToLogin' destination='/login' linkName='login'/>
+            <NavLink testid='navigateToHowTo' destination='/howTo' linkName='How To'/>
+            <NavLink testid='navigateToRules' destination='/Rules' linkName='Rules'/>
         </div>
     )
 }

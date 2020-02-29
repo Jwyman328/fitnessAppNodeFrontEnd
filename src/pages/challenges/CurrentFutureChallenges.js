@@ -6,8 +6,12 @@ import currentFutureChallengeReducer from "../../reducers/currentFutureChallenge
 import initialState from "../../initialState/currentFutureChallengesInitialState";
 import getFutureChallenges from '../../actions/currentFutureChallengesActions/getFutureChallengesAction'
 import getCurrentChallenges from '../../actions/currentFutureChallengesActions/getCurrentChallengesAction'
-import ChallengeCard from "../../components/pastChallengesCard";
+//import ChallengeCard from "../../components/pastChallengesCard";
 import ChallengeNavBar from '../../components/challengeNavBar'
+import { Table } from "react-bootstrap";
+import '../../components/tables/DailyPointsTable.css'
+import PastChallengesRow from '../../components/tables/rows/pastChallengesRow'
+import PastChallengeTableHead from '../../components/tables/heads/pastChallengeTableHead'
 
 /**
  * Display all current and future challenges.
@@ -44,20 +48,37 @@ function CurrentFutureChallenges(props) {
    */
   const createChallengeCards = (challenges) => {
     const challengeCards = challenges.map(challenge =>
-        ChallengeCard(challenge) );
+      PastChallengesRow(challenge) );
     return challengeCards
   }
 
   return (
-    <div>
-      <ChallengeNavBar />
+   <div>
+    <ChallengeNavBar />
       <h2>current challenges</h2>
-      {currentChallenges ? createChallengeCards(currentChallenges) : null}
+      <div>
+      {currentChallenges ?
+        <Table className="tableContainer" >
+        <PastChallengeTableHead />
+        <tbody>
+            {createChallengeCards(currentChallenges)}
+        </tbody>
+        </Table>: null}
+      </div>
+        
       
       <br></br>
+      <h2>Future challenges</h2>
 
-      <h2>past challenges</h2>
-      {futureChallenges ? createChallengeCards(futureChallenges) : null}
+      <div>
+      {futureChallenges ?
+        <Table className="tableContainer" >
+        <PastChallengeTableHead />
+        <tbody>
+            {createChallengeCards(futureChallenges) }
+        </tbody>
+        </Table>: null}
+      </div>
 
       {isLoadingCurrentChallenges ? <div>loading current challenges </div> : null}
       {isErrorCurrentChallenges ? (
@@ -67,9 +88,9 @@ function CurrentFutureChallenges(props) {
 {isLoadingFutureChallenges ? <div>loading current challenges </div> : null}
       {isErrorFutureChallenges ? (
         <div data-testid="isFutureError">Error loading future challenges</div>
-      ) : null}
+      ) : null} 
 
-    </div>
+      </div>
   );
 }
 

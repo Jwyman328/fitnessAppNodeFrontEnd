@@ -7,7 +7,7 @@ function NavLink(props){
     }
 
     return (
-        <div className='navLink' onClick={handleClick}>
+        <div data-testid={props.testid} className='navLink' onClick={handleClick}>
             {props.linkName}
         </div>
     )

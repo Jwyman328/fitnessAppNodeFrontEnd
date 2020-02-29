@@ -6,7 +6,7 @@ function ResultsNavBar(){
     return (
         <div className='subNavContainer'>
             <NavLink destination='/' linkName='Graphs'/>
-            <NavLink destination='/ViewResults' linkName='Data log'/>
+            <NavLink testid='navigateViewResults' destination='/ViewResults' linkName='Data log'/>
         </div>
     )
 }

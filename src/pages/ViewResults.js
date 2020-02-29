@@ -4,7 +4,7 @@ import { getGlobalState, dispatchInputChange } from "../utils/helperFunctions";
 import initialState from '../initialState/ViewResultsInitialState'
 import viewResultsReducer from '../reducers/viewResultsReducer'
 import getDailyPoints from '../actions/viewResultsActions/getDailyPoints'
-import DailyPointsTable from '../components/DailyPointsTable'
+import DailyPointsTable from '../components/tables/DailyPointsTable'
 import ResultsNavBar from '../components/navBars/resultsNavBar'
 
 function ViewResults(props) {

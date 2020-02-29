@@ -4,9 +4,11 @@ import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions
 import pastChallengePageReducer from "../../reducers/pastChallengePageReducer";
 import initialState from '../../initialState/pastChallengeInitialState'
 import getPastChallenges from '../../actions/pastChallengesActions/getPastChallenges'
-import PastChallengesCard from '../../components/pastChallengesCard'
 import ChallengeNavBar from '../../components/challengeNavBar'
-
+import { Table } from "react-bootstrap";
+import '../../components/tables/DailyPointsTable.css'
+import PastChallengesRow from '../../components/tables/rows/pastChallengesRow'
+import PastChallengeTableHead from '../../components/tables/heads/pastChallengeTableHead'
 /**
  * Display all past challenges.
  * @param {*} props 
@@ -21,8 +23,8 @@ function PastChallenges(props) {
        getPastChallenges(dispatch, globalState.token)  
     },[])
 
-    const createPastChallengesCards = () => {
-        const PastChallengesCards = pastChallenges.map(pastChallenge => PastChallengesCard(pastChallenge))    
+    const createPastChallengesRows = () => {
+        const PastChallengesCards = pastChallenges.map(pastChallenge => PastChallengesRow(pastChallenge))    
         return PastChallengesCards
     }
 
@@ -30,9 +32,20 @@ function PastChallenges(props) {
         <div>
             <ChallengeNavBar />
             past challenges
-            {pastChallenges? createPastChallengesCards() : null }
+         <div>
+            {pastChallenges? 
+            
+            <Table className="tableContainer">
+            <PastChallengeTableHead />
+            <tbody>
+                {createPastChallengesRows()}
+            </tbody>
+            </Table>
+             : null }
             {isLoading? <div>loading past challenges </div> :null}
             {isError? <div data-testid='isError'>Error loading past challenges</div> :null}
+         </div>
+           
         </div>
     );
 }

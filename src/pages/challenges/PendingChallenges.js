@@ -4,8 +4,12 @@ import pendingChallengePageReducer from "../../reducers/pendingChallengesPageRed
 import initialState from "../../initialState/pendingChallengesInitialState";
 import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
 import { store } from "../../store/globalStore";
-import createPendingChallengeInvitationCard from "../../components/pendingChallengeCard";
+import createPendingChallengeRows from "../../components/tables/rows/pendingChallengeRow";
 import ChallengeNavBar from '../../components/challengeNavBar'
+import { Table } from "react-bootstrap";
+import '../../components/tables/DailyPointsTable.css'
+import PendingInvitationTableHead from '../../components/tables/heads/pendingInvitationsTableHead'
+
 
 /**
  * Display user's pending challenges allowing user to accept or reject them.
@@ -36,15 +40,19 @@ function PendingChallengesPage(props) {
 
       <div>
         {pendingChallenges.length > 0 ? (
-          <div>
+          <Table className="tableContainer">
+         <PendingInvitationTableHead />
+          <tbody>
             {pendingChallenges.map(challengeInvitation =>
-              createPendingChallengeInvitationCard(
+              createPendingChallengeRows(
                 dispatch,
                 globalState.token,
                 challengeInvitation
               )
             )}
-          </div>
+          </tbody>
+        </Table>
+         
         ) : <div data-testid='noPendingChallengesMsg'> You have no pending challenges </div>}
       </div>
       {isLoading ? <div>loading invitation challenges </div> : null}
