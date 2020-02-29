@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {Table} from 'react-bootstrap'
 import {withRouter} from 'react-router-dom'
+import './DailyPointsTable.css'
 /**
  * Return a table displaying all relevant point data, and links to update or view more.
  * 
@@ -29,12 +30,12 @@ function DailyPointsTable(props){
      */
     const createRowFromData = (individualPointData) => {
         return (
-            <tr key={individualPointData._id}>
-                <td data-testid='inputDate'>{individualPointData.date}</td>
-                <td data-testid='totalPoints'>{individualPointData.totalPoints}</td>
-                <td>daily goal here</td>
-                <td><button data-testid='updateButton'  onClick ={() => navigateToUpdatePointInput(individualPointData)}>update</button></td> 
-                <td><button data-testid='graphButton' onClick ={() => navigateToGraph(individualPointData)}>see graph</button></td>
+            <tr className='rowContainer' key={individualPointData._id}>
+                <td className='rowItem' data-testid='inputDate'>{individualPointData.date}</td>
+                <td className='rowItem' data-testid='totalPoints'>{individualPointData.totalPoints}</td>
+                <td className='rowItem'>daily goal here</td>
+                <td className='rowItem'><button data-testid='updateButton'  onClick ={() => navigateToUpdatePointInput(individualPointData)}>update</button></td> 
+                <td className='rowItem'><button data-testid='graphButton' onClick ={() => navigateToGraph(individualPointData)}>see graph</button></td>
             </tr>
         )
     }
@@ -51,10 +52,10 @@ function DailyPointsTable(props){
     }
 
     return(
-        <div>
-            <Table>
-                <thead>
-                    <tr>
+        <div className='tableContainer'>
+            <Table className='tableContainer'>
+                <thead >
+                    <tr className='rowContainer'>
                         <th>
                             Date
                         </th>

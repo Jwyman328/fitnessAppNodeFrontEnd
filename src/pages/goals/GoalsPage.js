@@ -2,6 +2,7 @@ import React, { useReducer, useContext } from "react";
 import initialState from "../../initialState/pointGoalInitialState";
 import goalReducer from "../../reducers/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
+import GoalNavBar from '../../components/navBars/goalNavBar'
 import { store } from "../../store/globalStore";
 import {
   getGlobalState,
@@ -51,46 +52,47 @@ function GoalsPage(props) {
 
   return (
     <div className="rulePageContainer">
+      <GoalNavBar />
       <div className="containerRules">
         <h1>Goal Page</h1>
         <form className="formContainer">
-          <div className="formItem">
-            <label className="formTitle">
+          <div className="rowForm">
+            <label className="rowFormItem">
               Start Date:
-              <input
+            </label>
+            <input
                 size="15"
-                className="formInput"
+                className="rowFormItem"
                 name="goalStartDate"
                 data-testid="startDate"
                 type="text"
                 value={goalStartDate}
                 onChange={handleChange}
               />
-            </label>
           </div>
 
-          <div className="formItem">
-          <label className="formTitle">
+          <div className="rowForm">
+          <label className="rowFormItem">
             End Date:
-            <input
+          </label>
+          <input
               size="15"
-              className="formInput"
+              className="rowFormItem"
               name="goalEndDate"
               data-testid="goalEndDate"
               type="text"
               value={goalEndDate}
               onChange={handleChange}
             />
-          </label>
 
             </div>
             
-            <div className="formItem">
-            <label className="formTitle">
+            <div className="rowForm">
+            <label className="rowFormItem">
             Daily Goal?:
             <input
               size="15"
-              className="formInput"
+              className="rowFormItem"
               name="dailyGoal"
               data-testid="dailyGoal"
               type="checkbox"
@@ -100,12 +102,12 @@ function GoalsPage(props) {
           </label>
             </div>
 
-            <div className="formItem">
-            <label className="formTitle">
+            <div className="rowForm">
+            <label className="rowFormItem">
             Point Goal:
             <input
               size="15"
-              className="formInput"
+              className="rowFormItem"
               name="pointGoal"
               data-testid="pointGoal"
               type="text"

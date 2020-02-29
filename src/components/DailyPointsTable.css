@@ -1,0 +1,14 @@
+.tableContainer {
+    width: 100vw;
+}
+
+.rowContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: lightcoral;
+}
+
+.rowItem {
+    flex:1;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './authNavBar.css'
+import '../authNavBar.css'
 import NavLink from './navLink'
 
 function GoalNavBar(){
@@ -7,8 +7,8 @@ function GoalNavBar(){
         <div className='subNavContainer'>
             <NavLink destination='/' linkName='Current Goals'/>
             <NavLink destination='/GoalPage' linkName='Create Goal'/>
-            <NavLink destination='/CurrentFutureChallenges' linkName='Current-future Goals'/>
-            <NavLink destination='/PastChallenges' linkName='Past Challenges'/>
+            <NavLink destination='/CurrentFutureGoals' linkName='Current-future Goals'/>
+            <NavLink destination='/PastGals' linkName='Past Goals'/>
         </div>
     )
 }

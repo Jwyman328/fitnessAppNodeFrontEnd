@@ -5,6 +5,7 @@ import initialState from '../initialState/ViewResultsInitialState'
 import viewResultsReducer from '../reducers/viewResultsReducer'
 import getDailyPoints from '../actions/viewResultsActions/getDailyPoints'
 import DailyPointsTable from '../components/DailyPointsTable'
+import ResultsNavBar from '../components/navBars/resultsNavBar'
 
 function ViewResults(props) {
     const globalState = getGlobalState(useContext(store));
@@ -18,6 +19,7 @@ function ViewResults(props) {
 
     return (
         <div>
+            <ResultsNavBar />
             View results
             {dailyPoints?<DailyPointsTable pointData={dailyPoints} /> :null }
         </div>

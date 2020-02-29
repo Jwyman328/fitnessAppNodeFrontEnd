@@ -20,8 +20,8 @@ import UpdateActivityInput from "./pages/activity/UpdateActivityInput";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // nav bars
-import NavBar from "./components/navbar";
-import AuthNavBar from "./components/authNavBar";
+import NavBar from "./components/navBars/navbar";
+import AuthNavBar from "./components/navBars/authNavBar";
 import LoggedInNavBar from './components/loggedInNavBar'
 import ChallengeNavBar from './components/challengeNavBar'
 

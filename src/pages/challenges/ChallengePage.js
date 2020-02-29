@@ -74,58 +74,62 @@ function ChallengePage(props) {
         <h1>challenge Page</h1>
 
         <form className="formContainer">
-          <div className="formItem">
-            <label className="formTitle">
+          <div className="rowForm">
+            <label className="rowFormItem">
               Start Date:
-              <input
+             
+            </label>
+            <input
                 size="15"
-                className="formInput"
+                className="rowFormItem"
                 name="challengeStartDate"
                 data-testid="challengeStartDate"
                 type="text"
                 value={challengeStartDate}
                 onChange={handleChange}
               />
-            </label>
           </div>
 
-          <div className="formItem">
-            <label className="formTitle">
+          <div className="rowForm">
+            <label className="rowFormItem">
               End Date:
-              <input
+              
+            </label>
+            <input
                 size="15"
-                className="formInput"
+                className="rowFormItem"
                 name="challengeEndDate"
                 data-testid="challengeEndDate"
                 type="text"
                 value={challengeEndDate}
                 onChange={handleChange}
               />
-            </label>
           </div>
 
-          <div className="formItem">
-            <label className="formTitle">
+          <div className="rowForm">
+            <label className="rowFormItem">
               Title:
-              <input
+             
+            </label>
+            <input
                placeholder='title here..'
                 input
                 size="15"
-                className="formInput"
+                className="rowFormItem"
                 name="title"
                 data-testid="title"
                 type="text"
                 value={title}
                 onChange={handleChange}
               />
-            </label>
           </div>
 
-          <div className="formItem">
-            <label className="formTitle">
+          <div className="rowForm">
+            <label className="rowFormItem">
               Type:
-              <select
-              className="formInput"
+            </label>
+            <select
+              className="rowFormItem"
                 multiple={false}
                 data-testid="challengeType"
                 name="challengeType"
@@ -138,29 +142,30 @@ function ChallengePage(props) {
                 <option value="totalPoints">Total Points</option>
                 <option value="Workout">Workout</option>
               </select>
-            </label>
           </div>
-          <div className="formItem">
-            {allUsers ?
-             (
-                <label className="formTitle">
+          {allUsers ?
+             (<div className="rowForm">
+
+                <label className="rowFormItem">
                     Invitees:
-              <select
-                className="formInput"
-                multiple={true}
-                data-testid="selectUsersInput"
-                name="userEmails"
-                value={selectedUsers}
-                onChange={handleAddSelectedUser}
-              >
-                {createUserSelect()}
-              </select>
+              
               </label>
-            ) : null}
-          </div>
+              <select
+             
+              className="rowFormItem"
+              multiple={true}
+              data-testid="selectUsersInput"
+              name="userEmails"
+              value={selectedUsers}
+              onChange={handleAddSelectedUser}
+            >
+              {createUserSelect()}
+            </select>
+            
+          </div>) : null}
         </form>
         <button
-          className="formItem"
+          className="rowForm"
           data-testid="submitButton"
           onClick={handleSubmit}
         >

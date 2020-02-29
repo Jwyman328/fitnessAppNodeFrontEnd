@@ -60,87 +60,94 @@ function InputPointsPage(props) {
           Input Activity
           </h1>
         <form className="formContainer">
-          <div className="formItem">
-            <label className='formTitle'>
+          <div className="rowForm">
+            <label className='rowFormItem'>
               Date:
-              <input
+             
+            </label>
+            <input
               size="15"
-                className="formInput"
+                className="rowFormItem"
                 data-testid="dateInput"
                 name="date"
                 type="text"
                 value={date}
                 onChange={handleChange}
               />
-            </label>
           </div>
 
-          <div className='formItem'>
-          <label className='formTitle' >
+          <div className='rowForm'>
+          <label className='rowFormItem' >
             Sleep Hours:
-            <input
-            size="5"
-              className="formInput"
+           
+          </label>
+          <input
+            size="15"
+              className="rowFormItem"
               data-testid="sleepHoursInput"
               name="sleepHours"
               type="text"
               checked={sleepHours}
               onChange={handleChange}
             />
-          </label>
           </div>
 
-          <div className='formItem'>
-          <label className='formTitle'>
+          <div className='rowForm'>
+          <label className='rowFormItem'>
             Workout Intensity:
-            <input
-            size="5"
-              className="formInput"
+           
+          </label>
+          <input
+            size="15"
+              className="rowFormItem"
               data-testid="workoutIntenistyInput"
               name="workoutIntenisty"
               type="text"
               value={workoutIntenisty}
               onChange={handleChange}
             />
-          </label>
           </div >
 
-          <div className='formItem'>
-          <label className='formTitle'>
+          <div className='rowForm'>
+          <label className='rowFormItem'>
             Workout Time:
-            <input
-            size="5"
-              className="formInput"
+           
+          </label>
+          <input
+            size="15"
+              className="rowFormItem"
               data-testid="workoutTimeInput"
               name="workoutTime"
               type="text"
               value={workoutTime}
               onChange={handleChange}
             />
-          </label>
         </div >
 
-        <div className='formItem'>
-        <label className='formTitle'>
+        <div className='rowForm'>
+        <label className='rowFormItem'>
             Steps:
-            <input
-            size="5"
-              className="formInput"
+            
+          </label>
+          <input
+            size="15"
+              className="rowFormItem"
               data-testid="stepsInput"
               name="steps"
               type="text"
               value={steps}
               onChange={handleChange}
             />
-          </label>
         </div >
 
-        <div className='formItem'>
-        <label className='formTitle'>
+        <div className='rowForm'>
+        <label className='rowFormItem'>
             Water 100 oz:
-            <input
+            
+          </label>
+          <input
             size="15"
-             className="formInput"
+             className="rowFormItem"
               data-testid="water100ozInput"
               name="water100oz"
               type="checkbox"
@@ -148,16 +155,17 @@ function InputPointsPage(props) {
               checked={water100oz}
               onChange={handleChange}
             />
-          </label>
         </div >
 
-        <div className='formItem'> 
-        <label className='formTitle'>
+        <div className='rowForm'> 
+        <label className='rowFormItem'>
             Clean Eating:
-            <input
+            
+          </label>
+          <input
             
             size="15"
-            className="formInput"
+            className="rowFormItem"
               data-testid="cleanEatingInput"
               name="cleanEating"
               type="checkbox"
@@ -165,10 +173,9 @@ function InputPointsPage(props) {
               checked={cleanEating}
               onChange={handleChange}
             />
-          </label>
         </div>
         </form>
-        <button className='formItem' data-testid="submitButton" onClick={handleClick}>
+        <button className='rowForm' data-testid="submitButton" onClick={handleClick}>
             Submit points
           </button> 
         {/* handle results of input point activity submission post request */}

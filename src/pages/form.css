@@ -29,3 +29,18 @@
     font-size: large;
 }
 
+.rowForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    width: 100%;
+}
+
+.rowFormItem{
+    flex:1;
+    font-size: x-large;
+
+    text-align: left;
+
+}
