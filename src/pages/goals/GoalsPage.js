@@ -127,7 +127,7 @@ function GoalsPage(props) {
 
         </form>
         <button
-            className='formItem'
+            className='submitButton'
             data-testid="submitButton"
             onClick={handleSubmit}
           >

@@ -9,6 +9,7 @@ import {
   dispatchInputChange
 } from "../../utils/helperFunctions";
 import "../form.css";
+
 /**
  * Input point data for a selected date.
  * @param {*} props
@@ -175,7 +176,7 @@ function InputPointsPage(props) {
             />
         </div>
         </form>
-        <button className='rowForm' data-testid="submitButton" onClick={handleClick}>
+        <button className='submitButton' data-testid="submitButton" onClick={handleClick}>
             Submit points
           </button> 
         {/* handle results of input point activity submission post request */}

@@ -7,6 +7,7 @@ import goalsGraphReducer from "../../reducers/goalsGraphReducer";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import setGoalsGraphOptions from "../../utils/goalsGraphOptions";
+import GoalNavBar from '../../components/navBars/goalNavBar'
 
 /**
  * Display Total points for goal vs. point goal in a graph.
@@ -47,6 +48,7 @@ function GoalsGraph(props) {
 
   return (
     <div>
+        <GoalNavBar />
       <div>
         <HighchartsReact highcharts={Highcharts} options={graphOptions} />
       </div>
