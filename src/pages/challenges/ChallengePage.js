@@ -9,7 +9,7 @@ import {
 } from "../../utils/helperFunctions";
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
 import ChallengeNavBar from '../../components/challengeNavBar'
-
+import './submitButton.css'
 function ChallengePage(props) {
   // global store containing the use token for making requests
   const globalState = getGlobalState(useContext(store));
@@ -161,16 +161,18 @@ function ChallengePage(props) {
             >
               {createUserSelect()}
             </select>
+
             
           </div>) : null}
         </form>
         <button
-          className="rowForm"
+          className="submitButton"
           data-testid="submitButton"
           onClick={handleSubmit}
         >
           create challenge
         </button>
+
 
         {isSuccess ? (
           <div data-testid="successMsg">Challenge created successfully</div>
