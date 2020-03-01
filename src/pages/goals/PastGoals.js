@@ -11,6 +11,8 @@ import { Table } from "react-bootstrap";
 import '../../components/tables/DailyPointsTable.css'
 import PastGoalsHead from '../../components/tables/heads/pastGoalsHead'
 import PastGoalsRows from '../../components/tables/rows/pastGoalsRows'
+import GoalRows from '../../components/tables/rows/currentGoalRow'
+import {withRouter} from 'react-router-dom'
 
 function PastGoalsPage(props){
     const globalState = getGlobalState(useContext(store));
@@ -40,7 +42,8 @@ function PastGoalsPage(props){
 
     const createGoalRow = (goals) => {
        const goalRow = goals.map(goal => {
-            return PastGoalsRows(goal)
+            //return PastGoalsRows(goal)
+            return GoalRows(dispatch,globalState.token,goal, props.history, true)
         })
         return goalRow
     }
@@ -64,4 +67,4 @@ function PastGoalsPage(props){
     )
 }
 
-export default PastGoalsPage;
+export default withRouter(PastGoalsPage);

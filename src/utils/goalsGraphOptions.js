@@ -16,6 +16,10 @@ const setGoalsGraphOptions = (totalPointForDateRange =0,pointGoalTotal=0,
         title: {
           text: `Goal: ${goalStartDate} - ${goalEndDate} `
         },
+
+        xAxis: {
+          categories: ['']
+        },
         
         series: [
           {

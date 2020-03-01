@@ -4,7 +4,7 @@ import getCurrentGoals from "../../../actions/currentFutureGoalsActions/getCurre
 import getFutureGoals from "../../../actions/currentFutureGoalsActions/getFutureGoals";
 
 
-const currentGoalRow = (dispatch, token, goalData, history) => {
+const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => {
   const config = {
     data: { Authorization: `Bearer ${token}` },
     headers: { Authorization: `Bearer ${token}` }
@@ -39,11 +39,11 @@ const currentGoalRow = (dispatch, token, goalData, history) => {
       <td className="rowItem" data-testid="endDate">
         {goalData.goalEndDate}
       </td>
-      <td className="rowItem">
+      {!isPastGoal?<td className="rowItem">
         <button data-testid="delete" onClick={() => deleteGoal(goalData._id)}>
           Delete
         </button>
-      </td>
+      </td>:null}
       <td className="rowItem">
         <button data-testid="graph" onClick={() => navigateToGraphGoal()}>
           Graph
