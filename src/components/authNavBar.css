@@ -2,6 +2,7 @@
 .navContainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100vw;
     background-color: lightblue ;
     height: 5vh;
@@ -11,6 +12,7 @@
 .subNavContainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100vw;
     background-color: white ;
     height: 5vh;

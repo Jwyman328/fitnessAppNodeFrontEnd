@@ -12,6 +12,7 @@ import { Table } from "react-bootstrap";
 import '../../components/tables/DailyPointsTable.css'
 import CurrentGoalsHead from '../../components/tables/heads/goalsHead'
 import CurrentGoalRow from '../../components/tables/rows/currentGoalRow'
+import {withRouter} from 'react-router-dom'
 
 function CurrentFutureGoals(props){
     const globalState = getGlobalState(useContext(store));
@@ -45,7 +46,7 @@ function CurrentFutureGoals(props){
 
     const createGoalRow = (goals) => {
        const goalRow = goals.map(goal => {
-            return CurrentGoalRow(goal)
+            return CurrentGoalRow(dispatch,globalState.token,goal,props.history )
         })
         return goalRow
     }
@@ -79,4 +80,4 @@ function CurrentFutureGoals(props){
     )
 }
 
-export default CurrentFutureGoals;
+export default withRouter(CurrentFutureGoals);

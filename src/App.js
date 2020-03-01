@@ -8,6 +8,7 @@ import LoginPage from "./pages/auth/login";
 import InputPointsPage from "./pages/activity/inputPointsPage";
 import GoalPage from "./pages/goals/GoalsPage";
 import PastGoals from './pages/goals/PastGoals'
+import GoalsGraphs from './pages/graphs/GoalsGraph'
 import CurrentFutureGoals from './pages/goals/currentFutureGoals'
 import ChallengePage from "./pages/challenges/ChallengePage";
 import ViewResults from "./pages/ViewResults";
@@ -82,6 +83,11 @@ function App() {
         <Switch>
           <Route exact path="/GoalPage">
             <GoalPage />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/GoalsGraph">
+            <GoalsGraphs />
           </Route>
         </Switch>
         <Switch>

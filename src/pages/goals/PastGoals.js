@@ -39,7 +39,6 @@ function PastGoalsPage(props){
   },[pastGoals])
 
     const createGoalRow = (goals) => {
-        console.log('hit', goals)
        const goalRow = goals.map(goal => {
             return PastGoalsRows(goal)
         })
