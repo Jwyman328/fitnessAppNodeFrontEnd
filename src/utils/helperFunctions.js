@@ -63,4 +63,13 @@ const sanitizeChallengeDateValues = (responseData) => {
     return sanitizedChalllengeData
 }
 
-export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, sanitizeChallengeDateValues}
+const sanitizeGoalDateValues = (responseData) => {
+    const sanitizedGoalData = responseData.map(goal => {
+        goal.goalStartDate= goal.goalStartDate.split('T')[0];
+        goal.goalEndDate= goal.goalEndDate.split('T')[0];
+        return goal
+    }) 
+    return sanitizedGoalData
+}
+
+export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, sanitizeChallengeDateValues, sanitizeGoalDateValues}

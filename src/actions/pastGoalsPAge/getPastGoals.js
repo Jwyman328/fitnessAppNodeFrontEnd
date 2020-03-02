@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {sanitizeGoalDateValues} from '../../utils/helperFunctions'
 
 /**
  * Fetch all current goals.
@@ -20,9 +21,9 @@ async function getPastGoals(dispatch,token){
      };
     try{
         const response = await axios.get('http://localhost:3001/pastGoals/', {headers: { Authorization: `Bearer ${token}` }},config)
-        console.log(response.data)
+        const sanitizesGoalDateValues = sanitizeGoalDateValues(response.data)
 
-        dispatch({type:'addPastGoals', pastGoals: response.data})
+        dispatch({type:'addPastGoals', pastGoals: sanitizesGoalDateValues})
     }catch(error){
          dispatch({type:'pastGoalsFetchError'})
     }
