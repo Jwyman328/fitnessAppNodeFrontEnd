@@ -49,7 +49,7 @@ function PastGoalsPage(props){
     }
 
     return (
-        <div>
+        <div className='rulePageContainer'>
             <GoalNavBar />
             <h2>Past Goals</h2>
             <div>

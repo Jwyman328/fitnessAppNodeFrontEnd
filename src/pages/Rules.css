@@ -3,6 +3,7 @@
     width: 100vw;
     background-color:  #c1c8e4;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

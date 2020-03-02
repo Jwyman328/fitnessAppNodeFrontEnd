@@ -5,7 +5,7 @@ import initialState from "../../initialState/pendingChallengesInitialState";
 import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
 import { store } from "../../store/globalStore";
 import createPendingChallengeRows from "../../components/tables/rows/pendingChallengeRow";
-import ChallengeNavBar from '../../components/challengeNavBar'
+import ChallengeNavBar from '../../components/navBars/challengeNavBar'
 import { Table } from "react-bootstrap";
 import '../../components/tables/DailyPointsTable.css'
 import PendingInvitationTableHead from '../../components/tables/heads/pendingInvitationsTableHead'
@@ -34,9 +34,9 @@ function PendingChallengesPage(props) {
   }, []);
 
   return (
-    <div>
+    <div className='rulePageContainer'>
       <ChallengeNavBar />
-      Pending Challenges
+     <h1>Pending Challenges</h1>
 
       <div>
         {pendingChallenges.length > 0 ? (

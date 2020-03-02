@@ -6,9 +6,9 @@ function GoalNavBar(){
     return (
         <div className='subNavContainer'>
             <NavLink destination='/' linkName='Current Goals'/>
-            <NavLink testid='navigateGoalPage' destination='/GoalPage' linkName='Create Goal'/>
-            <NavLink destination='/CurrentFutureGoals' linkName='Current-future Goals'/>
-            <NavLink destination='/PastGoals' linkName='Past Goals'/>
+            <NavLink testid='navigateGoalPage' destination='/GoalPage' linkName='Create'/>
+            <NavLink destination='/CurrentFutureGoals' linkName='Current-future '/>
+            <NavLink destination='/PastGoals' linkName='Past'/>
         </div>
     )
 }

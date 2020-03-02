@@ -7,7 +7,7 @@ import initialState from "../../initialState/currentFutureChallengesInitialState
 import getFutureChallenges from '../../actions/currentFutureChallengesActions/getFutureChallengesAction'
 import getCurrentChallenges from '../../actions/currentFutureChallengesActions/getCurrentChallengesAction'
 
-import ChallengeNavBar from '../../components/challengeNavBar'
+import ChallengeNavBar from '../../components/navBars/challengeNavBar'
 import { Table } from "react-bootstrap";
 import '../../components/tables/DailyPointsTable.css'
 import PastChallengesRow from '../../components/tables/rows/pastChallengesRow'
@@ -53,7 +53,7 @@ function CurrentFutureChallenges(props) {
   }
 
   return (
-   <div>
+   <div className='rulePageContainer'>
     <ChallengeNavBar />
       <h2>current challenges</h2>
       <div>

@@ -4,7 +4,7 @@ import { getGlobalState, dispatchInputChange } from "../../utils/helperFunctions
 import pastChallengePageReducer from "../../reducers/challengeReducers/pastChallengePageReducer";
 import initialState from '../../initialState/pastChallengeInitialState'
 import getPastChallenges from '../../actions/pastChallengesActions/getPastChallenges'
-import ChallengeNavBar from '../../components/challengeNavBar'
+import ChallengeNavBar from '../../components/navBars/challengeNavBar'
 import { Table } from "react-bootstrap";
 import '../../components/tables/DailyPointsTable.css'
 import PastChallengesRow from '../../components/tables/rows/pastChallengesRow'
@@ -29,9 +29,9 @@ function PastChallenges(props) {
     }
 
     return (
-        <div>
+        <div className='rulePageContainer'>
             <ChallengeNavBar />
-            past challenges
+            <h1>Past challenges</h1>
          <div>
             {pastChallenges? 
             

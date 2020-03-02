@@ -8,7 +8,7 @@ import {
   dispatchInputChange
 } from "../../utils/helperFunctions";
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
-import ChallengeNavBar from '../../components/challengeNavBar'
+import ChallengeNavBar from '../../components/navBars/challengeNavBar'
 import './submitButton.css'
 function ChallengePage(props) {
   // global store containing the use token for making requests

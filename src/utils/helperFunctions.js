@@ -80,4 +80,39 @@ const sanitizeActivityPointDateValues = (responseData) => {
     return sanitizedActivityPointData
 }
 
-export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, sanitizeChallengeDateValues, sanitizeGoalDateValues, sanitizeActivityPointDateValues}
+
+function formatDate(date){
+    var dd = date.getDate();
+    var mm = date.getMonth()+1;
+    var yyyy = date.getFullYear();
+    if(dd<10) {dd='0'+dd}
+    if(mm<10) {mm='0'+mm}
+    date = yyyy+'-'+mm+'-'+dd;
+    return date
+ }
+
+ function Last30Days () {
+    let result = {};
+    for (let i=0; i<30; i++) {
+        let d = new Date();
+        d.setDate(d.getDate() - i);
+        result[formatDate(d)] = 0
+    }
+
+    return(result);
+ }
+const createMonthDatePointValue = (pastMonthValues, sanitizedActivityPointValues) => {
+ let arrayOfValuesWithDate = Object.keys(pastMonthValues).map(day => {
+    let tom = sanitizedActivityPointValues.map(pointValue => {
+        if (pointValue.date ===  day){
+            pastMonthValues[day]= pointValue.totalPoints
+            return
+        }else{
+            return
+        }
+        return
+})}) }
+
+export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, 
+    sanitizeChallengeDateValues, sanitizeGoalDateValues, sanitizeActivityPointDateValues, 
+    Last30Days, createMonthDatePointValue}

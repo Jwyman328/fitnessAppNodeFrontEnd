@@ -24,7 +24,8 @@ const setGoalsGraphOptions = (totalPointForDateRange =0,pointGoalTotal=0,
         series: [
           {
             name: `Accumulated Points `,
-            data: [totalPointForDateRange]
+            data: [totalPointForDateRange],
+            
           }
         ],
         

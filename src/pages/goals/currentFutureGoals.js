@@ -52,7 +52,7 @@ function CurrentFutureGoals(props){
     }
 
     return (
-        <div>
+        <div className='rulePageContainer'>
             <GoalNavBar />
             <h2>Current Goals</h2>
             <div>

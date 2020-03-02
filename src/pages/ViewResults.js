@@ -18,9 +18,9 @@ function ViewResults(props) {
     },[])
 
     return (
-        <div>
+        <div className='rulePageContainer'>
             <ResultsNavBar />
-            View results
+            <h1>Results</h1>
             {dailyPoints?<DailyPointsTable pointData={dailyPoints} /> :null }
         </div>
     );

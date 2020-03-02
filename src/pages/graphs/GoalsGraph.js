@@ -47,8 +47,9 @@ function GoalsGraph(props) {
   );
 
   return (
-    <div>
+    <div  className='rulePageContainer' >
         <GoalNavBar />
+        <h2>Goal Graph</h2>
       <div>
         <HighchartsReact highcharts={Highcharts} options={graphOptions} />
       </div>

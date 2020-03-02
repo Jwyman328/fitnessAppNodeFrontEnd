@@ -27,7 +27,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NavBar from "./components/navBars/navbar";
 import AuthNavBar from "./components/navBars/authNavBar";
 import LoggedInNavBar from './components/loggedInNavBar'
-import ChallengeNavBar from './components/challengeNavBar'
+import ChallengeNavBar from './components/navBars/challengeNavBar'
 
 // global state 
 import { store } from "./store/globalStore";

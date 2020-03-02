@@ -18,12 +18,19 @@ function IndividualDailyPointGraph(props) {
     title: {
       text: `Points for ${pointData.date} `
     },
+    colors:['#5a32a8','#3a32a8', '#3267a8', '#3285a8', '#329ea8','#32a885'],
+
     series: [
       {
         name: `points ${pointData.date}`,
-        data: createGraphData(pointData)
+        data: createGraphData(pointData),
       }
     ],
+    plotOptions: {
+      column: {
+          colorByPoint: true
+      }
+  },
     xAxis: {
         categories: 
            ['sleep',
@@ -33,17 +40,18 @@ function IndividualDailyPointGraph(props) {
             'steps',
             'total']
         ,
-        crosshair: true
+        crosshair: true,
+
     },
   };
 
   //const options = setPointResultsGraphOptions(pointData)
 
   return (
-    <div>
+    <div  className='rulePageContainer' >
       <ResultsNavBar />
-      <h1 data-testid='graphPageHeader' graph page header>daily point graph</h1>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <h1 data-testid='graphPageHeader' graph page header>Daily Point Graph</h1>
+      <HighchartsReact  highcharts={Highcharts} options={options} />
     </div>
   );
 }

@@ -21,6 +21,14 @@ function homePageReducer(state,action){
                 isLoading: false,
                 isError:true,
             }
+        case 'addPastMonthPointsDates':
+            return {
+                ...state,
+                isLoading: false,
+                isError:false,
+                pastMonthPoints: action.pastMonthPoints,
+                pastMonthDates: action.pastMonthDates
+            }
         
     }
     return state;
