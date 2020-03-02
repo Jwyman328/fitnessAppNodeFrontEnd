@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {sanitizeChallengeDateValues} from '../../utils/helperFunctions'
 
 /**
  * Fetch all pending challenge invitations for user.
@@ -20,7 +21,8 @@ async function getAllPendingChallengeInvitations(dispatch,token){
      };
     try{
         const response = await axios.get('http://localhost:3001/AllChallengeInvitation/myInvitations/pending', {headers: { Authorization: `Bearer ${token}` }},config)
-        dispatch({type:'addPendingChallenges', pendingChallenges: response.data})
+        const sanitizedChallengeDateValues = sanitizeChallengeDateValues(response.data)
+        dispatch({type:'addPendingChallenges', pendingChallenges: sanitizedChallengeDateValues})
     }catch(error){
          dispatch({type:'pendingChallengesFetchError'})
     }
