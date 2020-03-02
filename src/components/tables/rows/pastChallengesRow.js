@@ -8,7 +8,6 @@ const PastChallengesRow =(challengeInvitationData) => {
     return(
         <tr className='rowContainer' key={challengeInvitationData._id}>
             <td className='rowItem' data-testid='title'>{challengeInvitationData.title}</td>
-            <td className='rowItem' data-testid='creator'>{challengeInvitationData.creator}</td>
             <td className='rowItem' data-testid='challengeType'>{challengeInvitationData.challengeType}</td>
             <td className='rowItem' data-testid='startDate'>{challengeInvitationData.startDate}</td>
             <td className='rowItem' data-testid='endDate'>{challengeInvitationData.endDate}</td>

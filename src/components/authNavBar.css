@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     width: 100vw;
     background-color: lightblue ;
-    height: 5vh;
+    height: 10vh;
     justify-content: space-around;
     align-items: center;
 }
@@ -29,7 +29,7 @@
 
 
 .navLink:hover {
-	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #dfdfdf 15%, #ededed 100%);
 	background-color:#dfdfdf;
 }
 .navLink:active {

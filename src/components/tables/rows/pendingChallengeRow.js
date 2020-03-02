@@ -23,12 +23,11 @@ const PendingChallengeInvitationCard =(dispatch, token, challengeInvitationData)
     return(
         <tr className='rowContainer'>
             <td className='rowItem' data-testid='title'>{challengeInvitationData.title}</td>
-            <td className='rowItem' data-testid='creator'>{challengeInvitationData.creator}</td>
             <td className='rowItem' data-testid='challengeType'>{challengeInvitationData.challengeType}</td>
             <td className='rowItem' data-testid='startDate'>{challengeInvitationData.startDate}</td>
             <td className='rowItem' data-testid='endDate'>{challengeInvitationData.startDate}</td>
-           <td className='rowItem'><button data-testid='acceptButton' onClick={() => changeStatusInvitation('accepted')}>Accept invitation</button></td>
-           <td className='rowItem'><button data-testid='rejectButton' onClick={() => changeStatusInvitation('rejected')}>Reject invitation</button></td>
+           <td className='rowItem'><button className='rowButton' data-testid='acceptButton' onClick={() => changeStatusInvitation('accepted')}>Accept</button></td>
+           <td className='rowItem'><button className='rowButton' data-testid='rejectButton' onClick={() => changeStatusInvitation('rejected')}>Reject</button></td>
         </tr>
     )
 }

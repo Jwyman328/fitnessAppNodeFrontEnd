@@ -8,7 +8,6 @@ function PendingInvitationTableHead() {
         <thead>
           <tr className="rowContainer">
             <th>Title</th>
-            <th>Creator</th>
             <th>Category</th>
             <th>Start Date</th>
             <th>End Date</th>

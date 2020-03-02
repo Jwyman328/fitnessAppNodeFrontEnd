@@ -34,8 +34,8 @@ function DailyPointsTable(props){
                 <td className='rowItem' data-testid='inputDate'>{individualPointData.date}</td>
                 <td className='rowItem' data-testid='totalPoints'>{individualPointData.totalPoints}</td>
                 <td className='rowItem'>daily goal here</td>
-                <td className='rowItem'><button data-testid='updateButton'  onClick ={() => navigateToUpdatePointInput(individualPointData)}>update</button></td> 
-                <td className='rowItem'><button data-testid='graphButton' onClick ={() => navigateToGraph(individualPointData)}>see graph</button></td>
+                <td className='rowItem'><button className='rowButton' data-testid='updateButton'  onClick ={() => navigateToUpdatePointInput(individualPointData)}>Update</button></td> 
+                <td className='rowItem'><button className='rowButton' data-testid='graphButton' onClick ={() => navigateToGraph(individualPointData)}>Graph</button></td>
             </tr>
         )
     }
