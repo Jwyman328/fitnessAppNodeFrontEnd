@@ -39,7 +39,8 @@ function HowTo(props) {
         </div>
 
         <div className="subContainer">
-          <h2 className="subTitle">Step 4: View Results:{/*view results */}</h2>
+          <h2 className="subTitle">Step 4: View Results: 
+          <LinkButton destination="/viewResults" name='View Results' /></h2>
           <ul>
             <li className="subDiscrip">
               View your health data graphs, tables and statistics

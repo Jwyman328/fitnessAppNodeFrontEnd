@@ -1,6 +1,7 @@
 //getPastChallenges
 import React from 'react'
 import axios from 'axios'
+import {sanitizeChallengeDateValues} from '../../utils/helperFunctions'
 
 /**
  * Fetch all future challenges.
@@ -21,7 +22,8 @@ async function getFutureChallenges(dispatch,token){
      };
     try{
         const response = await axios.get('http://localhost:3001/futureChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
-        dispatch({type:'addFutureChallenges', futureChallenges: response.data})
+        const sanitizedChallengeDateValues = sanitizeChallengeDateValues(response.data)
+        dispatch({type:'addFutureChallenges', futureChallenges: sanitizedChallengeDateValues})
     }catch(error){
          dispatch({type:'futureChallengesFetchError'})
     }

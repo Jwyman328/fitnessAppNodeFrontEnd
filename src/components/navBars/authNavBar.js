@@ -6,7 +6,7 @@ function AuthNavBar(){
     return (
         <div className='navContainer'>
             <NavLink testid='navigateToSignUp' destination='/signup' linkName='Signup'/>
-            <NavLink testid='navigateToLogin' destination='/login' linkName='login'/>
+            <NavLink testid='navigateToLogin' destination='/login' linkName='Login'/>
             <NavLink testid='navigateToHowTo' destination='/howTo' linkName='How To'/>
             <NavLink testid='navigateToRules' destination='/Rules' linkName='Rules'/>
         </div>

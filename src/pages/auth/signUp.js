@@ -141,7 +141,7 @@ function SignUpPage(props) {
           </div>
         </form>
       )}
-        <button className='formItem' data-testid='signUpButton' onClick={handleClick}>Submit</button>
+        <button className='submitButton' data-testid='signUpButton' onClick={handleClick}>Submit</button>
     </div>
     </div>
   );

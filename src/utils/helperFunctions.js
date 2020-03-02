@@ -54,4 +54,13 @@ function handleSelectedUsers(selectedUsers, selectedUser){
    return selectedUsers
 }
 
-export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers}
+const sanitizeChallengeDateValues = (responseData) => {
+    const sanitizedChalllengeData = responseData.map(challenge => {
+        challenge.startDate= challenge.startDate.split('T')[0];
+        challenge.endDate= challenge.endDate.split('T')[0];
+        return challenge
+    }) 
+    return sanitizedChalllengeData
+}
+
+export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, sanitizeChallengeDateValues}

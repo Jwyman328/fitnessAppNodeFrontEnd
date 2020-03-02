@@ -100,7 +100,7 @@ function LoginPage(props) {
           </form>
         )}
         <button
-          className="formItem"
+          className="submitButton"
           onClick={handleSubmit}
           data-testid="submitButton"
         >
