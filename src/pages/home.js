@@ -65,7 +65,42 @@ function HomePage(props) {
           crosshair: true
         }
       }
-    : null;
+    : {
+      chart: { type: "column" },
+      title: {
+        text: `Todays Points`
+      },
+      colors: [
+        "#5a32a8",
+        "#3a32a8",
+        "#3267a8",
+        "#3285a8",
+        "#329ea8",
+        "#32a885"
+      ],
+      series: [
+        {
+          name: `Todays Points`,
+          data: [0,0,0,0,0,0]
+        }
+      ],
+      plotOptions: {
+        column: {
+          colorByPoint: true
+        }
+      },
+      xAxis: {
+        categories: [
+          "sleep",
+          "workout",
+          "water",
+          "clean eating",
+          "steps",
+          "total"
+        ],
+        crosshair: true
+      }
+    };
 
   const pastThirtyDaysOptions = pastMonthDates
     ? {

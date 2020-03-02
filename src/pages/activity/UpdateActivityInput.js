@@ -32,7 +32,7 @@ function UpdateActivityInput(props) {
   } = state;
 
   // deconstruct activity input to be displayed in input elements
-  const {
+  let {
     date,
     hoursOfSleep,
     water100Oz,
@@ -51,6 +51,7 @@ function UpdateActivityInput(props) {
   useEffect(() => {
     getActivityInput(dispatch, globalState.token, activityId);
   }, []);
+
 
   /**
    * Handle input data change events.
@@ -180,7 +181,7 @@ function UpdateActivityInput(props) {
             </div>
           </form>
         ) : null}
-        <button data-testid="submitButton" onClick={handleClick}>
+        <button className='submitButton' data-testid="submitButton" onClick={handleClick}>
           Submit points
         </button>
         {isLoadingActivityInput ? <div>fetching activity...</div> : null}

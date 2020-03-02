@@ -80,6 +80,9 @@ const sanitizeActivityPointDateValues = (responseData) => {
     return sanitizedActivityPointData
 }
 
+const sanitizeSingleDateValue = (dateValue) => {
+    return dateValue.split('T')[0]
+}
 
 function formatDate(date){
     var dd = date.getDate();
@@ -115,4 +118,4 @@ const createMonthDatePointValue = (pastMonthValues, sanitizedActivityPointValues
 
 export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, 
     sanitizeChallengeDateValues, sanitizeGoalDateValues, sanitizeActivityPointDateValues, 
-    Last30Days, createMonthDatePointValue}
+    Last30Days, createMonthDatePointValue,sanitizeSingleDateValue}
