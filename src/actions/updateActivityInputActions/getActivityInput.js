@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {sanitizeActivityPointDateValues} from '../../utils/helperFunctions'
 
 /**
  * Fetch individual activity input by id.
@@ -21,7 +22,8 @@ async function getActivityInput(dispatch,token, activityInputId){
      };
     try{
         const response = await axios.get(`http://localhost:3001/activityInput/${activityInputId}/`, {headers: { Authorization: `Bearer ${token}` }},config)
-        dispatch({type:'addActivityInput', activityInput: response.data})
+        const sanitizedActivityPointValues = sanitizeActivityPointDateValues(response.data)
+        dispatch({type:'addActivityInput', activityInput: sanitizedActivityPointValues})
     }catch(error){
          dispatch({type:'activityInputFetchError'})
     }

@@ -72,4 +72,12 @@ const sanitizeGoalDateValues = (responseData) => {
     return sanitizedGoalData
 }
 
-export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, sanitizeChallengeDateValues, sanitizeGoalDateValues}
+const sanitizeActivityPointDateValues = (responseData) => {
+    const sanitizedActivityPointData = responseData.map(activityPoint => {
+        activityPoint.date= activityPoint.date.split('T')[0];
+        return activityPoint
+    }) 
+    return sanitizedActivityPointData
+}
+
+export {getGlobalState,getGlobalDispatcher,dispatchInputChange,handleSelectedUsers, sanitizeChallengeDateValues, sanitizeGoalDateValues, sanitizeActivityPointDateValues}
