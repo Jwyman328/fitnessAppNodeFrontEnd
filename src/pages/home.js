@@ -9,6 +9,7 @@ import initialState from "../initialState/homePageInitialState";
 import homePageReducer from "../reducers/homePageReducer";
 import getTodaysPoints from "../actions/fetchTodaysPoints";
 import getPastMonthPoints from "../actions/getPastMonthPoints";
+import "./home.css";
 
 function HomePage(props) {
   const globalState = getGlobalState(useContext(store));
@@ -33,7 +34,14 @@ function HomePage(props) {
         title: {
           text: `Points for ${todaysPoints.date} `
         },
-        colors:['#5a32a8','#3a32a8', '#3267a8', '#3285a8', '#329ea8','#32a885'],
+        colors: [
+          "#5a32a8",
+          "#3a32a8",
+          "#3267a8",
+          "#3285a8",
+          "#329ea8",
+          "#32a885"
+        ],
         series: [
           {
             name: `points ${todaysPoints.date}`,
@@ -41,9 +49,9 @@ function HomePage(props) {
           }
         ],
         plotOptions: {
-            column: {
-                colorByPoint: true
-            }
+          column: {
+            colorByPoint: true
+          }
         },
         xAxis: {
           categories: [
@@ -79,21 +87,23 @@ function HomePage(props) {
     : null;
 
   return (
-    <div className="rulePageContainer">
-      <h1 data-testid="homeHeader">welcome to home page</h1>
-    
-        <div>
-          <HighchartsReact highcharts={Highcharts} options={options} />
-        </div>
+    <div className="homePageContainer">
+      <h1 data-testid="homeHeader">Fitness Challenge</h1>
 
-      <div>
-        <HighchartsReact
-            highcharts={Highcharts}
-            options={pastThirtyDaysOptions}
-          />
-      </div>
+      <HighchartsReact
+        className="homePageGraph"
+        highcharts={Highcharts}
+        options={options}
+      />
+
+        <br></br>
+      <HighchartsReact
+        className="homePageGraph"
+        highcharts={Highcharts}
+        options={pastThirtyDaysOptions}
+      />
     </div>
   );
 }
 
-export default HomePage;
+export default withRouter(HomePage);
