@@ -7,9 +7,9 @@ function ChallengeNavBar(){
         <div className='subNavContainer'>
             <NavLink  linkName='Current Challenges'/>
             <NavLink destination='/Challenges' linkName='Create'/>
-            <NavLink destination='/PendingChallenges' linkName='Pending'/>
-            <NavLink destination='/PastChallenges' linkName='Past'/>
-            <NavLink destination='/CurrentFutureChallenges' linkName='Current-future'/>
+            <NavLink testid='PendingChallenges' destination='/PendingChallenges' linkName='Pending'/>
+            <NavLink testid='PastChallenges'  destination='/PastChallenges' linkName='Past'/>
+            <NavLink testid='currentFutureChallenges' destination='/CurrentFutureChallenges' linkName='Current-future'/>
         </div>
     )
 }

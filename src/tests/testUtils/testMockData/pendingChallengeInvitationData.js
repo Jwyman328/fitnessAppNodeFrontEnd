@@ -1,9 +1,10 @@
 import React from 'react';
 
 const pendingChallengeInitialInvitationData = 
-    {
+   [ {
         challengeType: 'totalPoints',
         startDate: '2020-02-23T18:55:31.105Z',
+        endDate: '2020-02-23T18:55:31.105Z',
         status: 'pending',
         _id: '5e52e2432b87a3902678be57',
         creator: 'testCreator',
@@ -11,7 +12,8 @@ const pendingChallengeInitialInvitationData =
         invitee: 'testInvitee',
         title: 'try',
         __v: 0
-      }
+      }]
+
 
 const pendingChallengeInvitationDataChanged =   {
     challengeType: 'totalPoints',

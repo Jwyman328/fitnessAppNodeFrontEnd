@@ -3,37 +3,53 @@ import moxios from 'moxios'
 import GoalsPage from '../pages/goals/GoalsPage'
 //set up global context for tests 
 import { StateProvider } from '../store/globalStore';
-import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
+import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
+import App from '../App'
+import loginUserForTest from './testUtils/loginUserForTest'
 
 
 let element;
 let today;
 describe('goal inputs', () => {
-    beforeEach(() => {
-        element = render(<StateProvider><GoalsPage /></StateProvider>)
+    beforeEach(async() => {
+        moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+        element = render(<StateProvider><App /></StateProvider>)
         today = new Date().toISOString().split('T')[0]
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const goalNavLink = await waitForElement(() => getByTestId('navigateGoalPage') ) 
+        fireEvent.click(goalNavLink)
+ 
     })
 
-    test('start date starts with todays date',()=>{
+    afterEach(() => {
+        moxios.uninstall()
+    })
+
+    test('start date starts with todays date',async()=>{
         const {getByTestId} =element;
         const startDate = getByTestId('startDate')
         expect(startDate.value).toBe(today)
     })
 
-    test('goal start date can be changed', () => {
+    test('goal start date can be changed', async() => {
         const {getByTestId} =element;
         const startDate = getByTestId('startDate')
         fireEvent.change(startDate,{target: {value: '2020-11-25'}}) 
         expect(startDate.value).toBe('2020-11-25')
     })
-    test('goal end date can be changed', () => {
+    test('goal end date can be changed', async() => {
         const {getByTestId} =element;
         const endDate = getByTestId('goalEndDate')
         fireEvent.change(endDate,{target: {value: '2020-11-25'}}) 
         expect(endDate.value).toBe('2020-11-25')
     })
 
-    test('daily goal value start as false', ()=>{
+    test('daily goal value start as false', async()=>{
         const {getByTestId} = element;
         const dailyGoal = getByTestId('dailyGoal');
         expect(dailyGoal.checked).toBe(false)
@@ -46,9 +62,9 @@ describe('goal inputs', () => {
         expect(dailyGoal.checked).toBe(true)
     })
 
-    test('point goal starts at 0', () =>{
+    test('point goal starts at 0', async() =>{
         const {getByTestId} = element;
-        const pointGoal = getByTestId('pointGoal');
+        const pointGoal = await waitForElement(() =>getByTestId('pointGoal') ) ;
         expect(pointGoal.value).toEqual("50")
     })
 
@@ -56,11 +72,20 @@ describe('goal inputs', () => {
 
 describe('mock a success post request', ()=>{
 
-    beforeEach(() => {
-        element = render(<StateProvider><GoalsPage /></StateProvider>)
+    beforeEach(async() => {
 
         moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+        element = render(<StateProvider><App /></StateProvider>)
+
         moxios.stubRequest('http://localhost:3001/totalPointGoal/',{ status: 200})
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const goalNavLink = await waitForElement(() => getByTestId('navigateGoalPage') ) 
+        fireEvent.click(goalNavLink)
     })
 
     afterEach(() => {
@@ -68,7 +93,7 @@ describe('mock a success post request', ()=>{
     })
     test('submit goal shows success msg', async() => {
         const {getByTestId} = element;
-        const submitButton = getByTestId('submitButton')
+        const submitButton = await waitForElement(() => getByTestId('submitButton')) 
         fireEvent.click(submitButton)
         const successMsg = await waitForElement(() => getByTestId('successMsg'))
         expect(successMsg.innerHTML).toBe('Goal created successfully')
@@ -77,11 +102,19 @@ describe('mock a success post request', ()=>{
 })
 
 describe('error msg shows on bad request', () => {
-    beforeEach(() => {
-        element = render(<StateProvider><GoalsPage /></StateProvider>)
-
+    beforeEach(async() => {
         moxios.install()
         moxios.stubRequest('http://localhost:3001/totalPointGoal/',{ status: 400})
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+        element = render(<StateProvider><App /></StateProvider>)
+
+
+        const {getByTestId} = element;
+         loginUserForTest(getByTestId)
+
+        const goalNavLink = await waitForElement(() => getByTestId('navigateGoalPage') ) 
+        fireEvent.click(goalNavLink)
     })
 
     afterEach(() => {
@@ -89,7 +122,7 @@ describe('error msg shows on bad request', () => {
     })
     test('error message shows on bad request', async() => {
         const {getByTestId} = element;
-        const submitButton = getByTestId('submitButton')
+        const submitButton = await waitForElement(() => getByTestId('submitButton') ) 
         fireEvent.click(submitButton)
         const errorMsg = await waitForElement(() => getByTestId('errorMsg'))
         expect(errorMsg.innerHTML).toBe('Error creating goal, please try again')

@@ -6,13 +6,21 @@ import App from '../App'
 import { StateProvider } from '../store/globalStore';
 import { BrowserRouter as Router} from "react-router-dom";
 import activityPointData from './testUtils/testMockData/activityPointData'
+import loginUserForTest from './testUtils/loginUserForTest'
 
 let element;
 describe('mock point results fetch request success', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
         moxios.stubRequest(`http://localhost:3001/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
-        element = render(<StateProvider><Router><ViewResults /></Router></StateProvider>)
+        element = render(<StateProvider><Router><App /></Router></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const resultsNavLink = await waitForElement(() => getByTestId('navigateViewResults') ) 
+        fireEvent.click(resultsNavLink)
     })
 
     afterEach(() => {
@@ -22,7 +30,7 @@ describe('mock point results fetch request success', () => {
     test('input point date shows', () => {
         const {getByTestId} = element;
         const dateElement = getByTestId('inputDate');
-        expect(dateElement.innerHTML).toBe('2020-02-24T00:00:00.000Z')
+        expect(dateElement.innerHTML).toBe('2020-02-24')
     })
     test('input total point data shows', () => {
         const {getByTestId} = element;
@@ -32,10 +40,19 @@ describe('mock point results fetch request success', () => {
 })
 
 describe('mock point results fetch request success, start at home page to use withRouter successfully', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
         moxios.stubRequest(`http://localhost:3001/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
         element = render(<StateProvider><App /></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const resultsNavLink = await waitForElement(() => getByTestId('navigateViewResults') ) 
+        fireEvent.click(resultsNavLink)
+
     })
 
     afterEach(() => {
@@ -43,19 +60,19 @@ describe('mock point results fetch request success, start at home page to use wi
     })
 
     test('see graph button navigates to individual graph page' , async() => {
+      
         const {getByTestId} = element;
-        const navigateViewResults = getByTestId('navigateViewResults')
-        fireEvent.click(navigateViewResults)
+
         const graphButton = await waitForElement(() =>  getByTestId('graphButton'));
         fireEvent.click(graphButton)
         const graphPageHeader = await waitForElement(() => getByTestId('graphPageHeader'))
-        expect(graphPageHeader.innerHTML).toBe('daily point graph')
+        expect(graphPageHeader.innerHTML).toBe('Daily Point Graph')
 
     } )
     test('see update button navigates to individual update page' , async() => {
+
         const {getByTestId} = element;
-        const navigateViewResults = getByTestId('navigateViewResults')
-        fireEvent.click(navigateViewResults)
+
         const graphButton = await waitForElement(() =>  getByTestId('updateButton'));
         fireEvent.click(graphButton)
         const graphPageHeader = await waitForElement(() => getByTestId('updatePageHeader'))

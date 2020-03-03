@@ -97,7 +97,7 @@ describe('Test signup request', () => {
         fireEvent.click(signUpButton)
         // find evidence that in home page 
         const homePageHeader = await waitForElement(() => getByTestId('homeHeader') )
-        expect(homePageHeader.innerHTML).toMatch('welcome to home page')
+        expect(homePageHeader.innerHTML).toMatch('Fitness Challenge')
     }) 
     
 } )

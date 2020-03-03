@@ -49,6 +49,7 @@ function UpdateActivityInput(props) {
    * Fetch activity input data.
    */
   useEffect(() => {
+    console.log('in update')
     getActivityInput(dispatch, globalState.token, activityId);
   }, []);
 

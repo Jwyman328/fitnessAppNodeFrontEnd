@@ -70,7 +70,7 @@ describe('mox form submit success', () => {
         fireEvent.click(submitButton)
         //check user is redirect to the homepage
         const homePageHeader = await waitForElement(() => getByTestId('homeHeader') )
-        expect(homePageHeader.innerHTML).toMatch('welcome to home page')
+        expect(homePageHeader.innerHTML).toMatch('Fitness Challenge')
     } )
 })
 let elements

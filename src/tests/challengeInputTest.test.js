@@ -4,12 +4,24 @@ import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
 import ChallengePage from '../pages/challenges/ChallengePage';
 
+import App from '../App'
+import loginUserForTest from './testUtils/loginUserForTest'
+
 let element;
 const today = new Date().toISOString().split('T')[0]
 
 describe('challenge inputs can accept data changes', () => {
-    beforeEach(() => {
-         element = render(<StateProvider><ChallengePage/></StateProvider>)
+    beforeEach(async() => {
+        moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+         element = render(<StateProvider><App/></StateProvider>)
+         const {getByTestId} = element;
+         loginUserForTest(getByTestId)
+ 
+         const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+         fireEvent.click(challengeNavLink)
+
     })
 
     test('Challenge type default to total points', () => {
@@ -46,10 +58,17 @@ describe('challenge inputs can accept data changes', () => {
 })
 
 describe('mock getAllusers request returns mock users', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
         moxios.stubRequest('http://localhost:3001/user/allUsers/',{ status: 200, response: ['testEmail@gmail.com','testEmail2@gmail.com']} )
-        element = render(<StateProvider><ChallengePage/></StateProvider>)
+        element = render(<StateProvider><App/></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
     })
 
     afterEach(() => {
@@ -74,10 +93,17 @@ describe('mock getAllusers request returns mock users', () => {
 })
 
 describe('mock create challenge request returns success', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
         moxios.stubRequest('http://localhost:3001/challenge/',{ status: 200})
-        element = render(<StateProvider><ChallengePage/></StateProvider>)
+        element = render(<StateProvider><App/></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
     })
 
     afterEach(() => {
@@ -95,10 +121,17 @@ describe('mock create challenge request returns success', () => {
 
 
 describe('mock create challenge request returns error', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
         moxios.stubRequest('http://localhost:3001/challenge/',{ status: 400})
-        element = render(<StateProvider><ChallengePage/></StateProvider>)
+        element = render(<StateProvider><App/></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
     })
 
     afterEach(() => {

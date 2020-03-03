@@ -46,28 +46,24 @@ import { getGlobalState, dispatchInputChange } from "./utils/helperFunctions";
  */
 function App(props) {
   const globalState = getGlobalState(useContext(store));
-  const { isLoggedIn } = globalState;
-
+  //const { isLoggedIn } = globalState;
+  const isLoggedIn = true;
   const nonLoggedInPages = ["/signup", "/login", "/HowTo", "/Rules"];
 
   return (
     <div className="App">
       <Router>
-        {isLoggedIn ? null : (
+        
           <Switch>
             <Route path="/">
               <AuthNavBar />
             </Route>
           </Switch>
-        )}
+    
        
-        {isLoggedIn ? (
-          <Switch>
-            <Route path="/">
-              <LoggedInNavBar />
-            </Route>
-          </Switch>
-        ) : null}
+  
+         
+        ) 
 
         <Switch>
           <Route exact path="/signup">
@@ -84,55 +80,54 @@ function App(props) {
             <LoginPage />
           </Route>
         </Switch>
-        {isLoggedIn ? (
+  
           <Switch>
             <Route exact path="/inputPoints">
               <InputPointsPage />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+     
+  
           <Switch>
             <Route exact path="/GoalPage">
               <GoalPage />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+    
+ 
           <Switch>
             <Route exact path="/GoalsGraph">
               <GoalsGraphs />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+
+
           <Switch>
             <Route exact path="/CurrentFutureGoals">
               <CurrentFutureGoals />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+
           <Switch>
             <Route exact path="/PastGoals">
               <PastGoals />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+    
+
           <Switch>
             <Route exact path="/Challenges">
               <ChallengePage />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+   
+    
           <Switch>
             <Route exact path="/ViewResults">
               <ViewResults />
             </Route>
           </Switch>
-        ) : null}
+   
         <Switch>
           <Route exact path="/Rules">
             <Rules />
@@ -143,41 +138,41 @@ function App(props) {
             <HowTo />
           </Route>
         </Switch>
-        {isLoggedIn ? (
+      
           <Switch>
             <Route exact path="/PendingChallenges">
               <PendingChallenges />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+  
+
           <Switch>
             <Route exact path="/PastChallenges">
               <PastChallenges />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+
+
           <Switch>
             <Route exact path="/CurrentFutureChallenges">
               <CurrentFutureChallenges />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+      
+   
           <Switch>
             <Route exact path="/IndividualDailyPointGraph">
               <IndividualDailyPointGraph />
             </Route>
           </Switch>
-        ) : null}
-        {isLoggedIn ? (
+
+    
           <Switch>
             <Route exact path="/IndividualActivityPointUpdate">
               <UpdateActivityInput />
             </Route>
           </Switch>
-        ) : null}
+
       </Router>
     </div>
   );

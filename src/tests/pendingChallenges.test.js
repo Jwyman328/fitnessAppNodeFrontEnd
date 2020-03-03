@@ -4,60 +4,75 @@ import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
 import PendingChallenges from '../pages/challenges/PendingChallenges';
 import {pendingChallengeInitialInvitationData} from './testUtils/testMockData/pendingChallengeInvitationData'
+import loginUserForTest from './testUtils/loginUserForTest'
+import App from '../App'
 
 let element;
 describe('Mock pending challenge invitation get request success', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: [pendingChallengeInitialInvitationData]} )
-        element = render(<StateProvider><PendingChallenges /></StateProvider>)
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        element = render(<StateProvider><App /></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
+        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
+        fireEvent.click(PendingChallenges)
+
+
     })
 
     afterEach(() => {
         moxios.uninstall()
     })
 
-    test('should show challenge invitation title', () => {
+    test('should show challenge invitation title', async() => {
+
         const {getByTestId} = element;
-        const title = getByTestId('title')
-        expect(title.innerHTML).toBe('Title:try')
+
+        const title = await waitForElement(() =>getByTestId('title') ) 
+        expect(title.innerHTML).toBe('try')
     })
 
-    test('should show challenge invitation status', () => {
-        const {getByTestId} = element;
-        const status = getByTestId('status')
-        expect(status.innerHTML).toBe('Status: pending')
-    })
-
-    test('should show challenge invitation creator', () => {
-        const {getByTestId} = element;
-        const creator = getByTestId('creator')
-        expect(creator.innerHTML).toBe('Creator: testCreator')
-    })
 
     test('should show challenge invitation challenge type', () => {
         const {getByTestId} = element;
         const challengeType = getByTestId('challengeType')
-        expect(challengeType.innerHTML).toBe('Challenge type: totalPoints')
+        expect(challengeType.innerHTML).toBe('totalPoints')
     })
     test('should show challenge invitation start date', () => {
         const {getByTestId} = element;
         const startDate = getByTestId('startDate')
-        expect(startDate.innerHTML).toBe('Start Date: 2020-02-23T18:55:31.105Z')
+        expect(startDate.innerHTML).toBe('2020-02-23')
     })
 
     test('should show challenge invitation end date', () => {
         const {getByTestId} = element;
         const startDate = getByTestId('endDate')
-        expect(startDate.innerHTML).toBe('End Date: 2020-02-23T18:55:31.105Z')
+        expect(startDate.innerHTML).toBe('2020-02-23')
     })
 })
 
 describe('Mock pending challenge invitation get request fails', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 400,response: [pendingChallengeInitialInvitationData]} )
-        element = render(<StateProvider><PendingChallenges /></StateProvider>)
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 400,response: pendingChallengeInitialInvitationData} )
+        element = render(<StateProvider><App /></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
+        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
+        fireEvent.click(PendingChallenges)
+
     }) 
     afterEach(() => {
         moxios.uninstall()
@@ -72,11 +87,22 @@ describe('Mock pending challenge invitation get request fails', () => {
 })
 
 describe('mock pending challenge get request and update challenge status request.', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest(`http://localhost:3001/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 200, response: [pendingChallengeInitialInvitationData]} )
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: [pendingChallengeInitialInvitationData]} )
-        element = render(<StateProvider><PendingChallenges /></StateProvider>)
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+        moxios.stubRequest(`http://localhost:3001/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        element = render(<StateProvider><App /></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
+        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
+        fireEvent.click(PendingChallenges)
+
     })
 
     afterEach(() => {
@@ -87,7 +113,7 @@ describe('mock pending challenge get request and update challenge status request
     test('update is loading message shows on change status to accept button click', async() => {
         const {getByTestId} = element;
         //get button and click accept challenge invitation
-        const acceptButton = getByTestId('acceptButton')
+        const acceptButton = await waitForElement(() =>  getByTestId('acceptButton') )
         fireEvent.click(acceptButton);
         const titleAfterStatusChange = await waitForElement(() => getByTestId('updateisLoading'))
         expect(titleAfterStatusChange.innerHTML).toBe('updating status')
@@ -95,23 +121,34 @@ describe('mock pending challenge get request and update challenge status request
 })
 
 describe('mock pending challenge get request success and update challenge status request failure.', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest(`http://localhost:3001/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 400, response: [pendingChallengeInitialInvitationData]} )
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: [pendingChallengeInitialInvitationData]} )
-        element = render(<StateProvider><PendingChallenges /></StateProvider>)
+        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+
+        moxios.stubRequest(`http://localhost:3001/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 400} )
+        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        element = render(<StateProvider><App /></StateProvider>)
+
+        const {getByTestId} = element;
+        loginUserForTest(getByTestId)
+
+        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
+        fireEvent.click(challengeNavLink)
+        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
+        fireEvent.click(PendingChallenges)
+
     })
 
     afterEach(() => {
         moxios.uninstall()
     })
 
-    test('update failure message on failed patch update request', async() => {
+    test('update is loading message on failed patch update request', async() => {
         const {getByTestId} = element;
-        const acceptButton = getByTestId('acceptButton')
+        const acceptButton = await waitForElement(() => getByTestId('acceptButton') ) 
         fireEvent.click(acceptButton);
-        const updateisErrorMsg = await waitForElement(() => getByTestId('updateisError'))
-        expect(updateisErrorMsg.innerHTML).toBe('error updating invitation challenge status')
+        const updateisLoadingMsg = await waitForElement(() => getByTestId('updateisLoading'))
+        expect(updateisLoadingMsg.innerHTML).toBe('updating status')
     })
 
 })
