@@ -19,7 +19,7 @@ const bodyParameters = {
     key: "value"
  };
 try{
-    const response = await axios.get(`http://localhost:3001/goalPoints/${goalStartDate}/${goalEndDate}/`, {headers: { Authorization: `Bearer ${token}` }},config)
+    const response = await axios.get(`https://enigmatic-springs-36428.herokuapp.com/goalPoints/${goalStartDate}/${goalEndDate}/`, {headers: { Authorization: `Bearer ${token}` }},config)
     dispatch({type: 'addGoalTotalPointsForDateRange', totalPointForDateRange: response.data.totalPointForDateRange})     
 }catch(error){
     dispatch({type:'getTotalAccumulatedError'})

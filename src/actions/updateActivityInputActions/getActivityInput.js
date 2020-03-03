@@ -21,7 +21,7 @@ async function getActivityInput(dispatch,token, activityInputId){
         key: "value"
      };
     try{
-        const response = await axios.get(`http://localhost:3001/activityInput/${activityInputId}/`, {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get(`https://enigmatic-springs-36428.herokuapp.com/activityInput/${activityInputId}/`, {headers: { Authorization: `Bearer ${token}` }},config)
 
         response.data.date = sanitizeSingleDateValue(response.data.date)
         dispatch({type:'addActivityInput', activityInput: response.data})
