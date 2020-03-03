@@ -20,7 +20,7 @@ async function getCurrentGoals(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('http://localhost:3001/currentGoals/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/currentGoals/', {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizesGoalDateValues = sanitizeGoalDateValues(response.data)
         dispatch({type:'addCurrentGoals', currentGoals: sanitizesGoalDateValues})
     }catch(error){

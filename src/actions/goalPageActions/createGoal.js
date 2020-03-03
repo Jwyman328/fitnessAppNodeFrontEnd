@@ -22,7 +22,7 @@ async function CreateGoal(state,dispatch,token){
             key: "value"
          };
         try{
-            const response = await axios.post('http://localhost:3001/totalPointGoal/',bodyParameters,config)
+            const response = await axios.post('https://enigmatic-springs-36428.herokuapp.com/totalPointGoal/',bodyParameters,config)
             // if succesful dispatch success
             dispatch({type:'createGoalSuccess'})
         }catch(error){

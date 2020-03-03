@@ -20,7 +20,7 @@ async function getPastChallenges(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('http://localhost:3001/pastChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/pastChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
         
         const sanitizedDatePastChallenges = sanitizeChallengeDateValues(response.data)
         dispatch({type:'addPastChallenges', pastChallenges: sanitizedDatePastChallenges})

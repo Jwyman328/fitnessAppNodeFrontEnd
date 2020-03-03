@@ -20,7 +20,7 @@ async function GetAllUsers(dispatch,token){
             key: "value"
          };
         try{
-            const response = await axios.get('http://localhost:3001/user/allUsers/', {headers: { Authorization: `Bearer ${token}` }},config)
+            const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/user/allUsers/', {headers: { Authorization: `Bearer ${token}` }},config)
             // if succesful dispatch success
             dispatch({type:'getAllUsersSuccess', allUsers: response.data})
         }catch(error){

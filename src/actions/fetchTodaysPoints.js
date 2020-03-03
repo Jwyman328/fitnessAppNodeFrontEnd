@@ -20,7 +20,8 @@ async function getTodaysPoints(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('http://localhost:3001/todaysPoints/', {headers: { Authorization: `Bearer ${token}` }},config)
+        
+        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/todaysPoints/', {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizedActivityPointValues = sanitizeActivityPointDateValues(response.data)
         dispatch({type:'addTodaysPoints', todaysPoints: sanitizedActivityPointValues[0]})
     }catch(error){

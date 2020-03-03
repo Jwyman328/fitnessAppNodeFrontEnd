@@ -5,7 +5,6 @@ import NavLink from './navLink'
 function ChallengeNavBar(){
     return (
         <div className='subNavContainer'>
-            <NavLink  linkName='Current Challenges'/>
             <NavLink destination='/Challenges' linkName='Create'/>
             <NavLink testid='PendingChallenges' destination='/PendingChallenges' linkName='Pending'/>
             <NavLink testid='PastChallenges'  destination='/PastChallenges' linkName='Past'/>
