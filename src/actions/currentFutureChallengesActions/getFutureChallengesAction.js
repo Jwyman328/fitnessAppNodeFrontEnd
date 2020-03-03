@@ -21,7 +21,7 @@ async function getFutureChallenges(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('http://localhost:3001/futureChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/futureChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizedChallengeDateValues = sanitizeChallengeDateValues(response.data)
         dispatch({type:'addFutureChallenges', futureChallenges: sanitizedChallengeDateValues})
     }catch(error){

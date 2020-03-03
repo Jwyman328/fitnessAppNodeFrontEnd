@@ -22,7 +22,7 @@ async function updateChallengeInvitationStatus(dispatch,token,id, newStatus){
         key: "value"
      };
     try{
-        const response = await axios.patch(`http://localhost:3001/updateChallengeStatus/${id}/`, {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.patch(`https://enigmatic-springs-36428.herokuapp.com/updateChallengeStatus/${id}/`, {headers: { Authorization: `Bearer ${token}` }},config)
         // if succesful dispatch success
         dispatch({type:'pendingChallengeUpdateSuccess'})
         // get the new pending challenges

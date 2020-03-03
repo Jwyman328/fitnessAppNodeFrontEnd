@@ -5,7 +5,6 @@ import NavLink from '../navBars/navLink'
 function ResultsNavBar(){
     return (
         <div className='subNavContainer'>
-            <NavLink  linkName='Graphs'/>
             <NavLink testid='navigateViewResults' destination='/ViewResults' linkName='Data log'/>
         </div>
     )

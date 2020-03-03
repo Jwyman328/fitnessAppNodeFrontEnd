@@ -87,7 +87,7 @@ function InputPointsPage(props) {
               data-testid="sleepHoursInput"
               name="sleepHours"
               type="text"
-              checked={sleepHours}
+              value={sleepHours}
               onChange={handleChange}
             />
           </div>
