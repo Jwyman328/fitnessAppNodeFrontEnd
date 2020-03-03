@@ -35,10 +35,6 @@ function PastGoalsPage(props){
     getPastGoals(dispatch, globalState.token);
   }, []);
 
-  useEffect(() => {
-      console.log( pastGoals, 'passgoals')
-
-  },[pastGoals])
 
     const createGoalRow = (goals) => {
        const goalRow = goals.map(goal => {

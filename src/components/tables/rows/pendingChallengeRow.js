@@ -21,7 +21,7 @@ const PendingChallengeInvitationCard =(dispatch, token, challengeInvitationData)
     }
 
     return(
-        <tr className='rowContainer'>
+        <tr key={`${challengeInvitationData._id}`} className='rowContainer'>
             <td className='rowItem' data-testid='title'>{challengeInvitationData.title}</td>
             <td className='rowItem' data-testid='challengeType'>{challengeInvitationData.challengeType}</td>
             <td className='rowItem' data-testid='startDate'>{challengeInvitationData.startDate}</td>

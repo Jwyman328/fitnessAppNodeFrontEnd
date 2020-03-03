@@ -18,7 +18,6 @@ async function loginUser(state,dispatch){
             headers:{ 'Content-Type': 'application/json'}})
             // if succesful dispatch success
             const responseDataToken = await response.data.token
-            console.log(responseDataToken, 'tt')
             dispatch({type:'loginSuccess', token:responseDataToken})
         }catch(error){
              dispatch({type:'loginError'})

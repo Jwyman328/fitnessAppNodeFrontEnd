@@ -15,7 +15,6 @@ function loginReducer(state, action){
                 isLoading:true,
             }
         case 'loginSuccess':
-            console.log('login successt')
             return {
                 ...state,
                 isLoading: false,

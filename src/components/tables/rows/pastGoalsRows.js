@@ -7,7 +7,7 @@ const pastGoalRow =(goalData) => {
     }
 
     return(
-      <tr className='rowContainer'>
+      <tr key={`${goalData._id}`} className='rowContainer'>
             <td className='rowItem' data-testid='pointGoal'>{goalData.pointGoal}</td>
             <td className='rowItem' data-testid='startDate'>{goalData.goalStartDate}</td>
             <td className='rowItem' data-testid='endDate'>{goalData.goalEndDate}</td>

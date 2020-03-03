@@ -24,7 +24,6 @@ async function CreateGoal(state,dispatch,token){
         try{
             const response = await axios.post('http://localhost:3001/totalPointGoal/',bodyParameters,config)
             // if succesful dispatch success
-            //console.log(response, 'input response')            
             dispatch({type:'createGoalSuccess'})
         }catch(error){
              dispatch({type:'createGoalError'})

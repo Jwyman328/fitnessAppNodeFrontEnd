@@ -29,7 +29,7 @@ const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => 
   }
 
   return (
-    <tr className="rowContainer">
+    <tr key={`${goalData._id}`} className="rowContainer">
       <td className="rowItem" data-testid="pointGoal">
         {goalData.pointGoal}
       </td>
@@ -40,12 +40,12 @@ const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => 
         {goalData.goalEndDate}
       </td>
       {!isPastGoal?<td className="rowItem">
-        <button data-testid="delete" onClick={() => deleteGoal(goalData._id)}>
+        <button className='rowButton' data-testid="delete" onClick={() => deleteGoal(goalData._id)}>
           Delete
         </button>
       </td>:null}
       <td className="rowItem">
-        <button data-testid="graph" onClick={() => navigateToGraphGoal()}>
+        <button className='rowButton' data-testid="graph" onClick={() => navigateToGraphGoal()}>
           Graph
         </button>
       </td>

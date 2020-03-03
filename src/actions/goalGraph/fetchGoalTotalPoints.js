@@ -20,11 +20,9 @@ const bodyParameters = {
  };
 try{
     const response = await axios.get(`http://localhost:3001/goalPoints/${goalStartDate}/${goalEndDate}/`, {headers: { Authorization: `Bearer ${token}` }},config)
-    console.log(response.data, 'goal graph response')      
     dispatch({type: 'addGoalTotalPointsForDateRange', totalPointForDateRange: response.data.totalPointForDateRange})     
 }catch(error){
     dispatch({type:'getTotalAccumulatedError'})
-    console.log(error)
 }
 }
 

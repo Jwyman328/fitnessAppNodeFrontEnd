@@ -38,12 +38,6 @@ function CurrentFutureGoals(props){
     getCurrentGoals(dispatch, globalState.token)
   }, []);
 
-  useEffect(() => {
-      console.log( currentGoals)
-      console.log(futureGoals)
-
-  },[currentGoals, futureGoals])
-
     const createGoalRow = (goals) => {
        const goalRow = goals.map(goal => {
             return CurrentGoalRow(dispatch,globalState.token,goal,props.history )
