@@ -170,7 +170,7 @@ function ChallengePage(props) {
           data-testid="submitButton"
           onClick={handleSubmit}
         >
-          create challenge
+          Create Challenge
         </button>
 
 

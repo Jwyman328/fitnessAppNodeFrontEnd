@@ -50,7 +50,7 @@ function HowTo(props) {
         <div className="subContainer">
           <h2 className="subTitle">
             Step 5: Create Challenges:
-            <LinkButton destination="/Challenges" name='Create Challenge' />
+            <LinkButton destination="/Challenges" name='Create' />
           </h2>
           <ul>
             <li className="subDiscrip">
@@ -62,7 +62,7 @@ function HowTo(props) {
         <div className="subContainer">
           <h2 className="subTitle">
             Step 6: Join Challenges:
-            <LinkButton destination="/PendingChallenges" name='Pending Challenges' />
+            <LinkButton destination="/PendingChallenges" name='Pending' />
           </h2>
           <ul>
           <li className="subDiscrip">

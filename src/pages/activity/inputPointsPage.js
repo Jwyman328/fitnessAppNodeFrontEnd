@@ -95,8 +95,7 @@ function InputPointsPage(props) {
 
           <div className='rowForm'>
           <label className='rowFormItem'>
-            Workout Intensity:
-           
+            Workout Intensity(max4):
           </label>
           <input
             size="15"

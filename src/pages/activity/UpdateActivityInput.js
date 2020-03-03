@@ -111,8 +111,7 @@ function UpdateActivityInput(props) {
             </div>
             <div className="rowForm">
               <label className="rowFormItem">
-                Workout Intensity:
-                
+                Workout Intensity(max = 4):
               </label>
               <input
                   className="rowFormItem"
