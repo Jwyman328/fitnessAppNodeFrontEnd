@@ -53,7 +53,7 @@ function InputPointsPage(props) {
     e.preventDefault();
     dispatch({ type: "inputPointSent" });
     CreateInputPoint(state, dispatch, globalState.token);
-  };
+  }; 
   return (
     <div className="rulePageContainer">
       <div className="containerRules">
