@@ -2,6 +2,7 @@ import React from 'react'
 import '../authNavBar.css'
 import NavLink from './navLink'
 
+//subNavContainer
 function GoalNavBar(){
     return (
         <div className='subNavContainer'>

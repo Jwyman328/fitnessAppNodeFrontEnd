@@ -5,6 +5,7 @@ import HighchartsReact from "highcharts-react-official";
 import {createGraphData} from '../../utils/graphHelperFunctions'
 import ResultsNavBar from '../../components/navBars/resultsNavBar'
 import setPointResultsGraphOptions from '../../utils/goalsGraphOptions'
+import './IndividualDailyPontGraph.css'
 /**
  * Display bar graph for a specific  activity point input.
  * 
@@ -43,15 +44,17 @@ function IndividualDailyPointGraph(props) {
         crosshair: true,
 
     },
+    
   };
 
   //const options = setPointResultsGraphOptions(pointData)
 
   return (
-    <div  className='rulePageContainer' >
+    <div  className='individualChartContainer' >
       <ResultsNavBar />
       <h1 data-testid='graphPageHeader' graph page header>Daily Point Graph</h1>
-      <HighchartsReact  highcharts={Highcharts} options={options} />
+     
+      <HighchartsReact className='individualChart'  highcharts={Highcharts} options={options} />
     </div>
   );
 }

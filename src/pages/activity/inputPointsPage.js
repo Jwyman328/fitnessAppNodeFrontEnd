@@ -80,7 +80,6 @@ function InputPointsPage(props) {
           <div className='rowForm'>
           <label className='rowFormItem' >
             Sleep Hours:
-           
           </label>
           <input
             size="15"

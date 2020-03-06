@@ -9,6 +9,13 @@
     justify-content: space-around;
     align-items: center;
 }
+@media (max-width: 600px) { 
+    .navContainer{
+        height: 25vh;
+        flex-direction: column;
+    }
+ }
+
 .subNavContainer{
     display: flex;
     flex-direction: row;
@@ -20,6 +27,12 @@
     align-items: center;
     margin-top: 2vh;
 }
+@media (max-width: 550px) { 
+    .subNavContainer{
+        height: 20vh;
+        flex-direction: column;
+    }
+ }
 
 .navLink{
     font-size: large;

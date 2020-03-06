@@ -38,10 +38,16 @@
     width: 100%;
 }
 
+@media (max-width: 600px) { 
+    .rowForm{
+		 flex-direction: column;
+		 text-align: center;
+     }
+ }
+
 .rowFormItem{
     flex:1;
     font-size: x-large;
-
     text-align: left;
 
 }
@@ -102,3 +108,20 @@
 	position:relative;
 	top:1px;
 }
+
+/* for challenge page form   */
+.challengeRowForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+.challengeRowForm2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+

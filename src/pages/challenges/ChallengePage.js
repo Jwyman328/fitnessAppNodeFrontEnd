@@ -10,6 +10,8 @@ import {
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
 import ChallengeNavBar from '../../components/navBars/challengeNavBar'
 import './submitButton.css'
+import "../form.css";
+
 function ChallengePage(props) {
   // global store containing the use token for making requests
   const globalState = getGlobalState(useContext(store));
@@ -77,7 +79,6 @@ function ChallengePage(props) {
           <div className="rowForm">
             <label className="rowFormItem">
               Start Date:
-             
             </label>
             <input
                 size="15"
@@ -93,7 +94,6 @@ function ChallengePage(props) {
           <div className="rowForm">
             <label className="rowFormItem">
               End Date:
-              
             </label>
             <input
                 size="15"
@@ -113,7 +113,6 @@ function ChallengePage(props) {
             </label>
             <input
                placeholder='title here..'
-                input
                 size="15"
                 className="rowFormItem"
                 name="title"
