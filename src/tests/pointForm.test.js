@@ -3,12 +3,15 @@ import { render, fireEvent, waitForElement, getByTestId } from '@testing-library
 import moxios from 'moxios';
 import InputPointsPage from '../pages/activity/inputPointsPage'
 import { StateProvider } from '../store/globalStore';
+import { MemoryRouter } from "react-router-dom";
 
 
 let element;
 describe('point form inputs accept data',() => {
     beforeEach(() => {
-        element = render(<InputPointsPage />)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/inputPoints"]} > <InputPointsPage /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
 
     test('date filled with todays date in yyyy-mm-dd format', () => {
@@ -68,7 +71,7 @@ describe('point form inputs accept data',() => {
 describe('mock successful post request', () => {
     beforeEach(() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/activityInput/',{ status: 200})
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/activityInput/',{ status: 200})
         element = render(<StateProvider><InputPointsPage /></StateProvider>)
     })
 
@@ -88,7 +91,7 @@ describe('mock successful post request', () => {
 describe('mock error on post request', () => {
     beforeEach(() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/activityInput/',{ status: 400})
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/activityInput/',{ status: 400})
         element = render(<StateProvider><InputPointsPage /></StateProvider>)
     })
 

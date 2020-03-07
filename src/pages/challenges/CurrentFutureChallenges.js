@@ -53,7 +53,7 @@ function CurrentFutureChallenges(props) {
   }
 
   return (
-   <div className='rulePageContainer'>
+   <div data-testid='main' className='rulePageContainer'>
     <ChallengeNavBar />
       <h2>current challenges</h2>
       <div>

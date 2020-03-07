@@ -1,7 +1,6 @@
 import React from 'react';
 
 function currentFutureChallengeReducer(state, action){
-
     switch(action.type){
         case 'currentChallengesFetchAttempt':
             return {

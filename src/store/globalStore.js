@@ -13,9 +13,14 @@ const {Provider} = store;
  * As well as use the dispatcher to dispatch events to change the global state data.
  * @param {*} chldren - component to be wrapped in a global state.
  */
-const StateProvider = ({children}) => {
-    const [globalState,globalDispatch] = useReducer(globalReducer,initialState);
-    return <Provider value={{globalState, globalDispatch}}>{children}</Provider>
+const StateProvider = (props) => {
+    var [globalState,globalDispatch] = useReducer(globalReducer,initialState);
+    // add ability to change global state with props
+    
+    globalState = props.globalState? props.globalState : globalState
+
+    console.log(globalState)
+    return <Provider value={{globalState, globalDispatch}}>{props.children}</Provider>
 }
 
 export {store, StateProvider}

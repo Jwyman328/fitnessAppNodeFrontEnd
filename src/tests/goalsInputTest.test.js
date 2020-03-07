@@ -6,24 +6,19 @@ import { StateProvider } from '../store/globalStore';
 import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
 import App from '../App'
 import loginUserForTest from './testUtils/loginUserForTest'
+import { MemoryRouter } from "react-router-dom";
 
 
 let element;
 let today;
 describe('goal inputs', () => {
     beforeEach(async() => {
-        moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-
-        element = render(<StateProvider><App /></StateProvider>)
+        moxios.install()        
         today = new Date().toISOString().split('T')[0]
 
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const goalNavLink = await waitForElement(() => getByTestId('navigateGoalPage') ) 
-        fireEvent.click(goalNavLink)
- 
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/GoalPage"]} > <GoalsPage /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
 
     afterEach(() => {
@@ -75,17 +70,11 @@ describe('mock a success post request', ()=>{
     beforeEach(async() => {
 
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
 
-        element = render(<StateProvider><App /></StateProvider>)
-
-        moxios.stubRequest('http://localhost:3001/totalPointGoal/',{ status: 200})
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const goalNavLink = await waitForElement(() => getByTestId('navigateGoalPage') ) 
-        fireEvent.click(goalNavLink)
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/totalPointGoal/',{ status: 200})
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/GoalPage"]} > <GoalsPage /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
 
     afterEach(() => {
@@ -104,17 +93,11 @@ describe('mock a success post request', ()=>{
 describe('error msg shows on bad request', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/totalPointGoal/',{ status: 400})
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/totalPointGoal/',{ status: 400})
 
-        element = render(<StateProvider><App /></StateProvider>)
-
-
-        const {getByTestId} = element;
-         loginUserForTest(getByTestId)
-
-        const goalNavLink = await waitForElement(() => getByTestId('navigateGoalPage') ) 
-        fireEvent.click(goalNavLink)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/GoalPage"]} > <GoalsPage /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
 
     afterEach(() => {

@@ -8,6 +8,7 @@ import renderWithRouter2 from './testUtils/renderWithRouter'
 import App from '../App'
 import { createMemoryHistory } from 'history'
 import { StateProvider } from '../store/globalStore';
+import { MemoryRouter } from "react-router-dom";
 
 
 let element;
@@ -42,8 +43,12 @@ describe('test login inputs', () => {
 describe('mox form submit success', () => {
     beforeEach(() => {
         moxios.install();
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 200, response: { token: 'mockToken' }})
+        element = render(<StateProvider globalState={{loggedIn:true, token:null}}>
+        <MemoryRouter initialEntries={["/login"]} > <LoginPage /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
+    
 
     afterEach(() => {
         moxios.uninstall()
@@ -52,12 +57,8 @@ describe('mox form submit success', () => {
     test('login user successfully', async() => {
         // test entering username and password
         // use StateProvider to provide global context
-        const {container, getByTestId} = renderWithRouter2(<StateProvider><App /></StateProvider>,{
-            route: '/login',
-          })
+        const {container, getByTestId} = element
         // from landingPage navigate to loginPage
-        const loginLink = getByTestId('navigateToLogin')
-        fireEvent.click(loginLink)
 
         //enter password
         const passwordInput = getByTestId('passwordInput')
@@ -72,12 +73,13 @@ describe('mox form submit success', () => {
         const homePageHeader = await waitForElement(() => getByTestId('homeHeader') )
         expect(homePageHeader.innerHTML).toMatch('Fitness Challenge')
     } )
-})
+},10)
 let elements
+
 describe('failed user login attempt', () => {
     beforeEach(() => {
         moxios.install();
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 400, response: { token: 'mockToken' }})
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 400, response: { token: 'mockToken' }})
         element = render(<Router><LoginPage /></Router>)
 
     })

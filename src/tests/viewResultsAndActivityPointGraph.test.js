@@ -7,20 +7,19 @@ import { StateProvider } from '../store/globalStore';
 import { BrowserRouter as Router} from "react-router-dom";
 import activityPointData from './testUtils/testMockData/activityPointData'
 import loginUserForTest from './testUtils/loginUserForTest'
+import { MemoryRouter } from "react-router-dom";
+
 
 let element;
 describe('mock point results fetch request success', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest(`http://localhost:3001/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
-        element = render(<StateProvider><Router><App /></Router></StateProvider>)
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 200, response: { token: 'mockToken' }})
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
 
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const resultsNavLink = await waitForElement(() => getByTestId('navigateViewResults') ) 
-        fireEvent.click(resultsNavLink)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/ViewResults"]} > <ViewResults /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
 
     afterEach(() => {
@@ -35,23 +34,19 @@ describe('mock point results fetch request success', () => {
     test('input total point data shows', () => {
         const {getByTestId} = element;
         const totalPoints = getByTestId('totalPoints');
-        expect(totalPoints.innerHTML).toBe('64.5')
+        expect(totalPoints.innerHTML).toBe('64.50')
     })
 })
 
-describe('mock point results fetch request success, start at home page to use withRouter successfully', () => {
+describe.skip('mock point results fetch request success, start at home page to use withRouter successfully', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 200, response: { token: 'mockToken' }})
 
-        moxios.stubRequest(`http://localhost:3001/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
-        element = render(<StateProvider><App /></StateProvider>)
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
 
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const resultsNavLink = await waitForElement(() => getByTestId('navigateViewResults') ) 
-        fireEvent.click(resultsNavLink)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/ViewResults"]} > <ViewResults /></MemoryRouter> </StateProvider>)
 
     })
 

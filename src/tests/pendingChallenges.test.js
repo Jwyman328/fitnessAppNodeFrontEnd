@@ -6,23 +6,17 @@ import PendingChallenges from '../pages/challenges/PendingChallenges';
 import {pendingChallengeInitialInvitationData} from './testUtils/testMockData/pendingChallengeInvitationData'
 import loginUserForTest from './testUtils/loginUserForTest'
 import App from '../App'
+import { MemoryRouter } from "react-router-dom";
+
 
 let element;
 describe('Mock pending challenge invitation get request success', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
-        element = render(<StateProvider><App /></StateProvider>)
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
-        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
-        fireEvent.click(PendingChallenges)
-
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/PendingChallenges"]} > <PendingChallenges /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
 
     })
 
@@ -34,7 +28,7 @@ describe('Mock pending challenge invitation get request success', () => {
 
         const {getByTestId} = element;
 
-        const title = await waitForElement(() =>getByTestId('title') ) 
+        const title = await waitForElement(() => getByTestId('title') ) 
         expect(title.innerHTML).toBe('try')
     })
 
@@ -60,18 +54,14 @@ describe('Mock pending challenge invitation get request success', () => {
 describe('Mock pending challenge invitation get request fails', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
 
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 400,response: pendingChallengeInitialInvitationData} )
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,{ status: 400,response: pendingChallengeInitialInvitationData} )
         element = render(<StateProvider><App /></StateProvider>)
 
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/PendingChallenges"]} > <PendingChallenges /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
 
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
-        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
-        fireEvent.click(PendingChallenges)
 
     }) 
     afterEach(() => {
@@ -89,19 +79,14 @@ describe('Mock pending challenge invitation get request fails', () => {
 describe('mock pending challenge get request and update challenge status request.', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
 
-        moxios.stubRequest(`http://localhost:3001/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 200, response: pendingChallengeInitialInvitationData} )
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
-        element = render(<StateProvider><App /></StateProvider>)
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
 
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/PendingChallenges"]} > <PendingChallenges /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
 
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
-        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
-        fireEvent.click(PendingChallenges)
 
     })
 
@@ -123,20 +108,12 @@ describe('mock pending challenge get request and update challenge status request
 describe('mock pending challenge get request success and update challenge status request failure.', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
 
-        moxios.stubRequest(`http://localhost:3001/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 400} )
-        moxios.stubRequest(`http://localhost:3001/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
-        element = render(<StateProvider><App /></StateProvider>)
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
-        const PendingChallenges = await waitForElement(() =>  getByTestId('PendingChallenges'));
-        fireEvent.click(PendingChallenges)
-
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,{ status: 400} )
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,{ status: 200, response: pendingChallengeInitialInvitationData} )
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/PendingChallenges"]} > <PendingChallenges /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
 
     afterEach(() => {

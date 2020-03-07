@@ -42,6 +42,10 @@ const CurrentFutureChallenges = React.lazy(() => import("./pages/challenges/Curr
 const IndividualDailyPointGraph =  React.lazy(() => import("./pages/graphs/IndividualDailyPointGraph"));
 const UpdateActivityInput =  React.lazy(() => import("./pages/activity/UpdateActivityInput"));
 
+const LocationDisplay = withRouter(({ location }) => (
+  <div data-testid="location-display">{location.pathname}</div>
+))
+
 /**
  * Router component to handle all application routing.
  *
@@ -206,6 +210,7 @@ function App(props) {
           </Suspense>
         ) : null}
       </Router>
+      
     </div>
   );
 }

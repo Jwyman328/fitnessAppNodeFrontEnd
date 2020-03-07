@@ -1,39 +1,37 @@
 import React from 'react'
 import moxios from 'moxios'
 import { StateProvider } from '../store/globalStore';
-import { render, fireEvent, waitForElement, getByTestId, wait } from '@testing-library/react'
+import { render, fireEvent, waitForElement, getByTestId, wait, prettyDOM } from '@testing-library/react'
 import CurrentFutureChallenges from '../pages/challenges/CurrentFutureChallenges'
 import futureChallengeData from './testUtils/testMockData/futureChallengeData'
 import currentChallengeData from './testUtils/testMockData/currentChallengeData'
 import App from '../App'
 import loginUserForTest from './testUtils/loginUserForTest'
+import { MemoryRouter } from "react-router-dom";
 
 
 let element;
 describe('mock fetch current and future challenge request success',() => {
-    beforeEach(async() =>{
+    beforeEach(() =>{
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest(`http://localhost:3001/currentChallenges/`,{ status: 200, response: currentChallengeData} )
-        moxios.stubRequest(`http://localhost:3001/futureChallenges/`,{ status: 200, response: futureChallengeData} )
-        element = render(<StateProvider><App /></StateProvider>)
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/currentChallenges/',{ status: 200, response: currentChallengeData} )
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/futureChallenges/',{ status: 200, response: futureChallengeData} )
 
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/CurrentFutureChallenges"]} > <CurrentFutureChallenges /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
 
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
-        const currentFutureChallenges = await waitForElement(() =>  getByTestId('currentFutureChallenges'));
-        fireEvent.click(currentFutureChallenges)
     })
     
     afterEach(() => {
         moxios.uninstall()
     })
 
-    test('current challenge data title shows', () => {
-        const {queryAllByTestId, getByTestId} = element;
-        const title = queryAllByTestId('title')
+    test('current challenge data title shows', async() => {
+        const {queryAllByTestId, getByTestId, getAllByTestId} = element;
+        
+        const title = await waitForElement(() => getAllByTestId('title') ) 
+
         expect(title[0].innerHTML).toBe('current challenge ')
     })
 
@@ -47,18 +45,11 @@ describe('mock fetch current and future challenge request success',() => {
 describe('mock fetch current and future challenge request failure',() => {
     beforeEach(async() =>{
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest(`http://localhost:3001/currentChallenges/`,{ status: 400, response: currentChallengeData} )
-        moxios.stubRequest(`http://localhost:3001/futureChallenges/`,{ status: 400, response: futureChallengeData} )
-        element = render(<StateProvider><App /></StateProvider>)
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
-        const currentFutureChallenges = await waitForElement(() =>  getByTestId('currentFutureChallenges'));
-        fireEvent.click(currentFutureChallenges)
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/currentChallenges/`,{ status: 400, response: currentChallengeData} )
+        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/futureChallenges/`,{ status: 400, response: futureChallengeData} )
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/CurrentFutureChallenges"]} > <CurrentFutureChallenges /></MemoryRouter> </StateProvider>)
+         const {getByTestId} = element;
     })
     
     afterEach(() => {

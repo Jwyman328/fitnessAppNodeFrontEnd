@@ -24,6 +24,7 @@ async function getCurrentChallenges(dispatch,token){
         const sanitizedChallengeDateValues = sanitizeChallengeDateValues(response.data)
         dispatch({type:'addCurrentChallenges', currentChallenges: sanitizedChallengeDateValues})
     }catch(error){
+        console.log(error)
          dispatch({type:'currentChallengesFetchError'})
     }
 

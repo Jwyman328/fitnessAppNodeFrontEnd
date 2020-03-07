@@ -6,21 +6,20 @@ import ChallengePage from '../pages/challenges/ChallengePage';
 
 import App from '../App'
 import loginUserForTest from './testUtils/loginUserForTest'
+import { MemoryRouter } from "react-router-dom";
+
 
 let element;
 const today = new Date().toISOString().split('T')[0]
 
 describe('challenge inputs can accept data changes', () => {
     beforeEach(async() => {
-        moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-
-         element = render(<StateProvider><App/></StateProvider>)
+        moxios.install()        
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/Challenges"]} > <ChallengePage /></MemoryRouter> </StateProvider>)
+         
          const {getByTestId} = element;
-         loginUserForTest(getByTestId)
- 
-         const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-         fireEvent.click(challengeNavLink)
+
 
     })
 
@@ -60,15 +59,11 @@ describe('challenge inputs can accept data changes', () => {
 describe('mock getAllusers request returns mock users', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest('http://localhost:3001/user/allUsers/',{ status: 200, response: ['testEmail@gmail.com','testEmail2@gmail.com']} )
-        element = render(<StateProvider><App/></StateProvider>)
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/allUsers/',{ status: 200, response: ['testEmail@gmail.com','testEmail2@gmail.com']} )
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/Challenges"]} > <ChallengePage /></MemoryRouter> </StateProvider>)
+         
+         const {getByTestId} = element;
     })
 
     afterEach(() => {
@@ -95,15 +90,11 @@ describe('mock getAllusers request returns mock users', () => {
 describe('mock create challenge request returns success', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest('http://localhost:3001/challenge/',{ status: 200})
-        element = render(<StateProvider><App/></StateProvider>)
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/challenge/',{ status: 200})
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/Challenges"]} > <ChallengePage /></MemoryRouter> </StateProvider>)
+         
+         const {getByTestId} = element;
     })
 
     afterEach(() => {
@@ -123,15 +114,11 @@ describe('mock create challenge request returns success', () => {
 describe('mock create challenge request returns error', () => {
     beforeEach(async() => {
         moxios.install()
-        moxios.stubRequest('http://localhost:3001/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest('http://localhost:3001/challenge/',{ status: 400})
-        element = render(<StateProvider><App/></StateProvider>)
-
-        const {getByTestId} = element;
-        loginUserForTest(getByTestId)
-
-        const challengeNavLink = await waitForElement(() => getByTestId('navigateToChallenges') ) 
-        fireEvent.click(challengeNavLink)
+        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/challenge/',{ status: 400})
+        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
+        <MemoryRouter initialEntries={["/Challenges"]} > <ChallengePage /></MemoryRouter> </StateProvider>)
+         
+         const {getByTestId} = element;
     })
 
     afterEach(() => {
