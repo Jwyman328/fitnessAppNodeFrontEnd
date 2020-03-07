@@ -66,41 +66,41 @@ function HomePage(props) {
         }
       }
     : {
-      chart: { type: "column" },
-      title: {
-        text: `Todays Points`
-      },
-      colors: [
-        "#5a32a8",
-        "#3a32a8",
-        "#3267a8",
-        "#3285a8",
-        "#329ea8",
-        "#32a885"
-      ],
-      series: [
-        {
-          name: `Todays Points`,
-          data: [0,0,0,0,0,0]
-        }
-      ],
-      plotOptions: {
-        column: {
-          colorByPoint: true
-        }
-      },
-      xAxis: {
-        categories: [
-          "sleep",
-          "workout",
-          "water",
-          "clean eating",
-          "steps",
-          "total"
+        chart: { type: "column" },
+        title: {
+          text: `Todays Points`
+        },
+        colors: [
+          "#5a32a8",
+          "#3a32a8",
+          "#3267a8",
+          "#3285a8",
+          "#329ea8",
+          "#32a885"
         ],
-        crosshair: true
-      }
-    };
+        series: [
+          {
+            name: `Todays Points`,
+            data: [0, 0, 0, 0, 0, 0]
+          }
+        ],
+        plotOptions: {
+          column: {
+            colorByPoint: true
+          }
+        },
+        xAxis: {
+          categories: [
+            "sleep",
+            "workout",
+            "water",
+            "clean eating",
+            "steps",
+            "total"
+          ],
+          crosshair: true
+        }
+      };
 
   const pastThirtyDaysOptions = pastMonthDates
     ? {
@@ -122,21 +122,30 @@ function HomePage(props) {
     : null;
 
   return (
-    <div className="homePageContainer">
-      <h1 data-testid="homeHeader">Fitness Challenge</h1>
+    <div >
+        <h1 data-testid="homeHeader">Fitness Challenge</h1>
 
-      <HighchartsReact
-        className="homePageGraph"
-        highcharts={Highcharts}
-        options={options}
-      />
+      <div className="homePageContainer">
+
+        <div className="homePageGraph">
+          <HighchartsReact
+            className="homePageGraph"
+            highcharts={Highcharts}
+            allowChartUpdate={true}
+            options={options}
+          />
+        </div>
 
         <br></br>
-      <HighchartsReact
-        className="homePageGraph"
-        highcharts={Highcharts}
-        options={pastThirtyDaysOptions}
-      />
+
+        <div className="homePageGraph">
+          <HighchartsReact
+            allowChartUpdate={true}
+            highcharts={Highcharts}
+            options={pastThirtyDaysOptions}
+          />
+        </div>
+      </div>
     </div>
   );
 }
