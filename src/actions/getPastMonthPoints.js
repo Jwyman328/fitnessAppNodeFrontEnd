@@ -20,7 +20,7 @@ async function getTodaysPoints(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/pastMonthPoints/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get(`${process.env.REACT_APP_MAINURL}/pastMonthPoints/`, {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizedActivityPointValues = sanitizeActivityPointDateValues(response.data)
         const pastMonthValues = Last30Days()
         let arrayOfValuesWithDate = createMonthDatePointValue(pastMonthValues,sanitizedActivityPointValues)

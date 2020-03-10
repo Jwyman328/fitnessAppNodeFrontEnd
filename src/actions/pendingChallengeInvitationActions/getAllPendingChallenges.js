@@ -20,7 +20,7 @@ async function getAllPendingChallengeInvitations(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get(`${process.env.REACT_APP_MAINURL}/AllChallengeInvitation/myInvitations/pending`, {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizedChallengeDateValues = sanitizeChallengeDateValues(response.data)
         dispatch({type:'addPendingChallenges', pendingChallenges: sanitizedChallengeDateValues})
     }catch(error){

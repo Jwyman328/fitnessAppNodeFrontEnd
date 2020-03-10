@@ -20,7 +20,7 @@ async function getPastGoals(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/pastGoals/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get(`${process.env.REACT_APP_MAINURL}/pastGoals/`, {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizesGoalDateValues = sanitizeGoalDateValues(response.data)
 
         dispatch({type:'addPastGoals', pastGoals: sanitizesGoalDateValues})

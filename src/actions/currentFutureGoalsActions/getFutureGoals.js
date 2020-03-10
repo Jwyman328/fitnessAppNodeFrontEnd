@@ -20,7 +20,7 @@ async function getfutureGoals(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/futureGoals/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get(`${process.env.REACT_APP_MAINURL}/futureGoals/`, {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizesGoalDateValues = sanitizeGoalDateValues(response.data)
         dispatch({type:'addFutureGoals', futureGoals: sanitizesGoalDateValues})
     }catch(error){

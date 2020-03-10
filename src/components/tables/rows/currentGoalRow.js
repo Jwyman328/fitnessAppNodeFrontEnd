@@ -15,7 +15,7 @@ const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => 
 
   const deleteGoal = async goalId => {
     const response = await axios.delete(
-      `https://enigmatic-springs-36428.herokuapp.com/totalPointGoal/${goalId}/`,
+      `${process.env.REACT_APP_MAINURL}/totalPointGoal/${goalId}/`,
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );

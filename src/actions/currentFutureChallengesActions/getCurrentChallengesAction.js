@@ -20,7 +20,7 @@ async function getCurrentChallenges(dispatch,token){
         key: "value"
      };
     try{
-        const response = await axios.get('https://enigmatic-springs-36428.herokuapp.com/currentChallenges/', {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.get(`${process.env.REACT_APP_MAINURL}/currentChallenges/`, {headers: { Authorization: `Bearer ${token}` }},config)
         const sanitizedChallengeDateValues = sanitizeChallengeDateValues(response.data)
         dispatch({type:'addCurrentChallenges', currentChallenges: sanitizedChallengeDateValues})
     }catch(error){

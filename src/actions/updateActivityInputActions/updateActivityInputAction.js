@@ -20,7 +20,7 @@ async function updateActivityInput(dispatch,token, activityInputId, newData){
         key: "value"
      };
     try{
-        const response = await axios.patch(`https://enigmatic-springs-36428.herokuapp.com/activityInput/${activityInputId}/`, {headers: { Authorization: `Bearer ${token}` }},config)
+        const response = await axios.patch(`${process.env.REACT_APP_MAINURL}/activityInput/${activityInputId}/`, {headers: { Authorization: `Bearer ${token}` }},config)
         dispatch({type:'activityInputUpdateSuccess'})
     }catch(error){
          dispatch({type:'activityInputUpdateError'})

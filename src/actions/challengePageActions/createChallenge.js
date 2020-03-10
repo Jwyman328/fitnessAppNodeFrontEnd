@@ -24,7 +24,7 @@ async function CreateChallenge(state,dispatch,token){
             key: "value"
          };
         try{
-            const response = await axios.post('https://enigmatic-springs-36428.herokuapp.com/challenge/',{headers: { Authorization: `Bearer ${token}` }},config)
+            const response = await axios.post(`${process.env.REACT_APP_MAINURL}/challenge/`,{headers: { Authorization: `Bearer ${token}` }},config)
             // if succesful dispatch success
             dispatch({type:'createChallengeSuccess'})
         }catch(error){
