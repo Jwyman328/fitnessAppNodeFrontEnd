@@ -14,7 +14,7 @@ async function loginUser(state,dispatch){
 
         try{
             const loginData = {email:email,password:password}
-            const response = await axios.post('https://enigmatic-springs-36428.herokuapp.com/user/login',{method:'POST',data:loginData,
+            const response = await axios.post(`${process.env.REACT_APP_MAINURL}/user/login`,{method:'POST',data:loginData,
             headers:{ 'Content-Type': 'application/json'}})
             // if succesful dispatch success
             const responseDataToken = await response.data.token
