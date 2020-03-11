@@ -9,11 +9,13 @@ function globalReducer(state,action){
 
     switch(action.type){
         case('userLoggedIn'):
+            localStorage.setItem('token', JSON.stringify(action.token))
             return {
-            token:action.token,
+            token: JSON.parse(localStorage.getItem('token')), //action.token
             isLoggedIn:true,
         }
         case('userLoggedOut'):
+            localStorage.removeItem('token')
             return{
             token:'',
             isLoggedIn:false,

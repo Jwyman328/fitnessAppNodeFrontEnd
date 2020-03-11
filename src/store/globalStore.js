@@ -19,7 +19,7 @@ const StateProvider = (props) => {
     
     globalState = props.globalState? props.globalState : globalState
 
-    console.log(globalState)
+    console.log(globalState, 'global state')
     return <Provider value={{globalState, globalDispatch}}>{props.children}</Provider>
 }
 

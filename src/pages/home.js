@@ -24,6 +24,10 @@ function HomePage(props) {
   } = state;
 
   useEffect(() => {
+    const localTok = JSON.parse(localStorage.getItem('token'))
+    console.log('localtok', localTok)
+    console.log(globalState.token, 'toke')
+    console.log('same?', globalState.token === localTok )
     getTodaysPoints(dispatch, globalState.token);
     getPastMonthPoints(dispatch, globalState.token);
   }, []);
