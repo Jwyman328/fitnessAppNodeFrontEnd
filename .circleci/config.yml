@@ -7,7 +7,7 @@ jobs:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
       - run: npm install
-      - run: npm run-script build
+      - run: CI=false npm run-script build
   test:
     docker:
       - image: circleci/node:12 # the primary container, where your job's commands are run
