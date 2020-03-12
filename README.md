@@ -33,7 +33,7 @@
  
  <h6> Back End </h6>
 <ul>
- <li>Node</li>
+ <li>Node.js</li>
  <li>Express</li>
   <li>MongoDB</li>
    <li>Redis</li>
