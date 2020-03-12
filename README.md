@@ -10,6 +10,9 @@
  </ul>
 
 <image src='images/scoring.png' height=400 />
+<h3> Input your daily health activities </h3>
+<image src='images/pointInput.png' height=400 />
+
 <h3>View daily and monthly results in beautiful graphs. </h3>
 <image src='images/dailyGraph.png' height=400 />
 <image src='images/monthlyGraph.png' height=400 />
