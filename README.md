@@ -11,12 +11,12 @@
 
 <image src='images/scoring.png' height=400 />
 <h3> Input your daily health activities </h3>
-<image src='images/pointInput.png' height=400 />
+<image src='images/pointInput.png'  width=400 height=400 />
 
 <h3>View daily and monthly results in beautiful graphs. </h3>
-<image src='images/dailyGraph.png' height=400 />
-<image src='images/monthlyGraph.png' height=400 />
+<image src='images/dailyGraph.png'  width=400 height=400 />
+<image src='images/monthlyGraph.png'  width=400 height=400 />
 <br> </br>
 <h3>Set personal point goals and track your goal results.</h3>
-<image src='images/createGoal.png' height=400 />
+<image src='images/createGoal.png'  width=400 height=400 />
 <image src='images/challengeGraph.png' width=400 height=400 />
