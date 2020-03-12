@@ -2,7 +2,7 @@ import React, { useReducer, useContext } from "react";
 import initialState from "../../initialState/pointGoalInitialState";
 import goalReducer from "../../reducers/goalsReducer/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
-import GoalNavBar from '../../components/navBars/goalNavBar'
+import GoalNavBar from "../../components/navBars/goalNavBar";
 import { store } from "../../store/globalStore";
 import {
   getGlobalState,
@@ -54,28 +54,24 @@ function GoalsPage(props) {
     <div className="rulePageContainer">
       <GoalNavBar />
       <div className="containerRules">
-        <h1>Goal Page</h1>
+        <h1>Create A Goal</h1>
         <form className="formContainer">
           <div className="rowForm">
-            <label className="rowFormItem">
-              Start Date:
-            </label>
+            <label className="rowFormItem">Start Date:</label>
             <input
-                size="15"
-                className="rowFormItem"
-                name="goalStartDate"
-                data-testid="startDate"
-                type="text"
-                value={goalStartDate}
-                onChange={handleChange}
-              />
+              size="15"
+              className="rowFormItem"
+              name="goalStartDate"
+              data-testid="startDate"
+              type="text"
+              value={goalStartDate}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="rowForm">
-          <label className="rowFormItem">
-            End Date:
-          </label>
-          <input
+            <label className="rowFormItem">End Date:</label>
+            <input
               size="15"
               className="rowFormItem"
               name="goalEndDate"
@@ -84,55 +80,47 @@ function GoalsPage(props) {
               value={goalEndDate}
               onChange={handleChange}
             />
+          </div>
 
-            </div>
-            
-            <div className="rowForm">
+          <div className="rowForm">
             <label className="rowFormItem">
-            Daily Goal?:
-            <input
-              size="15"
-              className="rowFormItem"
-              name="dailyGoal"
-              data-testid="dailyGoal"
-              type="checkbox"
-              checked={dailyGoal}
-              onChange={handleChange}
-            />
-          </label>
-            </div>
+              Daily Goal?:
+              <input
+                size="15"
+                className="rowFormItem"
+                name="dailyGoal"
+                data-testid="dailyGoal"
+                type="checkbox"
+                checked={dailyGoal}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
 
-            <div className="rowForm">
+          <div className="rowForm">
             <label className="rowFormItem">
-            Point Goal:
-            <input
-              size="15"
-              className="rowFormItem"
-              name="pointGoal"
-              data-testid="pointGoal"
-              type="text"
-              value={pointGoal}
-              onChange={handleChange}
-            />
-          </label>
-          
-            </div>
+              Point Goal:
+              <input
+                size="15"
+                className="rowFormItem"
+                name="pointGoal"
+                data-testid="pointGoal"
+                type="text"
+                value={pointGoal}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
 
-            <div className="formItem">
-            </div>
-
-          
-         
-          
-
+          <div className="formItem"></div>
         </form>
         <button
-            className='submitButton'
-            data-testid="submitButton"
-            onClick={handleSubmit}
-          >
-            create goal
-          </button>
+          className="submitButton"
+          data-testid="submitButton"
+          onClick={handleSubmit}
+        >
+          create goal
+        </button>
         {isSuccess ? (
           <div data-testid="successMsg">Goal created successfully</div>
         ) : null}
