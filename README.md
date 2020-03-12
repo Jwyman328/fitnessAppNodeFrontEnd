@@ -44,5 +44,12 @@
  <li>Docker</li>
  <li>CircleCI</li>
  </ul>
+ 
+<h6>Testing</h6>
+<ul>
+ <li>Jest</li>
+ <li>React Testing-Library</li>
+ </ul>
+
 
 
