@@ -20,3 +20,7 @@
 <h3>Set personal point goals and track your goal results.</h3>
 <image src='images/createGoal.png'  width=600 height=400 />
 <image src='images/challengeGraph.png' width=600 height=400 />
+
+<h3> Invite others to compete against in a challenge </h3>
+<image src='images/createChallenge.png' width=600 height=400 />
+
