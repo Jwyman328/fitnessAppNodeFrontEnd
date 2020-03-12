@@ -6,13 +6,10 @@
 <h3> Score points based off health activities. Including: </h3>
 <ul>
  <li> Sleep </li>
-  <li> Sleep </li>
-  <li> Sleep </li>
-  * Workout time and intensity
-  * Steps 
-  * Water consumption 
-  * Clean eating 
- 
+  <li> Workout time and intensity </li>
+  <li> Steps  </li>
+   <li> Water consumption </li>
+   <li> Clean eating  </li>
  </ul>
 
 
