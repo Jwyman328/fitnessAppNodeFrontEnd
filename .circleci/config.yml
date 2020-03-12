@@ -2,9 +2,17 @@ version: 2.1
 jobs:
   build:
     docker: 
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+        - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
-      - store_test_results:
-        path: test-results
+        - checkout # check out the code in the project directory
+        - run: echo "hello world" # run the `echo` command
+        - store_test_results:
+            path: test-results
+        - run:
+            name: Install JUnit coverage reporter
+            command: yarn add --dev jest-junit
+        - run:
+            name: Run tests with JUnit as reporter
+            command: jest --ci --runInBand --reporters=default --reporters=jest-junit
+            environment:
+                JEST_JUNIT_OUTPUT_DIR: "reports/junit/js-test-results.xml"
