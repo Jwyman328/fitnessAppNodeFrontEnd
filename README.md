@@ -39,4 +39,10 @@
    <li>Redis</li>
  </ul>
 
+ <h6>Dev Ops</h6>
+<ul>
+ <li>Docker</li>
+ <li>CircleCI</li>
+ </ul>
+
 
