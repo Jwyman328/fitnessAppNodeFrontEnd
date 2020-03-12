@@ -1,14 +1,14 @@
-<h1>A fitness application with the following features: </h1>
+<h1>A fitness application to challenge yourself, others, and overall get fit!</h1>
 
-<h3>Sign up / Login  </h3>
 
-<h3> Score points with health activities like </h3>
+
+<h3> Score points by doing healthy activities like </h3>
 <ul>
- <li> Sleep hours </li>
-  <li> Workout time and intensity </li>
-  <li> Steps  </li>
-   <li> Water consumption </li>
-   <li> Clean eating  </li>
+ <li>Getting Sleep</li>
+  <li>Working Out</li>
+  <li>Getting Dteps</li>
+   <li>Drinking Water</li>
+   <li>Eating Clean</li>
  </ul>
 
 
