@@ -48,7 +48,7 @@
 <h6>Testing</h6>
 <ul>
  <li>Jest</li>
- <li>React Testing-Library</li>
+ <li>React Testing Library</li>
  </ul>
 
 
