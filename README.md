@@ -21,6 +21,22 @@
 <image src='images/createGoal.png'  width=600 height=400 />
 <image src='images/challengeGraph.png' width=600 height=400 />
 
-<h3> Invite others to compete against in a challenge </h3>
+<h3> Invite others to compete against in a challenge.</h3>
 <image src='images/createChallenge.png' width=600 height=400 />
+
+<h4> Technologies Used </h4>
+<h6> Front End </h6>
+<ul>
+ <li>React</li>
+ <li>CSS + flex-grid + media queries for responsive design</li>
+ </ul>
+ 
+ <h6> Back End </h6>
+<ul>
+ <li>Node</li>
+ <li>Express</li>
+  <li>MongoDB</li>
+   <li>Redis</li>
+ </ul>
+
 
