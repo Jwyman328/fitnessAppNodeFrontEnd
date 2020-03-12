@@ -18,4 +18,5 @@
 <image src='images/monthlyGraph.png' height=400 />
 <br> </br>
 <h3>Set personal point goals and track your goal results.</h3>
+<image src='images/createGoal.png' height=400 />
 <image src='images/challengeGraph.png' height=400 />
