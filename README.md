@@ -66,7 +66,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
+# This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
 # fitnessAppNodeFrontEnd
->>>>>>> 42535f8a793d9229f3a4905087c00a8fffcedc2f
+
+> > > > > > > 42535f8a793d9229f3a4905087c00a8fffcedc2f

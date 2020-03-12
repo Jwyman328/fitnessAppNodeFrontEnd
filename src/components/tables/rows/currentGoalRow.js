@@ -3,8 +3,13 @@ import axios from "axios";
 import getCurrentGoals from "../../../actions/currentFutureGoalsActions/getCurrentGoals";
 import getFutureGoals from "../../../actions/currentFutureGoalsActions/getFutureGoals";
 
-
-const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => {
+const currentGoalRow = (
+  dispatch,
+  token,
+  goalData,
+  history,
+  isPastGoal = false
+) => {
   const config = {
     data: { Authorization: `Bearer ${token}` },
     headers: { Authorization: `Bearer ${token}` }
@@ -24,9 +29,12 @@ const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => 
   };
 
   const navigateToGraphGoal = () => {
-        history.push('/GoalsGraph',{goalStartDate: goalData.goalStartDate,
-            goalEndDate: goalData.goalEndDate, pointGoalTotal: goalData.pointGoalTotal})//
-  }
+    history.push("/GoalsGraph", {
+      goalStartDate: goalData.goalStartDate,
+      goalEndDate: goalData.goalEndDate,
+      pointGoalTotal: goalData.pointGoalTotal
+    }); //
+  };
 
   return (
     <tr key={`${goalData._id}`} className="rowContainer">
@@ -39,13 +47,23 @@ const currentGoalRow = (dispatch, token, goalData, history,isPastGoal=false) => 
       <td className="rowItem" data-testid="endDate">
         {goalData.goalEndDate}
       </td>
-      {!isPastGoal?<td className="rowItem">
-        <button className='rowButton' data-testid="delete" onClick={() => deleteGoal(goalData._id)}>
-          Delete
-        </button>
-      </td>:null}
+      {!isPastGoal ? (
+        <td className="rowItem">
+          <button
+            className="rowButton"
+            data-testid="delete"
+            onClick={() => deleteGoal(goalData._id)}
+          >
+            Delete
+          </button>
+        </td>
+      ) : null}
       <td className="rowItem">
-        <button className='rowButton' data-testid="graph" onClick={() => navigateToGraphGoal()}>
+        <button
+          className="rowButton"
+          data-testid="graph"
+          onClick={() => navigateToGraphGoal()}
+        >
           Graph
         </button>
       </td>
