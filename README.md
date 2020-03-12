@@ -4,7 +4,7 @@
 
 <h3> Score points with health activities like </h3>
 <ul>
- <li> Sleep </li>
+ <li> Sleep hours </li>
   <li> Workout time and intensity </li>
   <li> Steps  </li>
    <li> Water consumption </li>
