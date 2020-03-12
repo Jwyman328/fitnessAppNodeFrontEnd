@@ -6,7 +6,7 @@
 <ul>
  <li>Getting Sleep</li>
   <li>Working Out</li>
-  <li>Getting Dteps</li>
+  <li>Getting Steps</li>
    <li>Drinking Water</li>
    <li>Eating Clean</li>
  </ul>
