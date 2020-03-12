@@ -2,7 +2,7 @@
 
 <h3>Sign up / Login  </h3>
 
-<h3> Score points based off health activities like </h3>
+<h3> Score points with health activities like </h3>
 <ul>
  <li> Sleep </li>
   <li> Workout time and intensity </li>
