@@ -8,8 +8,8 @@ import {
   dispatchInputChange
 } from "../../utils/helperFunctions";
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
-import ChallengeNavBar from '../../components/navBars/challengeNavBar'
-import './submitButton.css'
+import ChallengeNavBar from "../../components/navBars/challengeNavBar";
+import "./submitButton.css";
 import "../form.css";
 
 function ChallengePage(props) {
@@ -71,98 +71,83 @@ function ChallengePage(props) {
 
   return (
     <div className="rulePageContainer">
-     <ChallengeNavBar />
+      <ChallengeNavBar />
       <div className="containerRules">
-        <h1>challenge Page</h1>
+        <h1>Create A Challenge</h1>
 
         <form className="formContainer">
           <div className="rowForm">
-            <label className="rowFormItem">
-              Start Date:
-            </label>
+            <label className="rowFormItem">Start Date:</label>
             <input
-                size="15"
-                className="rowFormItem"
-                name="challengeStartDate"
-                data-testid="challengeStartDate"
-                type="text"
-                value={challengeStartDate}
-                onChange={handleChange}
-              />
+              size="15"
+              className="rowFormItem"
+              name="challengeStartDate"
+              data-testid="challengeStartDate"
+              type="text"
+              value={challengeStartDate}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="rowForm">
-            <label className="rowFormItem">
-              End Date:
-            </label>
+            <label className="rowFormItem">End Date:</label>
             <input
-                size="15"
-                className="rowFormItem"
-                name="challengeEndDate"
-                data-testid="challengeEndDate"
-                type="text"
-                value={challengeEndDate}
-                onChange={handleChange}
-              />
+              size="15"
+              className="rowFormItem"
+              name="challengeEndDate"
+              data-testid="challengeEndDate"
+              type="text"
+              value={challengeEndDate}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="rowForm">
-            <label className="rowFormItem">
-              Title:
-             
-            </label>
+            <label className="rowFormItem">Title:</label>
             <input
-               placeholder='title here..'
-                size="15"
-                className="rowFormItem"
-                name="title"
-                data-testid="title"
-                type="text"
-                value={title}
-                onChange={handleChange}
-              />
+              placeholder="title here.."
+              size="15"
+              className="rowFormItem"
+              name="title"
+              data-testid="title"
+              type="text"
+              value={title}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="rowForm">
-            <label className="rowFormItem">
-              Type:
-            </label>
+            <label className="rowFormItem">Type:</label>
             <select
               className="rowFormItem"
-                multiple={false}
-                data-testid="challengeType"
-                name="challengeType"
-                value={challengeType}
-                onChange={handleChange}
-              >
-                <option value="sleep">Sleep</option>
-                <option value="Water">Water</option>
-                <option value="Clean Eating">Clean Eating</option>
-                <option value="totalPoints">Total Points</option>
-                <option value="Workout">Workout</option>
-              </select>
-          </div>
-          {allUsers ?
-             (<div className="rowForm">
-
-                <label className="rowFormItem">
-                    Invitees:
-              
-              </label>
-              <select
-             
-              className="rowFormItem"
-              multiple={true}
-              data-testid="selectUsersInput"
-              name="userEmails"
-              value={selectedUsers}
-              onChange={handleAddSelectedUser}
+              multiple={false}
+              data-testid="challengeType"
+              name="challengeType"
+              value={challengeType}
+              onChange={handleChange}
             >
-              {createUserSelect()}
+              <option value="sleep">Sleep</option>
+              <option value="Water">Water</option>
+              <option value="Clean Eating">Clean Eating</option>
+              <option value="totalPoints">Total Points</option>
+              <option value="Workout">Workout</option>
             </select>
-
-            
-          </div>) : null}
+          </div>
+          {allUsers ? (
+            <div className="rowForm">
+              <label className="rowFormItem">Invitees:</label>
+              <select
+                className="rowFormItem"
+                multiple={true}
+                data-testid="selectUsersInput"
+                name="userEmails"
+                value={selectedUsers}
+                onChange={handleAddSelectedUser}
+              >
+                {createUserSelect()}
+              </select>
+            </div>
+          ) : null}
         </form>
         <button
           className="submitButton"
@@ -171,7 +156,6 @@ function ChallengePage(props) {
         >
           Create Challenge
         </button>
-
 
         {isSuccess ? (
           <div data-testid="successMsg">Challenge created successfully</div>
