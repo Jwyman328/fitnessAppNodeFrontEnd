@@ -137,7 +137,7 @@ function ChallengePage(props) {
             <div className="rowForm">
               <label className="rowFormItem">Invitees:</label>
               <select
-                className="rowFormItem"
+                className="rowFormItemInvitee"
                 multiple={true}
                 data-testid="selectUsersInput"
                 name="userEmails"

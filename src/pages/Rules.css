@@ -1,50 +1,52 @@
 .rulePageContainer {
-    height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  background-color: #c1c8e4;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .rulePageContainer {
+    height: 120vh;
     width: 100vw;
-    background-color:  #c1c8e4;
+    background-color: #c1c8e4;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-}
-
-@media (max-width: 600px) { 
-    .rulePageContainer {
-        height: 120vh;
-        width: 100vw;
-        background-color:  #c1c8e4;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
+  }
 }
 
 .containerRules {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    border-width: 2px;
-    border-color: chocolate;
-    border-style: double;
-    margin-top: 10%;
-    border: 4mm ridge rgba(10, 50, 220, .6);
-    background-color: #DDE4FF;
-    box-shadow: 10px 5px 5px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border-width: 2px;
+  border-color: chocolate;
+  border-style: double;
+  margin-top: 5%;
+  border: 4mm ridge rgba(10, 50, 220, 0.6);
+  background-color: #dde4ff;
+  box-shadow: 10px 5px 5px grey;
 }
 
 .rulesRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: baseline;
+  text-align: left;
+  width: 65vw;
 }
 
 .ruleDiscrip {
-    padding-left: 5px;
+  padding-left: 5px;
 }

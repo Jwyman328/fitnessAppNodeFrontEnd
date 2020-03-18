@@ -84,10 +84,9 @@ function GoalsPage(props) {
 
           <div className="rowForm">
             <label className="rowFormItem">
-              Daily Goal?:
+              Daily Goal:
               <input
-                size="15"
-                className="rowFormItem"
+                className="rowFormItemCheck"
                 name="dailyGoal"
                 data-testid="dailyGoal"
                 type="checkbox"
