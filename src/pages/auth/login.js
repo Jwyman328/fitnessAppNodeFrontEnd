@@ -58,6 +58,12 @@ function LoginPage(props) {
     <div className="rulePageContainer">
       <div className="containerRules">
         <h1>Login</h1>
+        <div>
+          <h3>Log in as a guest</h3>
+          <h4>email: test_user@test.com</h4>
+          <h4>password: test123</h4>
+        </div>
+
         {isError ? (
           <div data-testid="errorMsg">Error on login, please try again</div>
         ) : null}
@@ -68,9 +74,8 @@ function LoginPage(props) {
           <form className="formContainer">
             <div className="formItem">
               <label className="formTitle">
-                
                 <input
-                placeholder='email'
+                  placeholder="email"
                   size="25"
                   className="formInput"
                   type="text"
@@ -84,9 +89,8 @@ function LoginPage(props) {
 
             <div className="formItem">
               <label className="formTitle">
-                
                 <input
-                placeholder='password'
+                  placeholder="password"
                   size="25"
                   className="formInput"
                   type="password"
