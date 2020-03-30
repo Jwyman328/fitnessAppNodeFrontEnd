@@ -9,6 +9,8 @@ import initialState from "../initialState/homePageInitialState";
 import homePageReducer from "../reducers/homePageReducer";
 import getTodaysPoints from "../actions/fetchTodaysPoints";
 import getPastMonthPoints from "../actions/getPastMonthPoints";
+import logo from "../logos/fitness-outline.svg";
+
 import "./home.css";
 
 function HomePage(props) {
@@ -24,7 +26,7 @@ function HomePage(props) {
   } = state;
 
   useEffect(() => {
-    const localTok = JSON.parse(localStorage.getItem('token'))
+    const localTok = JSON.parse(localStorage.getItem("token"));
     getTodaysPoints(dispatch, globalState.token);
     getPastMonthPoints(dispatch, globalState.token);
   }, []);
@@ -123,11 +125,13 @@ function HomePage(props) {
     : null;
 
   return (
-    <div >
-        <h1 data-testid="homeHeader">Fitness Challenge</h1>
+    <div className="home-container">
+      <img className="logo-left" src={logo} />
+      <img className="logo-right" src={logo} />
+
+      <h1 data-testid="homeHeader">Fitness Challenge</h1>
 
       <div className="homePageContainer">
-
         <div className="homePageGraph">
           <HighchartsReact
             className="homePageGraph"

@@ -4,6 +4,7 @@ import loginAction from "../../actions/loginUser";
 import handleInputAction from "../../actions/handleInput";
 import { Redirect, Link, withRouter } from "react-router-dom";
 import initialState from "../../initialState/loginInitialState";
+import logo from "../../logos/fitness-outline.svg";
 
 import { store } from "../../store/globalStore";
 import {
@@ -57,6 +58,8 @@ function LoginPage(props) {
   return (
     <div className="rulePageContainer">
       <div className="containerRules">
+        <img className="login-logo-left" src={logo} />
+        <img className="login-logo-right" src={logo} />
         <h1>Login</h1>
         <div style={{ textAlign: "left" }}>
           <h3>Log in as a guest</h3>

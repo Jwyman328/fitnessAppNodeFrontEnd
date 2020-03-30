@@ -2,6 +2,8 @@ import React, { useReducer, useEffect, useContext } from "react";
 import signUpReducer from "../../reducers/signUpReducer";
 import handleInputAction from "../../actions/handleInput";
 import signUpAction from "../../actions/signUp";
+import logo from "../../logos/fitness-outline.svg";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -66,6 +68,8 @@ function SignUpPage(props) {
   return (
     <div className="rulePageContainer">
       <div className="containerRules">
+        <img className="login-logo-left" src={logo} />
+        <img className="login-logo-right" src={logo} />
         <h1>Sign up</h1>
         {isLoggedIn ? <Redirect to="/home" /> : null}
         {isError ? (

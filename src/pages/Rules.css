@@ -36,6 +36,19 @@
   border: 4mm ridge rgba(10, 50, 220, 0.6);
   background-color: #dde4ff;
   box-shadow: 10px 5px 5px grey;
+  position: relative;
+}
+.login-logo-left {
+  height: 50px;
+  position: absolute;
+  bottom: 80%;
+  right: 80%;
+}
+.login-logo-right {
+  height: 50px;
+  position: absolute;
+  bottom: 80%;
+  left: 80%;
 }
 
 .rulesRow {
