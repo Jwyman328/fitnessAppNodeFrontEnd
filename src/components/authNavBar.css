@@ -37,6 +37,7 @@
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: grey;
+  transition: all 0.2s;
 }
 
 .navLink:hover {
