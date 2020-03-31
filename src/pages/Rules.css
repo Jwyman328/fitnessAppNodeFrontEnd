@@ -43,12 +43,40 @@
   position: absolute;
   bottom: 80%;
   right: 80%;
+  animation-name: bounce;
+  animation-duration: 3s;
 }
 .login-logo-right {
   height: 50px;
   position: absolute;
   bottom: 80%;
   left: 80%;
+  animation-name: bounce;
+  animation-duration: 3s;
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0.3;
+    transform: scale(0);
+  }
+
+  25% {
+    transform: scale(1.5);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .rulesRow {
