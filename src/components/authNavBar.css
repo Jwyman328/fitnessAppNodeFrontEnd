@@ -41,20 +41,10 @@
 
 .navLink:hover {
   animation-name: hoverGrow;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
   color: black;
+  font-size: larger;
 }
 .navLink:active {
   position: relative;
   top: 1px;
-}
-
-@keyframes hoverGrow {
-  0% {
-    transform: translate(0);
-  }
-  100% {
-    transform: scale(1.25);
-  }
 }
