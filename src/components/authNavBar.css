@@ -42,7 +42,7 @@
 .navLink:hover {
   animation-name: hoverGrow;
   color: black;
-  font-size: larger;
+  transform: scale(1.2);
 }
 .navLink:active {
   position: relative;
