@@ -1,11 +1,11 @@
-
 .individualChartContainer {
-    height: 150vw;
-    width: 100vw;
-    background-color:  #c1c8e4;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  min-height: 130vh;
+  height: auto;
+  width: 100vw;
+  background-color: #c1c8e4;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
