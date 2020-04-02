@@ -10,7 +10,7 @@ import {
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import "./submitButton.css";
-import "../form.css";
+import "../form.scss";
 
 function ChallengePage(props) {
   // global store containing the use token for making requests

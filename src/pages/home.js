@@ -11,7 +11,7 @@ import getTodaysPoints from "../actions/fetchTodaysPoints";
 import getPastMonthPoints from "../actions/getPastMonthPoints";
 import logo from "../logos/fitness-outline.svg";
 
-import "./home.css";
+import "./home.scss";
 
 function HomePage(props) {
   const globalState = getGlobalState(useContext(store));

@@ -8,7 +8,7 @@ import {
   getGlobalState,
   dispatchInputChange
 } from "../../utils/helperFunctions";
-import "../form.css";
+import "../form.scss";
 
 /**
  * Input point data for a selected date.
@@ -53,36 +53,29 @@ function InputPointsPage(props) {
     e.preventDefault();
     dispatch({ type: "inputPointSent" });
     CreateInputPoint(state, dispatch, globalState.token);
-  }; 
+  };
   return (
     <div className="rulePageContainer">
       <div className="containerRules">
-          <h1>
-          Input Activity
-          </h1>
+        <h1>Input Activity</h1>
         <form className="formContainer">
           <div className="rowForm">
-            <label className='rowFormItem'>
-              Date:
-             
-            </label>
+            <label className="rowFormItem">Date:</label>
             <input
               size="15"
-                className="rowFormItem"
-                data-testid="dateInput"
-                name="date"
-                type="text"
-                value={date}
-                onChange={handleChange}
-              />
+              className="rowFormItem"
+              data-testid="dateInput"
+              name="date"
+              type="text"
+              value={date}
+              onChange={handleChange}
+            />
           </div>
 
-          <div className='rowForm'>
-          <label className='rowFormItem' >
-            Sleep Hours:
-          </label>
-          <input
-            size="15"
+          <div className="rowForm">
+            <label className="rowFormItem">Sleep Hours:</label>
+            <input
+              size="15"
               className="rowFormItem"
               data-testid="sleepHoursInput"
               name="sleepHours"
@@ -92,12 +85,10 @@ function InputPointsPage(props) {
             />
           </div>
 
-          <div className='rowForm'>
-          <label className='rowFormItem'>
-            Workout Intensity(max4):
-          </label>
-          <input
-            size="15"
+          <div className="rowForm">
+            <label className="rowFormItem">Workout Intensity(max4):</label>
+            <input
+              size="15"
               className="rowFormItem"
               data-testid="workoutIntenistyInput"
               name="workoutIntenisty"
@@ -105,15 +96,12 @@ function InputPointsPage(props) {
               value={workoutIntenisty}
               onChange={handleChange}
             />
-          </div >
+          </div>
 
-          <div className='rowForm'>
-          <label className='rowFormItem'>
-            Workout Time:
-           
-          </label>
-          <input
-            size="15"
+          <div className="rowForm">
+            <label className="rowFormItem">Workout Time:</label>
+            <input
+              size="15"
               className="rowFormItem"
               data-testid="workoutTimeInput"
               name="workoutTime"
@@ -121,15 +109,12 @@ function InputPointsPage(props) {
               value={workoutTime}
               onChange={handleChange}
             />
-        </div >
+          </div>
 
-        <div className='rowForm'>
-        <label className='rowFormItem'>
-            Steps:
-            
-          </label>
-          <input
-            size="15"
+          <div className="rowForm">
+            <label className="rowFormItem">Steps:</label>
+            <input
+              size="15"
               className="rowFormItem"
               data-testid="stepsInput"
               name="steps"
@@ -137,16 +122,13 @@ function InputPointsPage(props) {
               value={steps}
               onChange={handleChange}
             />
-        </div >
+          </div>
 
-        <div className='rowForm'>
-        <label className='rowFormItem'>
-            Water 100 oz:
-            
-          </label>
-          <input
-            size="15"
-             className="rowFormItem"
+          <div className="rowForm">
+            <label className="rowFormItem">Water 100 oz:</label>
+            <input
+              size="15"
+              className="rowFormItem"
               data-testid="water100ozInput"
               name="water100oz"
               type="checkbox"
@@ -154,17 +136,13 @@ function InputPointsPage(props) {
               checked={water100oz}
               onChange={handleChange}
             />
-        </div >
+          </div>
 
-        <div className='rowForm'> 
-        <label className='rowFormItem'>
-            Clean Eating:
-            
-          </label>
-          <input
-            
-            size="15"
-            className="rowFormItem"
+          <div className="rowForm">
+            <label className="rowFormItem">Clean Eating:</label>
+            <input
+              size="15"
+              className="rowFormItem"
               data-testid="cleanEatingInput"
               name="cleanEating"
               type="checkbox"
@@ -172,11 +150,15 @@ function InputPointsPage(props) {
               checked={cleanEating}
               onChange={handleChange}
             />
-        </div>
+          </div>
         </form>
-        <button className='submitButton' data-testid="submitButton" onClick={handleClick}>
-            Submit points
-          </button> 
+        <button
+          className="submitButton"
+          data-testid="submitButton"
+          onClick={handleClick}
+        >
+          Submit points
+        </button>
         {/* handle results of input point activity submission post request */}
         {isSuccess ? (
           <div data-testid="successMsg">new input successfully create</div>

@@ -1,8 +1,12 @@
-.rulePageContainer {
-  min-height: 100vh;
-  height: auto;
-  width: 100vw;
-  background-color: #c1c8e4;
+$primary-background-gradient: linear-gradient(
+  to right bottom,
+  #5ab9ea,
+  #84ceeb
+);
+$primary-background-dark: darken(#c1c8e4, 15%);
+$glossy-white: #fffcf7;
+
+@mixin rulesContainerLayout() {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -10,16 +14,30 @@
   align-items: center;
 }
 
+@mixin loginLogo($leftPx: none, $rightPx: none) {
+  height: 50px;
+  position: absolute;
+  bottom: 80%;
+  left: $leftPx;
+  right: $rightPx;
+  animation-name: bounce;
+  animation-duration: 3s;
+}
+
+.rulePageContainer {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  background: $primary-background-gradient;
+  @include rulesContainerLayout();
+}
+
 @media (max-width: 600px) {
   .rulePageContainer {
     height: 120vh;
     width: 100vw;
-    background-color: #c1c8e4;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    background: $primary-background-gradient;
+    @include rulesContainerLayout();
   }
 }
 
@@ -33,26 +51,16 @@
   border-color: chocolate;
   border-style: double;
   margin-top: 5%;
-  border: 4mm ridge rgba(10, 50, 220, 0.6);
-  background-color: #dde4ff;
+  border: 1mm ridge #5680e9;
+  background-color: $glossy-white;
   box-shadow: 10px 5px 5px grey;
   position: relative;
 }
 .login-logo-left {
-  height: 50px;
-  position: absolute;
-  bottom: 80%;
-  right: 80%;
-  animation-name: bounce;
-  animation-duration: 3s;
+  @include loginLogo(80%);
 }
 .login-logo-right {
-  height: 50px;
-  position: absolute;
-  bottom: 80%;
-  left: 80%;
-  animation-name: bounce;
-  animation-duration: 3s;
+  @include loginLogo(none, 80%);
 }
 
 @keyframes bounce {

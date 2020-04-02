@@ -1,13 +1,25 @@
-.navContainer {
+$dark-primary-gradient: linear-gradient(
+  to right bottom,
+  #5ab9ea,
+  #5680e9
+); // #5680e9;
+$glossy-white: #fffcf7;
+
+@mixin nav-layout($background-color) {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100vw;
-  background-color: lightblue;
-  height: 10vh;
   justify-content: space-around;
   align-items: center;
+  background: $background-color;
 }
+
+.navContainer {
+  height: 10vh;
+  @include nav-layout($dark-primary-gradient);
+}
+
 @media (max-width: 600px) {
   .navContainer {
     height: 25vh;
@@ -16,15 +28,9 @@
 }
 
 .subNavContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100vw;
-  background-color: white;
   height: 5vh;
-  justify-content: space-around;
-  align-items: center;
   margin-top: 2vh;
+  @include nav-layout($glossy-white);
 }
 @media (max-width: 550px) {
   .subNavContainer {
@@ -36,16 +42,16 @@
 .navLink {
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: grey;
-  transition: all 0.2s;
-}
-
-.navLink:hover {
-  animation-name: hoverGrow;
   color: black;
-  transform: scale(1.2);
-}
-.navLink:active {
-  position: relative;
-  top: 1px;
+  transition: all 0.2s;
+
+  &:hover {
+    animation-name: hoverGrow;
+    transform: scale(1.2);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 }

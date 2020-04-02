@@ -1,5 +1,5 @@
 import React from "react";
-import "./linkButton.css";
+import "./linkButton.scss";
 import { withRouter } from "react-router-dom";
 
 function LinkButton(props) {

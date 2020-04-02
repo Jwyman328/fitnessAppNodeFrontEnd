@@ -1,7 +1,7 @@
 import React, { useReducer, useContext, useEffect, Suspense } from "react";
 import "./App.css";
-import "./pages/form.css";
-import "./pages/Rules.css";
+import "./pages/form.scss";
+import "./pages/Rules.scss";
 import "./pages/challenges/submitButton.css";
 
 //Routing
