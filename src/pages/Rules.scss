@@ -30,6 +30,21 @@ $glossy-white: #fffcf7;
   width: 100vw;
   background: $primary-background-gradient;
   @include rulesContainerLayout();
+  position: relative;
+}
+
+.-image-background {
+  background: transparent;
+}
+
+video {
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.8;
 }
 
 @media (max-width: 600px) {
@@ -59,6 +74,10 @@ $glossy-white: #fffcf7;
 
 .smallCard {
   max-width: 700px;
+}
+
+.login-opacity {
+  opacity: 0.8;
 }
 .login-logo-left {
   @include loginLogo(80%);

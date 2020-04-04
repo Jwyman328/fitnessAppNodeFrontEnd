@@ -3,6 +3,7 @@ import signUpReducer from "../../reducers/signUpReducer";
 import handleInputAction from "../../actions/handleInput";
 import signUpAction from "../../actions/signUp";
 import logo from "../../logos/fitness-outline.svg";
+import vid from "../../logos/runs.mp4";
 
 import {
   BrowserRouter as Router,
@@ -66,8 +67,12 @@ function SignUpPage(props) {
     signUpAction(state, dispatch);
   };
   return (
-    <div className="rulePageContainer">
-      <div className="containerRules smallCard">
+    <div className="rulePageContainer -image-background">
+      <video muted loop autoPlay>
+        <source src={vid} type="video/mp4" />
+      </video>
+
+      <div className="containerRules smallCard login-opacity ">
         <img className="login-logo-left" src={logo} />
         <img className="login-logo-right" src={logo} />
         <h1>Sign up</h1>

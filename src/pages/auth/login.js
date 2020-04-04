@@ -5,6 +5,7 @@ import handleInputAction from "../../actions/handleInput";
 import { Redirect, Link, withRouter } from "react-router-dom";
 import initialState from "../../initialState/loginInitialState";
 import logo from "../../logos/fitness-outline.svg";
+import vid from "../../logos/runs.mp4";
 
 import { store } from "../../store/globalStore";
 import {
@@ -56,11 +57,16 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="rulePageContainer">
-      <div className="containerRules smallCard">
+    <div className="rulePageContainer -image-background">
+      <video muted loop autoPlay>
+        <source src={vid} type="video/mp4" />
+      </video>
+
+      <div className="containerRules smallCard login-opacity">
         <img className="login-logo-left" src={logo} />
         <img className="login-logo-right" src={logo} />
         <h1>Login</h1>
+
         <div style={{ textAlign: "left" }}>
           <h3>Log in as a guest</h3>
           <h4>email: test_user@test.com</h4>
