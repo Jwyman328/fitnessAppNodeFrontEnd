@@ -4,7 +4,7 @@ import NavLink from "./navLink";
 
 function AuthNavBar() {
   return (
-    <div className="navContainer">
+    <div className="navContainer login-opacity ">
       <NavLink
         testid="navigateToSignUp"
         destination="/signup"
