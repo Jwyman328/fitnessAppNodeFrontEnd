@@ -72,7 +72,7 @@ function ChallengePage(props) {
   return (
     <div className="rulePageContainer">
       <ChallengeNavBar />
-      <div className="containerRules">
+      <div className="containerRules smallCard">
         <h1>Create A Challenge</h1>
 
         <form className="formContainer">

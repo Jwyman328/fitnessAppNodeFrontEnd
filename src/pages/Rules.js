@@ -4,7 +4,7 @@ import "./Rules.scss";
 function Rules(props) {
   return (
     <div className="rulePageContainer">
-      <div className="containerRules">
+      <div className="containerRules ">
         <h1>Scoring System</h1>
 
         <div className="rulesRow">

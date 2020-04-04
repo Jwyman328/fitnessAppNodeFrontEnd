@@ -56,7 +56,7 @@ function InputPointsPage(props) {
   };
   return (
     <div className="rulePageContainer">
-      <div className="containerRules">
+      <div className="containerRules smallCard">
         <h1>Input Activity</h1>
         <form className="formContainer">
           <div className="rowForm">

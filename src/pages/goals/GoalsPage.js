@@ -53,7 +53,7 @@ function GoalsPage(props) {
   return (
     <div className="rulePageContainer">
       <GoalNavBar />
-      <div className="containerRules">
+      <div className="containerRules smallCard">
         <h1>Create A Goal</h1>
         <form className="formContainer">
           <div className="rowForm">

@@ -56,6 +56,10 @@ $glossy-white: #fffcf7;
   box-shadow: 10px 5px 5px grey;
   position: relative;
 }
+
+.smallCard {
+  max-width: 700px;
+}
 .login-logo-left {
   @include loginLogo(80%);
 }

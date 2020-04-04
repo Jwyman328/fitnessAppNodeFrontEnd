@@ -67,7 +67,7 @@ function SignUpPage(props) {
   };
   return (
     <div className="rulePageContainer">
-      <div className="containerRules">
+      <div className="containerRules smallCard">
         <img className="login-logo-left" src={logo} />
         <img className="login-logo-right" src={logo} />
         <h1>Sign up</h1>

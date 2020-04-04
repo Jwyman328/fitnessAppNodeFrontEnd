@@ -52,7 +52,6 @@ function UpdateActivityInput(props) {
     getActivityInput(dispatch, globalState.token, activityId);
   }, []);
 
-
   /**
    * Handle input data change events.
    *
@@ -75,112 +74,96 @@ function UpdateActivityInput(props) {
   return (
     <div className="rulePageContainer">
       <ResultsNavBar />
-      <div className="containerRules">
+      <div className="containerRules smallCard">
         <h1 data-testid="updatePageHeader">Update activity input</h1>
 
         {activityInput ? (
           <form className="formContainer">
             <div className="rowForm">
-              <label className="rowFormItem">
-                Date:
-                
-              </label>
+              <label className="rowFormItem">Date:</label>
               <input
-                  className="rowFormItem"
-                  data-testid="dateInput"
-                  name="date"
-                  type="text"
-                  value={date}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="dateInput"
+                name="date"
+                type="text"
+                value={date}
+                onChange={handleChange}
+              />
             </div>
             <div className="rowForm">
-              <label className="rowFormItem">
-                Sleep Hours:
-                
-              </label>
+              <label className="rowFormItem">Sleep Hours:</label>
               <input
-                  className="rowFormItem"
-                  data-testid="sleepHoursInput"
-                  name="hoursOfSleep"
-                  type="text"
-                  value={hoursOfSleep}
-                  checked={hoursOfSleep}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="sleepHoursInput"
+                name="hoursOfSleep"
+                type="text"
+                value={hoursOfSleep}
+                checked={hoursOfSleep}
+                onChange={handleChange}
+              />
             </div>
             <div className="rowForm">
-              <label className="rowFormItem">
-                Workout Intensity(max = 4):
-              </label>
+              <label className="rowFormItem">Workout Intensity(max = 4):</label>
               <input
-                  className="rowFormItem"
-                  data-testid="workoutIntenistyInput"
-                  name="workoutIntensity"
-                  type="text"
-                  value={workoutIntensity}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="workoutIntenistyInput"
+                name="workoutIntensity"
+                type="text"
+                value={workoutIntensity}
+                onChange={handleChange}
+              />
             </div>
             <div className="rowForm">
-              <label className="rowFormItem">
-                Workout Time:
-                
-              </label>
+              <label className="rowFormItem">Workout Time:</label>
               <input
-                  className="rowFormItem"
-                  data-testid="workoutTimeInput"
-                  name="workoutTimeLength"
-                  type="text"
-                  value={workoutTimeLength}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="workoutTimeInput"
+                name="workoutTimeLength"
+                type="text"
+                value={workoutTimeLength}
+                onChange={handleChange}
+              />
             </div>
             <div className="rowForm">
-              <label className="rowFormItem">
-                Steps:
-                
-              </label>
+              <label className="rowFormItem">Steps:</label>
               <input
-                  className="rowFormItem"
-                  data-testid="stepsInput"
-                  name="steps"
-                  type="text"
-                  value={steps}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="stepsInput"
+                name="steps"
+                type="text"
+                value={steps}
+                onChange={handleChange}
+              />
             </div>
             <div className="rowForm">
-              <label className="rowFormItem">
-                Water 100 oz:
-                
-              </label>
+              <label className="rowFormItem">Water 100 oz:</label>
               <input
-                  className="rowFormItem"
-                  data-testid="water100ozInput"
-                  name="water100Oz"
-                  type="checkbox"
-                  checked={water100Oz}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="water100ozInput"
+                name="water100Oz"
+                type="checkbox"
+                checked={water100Oz}
+                onChange={handleChange}
+              />
             </div>
             <div className="rowForm">
-              <label className="rowFormItem">
-                Clean Eating:
-                
-              </label>
+              <label className="rowFormItem">Clean Eating:</label>
               <input
-                  className="rowFormItem"
-                  data-testid="cleanEatingInput"
-                  name="cleanEating"
-                  type="checkbox"
-                  checked={cleanEating}
-                  onChange={handleChange}
-                />
+                className="rowFormItem"
+                data-testid="cleanEatingInput"
+                name="cleanEating"
+                type="checkbox"
+                checked={cleanEating}
+                onChange={handleChange}
+              />
             </div>
           </form>
         ) : null}
-        <button className='submitButton' data-testid="submitButton" onClick={handleClick}>
+        <button
+          className="submitButton"
+          data-testid="submitButton"
+          onClick={handleClick}
+        >
           Submit points
         </button>
         {isLoadingActivityInput ? <div>fetching activity...</div> : null}
