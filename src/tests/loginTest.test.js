@@ -1,108 +1,136 @@
-import React from 'react';
-import { render, fireEvent, waitForElement, getByTestId } from '@testing-library/react'
-import moxios from 'moxios';
-import LoginPage from '../pages/auth/login';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import renderWithRouter from './testUtils/setUpTests'
-import renderWithRouter2 from './testUtils/renderWithRouter'
-import App from '../App'
-import { createMemoryHistory } from 'history'
-import { StateProvider } from '../store/globalStore';
+import React from "react";
+import {
+  render,
+  fireEvent,
+  waitForElement,
+  getByTestId
+} from "@testing-library/react";
+import moxios from "moxios";
+import LoginPage from "../pages/auth/login";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
+import renderWithRouter from "./testUtils/setUpTests";
+import renderWithRouter2 from "./testUtils/renderWithRouter";
+import App from "../App";
+import { createMemoryHistory } from "history";
+import { StateProvider } from "../store/globalStore";
 import { MemoryRouter } from "react-router-dom";
 
-
 let element;
-describe('test login inputs', () => {
-    beforeEach(() => {
-        // set up loginPage element 
-        element = renderWithRouter(<LoginPage />,'/')
-    })
+describe("test login inputs", () => {
+  beforeEach(() => {
+    // set up loginPage element
+    element = renderWithRouter(<LoginPage />, "/");
+  });
 
-    test('test email input', () => {
-        const {getByTestId} = element;
-        const emailInput = getByTestId('emailInput')
-        expect(emailInput.name).toBe('email') ;
-    })
+  test("test email input", () => {
+    const { getByTestId } = element;
+    const emailInput = getByTestId("emailInput");
+    expect(emailInput.name).toBe("email");
+  });
 
-    test('test onChange email input', async() => {
-        const {getByTestId} = element;
-        const emailInput = getByTestId('emailInput')
-        fireEvent.change(emailInput,{target: {value: 'testEmail@gmail.com'}})
-         expect(emailInput.value).toBe('testEmail@gmail.com')
-    })
-    test('test onChange password input', async() => {
-        const {getByTestId} = element;
-        const passwordInput = getByTestId('passwordInput')
-        fireEvent.change(passwordInput,{target: {value: 'myExistingPassword'}})
-         expect(passwordInput.value).toBe('myExistingPassword')
-    })
-})
+  test("test onChange email input", async () => {
+    const { getByTestId } = element;
+    const emailInput = getByTestId("emailInput");
+    fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
+    expect(emailInput.value).toBe("testEmail@gmail.com");
+  });
+  test("test onChange password input", async () => {
+    const { getByTestId } = element;
+    const passwordInput = getByTestId("passwordInput");
+    fireEvent.change(passwordInput, {
+      target: { value: "myExistingPassword" }
+    });
+    expect(passwordInput.value).toBe("myExistingPassword");
+  });
+});
 
+describe("mox form submit success", () => {
+  beforeEach(() => {
+    moxios.install();
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      { status: 200, response: { token: "mockToken" } }
+    );
+    element = render(
+      <StateProvider globalState={{ loggedIn: true, token: null }}>
+        <MemoryRouter initialEntries={["/login"]}>
+          {" "}
+          <LoginPage />
+        </MemoryRouter>{" "}
+      </StateProvider>
+    );
+    const { getByTestId } = element;
+  });
 
+  afterEach(() => {
+    moxios.uninstall();
+  });
 
-describe('mox form submit success', () => {
-    beforeEach(() => {
-        moxios.install();
-        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 200, response: { token: 'mockToken' }})
-        element = render(<StateProvider globalState={{loggedIn:true, token:null}}>
-        <MemoryRouter initialEntries={["/login"]} > <LoginPage /></MemoryRouter> </StateProvider>)
-         const {getByTestId} = element;
-    })
-    
+  test.skip("login user successfully", async () => {
+    // test entering username and password
+    // use StateProvider to provide global context
+    const { container, getByTestId } = element;
+    // from landingPage navigate to loginPage
 
-    afterEach(() => {
-        moxios.uninstall()
-    })
+    //enter password
+    const passwordInput = getByTestId("passwordInput");
+    fireEvent.change(passwordInput, {
+      target: { value: "myExistingPassword" }
+    });
+    //enter email
+    const emailInput = getByTestId("emailInput");
+    fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
+    //submit loginData
+    const submitButton = getByTestId("submitButton");
+    fireEvent.click(submitButton);
+    //check user is redirect to the homepage
+    const homePageHeader = await waitForElement(() =>
+      getByTestId("homeHeader")
+    );
+    expect(homePageHeader.innerHTML).toMatch("Fitness Challenge");
+  });
+});
+let elements;
 
-    test('login user successfully', async() => {
-        // test entering username and password
-        // use StateProvider to provide global context
-        const {container, getByTestId} = element
-        // from landingPage navigate to loginPage
+describe("failed user login attempt", () => {
+  beforeEach(() => {
+    moxios.install();
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      { status: 400, response: { token: "mockToken" } }
+    );
+    element = render(
+      <Router>
+        <LoginPage />
+      </Router>
+    );
+  });
 
-        //enter password
-        const passwordInput = getByTestId('passwordInput')
-        fireEvent.change(passwordInput,{target: {value: 'myExistingPassword'}})
-        //enter email
-        const emailInput = getByTestId('emailInput')
-        fireEvent.change(emailInput,{target: {value: 'testEmail@gmail.com'}})
-        //submit loginData
-        const submitButton = getByTestId('submitButton')
-        fireEvent.click(submitButton)
-        //check user is redirect to the homepage
-        //const homePageHeader = await waitForElement(() => getByTestId('homeHeader') )
-        //expect(homePageHeader.innerHTML).toMatch('Fitness Challenge')
-    } )
-},30)
-let elements
+  afterEach(() => {
+    moxios.uninstall();
+  });
 
-describe('failed user login attempt', () => {
-    beforeEach(() => {
-        moxios.install();
-        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 400, response: { token: 'mockToken' }})
-        element = render(<Router><LoginPage /></Router>)
-
-    })
-
-    afterEach(() => {
-        moxios.uninstall()
-    })
-    
-    test('login user failure shows error message', async() => {
-        const  { getByTestId} = element
-        //enter password
-        const passwordInput = getByTestId('passwordInput')
-        fireEvent.change(passwordInput,{target: {value: 'myExistingPassword'}})
-        //enter email
-        const emailInput = getByTestId('emailInput')
-        fireEvent.change(emailInput,{target: {value: 'testEmail@gmail.com'}})
-        //submit loginData
-        const submitButton = getByTestId('submitButton')
-        fireEvent.click(submitButton)
-        //check error message is displayed
-        const errorMsg = await waitForElement(() => getByTestId('errorMsg')) 
-        expect(errorMsg.innerHTML).toBe('Error on login, please try again')
-    } )
-})
-
-
+  test("login user failure shows error message", async () => {
+    const { getByTestId } = element;
+    //enter password
+    const passwordInput = getByTestId("passwordInput");
+    fireEvent.change(passwordInput, {
+      target: { value: "myExistingPassword" }
+    });
+    //enter email
+    const emailInput = getByTestId("emailInput");
+    fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
+    //submit loginData
+    const submitButton = getByTestId("submitButton");
+    fireEvent.click(submitButton);
+    //check error message is displayed
+    const errorMsg = await waitForElement(() => getByTestId("errorMsg"));
+    expect(errorMsg.innerHTML).toBe("Error on login, please try again");
+  });
+});
