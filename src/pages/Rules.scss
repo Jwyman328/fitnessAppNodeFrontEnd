@@ -54,6 +54,10 @@ video {
     background: $primary-background-gradient;
     @include rulesContainerLayout();
   }
+
+  .login-title {
+    word-break: break-all;
+  }
 }
 
 .containerRules {
@@ -80,10 +84,10 @@ video {
   opacity: 0.8;
 }
 .login-logo-left {
-  @include loginLogo(80%);
+  @include loginLogo(85%);
 }
 .login-logo-right {
-  @include loginLogo(none, 80%);
+  @include loginLogo(none, 85%);
 }
 
 @keyframes bounce {

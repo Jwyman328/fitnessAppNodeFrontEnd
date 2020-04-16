@@ -53,7 +53,6 @@ function LoginPage(props) {
     e.preventDefault();
     dispatch({ type: "loginAttempt" });
     loginAction(state, dispatch);
-    //action to login the user
   };
 
   return (
@@ -65,7 +64,7 @@ function LoginPage(props) {
       <div className="containerRules smallCard login-opacity">
         <img className="login-logo-left" src={logo} />
         <img className="login-logo-right" src={logo} />
-        <h1>Login</h1>
+        <h1 className="login-title">Fit Challenge</h1>
 
         <div style={{ textAlign: "left" }}>
           <h3>Log in as a guest</h3>

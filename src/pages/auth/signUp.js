@@ -75,7 +75,8 @@ function SignUpPage(props) {
       <div className="containerRules smallCard login-opacity ">
         <img className="login-logo-left" src={logo} />
         <img className="login-logo-right" src={logo} />
-        <h1>Sign up</h1>
+        <h1 className="login-title">Fit Challenge</h1>
+        <h2>Sign Up</h2>
         {isLoggedIn ? <Redirect to="/home" /> : null}
         {isError ? (
           <div data-testid="errorMsg">
