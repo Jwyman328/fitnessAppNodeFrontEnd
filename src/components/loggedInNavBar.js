@@ -1,7 +1,7 @@
 import React from "react";
 import "./authNavBar.scss";
 import NavLink from "./navBars/navLink";
-import LogOutButton from "./logOutButton";
+import LogOutButton from "./buttons/logOutButton";
 
 function LoggedInNavBar() {
   return (

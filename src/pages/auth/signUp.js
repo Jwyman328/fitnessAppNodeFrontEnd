@@ -4,7 +4,8 @@ import handleInputAction from "../../actions/handleInput";
 import signUpAction from "../../actions/signUp";
 import logo from "../../logos/fitness-outline.svg";
 import vid from "../../logos/runs.mp4";
-
+import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
+import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,19 +14,8 @@ import {
   Redirect
 } from "react-router-dom";
 import signUpInitialState from "../../initialState/signUpInitialState";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  getGlobalDispatcher
-} from "../../utils/helperFunctions";
 
 function SignUpPage(props) {
-  //global state
-
-  const globalState = getGlobalState(useContext(store));
-  const globalDispatch = getGlobalDispatcher(useContext(store));
-
-  // signUp state
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
   const {
     email,
@@ -39,11 +29,7 @@ function SignUpPage(props) {
     token
   } = state;
 
-  useEffect(() => {
-    if (token) {
-      globalDispatch({ type: "userLoggedIn", token: token });
-    }
-  });
+  useLoginUserOnToken(token);
 
   /**
    * Dispatch action to handle change of input value
@@ -68,9 +54,7 @@ function SignUpPage(props) {
   };
   return (
     <div className="rulePageContainer -image-background">
-      <video muted loop autoPlay>
-        <source src={vid} type="video/mp4" />
-      </video>
+      <RunningBackgroundVideo />
 
       <div className="containerRules smallCard login-opacity ">
         <img className="login-logo-left" src={logo} />
