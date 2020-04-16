@@ -4,46 +4,26 @@ import loginAction from "../../actions/loginUser";
 import handleInputAction from "../../actions/handleInput";
 import { Redirect, Link, withRouter } from "react-router-dom";
 import initialState from "../../initialState/loginInitialState";
-import logo from "../../logoMedia/fitness-outline.svg";
-import vid from "../../logoMedia/runs.mp4";
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
+import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
+import handleInputChange from "./helperFunctionsAuth/handleInputChange";
+import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
 
 import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  getGlobalDispatcher
-} from "../../utils/helperFunctions";
+
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
+import CardTitle from "../../components/cardComponents/CardTitle";
 
 /**
  * Log in an existing user.
  * @param {*} props
  */
 function LoginPage(props) {
-  const globalState = getGlobalState(useContext(store));
-  const globalDispatch = getGlobalDispatcher(useContext(store));
-
   const [state, dispatch] = useReducer(loginReducer, initialState);
   const { email, password, token, isLoading, isLoggedIn, isError } = state;
 
-  /**
-   * Set the global state to the user being logged in.
-   *
-   * Only set global state once a token has been recieved back from the server.
-   */
-  useEffect(() => {
-    if (token) {
-      globalDispatch({ type: "userLoggedIn", token: token });
-    }
-  }, [token, globalState]);
+  useLoginUserOnToken(token);
 
-  /**
-   * Dispatch action that will make all input changes.
-   * @param {*} e -- onChange event
-   */
-  const handleChange = e => {
-    dispatch(handleInputAction(e.target.name, e.target.value));
-  };
   /**
    * Attempt to log the entered user's data.
    *
@@ -64,13 +44,8 @@ function LoginPage(props) {
       <div className="containerRules smallCard login-opacity">
         <FitnessHeartLogo logoPositionSide={"right"} />
         <FitnessHeartLogo logoPositionSide={"left"} />
-        <h1 className="login-title">Fit Challenge</h1>
-
-        <div style={{ textAlign: "left" }}>
-          <h3>Log in as a guest</h3>
-          <h4>email: test_user@test.com</h4>
-          <h4>password: test123</h4>
-        </div>
+        <CardTitle titleText={"Fit Challenge"} />
+        <GuestUserLoginInfo />
 
         {isError ? (
           <div data-testid="errorMsg">Error on login, please try again</div>
@@ -88,7 +63,7 @@ function LoginPage(props) {
                   className="formInput"
                   type="text"
                   name="email"
-                  onChange={handleChange}
+                  onChange={event => handleInputChange(event, dispatch)}
                   value={email}
                   data-testid="emailInput"
                 />
@@ -103,7 +78,7 @@ function LoginPage(props) {
                   className="formInput"
                   type="password"
                   name="password"
-                  onChange={handleChange}
+                  onChange={event => handleInputChange(event, dispatch)}
                   value={password}
                   data-testid="passwordInput"
                 />
