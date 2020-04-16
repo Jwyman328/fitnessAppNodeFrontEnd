@@ -19,10 +19,10 @@ import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
  * @param {*} props
  */
 function LoginPage(props) {
+  useLoginUserOnToken(token);
+
   const [state, dispatch] = useReducer(loginReducer, initialState);
   const { email, password, token, isLoading, isLoggedIn, isError } = state;
-
-  useLoginUserOnToken(token);
 
   /**
    * Attempt to log the entered user's data.

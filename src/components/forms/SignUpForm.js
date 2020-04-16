@@ -1,6 +1,12 @@
 import React, { useReducer } from "react";
 import handleInputChange from "../../pages/auth/helperFunctionsAuth/handleInputChange";
 
+/**
+ * Sign up Form for logging in the user.
+ *
+ * @param {*} state -- Sign up page state
+ * @param {*} dispatch -- Sign up page dispatch
+ */
 function SignUpForm({ state, dispatch }) {
   const {
     email,
