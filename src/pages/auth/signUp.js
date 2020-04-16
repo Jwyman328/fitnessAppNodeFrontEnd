@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import signUpInitialState from "../../initialState/signUpInitialState";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
+import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
 
 function SignUpPage(props) {
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
@@ -141,13 +142,7 @@ function SignUpPage(props) {
             </div>
           </form>
         )}
-        <button
-          className="submitButton"
-          data-testid="signUpButton"
-          onClick={handleClick}
-        >
-          Submit
-        </button>
+        <SubmitDataButton handleSubmit={handleClick} />
       </div>
     </div>
   );

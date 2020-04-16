@@ -1,4 +1,5 @@
 import React from "react";
+import handleInputChange from "../../pages/auth/helperFunctionsAuth/handleInputChange";
 
 function CardInput({ placeHolder, inputState }) {
   return (
@@ -12,7 +13,7 @@ function CardInput({ placeHolder, inputState }) {
           type="text"
           name={placeHolder}
           value={email}
-          onChange={e => handleChange(e)}
+          onChange={event => handleInputChange(event, dispatch)}
         />
       </label>
     </div>

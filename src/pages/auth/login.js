@@ -13,7 +13,7 @@ import { store } from "../../store/globalStore";
 
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import CardTitle from "../../components/cardComponents/CardTitle";
-
+import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
 /**
  * Log in an existing user.
  * @param {*} props
@@ -86,13 +86,7 @@ function LoginPage(props) {
             </div>
           </form>
         )}
-        <button
-          className="submitButton"
-          onClick={handleSubmit}
-          data-testid="submitButton"
-        >
-          Submit
-        </button>
+        <SubmitDataButton handleSubmit={handleSubmit} />
       </div>
     </div>
   );
