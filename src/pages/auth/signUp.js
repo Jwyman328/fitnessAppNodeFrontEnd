@@ -6,7 +6,7 @@ import RunningBackgroundVideo from "../../components/background/RunningBackgroun
 import CardTitle from "../../components/cardComponents/CardTitle";
 import CardSubHeader from "../../components/cardComponents/cardSubHeader";
 import handleInputChange from "./helperFunctionsAuth/handleInputChange";
-
+import SignUpForm from "../../components/forms/SignUpForm";
 import {
   BrowserRouter as Router,
   Switch,
@@ -47,6 +47,7 @@ function SignUpPage(props) {
     dispatch("signupAttempt");
     signUpAction(state, dispatch);
   };
+
   return (
     <div className="rulePageContainer -image-background">
       <RunningBackgroundVideo />
@@ -66,81 +67,7 @@ function SignUpPage(props) {
         {isLoading ? (
           <div> loading </div>
         ) : (
-          <form className="formContainer">
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="email"
-                  size="25"
-                  className="formInput"
-                  data-testid="emailInput"
-                  type="text"
-                  name="email"
-                  value={email}
-                  onChange={event => handleInputChange(event, dispatch)}
-                />
-              </label>
-            </div>
-
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="First Name"
-                  size="25"
-                  className="formInput"
-                  data-testid="firstNameInput"
-                  type="text"
-                  name="firstName"
-                  value={firstName}
-                  onChange={event => handleInputChange(event, dispatch)}
-                />
-              </label>
-            </div>
-
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="Last Name"
-                  size="25"
-                  className="formInput"
-                  data-testid="firstNameInput"
-                  type="text"
-                  name="lastName"
-                  value={lastName}
-                  onChange={event => handleInputChange(event, dispatch)}
-                />
-              </label>
-            </div>
-
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="password"
-                  size="25"
-                  className="formInput"
-                  data-testid="passwordInput"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={event => handleInputChange(event, dispatch)}
-                />
-              </label>
-            </div>
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="password2"
-                  size="25"
-                  className="formInput"
-                  data-testid="passwordInput2"
-                  type="password"
-                  name="password2"
-                  value={password2}
-                  onChange={event => handleInputChange(event, dispatch)}
-                />
-              </label>
-            </div>
-          </form>
+          <SignUpForm state={state} dispatch={dispatch} />
         )}
         <SubmitDataButton handleSubmit={handleClick} />
       </div>

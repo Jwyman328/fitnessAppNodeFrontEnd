@@ -8,7 +8,7 @@ import RunningBackgroundVideo from "../../components/background/RunningBackgroun
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
 import handleInputChange from "./helperFunctionsAuth/handleInputChange";
 import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
-
+import LoginForm from "../../components/forms/LoginForm";
 import { store } from "../../store/globalStore";
 
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
@@ -54,37 +54,7 @@ function LoginPage(props) {
         {isLoading ? (
           <div>Loading</div>
         ) : (
-          <form className="formContainer">
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="email"
-                  size="25"
-                  className="formInput"
-                  type="text"
-                  name="email"
-                  onChange={event => handleInputChange(event, dispatch)}
-                  value={email}
-                  data-testid="emailInput"
-                />
-              </label>
-            </div>
-
-            <div className="formItem">
-              <label className="formTitle">
-                <input
-                  placeholder="password"
-                  size="25"
-                  className="formInput"
-                  type="password"
-                  name="password"
-                  onChange={event => handleInputChange(event, dispatch)}
-                  value={password}
-                  data-testid="passwordInput"
-                />
-              </label>
-            </div>
-          </form>
+          <LoginForm state={state} dispatch={dispatch} />
         )}
         <SubmitDataButton handleSubmit={handleSubmit} />
       </div>
