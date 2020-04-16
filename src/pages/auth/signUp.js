@@ -1,12 +1,25 @@
 import React, { useReducer, useEffect, useContext } from "react";
+
+//actions and reducers
 import signUpReducer from "../../reducers/signUpReducer";
 import signUpAction from "../../actions/signUp";
+
+// state data
 import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
-import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
+import signUpInitialState from "../../initialState/signUpInitialState";
+
+// card components
 import CardTitle from "../../components/cardComponents/CardTitle";
 import CardSubHeader from "../../components/cardComponents/cardSubHeader";
 import handleInputChange from "./helperFunctionsAuth/handleInputChange";
 import SignUpForm from "../../components/forms/SignUpForm";
+import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
+import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+
+//background
+import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
+
+//Routing
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,9 +27,6 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import signUpInitialState from "../../initialState/signUpInitialState";
-import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
-import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
 
 function SignUpPage(props) {
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);

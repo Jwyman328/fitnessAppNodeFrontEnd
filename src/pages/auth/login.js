@@ -1,19 +1,29 @@
 import React, { useReducer, useEffect, useContext } from "react";
+
+// reducers and actions
 import loginReducer from "../../reducers/loginReducer";
 import loginAction from "../../actions/loginUser";
 import handleInputAction from "../../actions/handleInput";
-import { Redirect, Link, withRouter } from "react-router-dom";
-import initialState from "../../initialState/loginInitialState";
-import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
-import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
-import handleInputChange from "./helperFunctionsAuth/handleInputChange";
-import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
-import LoginForm from "../../components/forms/LoginForm";
-import { store } from "../../store/globalStore";
 
+//routing
+import { Redirect, Link, withRouter } from "react-router-dom";
+
+// state data
+import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
+import { store } from "../../store/globalStore";
+import initialState from "../../initialState/loginInitialState";
+
+//card components
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import LoginForm from "../../components/forms/LoginForm";
+import handleInputChange from "./helperFunctionsAuth/handleInputChange";
+import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
+
+//background
+import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
+
 /**
  * Log in an existing user.
  * @param {*} props
