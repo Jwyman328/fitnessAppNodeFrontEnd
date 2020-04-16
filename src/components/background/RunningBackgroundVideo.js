@@ -1,5 +1,5 @@
 import React from "react";
-import runningVideo from "../../logos/runs.mp4";
+import runningVideo from "../../logoMedia/runs.mp4";
 
 /**
  * Display background running video

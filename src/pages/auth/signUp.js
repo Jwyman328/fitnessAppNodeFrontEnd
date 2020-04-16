@@ -2,8 +2,7 @@ import React, { useReducer, useEffect, useContext } from "react";
 import signUpReducer from "../../reducers/signUpReducer";
 import handleInputAction from "../../actions/handleInput";
 import signUpAction from "../../actions/signUp";
-import logo from "../../logos/fitness-outline.svg";
-import vid from "../../logos/runs.mp4";
+import logo from "../../logoMedia/fitness-outline.svg";
 import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 import {
@@ -14,6 +13,7 @@ import {
   Redirect
 } from "react-router-dom";
 import signUpInitialState from "../../initialState/signUpInitialState";
+import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 
 function SignUpPage(props) {
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
@@ -57,8 +57,8 @@ function SignUpPage(props) {
       <RunningBackgroundVideo />
 
       <div className="containerRules smallCard login-opacity ">
-        <img className="login-logo-left" src={logo} />
-        <img className="login-logo-right" src={logo} />
+        <FitnessHeartLogo logoPositionSide={"right"} />
+        <FitnessHeartLogo logoPositionSide={"left"} />
         <h1 className="login-title">Fit Challenge</h1>
         <h2>Sign Up</h2>
         {isLoggedIn ? <Redirect to="/home" /> : null}

@@ -9,7 +9,7 @@ import initialState from "../initialState/homePageInitialState";
 import homePageReducer from "../reducers/homePageReducer";
 import getTodaysPoints from "../actions/fetchTodaysPoints";
 import getPastMonthPoints from "../actions/getPastMonthPoints";
-import logo from "../logos/fitness-outline.svg";
+import logo from "../logoMedia/fitness-outline.svg";
 
 import "./home.scss";
 

@@ -4,14 +4,16 @@ import loginAction from "../../actions/loginUser";
 import handleInputAction from "../../actions/handleInput";
 import { Redirect, Link, withRouter } from "react-router-dom";
 import initialState from "../../initialState/loginInitialState";
-import logo from "../../logos/fitness-outline.svg";
-import vid from "../../logos/runs.mp4";
+import logo from "../../logoMedia/fitness-outline.svg";
+import vid from "../../logoMedia/runs.mp4";
+import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 
 import { store } from "../../store/globalStore";
 import {
   getGlobalState,
   getGlobalDispatcher
 } from "../../utils/helperFunctions";
+import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 
 /**
  * Log in an existing user.
@@ -57,13 +59,11 @@ function LoginPage(props) {
 
   return (
     <div className="rulePageContainer -image-background">
-      <video muted loop autoPlay>
-        <source src={vid} type="video/mp4" />
-      </video>
+      <RunningBackgroundVideo />
 
       <div className="containerRules smallCard login-opacity">
-        <img className="login-logo-left" src={logo} />
-        <img className="login-logo-right" src={logo} />
+        <FitnessHeartLogo logoPositionSide={"right"} />
+        <FitnessHeartLogo logoPositionSide={"left"} />
         <h1 className="login-title">Fit Challenge</h1>
 
         <div style={{ textAlign: "left" }}>
