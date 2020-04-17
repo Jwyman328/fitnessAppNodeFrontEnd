@@ -22,7 +22,8 @@ import handleInputChange from "./helperFunctionsAuth/handleInputChange";
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
 
 // other components
-import ErrorMessage from "../../components/errorMessages/ErrorMessage";
+import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
+import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
 
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
@@ -64,7 +65,7 @@ function LoginPage(props) {
         ) : null}
         {isLoggedIn ? <Redirect to="/home" /> : null}
         {isLoading ? (
-          <div>Loading</div>
+          <LoadingMessage loadingText={"Loading"} />
         ) : (
           <LoginForm state={state} dispatch={dispatch} />
         )}

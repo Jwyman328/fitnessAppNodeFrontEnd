@@ -17,7 +17,8 @@ import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
 
 // other components
-import ErrorMessage from "../../components/errorMessages/ErrorMessage";
+import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
+import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
 
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
@@ -76,7 +77,7 @@ function SignUpPage(props) {
           <ErrorMessage errorText="Error creating user, please try again" />
         ) : null}
         {isLoading ? (
-          <div> loading </div>
+          <LoadingMessage loadingText="loading" />
         ) : (
           <SignUpForm state={state} dispatch={dispatch} />
         )}
