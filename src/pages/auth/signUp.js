@@ -9,6 +9,7 @@ import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
 import signUpInitialState from "../../initialState/signUpInitialState";
 
 // card components
+import AuthCardContainer from "../../components/cardComponents/AuthCardContainer";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import CardSubHeader from "../../components/cardComponents/cardSubHeader";
 import handleInputChange from "./helperFunctionsAuth/handleInputChange";
@@ -67,7 +68,7 @@ function SignUpPage(props) {
       <RunningBackgroundVideo />
       {isLoggedIn ? <Redirect to="/home" /> : null}
 
-      <div className="containerRules smallCard login-opacity ">
+      <AuthCardContainer>
         <FitnessHeartLogo logoPositionSide={"right"} />
         <FitnessHeartLogo logoPositionSide={"left"} />
         <CardTitle titleText={"Fit Challenge"} />
@@ -82,7 +83,7 @@ function SignUpPage(props) {
           <SignUpForm state={state} dispatch={dispatch} />
         )}
         <SubmitDataButton handleSubmit={handleClick} />
-      </div>
+      </AuthCardContainer>
     </div>
   );
 }

@@ -14,6 +14,7 @@ import { store } from "../../store/globalStore";
 import initialState from "../../initialState/loginInitialState";
 
 //card components
+import AuthCardContainer from "../../components/cardComponents/AuthCardContainer";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
@@ -54,7 +55,7 @@ function LoginPage(props) {
     <div className="rulePageContainer -image-background">
       <RunningBackgroundVideo />
 
-      <div className="containerRules smallCard login-opacity">
+      <AuthCardContainer>
         <FitnessHeartLogo logoPositionSide={"right"} />
         <FitnessHeartLogo logoPositionSide={"left"} />
         <CardTitle titleText={"Fit Challenge"} />
@@ -63,14 +64,16 @@ function LoginPage(props) {
         {isError ? (
           <ErrorMessage errorText="Error on login, please try again" />
         ) : null}
+
         {isLoggedIn ? <Redirect to="/home" /> : null}
+
         {isLoading ? (
           <LoadingMessage loadingText={"Loading"} />
         ) : (
           <LoginForm state={state} dispatch={dispatch} />
         )}
         <SubmitDataButton handleSubmit={handleSubmit} />
-      </div>
+      </AuthCardContainer>
     </div>
   );
 }
