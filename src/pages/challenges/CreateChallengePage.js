@@ -34,7 +34,7 @@ import SuccessMessage from "../../components/messagesAboutProgramStatus/successM
 //context
 import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
 
-function ChallengePage(props) {
+function CreateChallengePage(props) {
   const globalState = getGlobalState(useContext(store));
 
   const [state, dispatch] = useReducer(challengeReducer, initialState);
@@ -91,4 +91,4 @@ function ChallengePage(props) {
   );
 }
 
-export default ChallengePage;
+export default CreateChallengePage;

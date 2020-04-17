@@ -10,7 +10,7 @@ import GoalPage from "./pages/goals/GoalsPage";
 import PastGoals from "./pages/goals/PastGoals";
 import GoalsGraphs from "./pages/graphs/GoalsGraph";
 import CurrentFutureGoals from "./pages/goals/currentFutureGoals";
-import ChallengePage from "./pages/challenges/ChallengePage";
+import CreateChallengePage from "./pages/challenges/CreateChallengePage";
 import ViewResults from "./pages/ViewResults";
 import Rules from "./pages/Rules";
 import HowTo from "./pages/HowTo";
@@ -53,18 +53,12 @@ function App(props) {
   return (
     <div className="App">
       <Router>
-        
-          <Switch>
-            <Route path="/">
-              <AuthNavBar />
-            </Route>
-          </Switch>
-    
-       
-  
-         
-        ) 
-
+        <Switch>
+          <Route path="/">
+            <AuthNavBar />
+          </Route>
+        </Switch>
+        )
         <Switch>
           <Route exact path="/signup">
             <SignUpPage />
@@ -80,54 +74,41 @@ function App(props) {
             <LoginPage />
           </Route>
         </Switch>
-  
-          <Switch>
-            <Route exact path="/inputPoints">
-              <InputPointsPage />
-            </Route>
-          </Switch>
-     
-  
-          <Switch>
-            <Route exact path="/GoalPage">
-              <GoalPage />
-            </Route>
-          </Switch>
-    
- 
-          <Switch>
-            <Route exact path="/GoalsGraph">
-              <GoalsGraphs />
-            </Route>
-          </Switch>
-
-
-          <Switch>
-            <Route exact path="/CurrentFutureGoals">
-              <CurrentFutureGoals />
-            </Route>
-          </Switch>
-
-          <Switch>
-            <Route exact path="/PastGoals">
-              <PastGoals />
-            </Route>
-          </Switch>
-    
-
-          <Switch>
-            <Route exact path="/Challenges">
-              <ChallengePage />
-            </Route>
-          </Switch>
-   
-    
-          <Switch>
-            <Route exact path="/ViewResults">
-              <ViewResults />
-            </Route>
-          </Switch>
-   
+        <Switch>
+          <Route exact path="/inputPoints">
+            <InputPointsPage />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/GoalPage">
+            <GoalPage />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/GoalsGraph">
+            <GoalsGraphs />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/CurrentFutureGoals">
+            <CurrentFutureGoals />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/PastGoals">
+            <PastGoals />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/Challenges">
+            <CreateChallengePage />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/ViewResults">
+            <ViewResults />
+          </Route>
+        </Switch>
         <Switch>
           <Route exact path="/Rules">
             <Rules />
@@ -138,41 +119,31 @@ function App(props) {
             <HowTo />
           </Route>
         </Switch>
-      
-          <Switch>
-            <Route exact path="/PendingChallenges">
-              <PendingChallenges />
-            </Route>
-          </Switch>
-  
-
-          <Switch>
-            <Route exact path="/PastChallenges">
-              <PastChallenges />
-            </Route>
-          </Switch>
-
-
-          <Switch>
-            <Route exact path="/CurrentFutureChallenges">
-              <CurrentFutureChallenges />
-            </Route>
-          </Switch>
-      
-   
-          <Switch>
-            <Route exact path="/IndividualDailyPointGraph">
-              <IndividualDailyPointGraph />
-            </Route>
-          </Switch>
-
-    
-          <Switch>
-            <Route exact path="/IndividualActivityPointUpdate">
-              <UpdateActivityInput />
-            </Route>
-          </Switch>
-
+        <Switch>
+          <Route exact path="/PendingChallenges">
+            <PendingChallenges />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/PastChallenges">
+            <PastChallenges />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/CurrentFutureChallenges">
+            <CurrentFutureChallenges />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/IndividualDailyPointGraph">
+            <IndividualDailyPointGraph />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/IndividualActivityPointUpdate">
+            <UpdateActivityInput />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

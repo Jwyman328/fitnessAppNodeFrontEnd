@@ -35,8 +35,8 @@ const GoalsGraphs = React.lazy(() => import("./pages/graphs/GoalsGraph"));
 const CurrentFutureGoals = React.lazy(() =>
   import("./pages/goals/currentFutureGoals")
 );
-const ChallengePage = React.lazy(() =>
-  import("./pages/challenges/ChallengePage")
+const CreateChallengePage = React.lazy(() =>
+  import("./pages/challenges/CreateChallengePage")
 );
 const ViewResults = React.lazy(() => import("./pages/ViewResults"));
 const Rules = React.lazy(() => import("./pages/Rules"));
@@ -174,7 +174,7 @@ function App(props) {
             {" "}
             <Switch>
               <Route exact path="/Challenges">
-                <ChallengePage />
+                <CreateChallengePage />
               </Route>
             </Switch>
           </Suspense>
