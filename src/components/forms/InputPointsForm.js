@@ -12,9 +12,6 @@ function InputPointsForm() {
     InputPointsContext
   );
   const {
-    isLoading,
-    isError,
-    isSuccess,
     date,
     sleepHours,
     water100oz,
