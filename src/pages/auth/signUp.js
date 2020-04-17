@@ -8,6 +8,9 @@ import signUpAction from "../../actions/signUp";
 import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
 import signUpInitialState from "../../initialState/signUpInitialState";
 
+//context
+import SignUpContext from "./authContext/SignUpContext";
+
 // card components
 import AuthCardContainer from "../../components/cardComponents/AuthCardContainer";
 import CardTitle from "../../components/cardComponents/CardTitle";
@@ -64,27 +67,31 @@ function SignUpPage(props) {
   };
 
   return (
-    <div className="rulePageContainer -image-background">
-      <RunningBackgroundVideo />
-      {isLoggedIn ? <Redirect to="/home" /> : null}
+    <SignUpContext.Provider
+      value={{ signUpState: state, signUpDispatch: dispatch }}
+    >
+      <div className="rulePageContainer -image-background">
+        <RunningBackgroundVideo />
+        {isLoggedIn ? <Redirect to="/home" /> : null}
 
-      <AuthCardContainer>
-        <FitnessHeartLogo logoPositionSide={"right"} />
-        <FitnessHeartLogo logoPositionSide={"left"} />
-        <CardTitle titleText={"Fit Challenge"} />
-        <CardSubHeader subHeaderText="Sign Up" />
+        <AuthCardContainer>
+          <FitnessHeartLogo logoPositionSide={"right"} />
+          <FitnessHeartLogo logoPositionSide={"left"} />
+          <CardTitle titleText={"Fit Challenge"} />
+          <CardSubHeader subHeaderText="Sign Up" />
 
-        {isError ? (
-          <ErrorMessage errorText="Error creating user, please try again" />
-        ) : null}
-        {isLoading ? (
-          <LoadingMessage loadingText="loading" />
-        ) : (
-          <SignUpForm state={state} dispatch={dispatch} />
-        )}
-        <SubmitDataButton handleSubmit={handleClick} />
-      </AuthCardContainer>
-    </div>
+          {isError ? (
+            <ErrorMessage errorText="Error creating user, please try again" />
+          ) : null}
+          {isLoading ? (
+            <LoadingMessage loadingText="loading" />
+          ) : (
+            <SignUpForm state={state} dispatch={dispatch} />
+          )}
+          <SubmitDataButton handleSubmit={handleClick} />
+        </AuthCardContainer>
+      </div>
+    </SignUpContext.Provider>
   );
 }
 

@@ -1,46 +1,38 @@
-import React, { useReducer } from "react";
-import handleInputChange from "../../pages/auth/helperFunctionsAuth/handleInputChange";
+import React, { useReducer, useContext, useEffect } from "react";
+
+//context
+import LoginContext from "../../pages/auth/authContext/loginContext";
+
+//form components
+import FormInput from "./formElements/FormInput";
 
 /**
  * Login Form for logging in the user.
- *
- * @param {*} state -- login page state
- * @param {*} dispatch -- login page dispatch
  */
-function LoginForm({ state, dispatch }) {
-  const { email, password, token, isLoading, isLoggedIn, isError } = state;
-
+function LoginForm() {
+  const { loginState, loginDispatch } = useContext(LoginContext);
+  const { email, password, token, isLoading, isLoggedIn, isError } = loginState;
+  useEffect(() => {
+    console.log(loginState);
+  });
   return (
     <form className="formContainer">
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="email"
-            size="25"
-            className="formInput"
-            type="text"
-            name="email"
-            onChange={event => handleInputChange(event, dispatch)}
-            value={email}
-            data-testid="emailInput"
-          />
-        </label>
-      </div>
-
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="password"
-            size="25"
-            className="formInput"
-            type="password"
-            name="password"
-            onChange={event => handleInputChange(event, dispatch)}
-            value={password}
-            data-testid="passwordInput"
-          />
-        </label>
-      </div>
+      <FormInput
+        placeholder="email"
+        type="text"
+        name="email"
+        value={email}
+        dataTestid="emailInput"
+        dispatch={loginDispatch}
+      />
+      <FormInput
+        placeholder="password"
+        type="password"
+        name="password"
+        value={password}
+        dataTestid="passwordInput"
+        dispatch={loginDispatch}
+      />
     </form>
   );
 }

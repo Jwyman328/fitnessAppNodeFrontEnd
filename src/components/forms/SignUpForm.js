@@ -1,13 +1,19 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import handleInputChange from "../../pages/auth/helperFunctionsAuth/handleInputChange";
+
+//form components
+import FormInput from "./formElements/FormInput";
+
+// context
+import SignUpContext from "../../pages/auth/authContext/SignUpContext";
 
 /**
  * Sign up Form for logging in the user.
  *
- * @param {*} state -- Sign up page state
- * @param {*} dispatch -- Sign up page dispatch
  */
 function SignUpForm({ state, dispatch }) {
+  const { signUpState, signUpDispatch } = useContext(SignUpContext);
+
   const {
     email,
     password,
@@ -18,83 +24,54 @@ function SignUpForm({ state, dispatch }) {
     isError,
     isLoggedIn,
     token
-  } = state;
+  } = signUpState;
 
   return (
     <form className="formContainer">
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="email"
-            size="25"
-            className="formInput"
-            data-testid="emailInput"
-            type="text"
-            name="email"
-            value={email}
-            onChange={event => handleInputChange(event, dispatch)}
-          />
-        </label>
-      </div>
+      <FormInput
+        placeholder="email"
+        type="text"
+        name="email"
+        value={email}
+        dataTestid="emailInput"
+        dispatch={signUpDispatch}
+      />
 
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="First Name"
-            size="25"
-            className="formInput"
-            data-testid="firstNameInput"
-            type="text"
-            name="firstName"
-            value={firstName}
-            onChange={event => handleInputChange(event, dispatch)}
-          />
-        </label>
-      </div>
+      <FormInput
+        placeholder="First Name"
+        type="text"
+        name="firstName"
+        value={firstName}
+        dataTestid="firstNameInput"
+        dispatch={signUpDispatch}
+      />
 
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="Last Name"
-            size="25"
-            className="formInput"
-            data-testid="firstNameInput"
-            type="text"
-            name="lastName"
-            value={lastName}
-            onChange={event => handleInputChange(event, dispatch)}
-          />
-        </label>
-      </div>
+      <FormInput
+        placeholder="Last Name"
+        type="text"
+        name="lastName"
+        value={lastName}
+        dataTestid="firstNameInput"
+        dispatch={signUpDispatch}
+      />
 
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="password"
-            size="25"
-            className="formInput"
-            data-testid="passwordInput"
-            type="password"
-            name="password"
-            value={password}
-            onChange={event => handleInputChange(event, dispatch)}
-          />
-        </label>
-      </div>
-      <div className="formItem">
-        <label className="formTitle">
-          <input
-            placeholder="password2"
-            size="25"
-            className="formInput"
-            data-testid="passwordInput2"
-            type="password"
-            name="password2"
-            value={password2}
-            onChange={event => handleInputChange(event, dispatch)}
-          />
-        </label>
-      </div>
+      <FormInput
+        placeholder="password"
+        type="password"
+        name="password"
+        value={password}
+        dataTestid="passwordInput"
+        dispatch={signUpDispatch}
+      />
+
+      <FormInput
+        placeholder="password2"
+        type="password"
+        name="password2"
+        value={password2}
+        dataTestid="passwordInput2"
+        dispatch={signUpDispatch}
+      />
     </form>
   );
 }

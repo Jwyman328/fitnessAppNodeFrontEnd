@@ -29,6 +29,9 @@ import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingM
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 
+//context
+import LoginContext from "./authContext/loginContext";
+
 /**
  * Log in an existing user.
  * @param {*} props
@@ -52,29 +55,33 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="rulePageContainer -image-background">
-      <RunningBackgroundVideo />
+    <LoginContext.Provider
+      value={{ loginState: state, loginDispatch: dispatch }}
+    >
+      <div className="rulePageContainer -image-background">
+        <RunningBackgroundVideo />
 
-      <AuthCardContainer>
-        <FitnessHeartLogo logoPositionSide={"right"} />
-        <FitnessHeartLogo logoPositionSide={"left"} />
-        <CardTitle titleText={"Fit Challenge"} />
-        <GuestUserLoginInfo />
+        <AuthCardContainer>
+          <FitnessHeartLogo logoPositionSide={"right"} />
+          <FitnessHeartLogo logoPositionSide={"left"} />
+          <CardTitle titleText={"Fit Challenge"} />
+          <GuestUserLoginInfo />
 
-        {isError ? (
-          <ErrorMessage errorText="Error on login, please try again" />
-        ) : null}
+          {isError ? (
+            <ErrorMessage errorText="Error on login, please try again" />
+          ) : null}
 
-        {isLoggedIn ? <Redirect to="/home" /> : null}
+          {isLoggedIn ? <Redirect to="/home" /> : null}
 
-        {isLoading ? (
-          <LoadingMessage loadingText={"Loading"} />
-        ) : (
-          <LoginForm state={state} dispatch={dispatch} />
-        )}
-        <SubmitDataButton handleSubmit={handleSubmit} />
-      </AuthCardContainer>
-    </div>
+          {isLoading ? (
+            <LoadingMessage loadingText={"Loading"} />
+          ) : (
+            <LoginForm state={state} dispatch={dispatch} />
+          )}
+          <SubmitDataButton handleSubmit={handleSubmit} />
+        </AuthCardContainer>
+      </div>
+    </LoginContext.Provider>
   );
 }
 
