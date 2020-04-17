@@ -5,6 +5,7 @@ import InputPointsContext from "../../pages/activity/activityContext/InputPoints
 import FormRow from "./formElements/FormRow";
 import FormRowLabel from "./formElements/FormRowLabel";
 import UserCreateDataFormInput from "./formElements/UserCreateDataFormInput";
+import FormContainer from "./formElements/FormContainer";
 
 function InputPointsForm() {
   const { inputPointsState, inputPointsDispatch } = useContext(
@@ -30,7 +31,8 @@ function InputPointsForm() {
    */
 
   return (
-    <form className="formContainer">
+    <FormContainer>
+      {" "}
       <FormRow>
         <FormRowLabel labelText="Date:" />
         <UserCreateDataFormInput
@@ -41,7 +43,6 @@ function InputPointsForm() {
           dispatch={inputPointsDispatch}
         />
       </FormRow>
-
       <FormRow>
         <FormRowLabel labelText="Sleep Hours:" />
         <UserCreateDataFormInput
@@ -52,7 +53,6 @@ function InputPointsForm() {
           dispatch={inputPointsDispatch}
         />
       </FormRow>
-
       <FormRow>
         <FormRowLabel labelText="Workout Intensity(max4):" />
         <UserCreateDataFormInput
@@ -63,7 +63,6 @@ function InputPointsForm() {
           dispatch={inputPointsDispatch}
         />
       </FormRow>
-
       <FormRow>
         <FormRowLabel labelText="Workout Time:" />
         <UserCreateDataFormInput
@@ -74,7 +73,6 @@ function InputPointsForm() {
           dispatch={inputPointsDispatch}
         />
       </FormRow>
-
       <FormRow>
         <FormRowLabel labelText="Steps:" />
         <UserCreateDataFormInput
@@ -85,7 +83,6 @@ function InputPointsForm() {
           dispatch={inputPointsDispatch}
         />
       </FormRow>
-
       <FormRow>
         <FormRowLabel labelText="Water 100 oz:" />
         <UserCreateDataFormInput
@@ -97,7 +94,6 @@ function InputPointsForm() {
           checked={water100oz}
         />
       </FormRow>
-
       <FormRow>
         <FormRowLabel labelText="Clean Eating:" />
         <UserCreateDataFormInput
@@ -109,7 +105,7 @@ function InputPointsForm() {
           checked={cleanEating}
         />
       </FormRow>
-    </form>
+    </FormContainer>
   );
 }
 
