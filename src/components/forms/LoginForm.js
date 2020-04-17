@@ -4,7 +4,7 @@ import React, { useReducer, useContext, useEffect } from "react";
 import LoginContext from "../../pages/auth/authContext/loginContext";
 
 //form components
-import FormInput from "./formElements/FormInput";
+import AuthFormInput from "./formElements/AuthFormInput";
 
 /**
  * Login Form for logging in the user.
@@ -12,12 +12,10 @@ import FormInput from "./formElements/FormInput";
 function LoginForm() {
   const { loginState, loginDispatch } = useContext(LoginContext);
   const { email, password, token, isLoading, isLoggedIn, isError } = loginState;
-  useEffect(() => {
-    console.log(loginState);
-  });
+
   return (
     <form className="formContainer">
-      <FormInput
+      <AuthFormInput
         placeholder="email"
         type="text"
         name="email"
@@ -25,7 +23,7 @@ function LoginForm() {
         dataTestid="emailInput"
         dispatch={loginDispatch}
       />
-      <FormInput
+      <AuthFormInput
         placeholder="password"
         type="password"
         name="password"

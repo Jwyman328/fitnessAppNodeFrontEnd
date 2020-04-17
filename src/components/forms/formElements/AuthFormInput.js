@@ -1,7 +1,14 @@
 import React from "react";
-import handleInputChange from "../../../pages/auth/helperFunctionsAuth/handleInputChange";
+import handleAuthInputChange from "../../../pages/auth/helperFunctionsAuth/handleAuthInputChange";
 
-function FormInput({ placeholder, type, name, value, dataTestid, dispatch }) {
+function AuthFormInput({
+  placeholder,
+  type,
+  name,
+  value,
+  dataTestid,
+  dispatch
+}) {
   return (
     <div className="formItem">
       <label className="formTitle">
@@ -11,7 +18,7 @@ function FormInput({ placeholder, type, name, value, dataTestid, dispatch }) {
           className="formInput"
           type={type}
           name={name}
-          onChange={event => handleInputChange(event, dispatch)}
+          onChange={event => handleAuthInputChange(event, dispatch)}
           value={value}
           data-testid={dataTestid}
         />
@@ -20,4 +27,4 @@ function FormInput({ placeholder, type, name, value, dataTestid, dispatch }) {
   );
 }
 
-export default FormInput;
+export default AuthFormInput;

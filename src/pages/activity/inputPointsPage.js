@@ -1,14 +1,27 @@
 import React, { useReducer, useContext, useEffect } from "react";
-import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
-import inputPointInitialState from "../../initialState/pointInputInitialState";
 
-import CreateInputPoint from "../../actions/inputPointActions/createInputPoint";
+//state
 import { store } from "../../store/globalStore";
 import {
   getGlobalState,
   dispatchInputChange
 } from "../../utils/helperFunctions";
+import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
+import inputPointInitialState from "../../initialState/pointInputInitialState";
+
+//css
 import "../form.scss";
+
+//components
+import InputPointsForm from "../../components/forms/InputPointsForm";
+import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
+import CreateInputPoint from "../../actions/inputPointActions/createInputPoint";
+import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
+import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
+
+// context
+import InputPointsContext from "./activityContext/InputPointsContext";
 
 /**
  * Input point data for a selected date.
@@ -36,16 +49,6 @@ function InputPointsPage(props) {
   const globalState = getGlobalState(useContext(store));
 
   /**
-   * Handle input data change events.
-   *
-   * Dispatch the associated event change to change the state of the input value.
-   * @param {*} e -user event.
-   */
-  const handleChange = event => {
-    dispatchInputChange(dispatch, event);
-  };
-
-  /**
    * Submit point data to the server.
    * @param {*} e - event
    */
@@ -54,122 +57,26 @@ function InputPointsPage(props) {
     dispatch({ type: "inputPointSent" });
     CreateInputPoint(state, dispatch, globalState.token);
   };
+
   return (
-    <div className="rulePageContainer">
-      <div className="containerRules smallCard">
-        <h1>Input Activity</h1>
-        <form className="formContainer">
-          <div className="rowForm">
-            <label className="rowFormItem">Date:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="dateInput"
-              name="date"
-              type="text"
-              value={date}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Sleep Hours:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="sleepHoursInput"
-              name="sleepHours"
-              type="text"
-              value={sleepHours}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Workout Intensity(max4):</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="workoutIntenistyInput"
-              name="workoutIntenisty"
-              type="text"
-              value={workoutIntenisty}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Workout Time:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="workoutTimeInput"
-              name="workoutTime"
-              type="text"
-              value={workoutTime}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Steps:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="stepsInput"
-              name="steps"
-              type="text"
-              value={steps}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Water 100 oz:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="water100ozInput"
-              name="water100oz"
-              type="checkbox"
-              value={water100oz}
-              checked={water100oz}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Clean Eating:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              data-testid="cleanEatingInput"
-              name="cleanEating"
-              type="checkbox"
-              value={cleanEating}
-              checked={cleanEating}
-              onChange={handleChange}
-            />
-          </div>
-        </form>
-        <button
-          className="submitButton"
-          data-testid="submitButton"
-          onClick={handleClick}
-        >
-          Submit points
-        </button>
-        {/* handle results of input point activity submission post request */}
-        {isSuccess ? (
-          <div data-testid="successMsg">new input successfully create</div>
-        ) : null}
-        {isError ? (
-          <div data-testid="errorMsg">
-            Error on making new input activity, please try again
-          </div>
-        ) : null}
+    <InputPointsContext.Provider
+      value={{ inputPointsState: state, inputPointsDispatch: dispatch }}
+    >
+      <div className="rulePageContainer">
+        <UserCreateDataCardContainer>
+          <h1>Input Activity</h1>
+          <InputPointsForm />
+          <SubmitDataButton handleSubmit={handleClick} />
+          {/* handle results of input point activity submission post request */}
+          {isSuccess ? (
+            <SuccessMessage successText="new input successfully created" />
+          ) : null}
+          {isError ? (
+            <ErrorMessage errorText="Error on making new input activity, please try again" />
+          ) : null}
+        </UserCreateDataCardContainer>
       </div>
-    </div>
+    </InputPointsContext.Provider>
   );
 }
 

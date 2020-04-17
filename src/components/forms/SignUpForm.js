@@ -1,8 +1,8 @@
 import React, { useReducer, useContext } from "react";
-import handleInputChange from "../../pages/auth/helperFunctionsAuth/handleInputChange";
+import handleAuthInputChange from "../../pages/auth/helperFunctionsAuth/handleAuthInputChange";
 
 //form components
-import FormInput from "./formElements/FormInput";
+import AuthFormInput from "./formElements/AuthFormInput";
 
 // context
 import SignUpContext from "../../pages/auth/authContext/SignUpContext";
@@ -28,7 +28,7 @@ function SignUpForm({ state, dispatch }) {
 
   return (
     <form className="formContainer">
-      <FormInput
+      <AuthFormInput
         placeholder="email"
         type="text"
         name="email"
@@ -37,7 +37,7 @@ function SignUpForm({ state, dispatch }) {
         dispatch={signUpDispatch}
       />
 
-      <FormInput
+      <AuthFormInput
         placeholder="First Name"
         type="text"
         name="firstName"
@@ -46,7 +46,7 @@ function SignUpForm({ state, dispatch }) {
         dispatch={signUpDispatch}
       />
 
-      <FormInput
+      <AuthFormInput
         placeholder="Last Name"
         type="text"
         name="lastName"
@@ -55,7 +55,7 @@ function SignUpForm({ state, dispatch }) {
         dispatch={signUpDispatch}
       />
 
-      <FormInput
+      <AuthFormInput
         placeholder="password"
         type="password"
         name="password"
@@ -64,7 +64,7 @@ function SignUpForm({ state, dispatch }) {
         dispatch={signUpDispatch}
       />
 
-      <FormInput
+      <AuthFormInput
         placeholder="password2"
         type="password"
         name="password2"

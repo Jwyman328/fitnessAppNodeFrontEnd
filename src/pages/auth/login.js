@@ -14,12 +14,12 @@ import { store } from "../../store/globalStore";
 import initialState from "../../initialState/loginInitialState";
 
 //card components
-import AuthCardContainer from "../../components/cardComponents/AuthCardContainer";
+import AuthCardContainer from "../../components/cardComponents/cardContainers/AuthCardContainer";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
 import LoginForm from "../../components/forms/LoginForm";
-import handleInputChange from "./helperFunctionsAuth/handleInputChange";
+import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
 
 // other components

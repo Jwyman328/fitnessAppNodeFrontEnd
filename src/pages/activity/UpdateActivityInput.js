@@ -13,6 +13,9 @@ import inputPointInitialState from "../../initialState/pointInputInitialState";
 import updateActivityInput from "../../actions/updateActivityInputActions/updateActivityInputAction";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";
 
+//components
+import InputPointsForm from "../../components/forms/InputPointsForm";
+
 function UpdateActivityInput(props) {
   const globalState = getGlobalState(useContext(store));
 

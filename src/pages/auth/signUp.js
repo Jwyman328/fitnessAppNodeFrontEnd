@@ -12,10 +12,10 @@ import signUpInitialState from "../../initialState/signUpInitialState";
 import SignUpContext from "./authContext/SignUpContext";
 
 // card components
-import AuthCardContainer from "../../components/cardComponents/AuthCardContainer";
+import AuthCardContainer from "../../components/cardComponents/cardContainers/AuthCardContainer";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import CardSubHeader from "../../components/cardComponents/cardSubHeader";
-import handleInputChange from "./helperFunctionsAuth/handleInputChange";
+import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import SignUpForm from "../../components/forms/SignUpForm";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
