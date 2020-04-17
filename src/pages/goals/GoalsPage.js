@@ -8,6 +8,14 @@ import {
   getGlobalState,
   dispatchInputChange
 } from "../../utils/helperFunctions";
+
+//components
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
+
+//message components
+import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
+import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
+
 /**
  * Allow user to create a total point goal.
  * @param {*} props
@@ -113,20 +121,13 @@ function GoalsPage(props) {
 
           <div className="formItem"></div>
         </form>
-        <button
-          className="submitButton"
-          data-testid="submitButton"
-          onClick={handleSubmit}
-        >
-          create goal
-        </button>
+
+        <SubmitDataButton handleSubmit={handleSubmit} />
         {isSuccess ? (
-          <div data-testid="successMsg">Goal created successfully</div>
+          <SuccessMessage successText="Goal created successfully" />
         ) : null}
         {isError ? (
-          <div data-testid="errorMsg">
-            Error creating goal, please try again
-          </div>
+          <ErrorMessage errorText="Error creating goal, please try again" />
         ) : null}
       </div>
     </div>

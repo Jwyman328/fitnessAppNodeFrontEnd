@@ -11,18 +11,21 @@ import {
 } from "../../utils/helperFunctions";
 
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
-import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 
 //css
 import "./submitButton.css";
 import "../form.scss";
+
+// general components
+import ChallengeNavBar from "../../components/navBars/challengeNavBar";
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
+import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 
 //form components
 import CreateChallengeForm from "../../components/forms/CreateChallengeForm";
 import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
 import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
 import FormRow from "../../components/forms/formElements/FormRow";
-import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 
 //message components
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
@@ -32,10 +35,8 @@ import SuccessMessage from "../../components/messagesAboutProgramStatus/successM
 import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
 
 function ChallengePage(props) {
-  // global store containing the use token for making requests
   const globalState = getGlobalState(useContext(store));
 
-  //goal's page reducer
   const [state, dispatch] = useReducer(challengeReducer, initialState);
   const {
     challengeStartDate,
@@ -61,7 +62,7 @@ function ChallengePage(props) {
     dispatch({ type: "createChallengeAttempt" });
     CreateChallenge(state, dispatch, globalState.token);
   };
-  let options = {};
+
   useEffect(() => {
     getAllUsers(dispatch, globalState.token);
   }, []);
@@ -72,11 +73,10 @@ function ChallengePage(props) {
     >
       <div className="rulePageContainer">
         <ChallengeNavBar />
-        <div className="containerRules smallCard">
+        <UserCreateDataCardContainer>
           <h1>Create A Challenge</h1>
 
           <CreateChallengeForm />
-
           <SubmitDataButton handleSubmit={handleSubmit} />
 
           {isSuccess ? (
@@ -85,7 +85,7 @@ function ChallengePage(props) {
           {isError ? (
             <ErrorMessage errorText="Error creating challenge, please try again" />
           ) : null}
-        </div>
+        </UserCreateDataCardContainer>
       </div>
     </CreateChallengeContext.Provider>
   );
