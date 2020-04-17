@@ -14,7 +14,18 @@ import updateActivityInput from "../../actions/updateActivityInputActions/update
 import ResultsNavBar from "../../components/navBars/resultsNavBar";
 
 //components
-import InputPointsForm from "../../components/forms/InputPointsForm";
+//import UpdatePointsForm from "../../components/forms/UpdatePointsForm";
+import FormContainer from "../../components/forms/formElements/FormContainer";
+import FormRow from "../../components/forms/formElements/FormRow";
+import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
+import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
+import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
+
+//messages
+import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
+import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
+import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
 
 function UpdateActivityInput(props) {
   const globalState = getGlobalState(useContext(store));
@@ -77,112 +88,109 @@ function UpdateActivityInput(props) {
   return (
     <div className="rulePageContainer">
       <ResultsNavBar />
-      <div className="containerRules smallCard">
+      <UserCreateDataCardContainer>
         <h1 data-testid="updatePageHeader">Update activity input</h1>
 
         {activityInput ? (
-          <form className="formContainer">
-            <div className="rowForm">
-              <label className="rowFormItem">Date:</label>
-              <input
-                className="rowFormItem"
-                data-testid="dateInput"
-                name="date"
-                type="text"
+          <FormContainer>
+            <FormRow>
+              <FormRowLabel labelText="Date:" />
+              <UserCreateDataFormInput
+                dataTestid={"dateInput"}
+                name={"date"}
+                type={"text"}
                 value={date}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-            <div className="rowForm">
-              <label className="rowFormItem">Sleep Hours:</label>
-              <input
-                className="rowFormItem"
-                data-testid="sleepHoursInput"
-                name="hoursOfSleep"
-                type="text"
+            </FormRow>
+
+            <FormRow>
+              <FormRowLabel labelText="Sleep Hours:" />
+              <UserCreateDataFormInput
+                dataTestid={"sleepHoursInput"}
+                name={"hoursOfSleep"}
+                type={"text"}
                 value={hoursOfSleep}
                 checked={hoursOfSleep}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-            <div className="rowForm">
-              <label className="rowFormItem">Workout Intensity(max = 4):</label>
-              <input
-                className="rowFormItem"
-                data-testid="workoutIntenistyInput"
-                name="workoutIntensity"
-                type="text"
+            </FormRow>
+
+            <FormRow>
+              <FormRowLabel labelText="Workout Intensity(max = 4):" />
+              <UserCreateDataFormInput
+                dataTestid={"workoutIntenistyInput"}
+                name={"workoutIntensity"}
+                type={"text"}
                 value={workoutIntensity}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-            <div className="rowForm">
-              <label className="rowFormItem">Workout Time:</label>
-              <input
-                className="rowFormItem"
-                data-testid="workoutTimeInput"
-                name="workoutTimeLength"
-                type="text"
+            </FormRow>
+
+            <FormRow>
+              <FormRowLabel labelText="Workout Time:" />
+              <UserCreateDataFormInput
+                dataTestid={"workoutTimeInput"}
+                name={"workoutTimeLength"}
+                type={"text"}
                 value={workoutTimeLength}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-            <div className="rowForm">
-              <label className="rowFormItem">Steps:</label>
-              <input
-                className="rowFormItem"
-                data-testid="stepsInput"
-                name="steps"
-                type="text"
+            </FormRow>
+
+            <FormRow>
+              <FormRowLabel labelText="Steps:" />
+              <UserCreateDataFormInput
+                dataTestid={"stepsInput"}
+                name={"steps"}
+                type={"text"}
                 value={steps}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-            <div className="rowForm">
-              <label className="rowFormItem">Water 100 oz:</label>
-              <input
-                className="rowFormItem"
-                data-testid="water100ozInput"
-                name="water100Oz"
-                type="checkbox"
+            </FormRow>
+
+            <FormRow>
+              <FormRowLabel labelText="Water 100 oz:" />
+              <UserCreateDataFormInput
+                dataTestid={"water100ozInput"}
+                name={"water100Oz"}
+                type={"checkbox"}
+                //value={steps}
                 checked={water100Oz}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-            <div className="rowForm">
-              <label className="rowFormItem">Clean Eating:</label>
-              <input
-                className="rowFormItem"
-                data-testid="cleanEatingInput"
-                name="cleanEating"
-                type="checkbox"
+            </FormRow>
+
+            <FormRow>
+              <FormRowLabel labelText="Clean Eating:" />
+              <UserCreateDataFormInput
+                dataTestid={"cleanEatingInput"}
+                name={"cleanEating"}
+                type={"checkbox"}
+                //value={steps}
                 checked={cleanEating}
-                onChange={handleChange}
+                dispatch={dispatch}
               />
-            </div>
-          </form>
+            </FormRow>
+          </FormContainer>
         ) : null}
-        <button
-          className="submitButton"
-          data-testid="submitButton"
-          onClick={handleClick}
-        >
-          Submit points
-        </button>
-        {isLoadingActivityInput ? <div>fetching activity...</div> : null}
+        <SubmitDataButton handleSubmit={handleClick} />
+        {isLoadingActivityInput ? (
+          <LoadingMessage loadingText={"fetching activity..."} />
+        ) : null}
         {isErrorActivityInput ? (
-          <div data-testid="activityInputfetchError">
-            Error fetching activity
-          </div>
+          <ErrorMessage errorText="Error fetching activity" />
         ) : null}
-        {isLoadingUpdateActivityInput ? <div>updating activity...</div> : null}
+        {isLoadingUpdateActivityInput ? (
+          <LoadingMessage loadingText={"updating activity..."} />
+        ) : null}
         {isErrorUpdateActivityInput ? (
-          <div data-testid="updateErrorMsg">Error updating activity</div>
+          <ErrorMessage errorText="Error updating activity, please try again" />
         ) : null}
         {upDateActivityInputSuccess ? (
-          <div data-testid="updateSuccessMsg">Update successful! </div>
+          <SuccessMessage successText="Update successful!" />
         ) : null}
-      </div>
+      </UserCreateDataCardContainer>
     </div>
   );
 }
