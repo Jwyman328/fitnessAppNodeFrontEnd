@@ -16,6 +16,9 @@ import SignUpForm from "../../components/forms/SignUpForm";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
 
+// other components
+import ErrorMessage from "../../components/errorMessages/ErrorMessage";
+
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 
@@ -70,9 +73,7 @@ function SignUpPage(props) {
         <CardSubHeader subHeaderText="Sign Up" />
 
         {isError ? (
-          <div data-testid="errorMsg">
-            Error creating user, please try again
-          </div>
+          <ErrorMessage errorText="Error creating user, please try again" />
         ) : null}
         {isLoading ? (
           <div> loading </div>

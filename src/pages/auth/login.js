@@ -21,6 +21,9 @@ import LoginForm from "../../components/forms/LoginForm";
 import handleInputChange from "./helperFunctionsAuth/handleInputChange";
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
 
+// other components
+import ErrorMessage from "../../components/errorMessages/ErrorMessage";
+
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 
@@ -57,7 +60,7 @@ function LoginPage(props) {
         <GuestUserLoginInfo />
 
         {isError ? (
-          <div data-testid="errorMsg">Error on login, please try again</div>
+          <ErrorMessage errorText="Error on login, please try again" />
         ) : null}
         {isLoggedIn ? <Redirect to="/home" /> : null}
         {isLoading ? (
