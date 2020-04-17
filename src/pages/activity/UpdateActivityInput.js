@@ -18,7 +18,7 @@ import UpdateActivityInputContext from "./activityContext/UpdateActivityInputCon
 
 //components
 import UpdatePointsForm from "../../components/forms/UpdatePointsForm";
-import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 
 //messages

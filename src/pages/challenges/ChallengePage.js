@@ -1,4 +1,6 @@
 import React, { useReducer, useContext, useEffect } from "react";
+
+//state
 import initialState from "../../initialState/challengeInitialState";
 import CreateChallenge from "../../actions/challengePageActions/createChallenge";
 import challengeReducer from "../../reducers/challengeReducers/challengeReducer";
@@ -7,10 +9,27 @@ import {
   getGlobalState,
   dispatchInputChange
 } from "../../utils/helperFunctions";
+
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
+
+//css
 import "./submitButton.css";
 import "../form.scss";
+
+//form components
+import CreateChallengeForm from "../../components/forms/CreateChallengeForm";
+import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
+import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
+import FormRow from "../../components/forms/formElements/FormRow";
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
+
+//message components
+import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
+import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
+
+//context
+import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
 
 function ChallengePage(props) {
   // global store containing the use token for making requests
@@ -31,17 +50,6 @@ function ChallengePage(props) {
   } = state;
 
   /**
-   * Handle change of each input.
-   * @param {*} e -input event
-   */
-  const handleChange = event => {
-    dispatchInputChange(dispatch, event);
-  };
-  const handleAddSelectedUser = e => {
-    dispatch({ type: "handleSelectedUsers", selectedUser: e.target.value });
-  };
-
-  /**
    * Submit challenge state input to server to create a challenge.
    *
    * Dispatch that the attempt challenge creation has been attempted.
@@ -58,115 +66,28 @@ function ChallengePage(props) {
     getAllUsers(dispatch, globalState.token);
   }, []);
 
-  /**
-   * Create an aray of all users to select to invite toa challenge
-   */
-  const createUserSelect = () => {
-    return allUsers.map(userEmail => (
-      <option key={userEmail} data-testid={userEmail} value={userEmail}>
-        {userEmail}
-      </option>
-    ));
-  };
-
   return (
-    <div className="rulePageContainer">
-      <ChallengeNavBar />
-      <div className="containerRules smallCard">
-        <h1>Create A Challenge</h1>
+    <CreateChallengeContext.Provider
+      value={{ createChallengeState: state, createChallengeDispatch: dispatch }}
+    >
+      <div className="rulePageContainer">
+        <ChallengeNavBar />
+        <div className="containerRules smallCard">
+          <h1>Create A Challenge</h1>
 
-        <form className="formContainer">
-          <div className="rowForm">
-            <label className="rowFormItem">Start Date:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              name="challengeStartDate"
-              data-testid="challengeStartDate"
-              type="text"
-              value={challengeStartDate}
-              onChange={handleChange}
-            />
-          </div>
+          <CreateChallengeForm />
 
-          <div className="rowForm">
-            <label className="rowFormItem">End Date:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              name="challengeEndDate"
-              data-testid="challengeEndDate"
-              type="text"
-              value={challengeEndDate}
-              onChange={handleChange}
-            />
-          </div>
+          <SubmitDataButton handleSubmit={handleSubmit} />
 
-          <div className="rowForm">
-            <label className="rowFormItem">Title:</label>
-            <input
-              placeholder="title here.."
-              size="15"
-              className="rowFormItem"
-              name="title"
-              data-testid="title"
-              type="text"
-              value={title}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="rowForm">
-            <label className="rowFormItem">Type:</label>
-            <select
-              className="rowFormItem"
-              multiple={false}
-              data-testid="challengeType"
-              name="challengeType"
-              value={challengeType}
-              onChange={handleChange}
-            >
-              <option value="sleep">Sleep</option>
-              <option value="Water">Water</option>
-              <option value="Clean Eating">Clean Eating</option>
-              <option value="totalPoints">Total Points</option>
-              <option value="Workout">Workout</option>
-            </select>
-          </div>
-          {allUsers ? (
-            <div className="rowForm">
-              <label className="rowFormItem">Invitees:</label>
-              <select
-                className="rowFormItemInvitee"
-                multiple={true}
-                data-testid="selectUsersInput"
-                name="userEmails"
-                value={selectedUsers}
-                onChange={handleAddSelectedUser}
-              >
-                {createUserSelect()}
-              </select>
-            </div>
+          {isSuccess ? (
+            <SuccessMessage successText="Challenge created successfully" />
           ) : null}
-        </form>
-        <button
-          className="submitButton"
-          data-testid="submitButton"
-          onClick={handleSubmit}
-        >
-          Create Challenge
-        </button>
-
-        {isSuccess ? (
-          <div data-testid="successMsg">Challenge created successfully</div>
-        ) : null}
-        {isError ? (
-          <div data-testid="errorMsg">
-            Error creating challenge, please try again
-          </div>
-        ) : null}
+          {isError ? (
+            <ErrorMessage errorText="Error creating challenge, please try again" />
+          ) : null}
+        </div>
       </div>
-    </div>
+    </CreateChallengeContext.Provider>
   );
 }
 

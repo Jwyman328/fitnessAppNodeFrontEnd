@@ -16,7 +16,7 @@ import "../form.scss";
 import InputPointsForm from "../../components/forms/InputPointsForm";
 import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 import CreateInputPoint from "../../actions/inputPointActions/createInputPoint";
-import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
 import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
 

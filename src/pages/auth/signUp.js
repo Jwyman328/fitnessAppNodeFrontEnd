@@ -18,7 +18,7 @@ import CardSubHeader from "../../components/cardComponents/cardSubHeader";
 import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import SignUpForm from "../../components/forms/SignUpForm";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
-import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 
 // other components
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";

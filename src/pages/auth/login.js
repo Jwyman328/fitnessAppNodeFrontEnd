@@ -17,7 +17,7 @@ import initialState from "../../initialState/loginInitialState";
 import AuthCardContainer from "../../components/cardComponents/cardContainers/AuthCardContainer";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import CardTitle from "../../components/cardComponents/CardTitle";
-import SubmitDataButton from "../../components/cardComponents/SubmitDataButton";
+import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import LoginForm from "../../components/forms/LoginForm";
 import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
