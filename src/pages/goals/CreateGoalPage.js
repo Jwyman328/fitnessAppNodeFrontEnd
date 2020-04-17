@@ -20,7 +20,7 @@ import SuccessMessage from "../../components/messagesAboutProgramStatus/successM
  * Allow user to create a total point goal.
  * @param {*} props
  */
-function GoalsPage(props) {
+function CreateGoalPage(props) {
   // global store containing the use token for making requests
   const globalState = getGlobalState(useContext(store));
 
@@ -134,4 +134,4 @@ function GoalsPage(props) {
   );
 }
 
-export default GoalsPage;
+export default CreateGoalPage;

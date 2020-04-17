@@ -29,7 +29,7 @@ const LoginPage = React.lazy(() => import("./pages/auth/login"));
 const InputPointsPage = React.lazy(() =>
   import("./pages/activity/inputPointsPage")
 );
-const GoalPage = React.lazy(() => import("./pages/goals/GoalsPage"));
+const CreateGoalPage = React.lazy(() => import("./pages/goals/CreateGoalPage"));
 const PastGoals = React.lazy(() => import("./pages/goals/PastGoals"));
 const GoalsGraphs = React.lazy(() => import("./pages/graphs/GoalsGraph"));
 const CurrentFutureGoals = React.lazy(() =>
@@ -134,7 +134,7 @@ function App(props) {
             {" "}
             <Switch>
               <Route exact path="/GoalPage">
-                <GoalPage />
+                <CreateGoalPage />
               </Route>
             </Switch>
           </Suspense>
