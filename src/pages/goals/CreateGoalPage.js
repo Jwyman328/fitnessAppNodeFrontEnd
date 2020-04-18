@@ -16,6 +16,7 @@ import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
 import FormRow from "../../components/forms/formElements/FormRow";
 import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
+import FormContainer from "../../components/forms/formElements/FormContainer";
 
 //message components
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
@@ -68,7 +69,7 @@ function CreateGoalPage(props) {
       <GoalNavBar />
       <div className="containerRules smallCard">
         <h1>Create A Goal</h1>
-        <form className="formContainer">
+        <FormContainer>
           <FormRow>
             <FormRowLabel labelText="Start Date:" />
             <UserCreateDataFormInput
@@ -112,9 +113,7 @@ function CreateGoalPage(props) {
               dispatch={dispatch}
             />
           </FormRow>
-
-          <div className="formItem"></div>
-        </form>
+        </FormContainer>
 
         <SubmitDataButton handleSubmit={handleSubmit} />
         {isSuccess ? (
