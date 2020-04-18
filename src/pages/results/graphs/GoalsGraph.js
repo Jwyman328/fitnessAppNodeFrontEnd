@@ -9,6 +9,9 @@ import HighchartsReact from "highcharts-react-official";
 import setGoalsGraphOptions from "../../../utils/goalsGraphOptions";
 import GoalNavBar from "../../../components/navBars/goalNavBar";
 
+// custom hooks
+import useGlobalState from "../../../customHooks/customAuthHooks/useGlobalState";
+
 /**
  * Display Total points for goal vs. point goal in a graph.
  */
@@ -25,7 +28,7 @@ function GoalsGraph(props) {
 
   const { isLoading, isError, totalPointForDateRange } = state;
 
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   /**
    * Fetch accumulated points for the range of the selected goals start date and end date.
