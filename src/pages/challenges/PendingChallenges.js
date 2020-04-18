@@ -15,6 +15,10 @@ import PendingInvitationTableHead from "../../components/tables/heads/pendingInv
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
+//ErrorMessage Components
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
+import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
+
 /**
  * Display user's pending challenges allowing user to accept or reject them.
  * @param {*} props
@@ -63,18 +67,25 @@ function PendingChallengesPage(props) {
           </div>
         )}
       </div>
-      {isLoading ? <div>loading invitation challenges </div> : null}
-      {updateisLoading ? (
-        <div data-testid="updateisLoading">updating status</div>
-      ) : null}
-      {isError ? (
-        <div data-testid="isError">error loading invitation challenges</div>
-      ) : null}
-      {updateisError ? (
-        <div data-testid="updateisError">
-          error updating invitation challenge status
-        </div>
-      ) : null}
+      <ReturnLoadingMsgOnLoading
+        isLoading={isLoading}
+        loadingMsg="loading invitation challenges"
+      />
+
+      <ReturnLoadingMsgOnLoading
+        isLoading={updateisLoading}
+        loadingMsg="updating status"
+      />
+
+      <ReturnErrorMsgOnError
+        isError={isError}
+        errorMsg="error loading invitation challenges"
+      />
+
+      <ReturnErrorMsgOnError
+        isError={updateisError}
+        errorMsg="error updating invitation challenge status"
+      />
     </div>
   );
 }

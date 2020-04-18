@@ -35,31 +35,22 @@ function PastChallenges(props) {
     getPastChallenges(dispatch, globalState.token);
   }, []);
 
-  const createPastChallengesRows = () => {
-    const PastChallengesCards = pastChallenges.map(pastChallenge =>
-      PastChallengesRow(pastChallenge)
-    );
-    return PastChallengesCards;
-  };
-
   return (
     <div className="rulePageContainer">
       <ChallengeNavBar />
       <h1>Past challenges</h1>
-      <div>
-        {pastChallenges ? (
-          <ChallengeTable challengeData={pastChallenges} />
-        ) : null}
+      {pastChallenges ? (
+        <ChallengeTable challengeData={pastChallenges} />
+      ) : null}
 
-        <ReturnLoadingMsgOnLoading
-          isLoading={isLoading}
-          loadingMsg="loading past challenges"
-        />
-        <ReturnErrorMsgOnError
-          isError={isError}
-          errorMsg="Error loading past challenges"
-        />
-      </div>
+      <ReturnLoadingMsgOnLoading
+        isLoading={isLoading}
+        loadingMsg="loading past challenges"
+      />
+      <ReturnErrorMsgOnError
+        isError={isError}
+        errorMsg="Error loading past challenges"
+      />
     </div>
   );
 }
