@@ -21,6 +21,9 @@ import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 
+// custom hooks
+import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+
 //form components
 import CreateChallengeForm from "../../components/forms/CreateChallengeForm";
 import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
@@ -35,7 +38,7 @@ import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/R
 import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
 
 function CreateChallengePage(props) {
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(challengeReducer, initialState);
   const {
