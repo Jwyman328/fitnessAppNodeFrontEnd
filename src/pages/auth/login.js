@@ -9,7 +9,7 @@ import handleInputAction from "../../actions/handleInput";
 import { Redirect, Link, withRouter } from "react-router-dom";
 
 // state data
-import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
+import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";
 import { store } from "../../store/globalStore";
 import initialState from "../../initialState/loginInitialState";
 

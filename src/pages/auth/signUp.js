@@ -5,7 +5,7 @@ import signUpReducer from "../../reducers/signUpReducer";
 import signUpAction from "../../actions/signUp";
 
 // state data
-import useLoginUserOnToken from "./customAuthHooks/useLogInUserOnToken";
+import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";
 import signUpInitialState from "../../initialState/signUpInitialState";
 
 //context

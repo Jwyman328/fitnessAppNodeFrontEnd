@@ -13,6 +13,9 @@ import {
   withRouter
 } from "react-router-dom";
 
+//custom hooks
+import useGlobalState from "./customHooks/customAuthHooks/useGlobalState";
+
 // nav bars
 import NavBar from "./components/navBars/navbar";
 import AuthNavBar from "./components/navBars/authNavBar";
@@ -70,7 +73,7 @@ const LocationDisplay = withRouter(({ location }) => (
  * Navbar is top level component that will be caught with every route.
  */
 function App(props) {
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
   const { isLoggedIn } = globalState;
 
   const nonLoggedInPages = ["/signup", "/login", "/HowTo", "/Rules"];

@@ -13,8 +13,10 @@ import logo from "../logoMedia/fitness-outline.svg";
 
 import "./home.scss";
 
+import useGlobalState from "../customHooks/customAuthHooks/useGlobalState";
+
 function HomePage(props) {
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(homePageReducer, initialState);
   const {

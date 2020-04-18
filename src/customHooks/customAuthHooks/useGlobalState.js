@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { store } from "../../../store/globalStore";
+import { store } from "../../store/globalStore";
 import {
   getGlobalState,
   getGlobalDispatcher
-} from "../../../utils/helperFunctions";
+} from "../../utils/helperFunctions";
 
 /**
  * Return global State and global disptach
