@@ -8,7 +8,7 @@ import LoginPage from "./pages/auth/login";
 import InputPointsPage from "./pages/activity/inputPointsPage";
 import GoalPage from "./pages/goals/GoalsPage";
 import PastGoals from "./pages/goals/PastGoals";
-import GoalsGraphs from "./pages/graphs/GoalsGraph";
+import GoalsGraphs from "./pages/results/graphs/GoalsGraph";
 import CurrentFutureGoals from "./pages/goals/currentFutureGoals";
 import CreateChallengePage from "./pages/challenges/CreateChallengePage";
 import ViewResults from "./pages/ViewResults";
@@ -18,7 +18,7 @@ import PendingChallenges from "./pages/challenges/PendingChallenges";
 import PastChallenges from "./pages/challenges/PastChallenges";
 import CurrentFutureChallenges from "./pages/challenges/CurrentFutureChallenges";
 
-import IndividualDailyPointGraph from "./pages/graphs/IndividualDailyPointGraph";
+import IndividualDailyPointGraph from "./pages/results/graphs/IndividualDailyPointGraph";
 import UpdateActivityInput from "./pages/activity/UpdateActivityInput";
 //Routing
 import {

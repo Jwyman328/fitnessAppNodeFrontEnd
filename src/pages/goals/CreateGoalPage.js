@@ -69,6 +69,7 @@ function CreateGoalPage(props) {
           <h1>Create A Goal</h1>
           <CreateGoalPageForm />
           <SubmitDataButton handleSubmit={handleSubmit} />
+
           {isSuccess ? (
             <SuccessMessage successText="Goal created successfully" />
           ) : null}

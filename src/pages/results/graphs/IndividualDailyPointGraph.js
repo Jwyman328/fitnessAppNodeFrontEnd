@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { createGraphData } from "../../utils/graphHelperFunctions";
-import ResultsNavBar from "../../components/navBars/resultsNavBar";
-import setPointResultsGraphOptions from "../../utils/goalsGraphOptions";
+import { createGraphData } from "../../../utils/graphHelperFunctions";
+import ResultsNavBar from "../../../components/navBars/resultsNavBar";
+import setPointResultsGraphOptions from "../../../utils/goalsGraphOptions";
 import "./IndividualDailyPontGraph.css";
-import "../home.scss";
+import "../../home.scss";
 
 /**
  * Display bar graph for a specific  activity point input.

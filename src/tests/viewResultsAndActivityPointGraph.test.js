@@ -1,78 +1,104 @@
-import React from 'react'
-import moxios from 'moxios'
-import { render, fireEvent, waitForElement, wait } from '@testing-library/react'
-import ViewResults from '../pages/ViewResults'
-import App from '../App'
-import { StateProvider } from '../store/globalStore';
-import { BrowserRouter as Router} from "react-router-dom";
-import activityPointData from './testUtils/testMockData/activityPointData'
-import loginUserForTest from './testUtils/loginUserForTest'
+import React from "react";
+import moxios from "moxios";
+import {
+  render,
+  fireEvent,
+  waitForElement,
+  wait
+} from "@testing-library/react";
+import ViewResults from "../pages/results/ViewResults";
+import App from "../App";
+import { StateProvider } from "../store/globalStore";
+import { BrowserRouter as Router } from "react-router-dom";
+import activityPointData from "./testUtils/testMockData/activityPointData";
+import loginUserForTest from "./testUtils/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
-
 let element;
-describe('mock point results fetch request success', () => {
-    beforeEach(async() => {
-        moxios.install()
-        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 200, response: { token: 'mockToken' }})
-        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
+describe("mock point results fetch request success", () => {
+  beforeEach(async () => {
+    moxios.install();
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      { status: 200, response: { token: "mockToken" } }
+    );
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
+      { status: 200, response: activityPointData }
+    );
 
-        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
-        <MemoryRouter initialEntries={["/ViewResults"]} > <ViewResults /></MemoryRouter> </StateProvider>)
-         const {getByTestId} = element;
-    })
+    element = render(
+      <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
+        <MemoryRouter initialEntries={["/ViewResults"]}>
+          {" "}
+          <ViewResults />
+        </MemoryRouter>{" "}
+      </StateProvider>
+    );
+    const { getByTestId } = element;
+  });
 
-    afterEach(() => {
-        moxios.uninstall()
-    })
+  afterEach(() => {
+    moxios.uninstall();
+  });
 
-    test('input point date shows', () => {
-        const {getByTestId} = element;
-        const dateElement = getByTestId('inputDate');
-        expect(dateElement.innerHTML).toBe('2020-02-24')
-    })
-    test('input total point data shows', () => {
-        const {getByTestId} = element;
-        const totalPoints = getByTestId('totalPoints');
-        expect(totalPoints.innerHTML).toBe('64.50')
-    })
-})
+  test("input point date shows", () => {
+    const { getByTestId } = element;
+    const dateElement = getByTestId("inputDate");
+    expect(dateElement.innerHTML).toBe("2020-02-24");
+  });
+  test("input total point data shows", () => {
+    const { getByTestId } = element;
+    const totalPoints = getByTestId("totalPoints");
+    expect(totalPoints.innerHTML).toBe("64.50");
+  });
+});
 
-describe.skip('mock point results fetch request success, start at home page to use withRouter successfully', () => {
-    beforeEach(async() => {
-        moxios.install()
-        moxios.stubRequest('https://enigmatic-springs-36428.herokuapp.com/user/login',{ status: 200, response: { token: 'mockToken' }})
+describe.skip("mock point results fetch request success, start at home page to use withRouter successfully", () => {
+  beforeEach(async () => {
+    moxios.install();
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      { status: 200, response: { token: "mockToken" } }
+    );
 
-        moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,{ status: 200, response: activityPointData})
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
+      { status: 200, response: activityPointData }
+    );
 
-        element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
-        <MemoryRouter initialEntries={["/ViewResults"]} > <ViewResults /></MemoryRouter> </StateProvider>)
+    element = render(
+      <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
+        <MemoryRouter initialEntries={["/ViewResults"]}>
+          {" "}
+          <ViewResults />
+        </MemoryRouter>{" "}
+      </StateProvider>
+    );
+  });
 
-    })
+  afterEach(() => {
+    moxios.uninstall();
+  });
 
-    afterEach(() => {
-        moxios.uninstall()
-    })
+  test("see graph button navigates to individual graph page", async () => {
+    const { getByTestId } = element;
 
-    test('see graph button navigates to individual graph page' , async() => {
-      
-        const {getByTestId} = element;
+    const graphButton = await waitForElement(() => getByTestId("graphButton"));
+    fireEvent.click(graphButton);
+    const graphPageHeader = await waitForElement(() =>
+      getByTestId("graphPageHeader")
+    );
+    expect(graphPageHeader.innerHTML).toBe("Daily Point Graph");
+  });
+  test("see update button navigates to individual update page", async () => {
+    const { getByTestId } = element;
 
-        const graphButton = await waitForElement(() =>  getByTestId('graphButton'));
-        fireEvent.click(graphButton)
-        const graphPageHeader = await waitForElement(() => getByTestId('graphPageHeader'))
-        expect(graphPageHeader.innerHTML).toBe('Daily Point Graph')
-
-    } )
-    test('see update button navigates to individual update page' , async() => {
-
-        const {getByTestId} = element;
-
-        const graphButton = await waitForElement(() =>  getByTestId('updateButton'));
-        fireEvent.click(graphButton)
-        const graphPageHeader = await waitForElement(() => getByTestId('updatePageHeader'))
-        expect(graphPageHeader.innerHTML).toBe('Update activity input')
-
-    } )
-
-})
+    const graphButton = await waitForElement(() => getByTestId("updateButton"));
+    fireEvent.click(graphButton);
+    const graphPageHeader = await waitForElement(() =>
+      getByTestId("updatePageHeader")
+    );
+    expect(graphPageHeader.innerHTML).toBe("Update activity input");
+  });
+});

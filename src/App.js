@@ -1,7 +1,7 @@
 import React, { useReducer, useContext, useEffect, Suspense } from "react";
 import "./App.css";
 import "./pages/form.scss";
-import "./pages/Rules.scss";
+import "./pages/informationBasedPages/Rules.scss";
 import "./pages/challenges/submitButton.css";
 
 //Routing
@@ -31,16 +31,18 @@ const InputPointsPage = React.lazy(() =>
 );
 const CreateGoalPage = React.lazy(() => import("./pages/goals/CreateGoalPage"));
 const PastGoals = React.lazy(() => import("./pages/goals/PastGoals"));
-const GoalsGraphs = React.lazy(() => import("./pages/graphs/GoalsGraph"));
+const GoalsGraphs = React.lazy(() =>
+  import("./pages/results/graphs/GoalsGraph")
+);
 const CurrentFutureGoals = React.lazy(() =>
   import("./pages/goals/currentFutureGoals")
 );
 const CreateChallengePage = React.lazy(() =>
   import("./pages/challenges/CreateChallengePage")
 );
-const ViewResults = React.lazy(() => import("./pages/ViewResults"));
-const Rules = React.lazy(() => import("./pages/Rules"));
-const HowTo = React.lazy(() => import("./pages/HowTo"));
+const ViewResults = React.lazy(() => import("./pages/results/ViewResults"));
+const Rules = React.lazy(() => import("./pages/informationBasedPages/Rules"));
+const HowTo = React.lazy(() => import("./pages/informationBasedPages/HowTo"));
 const PendingChallenges = React.lazy(() =>
   import("./pages/challenges/PendingChallenges")
 );
@@ -52,7 +54,7 @@ const CurrentFutureChallenges = React.lazy(() =>
 );
 
 const IndividualDailyPointGraph = React.lazy(() =>
-  import("./pages/graphs/IndividualDailyPointGraph")
+  import("./pages/results/graphs/IndividualDailyPointGraph")
 );
 const UpdateActivityInput = React.lazy(() =>
   import("./pages/activity/UpdateActivityInput")

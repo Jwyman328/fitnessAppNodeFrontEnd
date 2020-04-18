@@ -17,6 +17,9 @@ import InputPointsForm from "../../components/forms/InputPointsForm";
 import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 import CreateInputPoint from "../../actions/inputPointActions/createInputPoint";
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
+
+//message components
+import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
 import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
 
@@ -68,9 +71,13 @@ function InputPointsPage(props) {
           <InputPointsForm />
           <SubmitDataButton handleSubmit={handleClick} />
           {/* handle results of input point activity submission post request */}
-          {isSuccess ? (
+          {/*           {isSuccess ? (
             <SuccessMessage successText="new input successfully created" />
-          ) : null}
+          ) : null} */}
+          <ReturnSuccessMsgOnSuccess
+            isSuccess={isSuccess}
+            successMsg="new input successfully created"
+          />
           {isError ? (
             <ErrorMessage errorText="Error on making new input activity, please try again" />
           ) : null}
