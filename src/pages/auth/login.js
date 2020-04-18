@@ -26,6 +26,11 @@ import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInf
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
 import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
 
+//message components
+import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
+import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
+
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 
@@ -67,9 +72,10 @@ function LoginPage(props) {
           <CardTitle titleText={"Fit Challenge"} />
           <GuestUserLoginInfo />
 
-          {isError ? (
-            <ErrorMessage errorText="Error on login, please try again" />
-          ) : null}
+          <ReturnErrorMsgOnError
+            isError={isError}
+            errorMsg="Error on login, please try again"
+          />
 
           {isLoggedIn ? <Redirect to="/home" /> : null}
 

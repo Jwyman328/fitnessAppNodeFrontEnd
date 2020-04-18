@@ -21,11 +21,6 @@ import UpdatePointsForm from "../../components/forms/UpdatePointsForm";
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 
-//messages
-import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
-import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
-import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
-
 //message components
 import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
 import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
