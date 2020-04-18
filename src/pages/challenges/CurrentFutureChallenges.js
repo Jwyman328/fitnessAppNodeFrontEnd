@@ -68,20 +68,16 @@ function CurrentFutureChallenges(props) {
     <div data-testid="main" className="rulePageContainer">
       <ChallengeNavBar />
       <h2>current challenges</h2>
-      <div>
-        {currentChallenges ? (
-          <ChallengeTable challengeData={currentChallenges} />
-        ) : null}
-      </div>
+      {currentChallenges ? (
+        <ChallengeTable challengeData={currentChallenges} />
+      ) : null}
 
       <br></br>
       <h2>Future challenges</h2>
 
-      <div>
-        {futureChallenges ? (
-          <ChallengeTable challengeData={futureChallenges} />
-        ) : null}
-      </div>
+      {futureChallenges ? (
+        <ChallengeTable challengeData={futureChallenges} />
+      ) : null}
 
       <ReturnLoadingMsgOnLoading
         isLoading={isLoadingCurrentChallenges}

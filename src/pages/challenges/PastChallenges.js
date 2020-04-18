@@ -12,8 +12,14 @@ import { Table } from "react-bootstrap";
 import "../../components/tables/DailyPointsTable.css";
 import PastChallengesRow from "../../components/tables/rows/pastChallengesRow";
 import PastChallengeTableHead from "../../components/tables/heads/pastChallengeTableHead";
+import ChallengeTable from "../../components/tables/fullTables/ChallengeTable";
+
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+
+//ErrorMessage Components
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
+import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
 
 /**
  * Display all past challenges.
@@ -42,15 +48,17 @@ function PastChallenges(props) {
       <h1>Past challenges</h1>
       <div>
         {pastChallenges ? (
-          <Table className="tableContainer">
-            <PastChallengeTableHead />
-            <tbody>{createPastChallengesRows()}</tbody>
-          </Table>
+          <ChallengeTable challengeData={pastChallenges} />
         ) : null}
-        {isLoading ? <div>loading past challenges </div> : null}
-        {isError ? (
-          <div data-testid="isError">Error loading past challenges</div>
-        ) : null}
+
+        <ReturnLoadingMsgOnLoading
+          isLoading={isLoading}
+          loadingMsg="loading past challenges"
+        />
+        <ReturnErrorMsgOnError
+          isError={isError}
+          errorMsg="Error loading past challenges"
+        />
       </div>
     </div>
   );
