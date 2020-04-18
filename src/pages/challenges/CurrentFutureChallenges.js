@@ -15,6 +15,7 @@ import { Table } from "react-bootstrap";
 import "../../components/tables/DailyPointsTable.css";
 import PastChallengesRow from "../../components/tables/rows/pastChallengesRow";
 import PastChallengeTableHead from "../../components/tables/heads/pastChallengeTableHead";
+import ChallengeTable from "../../components/tables/fullTables/ChallengeTable";
 
 //ErrorMessage Components
 import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
@@ -28,7 +29,7 @@ import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
  * @param {*} props
  */
 function CurrentFutureChallenges(props) {
-  const globalState = useGlobalState();
+  const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(
     currentFutureChallengeReducer,
@@ -69,10 +70,7 @@ function CurrentFutureChallenges(props) {
       <h2>current challenges</h2>
       <div>
         {currentChallenges ? (
-          <Table className="tableContainer">
-            <PastChallengeTableHead />
-            <tbody>{createChallengeCards(currentChallenges)}</tbody>
-          </Table>
+          <ChallengeTable challengeData={currentChallenges} />
         ) : null}
       </div>
 
@@ -81,10 +79,7 @@ function CurrentFutureChallenges(props) {
 
       <div>
         {futureChallenges ? (
-          <Table className="tableContainer">
-            <PastChallengeTableHead />
-            <tbody>{createChallengeCards(futureChallenges)}</tbody>
-          </Table>
+          <ChallengeTable challengeData={futureChallenges} />
         ) : null}
       </div>
 

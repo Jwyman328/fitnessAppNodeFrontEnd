@@ -79,7 +79,7 @@ function CreateChallengeForm() {
       </FormRow>
 
       <FormRow>
-        <FormRowLabel labelText="Title:" />
+        <FormRowLabel labelText="Catagory:" />
         <select
           className="rowFormItem"
           multiple={false}
