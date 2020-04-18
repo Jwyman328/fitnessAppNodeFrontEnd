@@ -12,6 +12,11 @@ import {
 //components
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 
+//form components
+import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
+import FormRow from "../../components/forms/formElements/FormRow";
+import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
+
 //message components
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
 import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
@@ -64,60 +69,49 @@ function CreateGoalPage(props) {
       <div className="containerRules smallCard">
         <h1>Create A Goal</h1>
         <form className="formContainer">
-          <div className="rowForm">
-            <label className="rowFormItem">Start Date:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              name="goalStartDate"
-              data-testid="startDate"
-              type="text"
+          <FormRow>
+            <FormRowLabel labelText="Start Date:" />
+            <UserCreateDataFormInput
+              dataTestid={"startDate"}
+              name={"goalStartDate"}
+              type={"text"}
               value={goalStartDate}
-              onChange={handleChange}
+              dispatch={dispatch}
             />
-          </div>
+          </FormRow>
 
-          <div className="rowForm">
-            <label className="rowFormItem">End Date:</label>
-            <input
-              size="15"
-              className="rowFormItem"
-              name="goalEndDate"
-              data-testid="goalEndDate"
-              type="text"
+          <FormRow>
+            <FormRowLabel labelText="End Date:" />
+            <UserCreateDataFormInput
+              dataTestid={"goalEndDate"}
+              name={"goalEndDate"}
+              type={"text"}
               value={goalEndDate}
-              onChange={handleChange}
+              dispatch={dispatch}
             />
-          </div>
+          </FormRow>
 
-          <div className="rowForm">
-            <label className="rowFormItem">
-              Daily Goal:
-              <input
-                className="rowFormItemCheck"
-                name="dailyGoal"
-                data-testid="dailyGoal"
-                type="checkbox"
-                checked={dailyGoal}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <FormRow>
+            <FormRowLabel labelText=" Daily Goal:" />
+            <UserCreateDataFormInput
+              dataTestid={"dailyGoal"}
+              name={"dailyGoal"}
+              type={"checkbox"}
+              checked={dailyGoal}
+              dispatch={dispatch}
+            />
+          </FormRow>
 
-          <div className="rowForm">
-            <label className="rowFormItem">
-              Point Goal:
-              <input
-                size="15"
-                className="rowFormItem"
-                name="pointGoal"
-                data-testid="pointGoal"
-                type="text"
-                value={pointGoal}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <FormRow>
+            <FormRowLabel labelText="Point Goal:" />
+            <UserCreateDataFormInput
+              dataTestid={"pointGoal"}
+              name={"pointGoal"}
+              type={"text"}
+              value={pointGoal}
+              dispatch={dispatch}
+            />
+          </FormRow>
 
           <div className="formItem"></div>
         </form>
