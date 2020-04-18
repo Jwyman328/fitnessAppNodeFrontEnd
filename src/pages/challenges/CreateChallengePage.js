@@ -28,8 +28,8 @@ import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
 import FormRow from "../../components/forms/formElements/FormRow";
 
 //message components
-import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
-import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
+import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
 
 //context
 import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
@@ -79,12 +79,15 @@ function CreateChallengePage(props) {
           <CreateChallengeForm />
           <SubmitDataButton handleSubmit={handleSubmit} />
 
-          {isSuccess ? (
-            <SuccessMessage successText="Challenge created successfully" />
-          ) : null}
-          {isError ? (
-            <ErrorMessage errorText="Error creating challenge, please try again" />
-          ) : null}
+          <ReturnSuccessMsgOnSuccess
+            isSuccess={isSuccess}
+            successMsg="Challenge created successfully"
+          />
+
+          <ReturnErrorMsgOnError
+            isError={isError}
+            errorMsg="Error creating challenge, please try again"
+          />
         </UserCreateDataCardContainer>
       </div>
     </CreateChallengeContext.Provider>
