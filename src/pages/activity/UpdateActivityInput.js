@@ -13,6 +13,9 @@ import inputPointInitialState from "../../initialState/pointInputInitialState";
 import updateActivityInput from "../../actions/updateActivityInputActions/updateActivityInputAction";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";
 
+// custom hooks
+import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+
 //contet
 import UpdateActivityInputContext from "./activityContext/UpdateActivityInputContext";
 
@@ -27,7 +30,7 @@ import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/R
 import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
 
 function UpdateActivityInput(props) {
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(
     UpdateActivityInputReducer,
