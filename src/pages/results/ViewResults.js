@@ -10,8 +10,11 @@ import getDailyPoints from "../../actions/viewResultsActions/getDailyPoints";
 import DailyPointsTable from "../../components/tables/DailyPointsTable";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";
 
+// custom hooks
+import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+
 function ViewResults(props) {
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(viewResultsReducer, initialState);
   const { isError, isLoading, dailyPoints } = state;
