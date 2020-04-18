@@ -26,6 +26,11 @@ import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessa
 import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
 import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
 
+//message components
+import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
+import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
+
 function UpdateActivityInput(props) {
   const globalState = getGlobalState(useContext(store));
 
@@ -76,21 +81,26 @@ function UpdateActivityInput(props) {
 
           {activityInput ? <UpdatePointsForm /> : null}
           <SubmitDataButton handleSubmit={handleClick} />
-          {isLoadingActivityInput ? (
-            <LoadingMessage loadingText={"fetching activity..."} />
-          ) : null}
-          {isErrorActivityInput ? (
-            <ErrorMessage errorText="Error fetching activity" />
-          ) : null}
-          {isLoadingUpdateActivityInput ? (
-            <LoadingMessage loadingText={"updating activity..."} />
-          ) : null}
-          {isErrorUpdateActivityInput ? (
-            <ErrorMessage errorText="Error updating activity, please try again" />
-          ) : null}
-          {upDateActivityInputSuccess ? (
-            <SuccessMessage successText="Update successful!" />
-          ) : null}
+          <ReturnLoadingMsgOnLoading
+            isLoading={isLoadingActivityInput}
+            loadingMsg="fetching activity..."
+          />
+          <ReturnErrorMsgOnError
+            isError={isErrorActivityInput}
+            errorMsg="Error fetching activity"
+          />
+          <ReturnLoadingMsgOnLoading
+            isLoading={isLoadingUpdateActivityInput}
+            loadingMsg="updating activity..."
+          />
+          <ReturnErrorMsgOnError
+            isError={isErrorUpdateActivityInput}
+            errorMsg="Error updating activity, please try again"
+          />
+          <ReturnSuccessMsgOnSuccess
+            isSuccess={upDateActivityInputSuccess}
+            successMsg="Update successful!"
+          />
         </UserCreateDataCardContainer>
       </div>
     </UpdateActivityInputContext.Provider>

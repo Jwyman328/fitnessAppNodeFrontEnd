@@ -30,8 +30,8 @@ import FormContainer from "../../components/forms/formElements/FormContainer";
 import CreateGoalPageForm from "../../components/forms/CreateGoalPageForm";
 
 //message components
-import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
-import SuccessMessage from "../../components/messagesAboutProgramStatus/successMessage";
+import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
 
 /**
  * Allow user to create a total point goal.
@@ -70,12 +70,14 @@ function CreateGoalPage(props) {
           <CreateGoalPageForm />
           <SubmitDataButton handleSubmit={handleSubmit} />
 
-          {isSuccess ? (
-            <SuccessMessage successText="Goal created successfully" />
-          ) : null}
-          {isError ? (
-            <ErrorMessage errorText="Error creating goal, please try again" />
-          ) : null}
+          <ReturnSuccessMsgOnSuccess
+            isSuccess={isSuccess}
+            successMsg="Goal created successfully"
+          />
+          <ReturnErrorMsgOnError
+            isError={isError}
+            errorMsg="Error creating goal, please try again"
+          />
         </UserCreateDataCardContainer>
       </div>
     </CreateGoalPageContext.Provider>
