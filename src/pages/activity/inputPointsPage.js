@@ -1,5 +1,8 @@
 import React, { useReducer, useContext, useEffect } from "react";
 
+//custom hooks
+import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+
 //state
 import { store } from "../../store/globalStore";
 import {
@@ -48,7 +51,7 @@ function InputPointsPage(props) {
   } = state;
 
   // global store containing the use token for making requests
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   /**
    * Submit point data to the server.
