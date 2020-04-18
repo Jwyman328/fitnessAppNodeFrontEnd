@@ -19,6 +19,7 @@ import { withRouter } from "react-router-dom";
 
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+import useGetCurrentFutureGoals from "../../customHooks/customAuthHooks/useGetCurrentFutureGoals";
 
 function CurrentFutureGoals(props) {
   const { globalState } = useGlobalState();
@@ -33,13 +34,7 @@ function CurrentFutureGoals(props) {
     isErrorCurrentGoals
   } = state;
 
-  /**
-   * Fetch current and future goals.
-   */
-  useEffect(() => {
-    getFutureGoals(dispatch, globalState.token);
-    getCurrentGoals(dispatch, globalState.token);
-  }, []);
+  useGetCurrentFutureGoals(dispatch, globalState.token);
 
   const createGoalRow = goals => {
     const goalRow = goals.map(goal => {
