@@ -33,13 +33,16 @@ import CreateGoalPageForm from "../../components/forms/CreateGoalPageForm";
 import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
 import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
 
+// custom hooks
+import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+
 /**
  * Allow user to create a total point goal.
  * @param {*} props
  */
 function CreateGoalPage(props) {
   // global store containing the use token for making requests
-  const globalState = getGlobalState(useContext(store));
+  const { globalState } = useGlobalState();
 
   //goal's page reducer
   const [state, dispatch] = useReducer(goalReducer, initialState);
