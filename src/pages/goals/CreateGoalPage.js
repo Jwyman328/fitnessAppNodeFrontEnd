@@ -1,22 +1,33 @@
 import React, { useReducer, useContext } from "react";
-import initialState from "../../initialState/pointGoalInitialState";
+
+//Actions & Reducers
 import goalReducer from "../../reducers/goalsReducer/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
-import GoalNavBar from "../../components/navBars/goalNavBar";
+
+//state
 import { store } from "../../store/globalStore";
 import {
   getGlobalState,
   dispatchInputChange
 } from "../../utils/helperFunctions";
+import initialState from "../../initialState/pointGoalInitialState";
 
-//components
+//context
+import CreateGoalPageContext from "./GoalContext/CreateGoalPageContext";
+
+//general components
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
+import GoalNavBar from "../../components/navBars/goalNavBar";
+
+//card components
+import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 
 //form components
 import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
 import FormRow from "../../components/forms/formElements/FormRow";
 import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
 import FormContainer from "../../components/forms/formElements/FormContainer";
+import CreateGoalPageForm from "../../components/forms/CreateGoalPageForm";
 
 //message components
 import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
@@ -32,23 +43,7 @@ function CreateGoalPage(props) {
 
   //goal's page reducer
   const [state, dispatch] = useReducer(goalReducer, initialState);
-  const {
-    goalStartDate,
-    goalEndDate,
-    dailyGoal,
-    pointGoal,
-    isSuccess,
-    isLoading,
-    isError
-  } = state;
-
-  /**
-   * Handle change of each input.
-   * @param {*} e -input event
-   */
-  const handleChange = event => {
-    dispatchInputChange(dispatch, event);
-  };
+  const { isSuccess, isLoading, isError } = state;
 
   /**
    * Submit goal state input to server to create a goal.
@@ -65,65 +60,24 @@ function CreateGoalPage(props) {
   };
 
   return (
-    <div className="rulePageContainer">
-      <GoalNavBar />
-      <div className="containerRules smallCard">
-        <h1>Create A Goal</h1>
-        <FormContainer>
-          <FormRow>
-            <FormRowLabel labelText="Start Date:" />
-            <UserCreateDataFormInput
-              dataTestid={"startDate"}
-              name={"goalStartDate"}
-              type={"text"}
-              value={goalStartDate}
-              dispatch={dispatch}
-            />
-          </FormRow>
-
-          <FormRow>
-            <FormRowLabel labelText="End Date:" />
-            <UserCreateDataFormInput
-              dataTestid={"goalEndDate"}
-              name={"goalEndDate"}
-              type={"text"}
-              value={goalEndDate}
-              dispatch={dispatch}
-            />
-          </FormRow>
-
-          <FormRow>
-            <FormRowLabel labelText=" Daily Goal:" />
-            <UserCreateDataFormInput
-              dataTestid={"dailyGoal"}
-              name={"dailyGoal"}
-              type={"checkbox"}
-              checked={dailyGoal}
-              dispatch={dispatch}
-            />
-          </FormRow>
-
-          <FormRow>
-            <FormRowLabel labelText="Point Goal:" />
-            <UserCreateDataFormInput
-              dataTestid={"pointGoal"}
-              name={"pointGoal"}
-              type={"text"}
-              value={pointGoal}
-              dispatch={dispatch}
-            />
-          </FormRow>
-        </FormContainer>
-
-        <SubmitDataButton handleSubmit={handleSubmit} />
-        {isSuccess ? (
-          <SuccessMessage successText="Goal created successfully" />
-        ) : null}
-        {isError ? (
-          <ErrorMessage errorText="Error creating goal, please try again" />
-        ) : null}
+    <CreateGoalPageContext.Provider
+      value={{ CreateGoalPageState: state, CreateGoalPageDispatch: dispatch }}
+    >
+      <div className="rulePageContainer">
+        <GoalNavBar />
+        <UserCreateDataCardContainer>
+          <h1>Create A Goal</h1>
+          <CreateGoalPageForm />
+          <SubmitDataButton handleSubmit={handleSubmit} />
+          {isSuccess ? (
+            <SuccessMessage successText="Goal created successfully" />
+          ) : null}
+          {isError ? (
+            <ErrorMessage errorText="Error creating goal, please try again" />
+          ) : null}
+        </UserCreateDataCardContainer>
       </div>
-    </div>
+    </CreateGoalPageContext.Provider>
   );
 }
 
