@@ -18,6 +18,7 @@ import GoalRows from "../../components/tables/rows/currentGoalRow";
 import { withRouter } from "react-router-dom";
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
+import useGetPastGoals from "../../customHooks/customAuthHooks/useGetPastGoals";
 
 function PastGoalsPage(props) {
   const { globalState } = useGlobalState();
@@ -26,12 +27,7 @@ function PastGoalsPage(props) {
 
   const { isLoadingPastGoals, isErrorPastGoals, pastGoals } = state;
 
-  /**
-   * Fetch current and future goals.
-   */
-  useEffect(() => {
-    getPastGoals(dispatch, globalState.token);
-  }, []);
+  useGetPastGoals(dispatch, globalState.token);
 
   const createGoalRow = goals => {
     const goalRow = goals.map(goal => {
