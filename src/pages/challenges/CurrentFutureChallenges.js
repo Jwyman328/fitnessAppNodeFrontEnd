@@ -16,6 +16,10 @@ import "../../components/tables/DailyPointsTable.css";
 import PastChallengesRow from "../../components/tables/rows/pastChallengesRow";
 import PastChallengeTableHead from "../../components/tables/heads/pastChallengeTableHead";
 
+//ErrorMessage Components
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
+import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
+
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
@@ -84,19 +88,23 @@ function CurrentFutureChallenges(props) {
         ) : null}
       </div>
 
-      {isLoadingCurrentChallenges ? (
-        <div>loading current challenges </div>
-      ) : null}
-      {isErrorCurrentChallenges ? (
-        <div data-testid="isCurrentError">Error loading current challenges</div>
-      ) : null}
+      <ReturnLoadingMsgOnLoading
+        isLoading={isLoadingCurrentChallenges}
+        loadingMsg="loading current challenges"
+      />
 
-      {isLoadingFutureChallenges ? (
-        <div>loading current challenges </div>
-      ) : null}
-      {isErrorFutureChallenges ? (
-        <div data-testid="isFutureError">Error loading future challenges</div>
-      ) : null}
+      <ReturnErrorMsgOnError
+        isError={isErrorCurrentChallenges}
+        errorMsg="Error loading current challenges"
+      />
+      <ReturnLoadingMsgOnLoading
+        isLoading={isLoadingFutureChallenges}
+        loadingMsg="loading current challenges"
+      />
+      <ReturnErrorMsgOnError
+        isError={isErrorFutureChallenges}
+        errorMsg="Error loading future challenges"
+      />
     </div>
   );
 }
