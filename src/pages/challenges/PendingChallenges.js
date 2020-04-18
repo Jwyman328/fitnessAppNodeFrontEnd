@@ -12,12 +12,14 @@ import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import { Table } from "react-bootstrap";
 import "../../components/tables/DailyPointsTable.css";
 import PendingInvitationTableHead from "../../components/tables/heads/pendingInvitationsTableHead";
+
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
 //ErrorMessage Components
 import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
 import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
+import CustomMessage from "../../components/messagesAboutProgramStatus/CustomMessage";
 
 /**
  * Display user's pending challenges allowing user to accept or reject them.
@@ -61,10 +63,10 @@ function PendingChallengesPage(props) {
             </tbody>
           </Table>
         ) : (
-          <div data-testid="noPendingChallengesMsg">
-            {" "}
-            You have no pending challenges{" "}
-          </div>
+          <CustomMessage
+            dataTestId="noPendingChallengesMsg"
+            customMsg="You have no pending challenges"
+          />
         )}
       </div>
       <ReturnLoadingMsgOnLoading
