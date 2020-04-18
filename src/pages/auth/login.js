@@ -23,13 +23,10 @@ import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
 
 // other components
-import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
 import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
 
 //message components
-import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
 import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
-import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
 
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";

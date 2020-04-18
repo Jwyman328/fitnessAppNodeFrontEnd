@@ -21,8 +21,10 @@ import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 
 // other components
-import ErrorMessage from "../../components/messagesAboutProgramStatus/ErrorMessage";
 import LoadingMessage from "../../components/messagesAboutProgramStatus/LoadingMessage";
+
+//message components
+import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
 
 //background
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
@@ -80,9 +82,10 @@ function SignUpPage(props) {
           <CardTitle titleText={"Fit Challenge"} />
           <CardSubHeader subHeaderText="Sign Up" />
 
-          {isError ? (
-            <ErrorMessage errorText="Error creating user, please try again" />
-          ) : null}
+          <ReturnErrorMsgOnError
+            isError={isError}
+            errorMsg="Error creating user, please try again"
+          />
           {isLoading ? (
             <LoadingMessage loadingText="loading" />
           ) : (
