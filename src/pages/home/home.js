@@ -2,16 +2,16 @@ import React, { useEffect, useReducer } from "react";
 import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { createGraphData } from "../utils/graphHelperFunctions";
-import initialState from "../initialState/homePageInitialState";
-import homePageReducer from "../reducers/homePageReducer";
-import getTodaysPoints from "../actions/fetchTodaysPoints";
-import getPastMonthPoints from "../actions/getPastMonthPoints";
-import logo from "../logoMedia/fitness-outline.svg";
+import { createGraphData } from "../../utils/graphHelperFunctions";
+import initialState from "../../initialState/homePageInitialState";
+import homePageReducer from "../../reducers/homeReducers/homePageReducer";
+import getTodaysPoints from "../../actions/fetchPointsActions/fetchTodaysPoints";
+import getPastMonthPoints from "../../actions/fetchPointsActions/getPastMonthPoints";
+import logo from "../../logoMedia/fitness-outline.svg";
 
 import "./home.scss";
 
-import useGlobalState from "../customHooks/customAuthHooks/useGlobalState";
+import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
 function HomePage(props) {
   const { globalState } = useGlobalState();

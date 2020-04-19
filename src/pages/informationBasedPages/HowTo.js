@@ -1,7 +1,7 @@
 import React from "react";
 import "./HowTo.css";
 import "./Rules.scss";
-import LinkButton from "../../components/linkButton";
+import LinkButton from "../../components/buttons/linkButton";
 
 function HowTo(props) {
   return (

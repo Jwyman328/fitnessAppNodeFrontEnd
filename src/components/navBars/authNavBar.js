@@ -1,5 +1,5 @@
 import React from "react";
-import "../authNavBar.scss";
+import "./authNavBar.scss";
 import NavLink from "./navLink";
 
 function AuthNavBar() {

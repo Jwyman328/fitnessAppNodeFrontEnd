@@ -5,7 +5,7 @@ import HighchartsReact from "highcharts-react-official";
 import { createGraphData } from "../../../utils/graphHelperFunctions";
 import ResultsNavBar from "../../../components/navBars/resultsNavBar";
 import "./IndividualDailyPontGraph.css";
-import "../../home.scss";
+import "../../home/home.scss";
 
 /**
  * Display bar graph for a specific  activity point input.

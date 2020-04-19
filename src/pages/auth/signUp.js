@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 
 //actions and reducers
-import signUpReducer from "../../reducers/signUpReducer";
-import signUpAction from "../../actions/signUp";
+import signUpReducer from "../../reducers/authReducers/signUpReducer";
+import signUpAction from "../../actions/authActions/signUp";
 
 // state data
 import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";

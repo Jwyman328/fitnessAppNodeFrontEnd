@@ -12,11 +12,11 @@ import useGlobalState from "./customHooks/customAuthHooks/useGlobalState";
 
 // nav bars
 import AuthNavBar from "./components/navBars/authNavBar";
-import LoggedInNavBar from "./components/loggedInNavBar";
+import LoggedInNavBar from "./components/navBars/loggedInNavBar";
 
 //pages
 const SignUpPage = React.lazy(() => import("./pages/auth/signUp"));
-const HomePage = React.lazy(() => import("./pages/home"));
+const HomePage = React.lazy(() => import("./pages/home/home"));
 const LoginPage = React.lazy(() => import("./pages/auth/login"));
 const InputPointsPage = React.lazy(() =>
   import("./pages/activity/inputPointsPage")

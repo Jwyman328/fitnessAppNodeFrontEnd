@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 
 import initialState from "../../initialState/ViewResultsInitialState";
-import viewResultsReducer from "../../reducers/viewResultsReducer";
+import viewResultsReducer from "../../reducers/resultsReducers/viewResultsReducer";
 import getDailyPoints from "../../actions/viewResultsActions/getDailyPoints";
 import DailyPointsTable from "../../components/tables/DailyPointsTable";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";

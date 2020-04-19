@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 
 // reducers and actions
-import loginReducer from "../../reducers/loginReducer";
-import loginAction from "../../actions/loginUser";
+import loginReducer from "../../reducers/authReducers/loginReducer";
+import loginAction from "../../actions/authActions/loginUser";
 
 //routing
 import { Redirect, withRouter } from "react-router-dom";

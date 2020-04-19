@@ -1,5 +1,5 @@
 import React from "react";
-import handleInputAction from "../../../actions/handleInput";
+import handleInputAction from "../../../actions/formActions/handleInput";
 
 /**
  * Dispatch action to handle change of input value

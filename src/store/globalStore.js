@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import globalReducer from "../reducers/globalReducer";
+import globalReducer from "../reducers/globalReducers/globalReducer";
 import initialState from "../initialState/globalInitialState";
 
 // initialize the store with initial global state.

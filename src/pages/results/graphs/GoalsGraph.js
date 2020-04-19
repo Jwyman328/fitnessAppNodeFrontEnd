@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import fetchGoalTotalPoints from "../../../actions/goalGraph/fetchGoalTotalPoints";
 import { withRouter } from "react-router-dom";
-import goalsGraphReducer from "../../../reducers/goalsGraphReducer";
+import goalsGraphReducer from "../../../reducers/resultsReducers/goalsGraphReducer";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import setGoalsGraphOptions from "../../../utils/goalsGraphOptions";
