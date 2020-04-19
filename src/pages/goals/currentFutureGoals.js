@@ -13,7 +13,7 @@ import { withRouter } from "react-router-dom";
 
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
-import useGetCurrentFutureGoals from "../../customHooks/customAuthHooks/useGetCurrentFutureGoals";
+import useGetCurrentFutureGoals from "../../customHooks/goalsHooks/useGetCurrentFutureGoals";
 
 function CurrentFutureGoals(props) {
   const { globalState } = useGlobalState();

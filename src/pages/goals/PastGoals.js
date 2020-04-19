@@ -12,7 +12,7 @@ import GoalRows from "../../components/tables/rows/currentGoalRow";
 import { withRouter } from "react-router-dom";
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
-import useGetPastGoals from "../../customHooks/customAuthHooks/useGetPastGoals";
+import useGetPastGoals from "../../customHooks/goalsHooks/useGetPastGoals";
 
 function PastGoalsPage(props) {
   const { globalState } = useGlobalState();

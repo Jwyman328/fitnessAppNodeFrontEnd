@@ -20,9 +20,8 @@ describe("Test input onChange values", () => {
     element = render(
       <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
         <MemoryRouter initialEntries={["/signup"]}>
-          {" "}
           <SignUpPage />
-        </MemoryRouter>{" "}
+        </MemoryRouter>
       </StateProvider>
     );
     const { getByTestId } = element;
