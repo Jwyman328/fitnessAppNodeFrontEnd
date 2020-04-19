@@ -8,7 +8,7 @@ import { render, fireEvent, waitForElement } from "@testing-library/react";
 import { Router } from "react-router-dom";
 import renderWithRouter from "./testUtils/setUpTests";
 import { createMemoryHistory } from "history";
-import homePage from "../pages/home";
+import homePage from "../pages/home/home";
 
 //set up global context for tests
 import { StateProvider } from "../store/globalStore";
