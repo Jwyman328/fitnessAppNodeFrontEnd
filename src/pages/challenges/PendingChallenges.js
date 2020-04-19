@@ -1,12 +1,8 @@
-import React, { useEffect, useReducer, useContext } from "react";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
+import React, { useEffect, useReducer } from "react";
+
 import pendingChallengePageReducer from "../../reducers/challengeReducers/pendingChallengesPageReducer";
 import initialState from "../../initialState/pendingChallengesInitialState";
 import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
-import { store } from "../../store/globalStore";
 import createPendingChallengeRows from "../../components/tables/rows/pendingChallengeRow";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import { Table } from "react-bootstrap";
@@ -41,7 +37,7 @@ function PendingChallengesPage(props) {
 
   useEffect(() => {
     getAllPendingChallengeInvitations(dispatch, globalState.token);
-  }, []);
+  }, [globalState.token]);
 
   return (
     <div className="rulePageContainer">

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import handleAuthInputChange from "../../pages/auth/helperFunctionsAuth/handleAuthInputChange";
 
 //form components
 import AuthFormInput from "./formElements/AuthFormInput";
@@ -14,17 +13,7 @@ import SignUpContext from "../../pages/auth/authContext/SignUpContext";
 function SignUpForm({ state, dispatch }) {
   const { signUpState, signUpDispatch } = useContext(SignUpContext);
 
-  const {
-    email,
-    password,
-    password2,
-    firstName,
-    lastName,
-    isLoading,
-    isError,
-    isLoggedIn,
-    token
-  } = signUpState;
+  const { email, password, password2, firstName, lastName } = signUpState;
 
   return (
     <form className="formContainer">

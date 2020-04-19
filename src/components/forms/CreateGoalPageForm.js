@@ -16,10 +16,7 @@ function CreateGoalPageForm() {
     goalStartDate,
     goalEndDate,
     dailyGoal,
-    pointGoal,
-    isSuccess,
-    isLoading,
-    isError
+    pointGoal
   } = CreateGoalPageState;
 
   return (

@@ -5,7 +5,7 @@ import useGlobalState from "./useGlobalState";
  * @param {string} token -- JWT token from backend to verify user
  */
 function useLoginUserOnToken(token) {
-  const { globalState, globalDispatch } = useGlobalState();
+  const { globalDispatch } = useGlobalState();
 
   useEffect(() => {
     if (token) {

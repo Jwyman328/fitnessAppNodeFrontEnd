@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useContext } from "react";
+import React, { useEffect, useReducer } from "react";
 
 import currentFutureChallengeReducer from "../../reducers/challengeReducers/currentFutureChallengePageReducer";
 
@@ -8,7 +8,6 @@ import getCurrentChallenges from "../../actions/currentFutureChallengesActions/g
 
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import "../../components/tables/DailyPointsTable.css";
-import PastChallengesRow from "../../components/tables/rows/pastChallengesRow";
 import ChallengeTable from "../../components/tables/fullTables/ChallengeTable";
 
 //ErrorMessage Components

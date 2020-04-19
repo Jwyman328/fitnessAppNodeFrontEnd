@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
-import globalReducer from "../../reducers/globalReducer";
 import { getGlobalDispatcher } from "../../utils/helperFunctions";
 import { store } from "../../store/globalStore";
 
