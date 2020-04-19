@@ -1,15 +1,6 @@
-import React, { useContext, useReducer } from "react";
+import React from "react";
 import updateChallengeInvitationStatus from "../../../actions/pendingChallengeInvitationActions/updateChallengeInvitationStatus";
-import initialState from "../../../initialState/pendingChallengesInitialState";
-import getAllPendingChallengeInvitations from "../../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
-import { store } from "../../../store/globalStore";
-import pendingChallengePageReducer from "../../../reducers/challengeReducers/pendingChallengesPageReducer";
 import "../../../pages/form.scss";
-
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../../utils/helperFunctions";
 
 /**
  * Create a display card for the challenge invitation, with ability to change challenge status.

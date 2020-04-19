@@ -1,15 +1,9 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { withRouter } from "react-router-dom";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
-import { store } from "../../store/globalStore";
+
 import UpdateActivityInputReducer from "../../reducers/activityReducers/updateActivityInputReducer";
 import initialState from "../../initialState/updateActivityInputInitialState";
 import getActivityInput from "../../actions/updateActivityInputActions/getActivityInput";
-import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
-import inputPointInitialState from "../../initialState/pointInputInitialState";
 import updateActivityInput from "../../actions/updateActivityInputActions/updateActivityInputAction";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";
 
@@ -54,7 +48,7 @@ function UpdateActivityInput(props) {
    */
   useEffect(() => {
     getActivityInput(dispatch, globalState.token, activityId);
-  }, []);
+  }, [globalState.token, activityId]);
 
   /**
    * Submit updated activity data to the server.

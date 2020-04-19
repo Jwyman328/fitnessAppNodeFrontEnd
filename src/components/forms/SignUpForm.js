@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useContext } from "react";
 import handleAuthInputChange from "../../pages/auth/helperFunctionsAuth/handleAuthInputChange";
 
 //form components

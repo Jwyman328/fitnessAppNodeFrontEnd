@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React from "react";
 import axios from "axios";
 import getCurrentGoals from "../../../actions/currentFutureGoalsActions/getCurrentGoals";
 import getFutureGoals from "../../../actions/currentFutureGoalsActions/getFutureGoals";
@@ -13,9 +13,6 @@ const currentGoalRow = (
   const config = {
     data: { Authorization: `Bearer ${token}` },
     headers: { Authorization: `Bearer ${token}` }
-  };
-  const bodyParameters = {
-    key: "value"
   };
 
   const deleteGoal = async goalId => {

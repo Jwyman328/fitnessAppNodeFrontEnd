@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { createGraphData } from "../../../utils/graphHelperFunctions";
 import ResultsNavBar from "../../../components/navBars/resultsNavBar";
-import setPointResultsGraphOptions from "../../../utils/goalsGraphOptions";
 import "./IndividualDailyPontGraph.css";
 import "../../home.scss";
 
@@ -46,8 +45,6 @@ function IndividualDailyPointGraph(props) {
       crosshair: true
     }
   };
-
-  //const options = setPointResultsGraphOptions(pointData)
 
   return (
     <div className="homePageContainer">

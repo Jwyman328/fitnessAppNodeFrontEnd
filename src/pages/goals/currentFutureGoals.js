@@ -1,14 +1,8 @@
-import React, { useEffect, useReducer, useContext } from "react";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
+import React, { useReducer } from "react";
+
 import currentFutureGoalReducer from "../../reducers/goalsReducer/currentFutureGoalPageReducer";
 
 import initialState from "../../initialState/currentFutureGoalsInitialState";
-import getCurrentGoals from "../../actions/currentFutureGoalsActions/getCurrentGoals";
-import getFutureGoals from "../../actions/currentFutureGoalsActions/getFutureGoals";
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";
@@ -25,14 +19,7 @@ function CurrentFutureGoals(props) {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(currentFutureGoalReducer, initialState);
-  const {
-    isLoadingFutureGoals,
-    isErrorFutureGoals,
-    futureGoals,
-    currentGoals,
-    isLoadingCurrentGoals,
-    isErrorCurrentGoals
-  } = state;
+  const { futureGoals, currentGoals } = state;
 
   useGetCurrentFutureGoals(dispatch, globalState.token);
 

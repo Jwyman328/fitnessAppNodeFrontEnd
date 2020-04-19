@@ -1,10 +1,8 @@
-import React, { useEffect, useContext, useReducer } from "react";
-import { Redirect, Link, withRouter } from "react-router-dom";
+import React, { useEffect, useReducer } from "react";
+import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { createGraphData } from "../utils/graphHelperFunctions";
-import { store } from "../store/globalStore";
-import { getGlobalState, dispatchInputChange } from "../utils/helperFunctions";
 import initialState from "../initialState/homePageInitialState";
 import homePageReducer from "../reducers/homePageReducer";
 import getTodaysPoints from "../actions/fetchTodaysPoints";
@@ -19,19 +17,12 @@ function HomePage(props) {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(homePageReducer, initialState);
-  const {
-    isError,
-    isLoading,
-    todaysPoints,
-    pastMonthPoints,
-    pastMonthDates
-  } = state;
+  const { todaysPoints, pastMonthPoints, pastMonthDates } = state;
 
   useEffect(() => {
-    const localTok = JSON.parse(localStorage.getItem("token"));
     getTodaysPoints(dispatch, globalState.token);
     getPastMonthPoints(dispatch, globalState.token);
-  }, []);
+  }, [globalState.token]);
 
   const options = todaysPoints
     ? {

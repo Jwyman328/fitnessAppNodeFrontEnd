@@ -1,17 +1,10 @@
-import React, { useEffect, useReducer, useContext } from "react";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
+import React, { useEffect, useReducer } from "react";
+
 import pastChallengePageReducer from "../../reducers/challengeReducers/pastChallengePageReducer";
 import initialState from "../../initialState/pastChallengeInitialState";
 import getPastChallenges from "../../actions/pastChallengesActions/getPastChallenges";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
-import { Table } from "react-bootstrap";
 import "../../components/tables/DailyPointsTable.css";
-import PastChallengesRow from "../../components/tables/rows/pastChallengesRow";
-import PastChallengeTableHead from "../../components/tables/heads/pastChallengeTableHead";
 import ChallengeTable from "../../components/tables/fullTables/ChallengeTable";
 
 // custom hooks
@@ -33,7 +26,7 @@ function PastChallenges(props) {
 
   useEffect(() => {
     getPastChallenges(dispatch, globalState.token);
-  }, []);
+  }, [globalState.token]);
 
   return (
     <div className="rulePageContainer">

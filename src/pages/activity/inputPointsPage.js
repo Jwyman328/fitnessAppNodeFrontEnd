@@ -1,14 +1,8 @@
-import React, { useReducer, useContext, useEffect } from "react";
+import React, { useReducer } from "react";
 
 //custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
-//state
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
 import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
 import inputPointInitialState from "../../initialState/pointInputInitialState";
 
@@ -37,18 +31,7 @@ function InputPointsPage(props) {
     inputPointReducer,
     inputPointInitialState
   );
-  const {
-    isLoading,
-    isError,
-    isSuccess,
-    date,
-    sleepHours,
-    water100oz,
-    cleanEating,
-    workoutIntenisty,
-    workoutTime,
-    steps
-  } = state;
+  const { isError, isSuccess } = state;
 
   // global store containing the use token for making requests
   const { globalState } = useGlobalState();

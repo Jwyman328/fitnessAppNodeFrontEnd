@@ -1,9 +1,5 @@
 import React, { useEffect, useReducer, useContext } from "react";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
+
 import currentFutureChallengeReducer from "../../reducers/challengeReducers/currentFutureChallengePageReducer";
 
 import initialState from "../../initialState/currentFutureChallengesInitialState";
@@ -11,10 +7,8 @@ import getFutureChallenges from "../../actions/currentFutureChallengesActions/ge
 import getCurrentChallenges from "../../actions/currentFutureChallengesActions/getCurrentChallengesAction";
 
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
-import { Table } from "react-bootstrap";
 import "../../components/tables/DailyPointsTable.css";
 import PastChallengesRow from "../../components/tables/rows/pastChallengesRow";
-import PastChallengeTableHead from "../../components/tables/heads/pastChallengeTableHead";
 import ChallengeTable from "../../components/tables/fullTables/ChallengeTable";
 
 //ErrorMessage Components
@@ -50,19 +44,7 @@ function CurrentFutureChallenges(props) {
   useEffect(() => {
     getCurrentChallenges(dispatch, globalState.token);
     getFutureChallenges(dispatch, globalState.token);
-  }, []);
-
-  /**
-   * Create an array of challenge cards from challenge data.
-   *
-   * @param {Array} challenges -- all challenge data.
-   */
-  const createChallengeCards = challenges => {
-    const challengeCards = challenges.map(challenge =>
-      PastChallengesRow(challenge)
-    );
-    return challengeCards;
-  };
+  }, [globalState.token]);
 
   return (
     <div data-testid="main" className="rulePageContainer">

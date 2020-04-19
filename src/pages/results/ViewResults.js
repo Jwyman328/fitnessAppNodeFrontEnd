@@ -1,9 +1,5 @@
-import React, { useEffect, useContext, useReducer } from "react";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
+import React, { useEffect, useReducer } from "react";
+
 import initialState from "../../initialState/ViewResultsInitialState";
 import viewResultsReducer from "../../reducers/viewResultsReducer";
 import getDailyPoints from "../../actions/viewResultsActions/getDailyPoints";
@@ -17,11 +13,11 @@ function ViewResults(props) {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(viewResultsReducer, initialState);
-  const { isError, isLoading, dailyPoints } = state;
+  const { dailyPoints } = state;
 
   useEffect(() => {
     getDailyPoints(dispatch, globalState.token);
-  }, []);
+  }, [globalState.token]);
 
   return (
     <div className="rulePageContainer">

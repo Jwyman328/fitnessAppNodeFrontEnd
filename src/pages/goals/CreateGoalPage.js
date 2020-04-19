@@ -1,15 +1,10 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer } from "react";
 
 //Actions & Reducers
 import goalReducer from "../../reducers/goalsReducer/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
 
 //state
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
 import initialState from "../../initialState/pointGoalInitialState";
 
 //context
@@ -23,10 +18,6 @@ import GoalNavBar from "../../components/navBars/goalNavBar";
 import UserCreateDataCardContainer from "../../components/cardComponents/cardContainers/UserCreateDataCardContainer";
 
 //form components
-import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
-import FormRow from "../../components/forms/formElements/FormRow";
-import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
-import FormContainer from "../../components/forms/formElements/FormContainer";
 import CreateGoalPageForm from "../../components/forms/CreateGoalPageForm";
 
 //message components
@@ -46,7 +37,7 @@ function CreateGoalPage(props) {
 
   //goal's page reducer
   const [state, dispatch] = useReducer(goalReducer, initialState);
-  const { isSuccess, isLoading, isError } = state;
+  const { isSuccess, isError } = state;
 
   /**
    * Submit goal state input to server to create a goal.

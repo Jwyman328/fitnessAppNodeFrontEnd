@@ -1,19 +1,13 @@
-import React, { useEffect, useReducer, useContext } from "react";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
+import React, { useReducer } from "react";
+
 import pastGoalsReducer from "../../reducers/goalsReducer/pastGoalsReducer";
 
 import initialState from "../../initialState/pastGoalsState";
-import getPastGoals from "../../actions/pastGoalsPAge/getPastGoals";
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";
 import "../../components/tables/DailyPointsTable.css";
 import PastGoalsHead from "../../components/tables/heads/pastGoalsHead";
-import PastGoalsRows from "../../components/tables/rows/pastGoalsRows";
 import GoalRows from "../../components/tables/rows/currentGoalRow";
 import { withRouter } from "react-router-dom";
 // custom hooks
@@ -25,13 +19,12 @@ function PastGoalsPage(props) {
 
   const [state, dispatch] = useReducer(pastGoalsReducer, initialState);
 
-  const { isLoadingPastGoals, isErrorPastGoals, pastGoals } = state;
+  const { pastGoals } = state;
 
   useGetPastGoals(dispatch, globalState.token);
 
   const createGoalRow = goals => {
     const goalRow = goals.map(goal => {
-      //return PastGoalsRows(goal)
       return GoalRows(dispatch, globalState.token, goal, props.history, true);
     });
     return goalRow;

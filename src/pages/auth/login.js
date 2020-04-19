@@ -1,16 +1,14 @@
-import React, { useReducer, useEffect, useContext } from "react";
+import React, { useReducer } from "react";
 
 // reducers and actions
 import loginReducer from "../../reducers/loginReducer";
 import loginAction from "../../actions/loginUser";
-import handleInputAction from "../../actions/handleInput";
 
 //routing
-import { Redirect, Link, withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 
 // state data
 import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";
-import { store } from "../../store/globalStore";
 import initialState from "../../initialState/loginInitialState";
 
 //card components
@@ -19,7 +17,6 @@ import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
 import LoginForm from "../../components/forms/LoginForm";
-import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import GuestUserLoginInfo from "../../components/cardComponents/GuesUserLoginInfo";
 
 // other components
@@ -40,7 +37,7 @@ import LoginContext from "./authContext/loginContext";
  */
 function LoginPage(props) {
   const [state, dispatch] = useReducer(loginReducer, initialState);
-  const { email, password, token, isLoading, isLoggedIn, isError } = state;
+  const { token, isLoading, isLoggedIn, isError } = state;
   useLoginUserOnToken(token);
 
   /**

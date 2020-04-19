@@ -1,8 +1,6 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import fetchGoalTotalPoints from "../../../actions/goalGraph/fetchGoalTotalPoints";
 import { withRouter } from "react-router-dom";
-import { store } from "../../../store/globalStore";
-import { getGlobalState } from "../../../utils/helperFunctions";
 import goalsGraphReducer from "../../../reducers/goalsGraphReducer";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -26,7 +24,7 @@ function GoalsGraph(props) {
     totalPointForDateRange: false
   });
 
-  const { isLoading, isError, totalPointForDateRange } = state;
+  const { totalPointForDateRange } = state;
 
   const { globalState } = useGlobalState();
 
@@ -40,7 +38,7 @@ function GoalsGraph(props) {
       goalStartDate,
       goalEndDate
     );
-  }, []);
+  }, [globalState.token]);
   // high charts graph options
   const graphOptions = setGoalsGraphOptions(
     totalPointForDateRange,

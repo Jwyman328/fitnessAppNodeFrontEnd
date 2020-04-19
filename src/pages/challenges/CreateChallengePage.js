@@ -1,14 +1,9 @@
-import React, { useReducer, useContext, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 
 //state
 import initialState from "../../initialState/challengeInitialState";
 import CreateChallenge from "../../actions/challengePageActions/createChallenge";
 import challengeReducer from "../../reducers/challengeReducers/challengeReducer";
-import { store } from "../../store/globalStore";
-import {
-  getGlobalState,
-  dispatchInputChange
-} from "../../utils/helperFunctions";
 
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
 
@@ -26,9 +21,6 @@ import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
 //form components
 import CreateChallengeForm from "../../components/forms/CreateChallengeForm";
-import UserCreateDataFormInput from "../../components/forms/formElements/UserCreateDataFormInput";
-import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
-import FormRow from "../../components/forms/formElements/FormRow";
 
 //message components
 import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnSuccessMsgOnSuccess";
@@ -41,17 +33,7 @@ function CreateChallengePage(props) {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(challengeReducer, initialState);
-  const {
-    challengeStartDate,
-    challengeEndDate,
-    title,
-    allUsers,
-    selectedUsers,
-    challengeType,
-    isSuccess,
-    isLoading,
-    isError
-  } = state;
+  const { isSuccess, isError } = state;
 
   /**
    * Submit challenge state input to server to create a challenge.

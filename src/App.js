@@ -1,30 +1,19 @@
-import React, { useReducer, useContext, useEffect, Suspense } from "react";
+import React, { Suspense } from "react";
 import "./App.css";
 import "./pages/form.scss";
 import "./pages/informationBasedPages/Rules.scss";
 import "./pages/challenges/submitButton.css";
 
 //Routing
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  withRouter
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //custom hooks
 import useGlobalState from "./customHooks/customAuthHooks/useGlobalState";
 
 // nav bars
-import NavBar from "./components/navBars/navbar";
 import AuthNavBar from "./components/navBars/authNavBar";
 import LoggedInNavBar from "./components/loggedInNavBar";
-import ChallengeNavBar from "./components/navBars/challengeNavBar";
 
-// global state
-import { store } from "./store/globalStore";
-import { getGlobalState, dispatchInputChange } from "./utils/helperFunctions";
 //pages
 const SignUpPage = React.lazy(() => import("./pages/auth/signUp"));
 const HomePage = React.lazy(() => import("./pages/home"));
@@ -63,10 +52,6 @@ const UpdateActivityInput = React.lazy(() =>
   import("./pages/activity/UpdateActivityInput")
 );
 
-const LocationDisplay = withRouter(({ location }) => (
-  <div data-testid="location-display">{location.pathname}</div>
-));
-
 /**
  * Router component to handle all application routing.
  *
@@ -75,8 +60,6 @@ const LocationDisplay = withRouter(({ location }) => (
 function App(props) {
   const { globalState } = useGlobalState();
   const { isLoggedIn } = globalState;
-
-  const nonLoggedInPages = ["/signup", "/login", "/HowTo", "/Rules"];
 
   return (
     <div className="App">

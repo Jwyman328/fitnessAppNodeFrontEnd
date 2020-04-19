@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useContext } from "react";
+import React, { useReducer } from "react";
 
 //actions and reducers
 import signUpReducer from "../../reducers/signUpReducer";
@@ -15,7 +15,6 @@ import SignUpContext from "./authContext/SignUpContext";
 import AuthCardContainer from "../../components/cardComponents/cardContainers/AuthCardContainer";
 import CardTitle from "../../components/cardComponents/CardTitle";
 import CardSubHeader from "../../components/cardComponents/cardSubHeader";
-import handleAuthInputChange from "./helperFunctionsAuth/handleAuthInputChange";
 import SignUpForm from "../../components/forms/SignUpForm";
 import FitnessHeartLogo from "../../components/logos/FitnessHeartLogo";
 import SubmitDataButton from "../../components/buttons/SubmitDataButton";
@@ -30,27 +29,11 @@ import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/R
 import RunningBackgroundVideo from "../../components/background/RunningBackgroundVideo";
 
 //Routing
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 function SignUpPage(props) {
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
-  const {
-    email,
-    password,
-    password2,
-    firstName,
-    lastName,
-    isLoading,
-    isError,
-    isLoggedIn,
-    token
-  } = state;
+  const { isLoading, isError, isLoggedIn, token } = state;
 
   useLoginUserOnToken(token);
 

@@ -1,4 +1,4 @@
-import React, { useReducer, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 //context
 import LoginContext from "../../pages/auth/authContext/loginContext";
@@ -11,7 +11,7 @@ import AuthFormInput from "./formElements/AuthFormInput";
  */
 function LoginForm() {
   const { loginState, loginDispatch } = useContext(LoginContext);
-  const { email, password, token, isLoading, isLoggedIn, isError } = loginState;
+  const { email, password } = loginState;
 
   return (
     <form className="formContainer">
