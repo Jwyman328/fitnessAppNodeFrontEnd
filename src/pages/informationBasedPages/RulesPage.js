@@ -4,7 +4,10 @@ import RulesRow from "../../components/pageSpecificComponents/RulesComponents/Ru
 import RuleTitle from "../../components/pageSpecificComponents/RulesComponents/RuleTitle";
 import RuleDescription from "../../components/pageSpecificComponents/RulesComponents/RuleDescription";
 
-function Rules(props) {
+/**
+ * Display Scoring system for the Fitness Challenges.
+ */
+function RulesPage() {
   return (
     <div className="rulePageContainer">
       <div className="containerRules ">
@@ -39,4 +42,4 @@ function Rules(props) {
   );
 }
 
-export default Rules;
+export default RulesPage;

@@ -9,7 +9,13 @@ import ResultsNavBar from "../../components/navBars/resultsNavBar";
 // custom hooks
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
-function ViewResults(props) {
+/**
+ * Display a Table of all input activities.
+ *
+ * Allow user to navigate to each input activities graph.
+ * Allow user to navigate to update each input activity.
+ */
+function ViewResultsTablePage() {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(viewResultsReducer, initialState);
@@ -28,4 +34,4 @@ function ViewResults(props) {
   );
 }
 
-export default ViewResults;
+export default ViewResultsTablePage;

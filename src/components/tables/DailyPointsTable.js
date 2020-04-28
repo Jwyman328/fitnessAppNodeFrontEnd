@@ -37,7 +37,6 @@ function DailyPointsTable(props) {
         <td className="rowItem" data-testid="totalPoints">
           {individualPointData.totalPoints.toFixed(2)}
         </td>
-        <td className="rowItem">daily goal here</td>
         <td className="rowItem">
           <button
             className="rowButton"
@@ -78,7 +77,6 @@ function DailyPointsTable(props) {
           <tr className="rowContainer">
             <th>Date</th>
             <th>Total Points</th>
-            <th>Daily Goal</th>
             <th>Update</th>
             <th>Graph</th>
           </tr>

@@ -38,7 +38,9 @@ const CreateChallengePage = React.lazy(() =>
   import("./pages/challenges/CreateChallengePage")
 );
 const ViewResults = React.lazy(() => import("./pages/results/ViewResults"));
-const Rules = React.lazy(() => import("./pages/informationBasedPages/Rules"));
+const Rules = React.lazy(() =>
+  import("./pages/informationBasedPages/RulesPage")
+);
 const HowTo = React.lazy(() => import("./pages/informationBasedPages/HowTo"));
 const PendingChallenges = React.lazy(() =>
   import("./pages/challenges/PendingChallenges")
