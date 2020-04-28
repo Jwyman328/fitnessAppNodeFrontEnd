@@ -13,7 +13,10 @@ import "./home.scss";
 
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
-function HomePage(props) {
+/**
+ * Homepage displaying past month points graph and today's points graph.
+ */
+function HomePage() {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(homePageReducer, initialState);
@@ -24,7 +27,13 @@ function HomePage(props) {
     getPastMonthPoints(dispatch, globalState.token);
   }, [globalState.token]);
 
-  const options = todaysPoints
+  /**
+   * If todaysPoints contains a value set chart configurations to
+   * be based on todaysPoints data.
+   *
+   * If no value for todaysPoints, set chartConfigurations to contian empty data.
+   */
+  const todaysPointsChartConfigurations = todaysPoints
     ? {
         chart: { type: "column" },
         title: {
@@ -98,7 +107,10 @@ function HomePage(props) {
         }
       };
 
-  const pastThirtyDaysOptions = pastMonthDates
+  /**
+   *  If pastMonthDates have loaded, return chart configurations.
+   */
+  const pastThirtyDaysPointsChartConfiguration = pastMonthDates
     ? {
         chart: { type: "line" },
         title: {
@@ -130,7 +142,7 @@ function HomePage(props) {
             className="homePageGraph"
             highcharts={Highcharts}
             allowChartUpdate={true}
-            options={options}
+            options={todaysPointsChartConfigurations}
           />
         </div>
 
@@ -140,7 +152,7 @@ function HomePage(props) {
           <HighchartsReact
             allowChartUpdate={true}
             highcharts={Highcharts}
-            options={pastThirtyDaysOptions}
+            options={pastThirtyDaysPointsChartConfiguration}
           />
         </div>
       </div>

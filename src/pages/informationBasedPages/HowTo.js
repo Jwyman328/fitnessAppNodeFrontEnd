@@ -2,90 +2,74 @@ import React from "react";
 import "./HowTo.css";
 import "./Rules.scss";
 import LinkButton from "../../components/buttons/linkButton";
+import HowToStepContainer from "../../components/pageSpecificComponents/HowToComponents/HowToStepContainer";
+import HowToStepTitle from "../../components/pageSpecificComponents/HowToComponents/HowToStepTitle";
+import HowToStepDescription from "../../components/pageSpecificComponents/HowToComponents/HowToStepDescription";
 
-function HowTo(props) {
+/**
+ * Show directions on how to get start with the Fitness Challenges.
+ *
+ * Include links to corresponding pages.
+ */
+function HowTo() {
   return (
     <div className="rulePageContainer">
       <div className="containerRules">
         <h1 className="mainTitle">How to: Fitness Challenge</h1>
 
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 1: Create a User:{" "}
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 1: Create a User: ">
             <LinkButton destination="/signup" name="Signup" />
-          </h2>
-        </div>
+          </HowToStepTitle>
+        </HowToStepContainer>
 
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 2: Set health goals:{" "}
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 2: Set health goals: ">
             <LinkButton destination="/GoalPage" name="Create Goal" />
-          </h2>
-          <ul>
-            <li className="subDiscrip">
-              Create daily point goals and see if you can beat your expectations
-            </li>
-          </ul>
-        </div>
+          </HowToStepTitle>
+          <HowToStepDescription descriptionText="Create daily point goals and see if you can beat your expectations" />
+        </HowToStepContainer>
 
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 3: Start Tracking:{" "}
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 3: Start Tracking: ">
             <LinkButton destination="/inputPoints" name="Input points" />
-          </h2>
-          <ul>
-            <li className="subDiscrip">
-              Input health data to generate points, including sleep, workout
-              time, steps, and more
-            </li>
-          </ul>
-        </div>
+          </HowToStepTitle>
+          <HowToStepDescription
+            descriptionText="Input health data to generate points, including sleep, workout
+              time, steps, and more"
+          />
+        </HowToStepContainer>
 
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 4: View Results:
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 4: View Results: ">
             <LinkButton destination="/viewResults" name="View Results" />
-          </h2>
-          <ul>
-            <li className="subDiscrip">
-              View your health data graphs, tables and statistics
-            </li>
-          </ul>
-        </div>
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 5: Create Challenges:
+          </HowToStepTitle>
+          <HowToStepDescription descriptionText="View your health data graphs, tables and statistics" />
+        </HowToStepContainer>
+
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 5: Create Challenges: ">
             <LinkButton destination="/Challenges" name="Create" />
-          </h2>
-          <ul>
-            <li className="subDiscrip">
-              Create a challenge and Invite your friends to compete
-            </li>
-          </ul>
-        </div>
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 6: Join Challenges:
+          </HowToStepTitle>
+          <HowToStepDescription descriptionText="Create a challenge and Invite your friends to compete" />
+        </HowToStepContainer>
+
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 6: Join Challenges: ">
             <LinkButton destination="/PendingChallenges" name="Pending" />
-          </h2>
-          <ul>
-            <li className="subDiscrip">
-              Accept challenge invitations from others:
-            </li>
-          </ul>
-        </div>
-        <div className="subContainer">
-          <h2 className="subTitle">
-            Step 7: Challenge results:
+          </HowToStepTitle>
+          <HowToStepDescription descriptionText="Accept challenge invitations from others" />
+        </HowToStepContainer>
+
+        <HowToStepContainer>
+          <HowToStepTitle titleText="Step 7: Challenge results: ">
             <LinkButton destination="/CurrentFutureChallenges" name="Results" />
-          </h2>
-          <ul>
-            <li className="subDiscrip">
-              View current challenge data and leader board standings for each
-              challenge:
-            </li>
-          </ul>
-        </div>
+          </HowToStepTitle>
+          <HowToStepDescription
+            descriptionText="View current challenge data and leader board standings for each
+            challenge:"
+          />
+        </HowToStepContainer>
       </div>
     </div>
   );

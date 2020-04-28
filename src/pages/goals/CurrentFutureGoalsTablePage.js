@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 
 import currentFutureGoalReducer from "../../reducers/goalsReducer/currentFutureGoalPageReducer";
 
-import initialState from "../../initialState/currentFutureGoalsInitialState";
+import currentFutureGoalsInitialState from "../../initialState/currentFutureGoalsInitialState";
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";
@@ -15,17 +15,31 @@ import { withRouter } from "react-router-dom";
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 import useGetCurrentFutureGoals from "../../customHooks/goalsHooks/useGetCurrentFutureGoals";
 
-function CurrentFutureGoals(props) {
+/**
+ * Display a table for all current goals and a table for all future goals.
+ *
+ * @param {Object} history React router object for navigating to other pages.
+ */
+function CurrentFutureGoalsTablePage({ history }) {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(currentFutureGoalReducer, initialState);
+  const [state, dispatch] = useReducer(
+    currentFutureGoalReducer,
+    currentFutureGoalsInitialState
+  );
   const { futureGoals, currentGoals } = state;
 
   useGetCurrentFutureGoals(dispatch, globalState.token);
 
+  /**
+   * Create a new row for each goal in the goals array parameter.
+   *
+   * @param {Array} goals Array of goal objects containing goal data.
+   * @return CurrentGoalRow element.
+   */
   const createGoalRow = goals => {
     const goalRow = goals.map(goal => {
-      return CurrentGoalRow(dispatch, globalState.token, goal, props.history);
+      return CurrentGoalRow(dispatch, globalState.token, goal, history);
     });
     return goalRow;
   };
@@ -55,4 +69,4 @@ function CurrentFutureGoals(props) {
   );
 }
 
-export default withRouter(CurrentFutureGoals);
+export default withRouter(CurrentFutureGoalsTablePage);

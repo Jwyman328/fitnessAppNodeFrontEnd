@@ -25,12 +25,14 @@ const InputPointsPage = React.lazy(() =>
   import("./pages/activity/inputPointsPage")
 );
 const CreateGoalPage = React.lazy(() => import("./pages/goals/CreateGoalPage"));
-const PastGoals = React.lazy(() => import("./pages/goals/PastGoals"));
+const PastGoals = React.lazy(() =>
+  import("./pages/goals/PastGoalsPageTablePage")
+);
 const GoalsGraphs = React.lazy(() =>
   import("./pages/results/graphs/GoalsGraph")
 );
 const CurrentFutureGoals = React.lazy(() =>
-  import("./pages/goals/currentFutureGoals")
+  import("./pages/goals/CurrentFutureGoalsTablePage")
 );
 const CreateChallengePage = React.lazy(() =>
   import("./pages/challenges/CreateChallengePage")

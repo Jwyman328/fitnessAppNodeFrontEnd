@@ -14,7 +14,12 @@ import { withRouter } from "react-router-dom";
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 import useGetPastGoals from "../../customHooks/goalsHooks/useGetPastGoals";
 
-function PastGoalsPage(props) {
+/**
+ * Display a table for all past goals.
+ *
+ * @param {Object} history React router object for navigating to other pages.
+ */
+function PastGoalsPageTablePage({ history }) {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(pastGoalsReducer, initialState);
@@ -25,7 +30,7 @@ function PastGoalsPage(props) {
 
   const createGoalRow = goals => {
     const goalRow = goals.map(goal => {
-      return GoalRows(dispatch, globalState.token, goal, props.history, true);
+      return GoalRows(dispatch, globalState.token, goal, history, true);
     });
     return goalRow;
   };
@@ -46,4 +51,4 @@ function PastGoalsPage(props) {
   );
 }
 
-export default withRouter(PastGoalsPage);
+export default withRouter(PastGoalsPageTablePage);

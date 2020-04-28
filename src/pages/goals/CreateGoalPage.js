@@ -5,7 +5,7 @@ import goalReducer from "../../reducers/goalsReducer/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
 
 //state
-import initialState from "../../initialState/pointGoalInitialState";
+import pointGoalFormInitialState from "../../initialState/pointGoalInitialState";
 
 //context
 import CreateGoalPageContext from "./GoalContext/CreateGoalPageContext";
@@ -28,26 +28,23 @@ import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/R
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
 /**
- * Allow user to create a total point goal.
- * @param {*} props
+ * Show form to allow user to create a total point goal.
  */
-function CreateGoalPage(props) {
+function CreateGoalPage() {
   // global store containing the use token for making requests
   const { globalState } = useGlobalState();
 
-  //goal's page reducer
-  const [state, dispatch] = useReducer(goalReducer, initialState);
+  const [state, dispatch] = useReducer(goalReducer, pointGoalFormInitialState);
   const { isSuccess, isError } = state;
 
   /**
-   * Submit goal state input to server to create a goal.
+   * Submit goal state form input to server to create a goal.
    *
    * Dispatch that the attempt goal creation has been attempted.
    * Attempt to create goal, passing dispatcher, current state, and user's token.
    * @param {*} e - event
    */
   const handleSubmit = e => {
-    //dispatch action of post request
     e.preventDefault();
     dispatch({ type: "createGoalAttempt" });
     CreateGoal(state, dispatch, globalState.token);
