@@ -19,9 +19,8 @@ import CustomMessage from "../../components/messagesAboutProgramStatus/CustomMes
 
 /**
  * Display user's pending challenges allowing user to accept or reject them.
- * @param {*} props
  */
-function PendingChallengesPage(props) {
+function PendingChallengesPage() {
   const { globalState } = useGlobalState();
   const [state, dispatch] = useReducer(
     pendingChallengePageReducer,

@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 
 import pastChallengePageReducer from "../../reducers/challengeReducers/pastChallengePageReducer";
-import initialState from "../../initialState/pastChallengeInitialState";
+import pastChallengeInitialState from "../../initialState/pastChallengeInitialState";
 import getPastChallenges from "../../actions/pastChallengesActions/getPastChallenges";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import "../../components/tables/DailyPointsTable.css";
@@ -20,7 +20,10 @@ import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStat
 function PastChallenges() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(pastChallengePageReducer, initialState);
+  const [state, dispatch] = useReducer(
+    pastChallengePageReducer,
+    pastChallengeInitialState
+  );
   const { isLoading, isError, pastChallenges } = state;
 
   useEffect(() => {
