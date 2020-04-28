@@ -23,7 +23,16 @@ import ReturnSuccessMsgOnSuccess from "../../components/messagesAboutProgramStat
 import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnErrorMsgOnError";
 import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
 
-function UpdateActivityInput(props) {
+/**
+ * Form for updating a selected activity.
+ *
+ * @param {String} activityID id of the activityInput.
+ */
+function UpdateActivityInput({
+  location: {
+    state: { activityID }
+  }
+}) {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(
@@ -41,22 +50,21 @@ function UpdateActivityInput(props) {
     activityInput
   } = state;
 
-  const activityId = props.location.state.activityID;
-
   /**
    * Fetch activity input data.
    */
   useEffect(() => {
-    getActivityInput(dispatch, globalState.token, activityId);
-  }, [globalState.token, activityId]);
+    getActivityInput(dispatch, globalState.token, activityID);
+  }, [globalState.token, activityID]);
 
   /**
    * Submit updated activity data to the server.
-   * @param {*} e - event
+   *
+   * @param {Event} e - click event
    */
   const handleClick = e => {
     e.preventDefault();
-    updateActivityInput(dispatch, globalState.token, activityId, activityInput);
+    updateActivityInput(dispatch, globalState.token, activityID, activityInput);
   };
 
   return (

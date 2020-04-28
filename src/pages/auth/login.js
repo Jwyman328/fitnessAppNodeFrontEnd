@@ -32,10 +32,9 @@ import RunningBackgroundVideo from "../../components/background/RunningBackgroun
 import LoginContext from "./authContext/loginContext";
 
 /**
- * Log in an existing user.
- * @param {*} props
+ * Show Login form to login an existing user.
  */
-function LoginPage(props) {
+function LoginPage() {
   const [state, dispatch] = useReducer(loginReducer, initialState);
   const { token, isLoading, isLoggedIn, isError } = state;
   useLoginUserOnToken(token);
@@ -45,7 +44,7 @@ function LoginPage(props) {
    *
    * Dispatch a loginAttempt.
    * Send the current state and dispatcher to log the user in.
-   * @param {*} e --onClick event
+   * @param {Event} e --onClick event
    */
   const handleSubmit = e => {
     e.preventDefault();

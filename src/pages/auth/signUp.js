@@ -31,10 +31,16 @@ import RunningBackgroundVideo from "../../components/background/RunningBackgroun
 //Routing
 import { Redirect } from "react-router-dom";
 
-function SignUpPage(props) {
+/**
+ * Show signup page to create a new user.
+ */
+function SignUpPage() {
   const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
   const { isLoading, isError, isLoggedIn, token } = state;
 
+  /**
+   * Log in a user once a valid token exists.
+   */
   useLoginUserOnToken(token);
 
   /**

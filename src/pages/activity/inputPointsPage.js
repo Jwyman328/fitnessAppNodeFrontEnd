@@ -32,13 +32,12 @@ function InputPointsPage(props) {
     inputPointInitialState
   );
   const { isError, isSuccess } = state;
-
-  // global store containing the use token for making requests
   const { globalState } = useGlobalState();
 
   /**
-   * Submit point data to the server.
-   * @param {*} e - event
+   * Submit new input activity data to the server.
+   *
+   * @param {Event} e - Click Event.
    */
   const handleClick = e => {
     e.preventDefault();
