@@ -14,6 +14,9 @@ import useGlobalState from "./customHooks/customAuthHooks/useGlobalState";
 import AuthNavBar from "./components/navBars/authNavBar";
 import LoggedInNavBar from "./components/navBars/loggedInNavBar";
 
+//message components
+import LoadingMessage from "./components/messagesAboutProgramStatus/LoadingMessage";
+
 //pages
 const SignUpPage = React.lazy(() => import("./pages/auth/signUp"));
 const HomePage = React.lazy(() => import("./pages/home/home"));
@@ -55,7 +58,6 @@ const UpdateActivityInput = React.lazy(() =>
 /**
  * Router component to handle all application routing.
  *
- * Navbar is top level component that will be caught with every route.
  */
 function App(props) {
   const { globalState } = useGlobalState();
@@ -65,7 +67,7 @@ function App(props) {
     <div className="App">
       <Router>
         {isLoggedIn ? null : (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route path="/">
                 <AuthNavBar />
@@ -75,7 +77,7 @@ function App(props) {
         )}
 
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route path="/">
                 <LoggedInNavBar />
@@ -84,23 +86,21 @@ function App(props) {
           </Suspense>
         ) : null}
 
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
           <Switch>
             <Route exact path="/signup">
               <SignUpPage />
             </Route>
           </Switch>
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {" "}
+        <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
           <Switch>
             <Route exact path="/home">
               <HomePage />
             </Route>
           </Switch>
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {" "}
+        <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
           <Switch>
             <Route exact path="/login">
               <LoginPage />
@@ -108,8 +108,7 @@ function App(props) {
           </Switch>
         </Suspense>
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/inputPoints">
                 <InputPointsPage />
@@ -118,8 +117,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/GoalPage">
                 <CreateGoalPage />
@@ -128,8 +126,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/GoalsGraph">
                 <GoalsGraphs />
@@ -138,8 +135,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/CurrentFutureGoals">
                 <CurrentFutureGoals />
@@ -148,8 +144,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/PastGoals">
                 <PastGoals />
@@ -158,8 +153,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/Challenges">
                 <CreateChallengePage />
@@ -168,8 +162,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/ViewResults">
                 <ViewResults />
@@ -177,15 +170,14 @@ function App(props) {
             </Switch>
           </Suspense>
         ) : null}
-        <Suspense fallback={<div>Loading...</div>}>
-          {" "}
+        <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
           <Switch>
             <Route exact path="/Rules">
               <Rules />
             </Route>
           </Switch>
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
           <Switch>
             <Route exact path="/HowTo">
               <HowTo />
@@ -193,8 +185,7 @@ function App(props) {
           </Switch>
         </Suspense>
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/PendingChallenges">
                 <PendingChallenges />
@@ -203,7 +194,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/PastChallenges">
                 <PastChallenges />
@@ -212,8 +203,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            {" "}
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/CurrentFutureChallenges">
                 <CurrentFutureChallenges />
@@ -222,7 +212,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/IndividualDailyPointGraph">
                 <IndividualDailyPointGraph />
@@ -231,7 +221,7 @@ function App(props) {
           </Suspense>
         ) : null}
         {isLoggedIn ? (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
             <Switch>
               <Route exact path="/IndividualActivityPointUpdate">
                 <UpdateActivityInput />
