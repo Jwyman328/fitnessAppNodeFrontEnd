@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 
 import currentFutureChallengeReducer from "../../reducers/challengeReducers/currentFutureChallengePageReducer";
 
-import initialState from "../../initialState/currentFutureChallengesInitialState";
+import currentFutureChallengesInitialState from "../../initialState/currentFutureChallengesInitialState";
 import getFutureChallenges from "../../actions/currentFutureChallengesActions/getFutureChallengesAction";
 import getCurrentChallenges from "../../actions/currentFutureChallengesActions/getCurrentChallengesAction";
 
@@ -18,15 +18,14 @@ import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStat
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
 /**
- * Display all current and future challenges.
- * @param {*} props
+ * Display all current and future challenges in a table.
  */
-function CurrentFutureChallenges(props) {
+function CurrentFutureChallenges() {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(
     currentFutureChallengeReducer,
-    initialState
+    currentFutureChallengesInitialState
   );
   const {
     isLoadingFutureChallenges,

@@ -15,10 +15,9 @@ import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/R
 import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStatus/ReturnMessagesOnCorrectStatus/ReturnLoadingMsgOnLoading";
 
 /**
- * Display all past challenges.
- * @param {*} props
+ * Display all past challenges in a table.
  */
-function PastChallenges(props) {
+function PastChallenges() {
   const { globalState } = useGlobalState();
 
   const [state, dispatch] = useReducer(pastChallengePageReducer, initialState);

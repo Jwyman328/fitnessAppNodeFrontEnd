@@ -9,7 +9,7 @@ import { Redirect, withRouter } from "react-router-dom";
 
 // state data
 import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";
-import initialState from "../../initialState/loginInitialState";
+import loginFormInitialState from "../../initialState/loginInitialState";
 
 //card components
 import AuthCardContainer from "../../components/cardComponents/cardContainers/AuthCardContainer";
@@ -35,7 +35,7 @@ import LoginContext from "./authContext/loginContext";
  * Show Login form to login an existing user.
  */
 function LoginPage() {
-  const [state, dispatch] = useReducer(loginReducer, initialState);
+  const [state, dispatch] = useReducer(loginReducer, loginFormInitialState);
   const { token, isLoading, isLoggedIn, isError } = state;
   useLoginUserOnToken(token);
 

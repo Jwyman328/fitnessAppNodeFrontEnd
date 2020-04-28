@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 
 //state
-import initialState from "../../initialState/challengeInitialState";
+import challengeFormInitialState from "../../initialState/challengeInitialState";
 import CreateChallenge from "../../actions/challengePageActions/createChallenge";
 import challengeReducer from "../../reducers/challengeReducers/challengeReducer";
 
@@ -29,10 +29,16 @@ import ReturnErrorMsgOnError from "../../components/messagesAboutProgramStatus/R
 //context
 import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
 
-function CreateChallengePage(props) {
+/**
+ * Show challenge form to create a new challenge.
+ */
+function CreateChallengePage() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(challengeReducer, initialState);
+  const [state, dispatch] = useReducer(
+    challengeReducer,
+    challengeFormInitialState
+  );
   const { isSuccess, isError } = state;
 
   /**
@@ -40,7 +46,7 @@ function CreateChallengePage(props) {
    *
    * Dispatch that the attempt challenge creation has been attempted.
    * Attempt to create goal, passing dispatcher, current state, and user's token.
-   * @param {*} e - event
+   * @param {Evemt} e - event
    */
   const handleSubmit = e => {
     e.preventDefault();
