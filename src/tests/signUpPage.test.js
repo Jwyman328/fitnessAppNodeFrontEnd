@@ -14,6 +14,17 @@ import homePage from "../pages/home/home";
 import { StateProvider } from "../store/globalStore";
 import { MemoryRouter } from "react-router-dom";
 
+//mock imports
+import signUpAction from "../actions/authActions/signUp";
+
+//mocks
+const MockSignUpUserAction = jest.fn();
+jest.mock("../actions/authActions/signUp", () => ({
+  __esModule: true,
+  namedExport: jest.fn(),
+  default: jest.fn()
+}));
+
 let element;
 describe("Test input onChange values", () => {
   beforeEach(() => {
@@ -49,7 +60,7 @@ describe("Test input onChange values", () => {
   });
 });
 
-describe.skip("Test signup request", () => {
+describe("Test signup request", () => {
   beforeEach(() => {
     //element = renderWithRouter(<SignUpPage />)
 
@@ -59,6 +70,8 @@ describe.skip("Test signup request", () => {
       { status: 200, response: { token: "mockToken" } }
     );
     //mock going to the next page
+    signUpAction.mockImplementation(MockSignUpUserAction);
+
     element = render(
       <StateProvider globalState={{ loggedIn: false, token: null }}>
         <MemoryRouter initialEntries={["/signup"]}>
@@ -72,26 +85,7 @@ describe.skip("Test signup request", () => {
 
   afterEach(() => {
     moxios.uninstall();
-  });
-  test("stop from creating a user by entering two different passwords", async () => {
-    //Provide App with global context
-    const { getByTestId, getByText } = element;
-    // navigate to signUp page
-
-    //enter an email
-    const emailInput = getByTestId("emailInput");
-    fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
-    //enter both password
-    const passwordInput = getByTestId("passwordInput");
-    fireEvent.change(passwordInput, { target: { value: "testPassword" } });
-    const passwordInput2 = getByTestId("passwordInput2");
-    fireEvent.change(passwordInput2, { target: { value: "wrongPassword" } });
-    // sumbit data
-    const signUpButton = getByTestId("submitButton");
-    fireEvent.click(signUpButton);
-    // find evidence that error created
-    const errorMsg = await waitForElement(() => getByTestId("errorMsg"));
-    expect(errorMsg.innerHTML).toBe("Error creating user, please try again");
+    jest.clearAllMocks();
   });
 
   test("create a user and be logged in", async () => {
@@ -108,9 +102,6 @@ describe.skip("Test signup request", () => {
     const signUpButton = getByTestId("submitButton");
     fireEvent.click(signUpButton);
     // find evidence that in home page
-    const homePageHeader = await waitForElement(() =>
-      getByTestId("homeHeader")
-    );
-    expect(homePageHeader.innerHTML).toMatch("Fitness Challenge");
+    expect(MockSignUpUserAction.mock.calls.length).toBe(1);
   });
 });
