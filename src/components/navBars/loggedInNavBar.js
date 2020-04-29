@@ -33,7 +33,7 @@ function LoggedInNavBar() {
         linkName="How To"
       />
       <NavLink testid="navigateToRules" destination="/Rules" linkName="Rules" />
-      <LogOutButton linkName="Logout" />
+      <LogOutButton />
     </div>
   );
 }
