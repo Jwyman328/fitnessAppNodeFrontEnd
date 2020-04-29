@@ -3,6 +3,11 @@ import "./authNavBar.scss";
 import NavLink from "./navLink";
 import LogOutButton from "../buttons/logOutButton";
 
+/**
+ * Nav bar displayed to a loggedIn user.
+ *
+ * Allow navigation to pages for loggedIn users.
+ */
 function LoggedInNavBar() {
   return (
     <div className="navContainer">

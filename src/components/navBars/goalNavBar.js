@@ -2,7 +2,9 @@ import React from "react";
 import "./authNavBar.scss";
 import NavLink from "./navLink";
 
-//subNavContainer
+/**
+ * Nav bar for navigating to goal pages.
+ */
 function GoalNavBar() {
   return (
     <div className="subNavContainer">

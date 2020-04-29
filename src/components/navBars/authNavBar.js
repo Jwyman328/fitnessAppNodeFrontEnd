@@ -2,6 +2,11 @@ import React from "react";
 import "./authNavBar.scss";
 import NavLink from "./navLink";
 
+/**
+ * Nav bar for authentication pages.
+ *
+ * Allow a logged out user to navigate to specific pages.
+ */
 function AuthNavBar() {
   return (
     <div className="navContainer login-opacity ">

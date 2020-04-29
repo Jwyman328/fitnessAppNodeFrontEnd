@@ -2,6 +2,9 @@ import React from "react";
 import "./authNavBar.scss";
 import NavLink from "./navLink";
 
+/**
+ * Nav bar for navigating to Challenge pages.
+ */
 function ChallengeNavBar() {
   return (
     <div className="subNavContainer">
