@@ -2,27 +2,16 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import "./DailyPointsTable.css";
+import {
+  navigateToDailyPointGraph,
+  navigateToUpdatePointInput
+} from "../../utils/tableHelperfunctions";
 /**
  * Return a table displaying all relevant point data, and links to update or view more.
  *
- * @param {Array} props.pointData -- all point activity data instances.
+ * @param {Array}     props.pointData   all point activity data instances.
  */
 function DailyPointsTable(props) {
-  /**
-   * Route to a page displaying a graph an individual activity point data.
-   *
-   * @param {Object} pointData -- individual activity point data for a specific date.
-   */
-  const navigateToGraph = pointData => {
-    props.history.push("/IndividualDailyPointGraph", { pointData: pointData });
-  };
-
-  const navigateToUpdatePointInput = pointData => {
-    props.history.push("/IndividualActivityPointUpdate", {
-      activityID: pointData.activityInput_id
-    });
-  };
-
   /**
    * Return a row containing all relevant point data.
    *
@@ -41,7 +30,9 @@ function DailyPointsTable(props) {
           <button
             className="rowButton"
             data-testid="updateButton"
-            onClick={() => navigateToUpdatePointInput(individualPointData)}
+            onClick={() =>
+              navigateToUpdatePointInput(individualPointData, props.history)
+            }
           >
             Update
           </button>
@@ -50,7 +41,9 @@ function DailyPointsTable(props) {
           <button
             className="rowButton"
             data-testid="graphButton"
-            onClick={() => navigateToGraph(individualPointData)}
+            onClick={() =>
+              navigateToDailyPointGraph(individualPointData, props.history)
+            }
           >
             Graph
           </button>
