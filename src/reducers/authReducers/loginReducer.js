@@ -18,7 +18,7 @@ function loginReducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        isError: false,
+        isErrorLoginAttempt: false,
         token: action.token,
         isLoggedIn: true
       };
@@ -28,7 +28,7 @@ function loginReducer(state, action) {
         email: "",
         password: "",
         isLoading: false,
-        isError: true,
+        isErrorLoginAttempt: true,
         isLoggedIn: false,
         token: ""
       };
