@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Guest username and password to give a user access to the site.
+ */
 function GuestUserLoginInfo() {
   return (
     <div style={{ textAlign: "left" }}>
