@@ -22,9 +22,12 @@ import useGetPastGoals from "../../customHooks/goalsHooks/useGetPastGoals";
 function PastGoalsPageTablePage({ history }) {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(pastGoalsReducer, pastGoalsInitialState);
+  const [pastGoalsPageTablePageState, dispatch] = useReducer(
+    pastGoalsReducer,
+    pastGoalsInitialState
+  );
 
-  const { pastGoals } = state;
+  const { pastGoals } = pastGoalsPageTablePageState;
 
   useGetPastGoals(dispatch, globalState.token);
 

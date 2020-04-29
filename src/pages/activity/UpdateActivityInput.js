@@ -28,14 +28,14 @@ import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStat
  *
  * @param {String} activityID id of the activityInput.
  */
-function UpdateActivityInput({
+function UpdateActivityInputPage({
   location: {
     state: { activityID }
   }
 }) {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(
+  const [updateActivityInputPageState, dispatch] = useReducer(
     UpdateActivityInputReducer,
     updateActivityInputInitialState
   );
@@ -48,7 +48,7 @@ function UpdateActivityInput({
     isErrorUpdateActivityInput,
     upDateActivityInputSuccess,
     activityInput
-  } = state;
+  } = updateActivityInputPageState;
 
   /**
    * Fetch activity input data.
@@ -107,4 +107,4 @@ function UpdateActivityInput({
   );
 }
 
-export default withRouter(UpdateActivityInput);
+export default withRouter(UpdateActivityInputPage);

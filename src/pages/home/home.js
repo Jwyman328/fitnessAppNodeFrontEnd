@@ -19,8 +19,11 @@ import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 function HomePage() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(homePageReducer, homePageInitialState);
-  const { todaysPoints, pastMonthPoints, pastMonthDates } = state;
+  const [homePageState, dispatch] = useReducer(
+    homePageReducer,
+    homePageInitialState
+  );
+  const { todaysPoints, pastMonthPoints, pastMonthDates } = homePageState;
 
   useEffect(() => {
     getTodaysPoints(dispatch, globalState.token);

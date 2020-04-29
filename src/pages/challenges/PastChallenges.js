@@ -20,11 +20,11 @@ import ReturnLoadingMsgOnLoading from "../../components/messagesAboutProgramStat
 function PastChallenges() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(
+  const [pastChallengesPageState, dispatch] = useReducer(
     pastChallengePageReducer,
     pastChallengeInitialState
   );
-  const { isLoading, isError, pastChallenges } = state;
+  const { isLoading, isError, pastChallenges } = pastChallengesPageState;
 
   useEffect(() => {
     getPastChallenges(dispatch, globalState.token);

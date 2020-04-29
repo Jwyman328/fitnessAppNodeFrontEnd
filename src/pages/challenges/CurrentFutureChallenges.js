@@ -23,7 +23,7 @@ import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 function CurrentFutureChallenges() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(
+  const [currentFutureChallengesPageState, dispatch] = useReducer(
     currentFutureChallengeReducer,
     currentFutureChallengesInitialState
   );
@@ -34,7 +34,7 @@ function CurrentFutureChallenges() {
     currentChallenges,
     isLoadingCurrentChallenges,
     isErrorCurrentChallenges
-  } = state;
+  } = currentFutureChallengesPageState;
 
   /**
    * Fetch current and future challenges.

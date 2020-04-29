@@ -35,11 +35,11 @@ import CreateChallengeContext from "./challengeContext/CreateChallengeContext";
 function CreateChallengePage() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(
+  const [createChallengePageState, dispatch] = useReducer(
     challengeReducer,
     challengeFormInitialState
   );
-  const { isSuccess, isError } = state;
+  const { isSuccess, isError } = createChallengePageState;
 
   /**
    * Submit challenge state input to server to create a challenge.
@@ -51,7 +51,7 @@ function CreateChallengePage() {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch({ type: "createChallengeAttempt" });
-    CreateChallenge(state, dispatch, globalState.token);
+    CreateChallenge(createChallengePageState, dispatch, globalState.token);
   };
 
   useEffect(() => {
@@ -60,7 +60,10 @@ function CreateChallengePage() {
 
   return (
     <CreateChallengeContext.Provider
-      value={{ createChallengeState: state, createChallengeDispatch: dispatch }}
+      value={{
+        createChallengeState: createChallengePageState,
+        createChallengeDispatch: dispatch
+      }}
     >
       <div className="rulePageContainer">
         <ChallengeNavBar />

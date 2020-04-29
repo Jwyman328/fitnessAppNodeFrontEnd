@@ -34,8 +34,11 @@ function CreateGoalPage() {
   // global store containing the use token for making requests
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(goalReducer, pointGoalFormInitialState);
-  const { isSuccess, isError } = state;
+  const [createGoalPageState, dispatch] = useReducer(
+    goalReducer,
+    pointGoalFormInitialState
+  );
+  const { isSuccess, isError } = createGoalPageState;
 
   /**
    * Submit goal state form input to server to create a goal.
@@ -47,12 +50,15 @@ function CreateGoalPage() {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch({ type: "createGoalAttempt" });
-    CreateGoal(state, dispatch, globalState.token);
+    CreateGoal(createGoalPageState, dispatch, globalState.token);
   };
 
   return (
     <CreateGoalPageContext.Provider
-      value={{ CreateGoalPageState: state, CreateGoalPageDispatch: dispatch }}
+      value={{
+        CreateGoalPageState: createGoalPageState,
+        CreateGoalPageDispatch: dispatch
+      }}
     >
       <div className="rulePageContainer">
         <GoalNavBar />

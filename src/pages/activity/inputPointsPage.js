@@ -27,11 +27,11 @@ import InputPointsContext from "./activityContext/InputPointsContext";
  * @param {*} props
  */
 function InputPointsPage(props) {
-  const [state, dispatch] = useReducer(
+  const [inputPointsPageState, dispatch] = useReducer(
     inputPointReducer,
     inputPointInitialState
   );
-  const { isError, isSuccess } = state;
+  const { isError, isSuccess } = inputPointsPageState;
   const { globalState } = useGlobalState();
 
   /**
@@ -42,12 +42,15 @@ function InputPointsPage(props) {
   const handleClick = e => {
     e.preventDefault();
     dispatch({ type: "inputPointSent" });
-    CreateInputPoint(state, dispatch, globalState.token);
+    CreateInputPoint(inputPointsPageState, dispatch, globalState.token);
   };
 
   return (
     <InputPointsContext.Provider
-      value={{ inputPointsState: state, inputPointsDispatch: dispatch }}
+      value={{
+        inputPointsState: inputPointsPageState,
+        inputPointsDispatch: dispatch
+      }}
     >
       <div className="rulePageContainer">
         <UserCreateDataCardContainer>

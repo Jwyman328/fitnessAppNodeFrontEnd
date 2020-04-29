@@ -10,11 +10,11 @@ import axios from "axios";
  *
  * Dispatch the recieved jwt token to the signUpReducer if user creation successful.
  * Dispatch signUpError if failure creating a user.
- * @param {object} state -- current state of signup submission attempt.
+ * @param {object} signUpFormState -- current state of signup submission attempt.
  * @param {*} dispatch  -- dispatcher sending an action object to the signUpReducer.
  */
-async function signUpAction(state, dispatch) {
-  const { email, password, password2, token } = state;
+async function signUpAction(signUpFormState, dispatch) {
+  const { email, password, password2, token } = signUpFormState;
 
   // check re-typed password compatability
   if (password !== password2) {

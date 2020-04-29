@@ -35,8 +35,11 @@ import LoginContext from "./authContext/loginContext";
  * Show Login form to login an existing user.
  */
 function LoginPage() {
-  const [state, dispatch] = useReducer(loginReducer, loginFormInitialState);
-  const { token, isLoading, isLoggedIn, isError } = state;
+  const [loginPageState, dispatch] = useReducer(
+    loginReducer,
+    loginFormInitialState
+  );
+  const { token, isLoading, isLoggedIn, isError } = loginPageState;
   useLoginUserOnToken(token);
 
   /**
@@ -49,12 +52,12 @@ function LoginPage() {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch({ type: "loginAttempt" });
-    loginAction(state, dispatch);
+    loginAction(loginPageState, dispatch);
   };
 
   return (
     <LoginContext.Provider
-      value={{ loginState: state, loginDispatch: dispatch }}
+      value={{ loginState: loginPageState, loginDispatch: dispatch }}
     >
       <div className="rulePageContainer -image-background">
         <RunningBackgroundVideo />
@@ -75,7 +78,7 @@ function LoginPage() {
           {isLoading ? (
             <LoadingMessage loadingText={"Loading"} />
           ) : (
-            <LoginForm state={state} dispatch={dispatch} />
+            <LoginForm state={loginPageState} dispatch={dispatch} />
           )}
           <SubmitDataButton handleSubmit={handleSubmit} />
         </AuthCardContainer>

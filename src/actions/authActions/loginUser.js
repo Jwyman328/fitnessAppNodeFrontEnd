@@ -5,11 +5,11 @@ import axios from "axios";
  * Login a currently existing user.
  *
  * Dispatch appropriate type depending on login attempt results.
- * @param {*} state -- current state on submit of logIn page.
+ * @param {*} loginFormState -- current state on submit of logIn page.
  * @param {*} dispatch -- login useReducer dispatcher.
  */
-async function loginUser(state, dispatch) {
-  const { email, password } = state;
+async function loginUser(loginFormState, dispatch) {
+  const { email, password } = loginFormState;
 
   try {
     const loginData = { email: email, password: password };

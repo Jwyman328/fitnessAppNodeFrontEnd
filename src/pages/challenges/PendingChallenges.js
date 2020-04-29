@@ -22,7 +22,7 @@ import CustomMessage from "../../components/messagesAboutProgramStatus/CustomMes
  */
 function PendingChallengesPage() {
   const { globalState } = useGlobalState();
-  const [state, dispatch] = useReducer(
+  const [pendingChallengesPageState, dispatch] = useReducer(
     pendingChallengePageReducer,
     pendingChallengesInitialState
   );
@@ -32,7 +32,7 @@ function PendingChallengesPage() {
     updateisLoading,
     updateisError,
     pendingChallenges
-  } = state;
+  } = pendingChallengesPageState;
 
   useEffect(() => {
     getAllPendingChallengeInvitations(dispatch, globalState.token);

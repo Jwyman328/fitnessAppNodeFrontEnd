@@ -35,8 +35,11 @@ import { Redirect } from "react-router-dom";
  * Show signup page to create a new user.
  */
 function SignUpPage() {
-  const [state, dispatch] = useReducer(signUpReducer, signUpInitialState);
-  const { isLoading, isError, isLoggedIn, token } = state;
+  const [signUpPageState, dispatch] = useReducer(
+    signUpReducer,
+    signUpInitialState
+  );
+  const { isLoading, isError, isLoggedIn, token } = signUpPageState;
 
   /**
    * Log in a user once a valid token exists.
@@ -54,12 +57,12 @@ function SignUpPage() {
   const handleClick = e => {
     e.preventDefault();
     dispatch("signupAttempt");
-    signUpAction(state, dispatch);
+    signUpAction(signUpPageState, dispatch);
   };
 
   return (
     <SignUpContext.Provider
-      value={{ signUpState: state, signUpDispatch: dispatch }}
+      value={{ signUpState: signUpPageState, signUpDispatch: dispatch }}
     >
       <div className="rulePageContainer -image-background">
         <RunningBackgroundVideo />
@@ -78,7 +81,7 @@ function SignUpPage() {
           {isLoading ? (
             <LoadingMessage loadingText="loading" />
           ) : (
-            <SignUpForm state={state} dispatch={dispatch} />
+            <SignUpForm state={signUpPageState} dispatch={dispatch} />
           )}
           <SubmitDataButton handleSubmit={handleClick} />
         </AuthCardContainer>

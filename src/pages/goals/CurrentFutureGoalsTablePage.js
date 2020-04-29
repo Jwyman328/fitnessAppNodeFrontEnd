@@ -23,19 +23,19 @@ import useGetCurrentFutureGoals from "../../customHooks/goalsHooks/useGetCurrent
 function CurrentFutureGoalsTablePage({ history }) {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(
+  const [currentFutureGoalsTablePageState, dispatch] = useReducer(
     currentFutureGoalReducer,
     currentFutureGoalsInitialState
   );
-  const { futureGoals, currentGoals } = state;
+  const { futureGoals, currentGoals } = currentFutureGoalsTablePageState;
 
   useGetCurrentFutureGoals(dispatch, globalState.token);
 
   /**
    * Create a new row for each goal in the goals array parameter.
    *
-   * @param {Array} goals Array of goal objects containing goal data.
-   * @return CurrentGoalRow element.
+   * @param {Array} goals   Array of goal objects containing goal data.
+   * @return                CurrentGoalRow element.
    */
   const createGoalRow = goals => {
     const goalRow = goals.map(goal => {
