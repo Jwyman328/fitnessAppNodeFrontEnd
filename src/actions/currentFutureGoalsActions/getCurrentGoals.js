@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { removeTimeFromActivityPointDateValues } from "../../utils/helperFunctions";
+import { removeTimeFromGoalObjectDateValues } from "../../utils/helperFunctions";
 
 /**
  * Fetch all current goals.
@@ -21,7 +21,7 @@ async function getCurrentGoals(dispatch, token) {
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
-    const sanitizesGoalDateValues = removeTimeFromActivityPointDateValues(
+    const sanitizesGoalDateValues = removeTimeFromGoalObjectDateValues(
       response.data
     );
     console.log(sanitizesGoalDateValues, "santa");

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { removeTimeFromActivityPointDateValues } from "../../utils/helperFunctions";
+import { removeTimeFromGoalObjectDateValues } from "../../utils/helperFunctions";
 
 /**
  * Fetch all future goals.
@@ -22,8 +22,10 @@ async function getfutureGoals(dispatch, token) {
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
-    const sanitizesGoalDateValues = removeTimeFromActivityPointDateValues();
-    console.log(sanitizesGoalDateValues, "here");
+
+    const sanitizesGoalDateValues = removeTimeFromGoalObjectDateValues(
+      response.data
+    );
 
     dispatch({
       type: "addFutureGoals",
