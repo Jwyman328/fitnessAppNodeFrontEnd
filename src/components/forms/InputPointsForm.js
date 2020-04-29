@@ -7,6 +7,9 @@ import FormRowLabel from "./formElements/FormRowLabel";
 import UserCreateDataFormInput from "./formElements/UserCreateDataFormInput";
 import FormContainer from "./formElements/FormContainer";
 
+/**
+ * Form to create an input activity.
+ */
 function InputPointsForm() {
   const { inputPointsState, inputPointsDispatch } = useContext(
     InputPointsContext
@@ -20,16 +23,9 @@ function InputPointsForm() {
     workoutTime,
     steps
   } = inputPointsState;
-  /**
-   * Handle input data change events.
-   *
-   * Dispatch the associated event change to change the state of the input value.
-   * @param {*} e -user event.
-   */
 
   return (
     <FormContainer>
-      {" "}
       <FormRow>
         <FormRowLabel labelText="Date:" />
         <UserCreateDataFormInput

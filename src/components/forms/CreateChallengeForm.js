@@ -11,6 +11,9 @@ import { dispatchInputChange } from "../../utils/helperFunctions";
 //context
 import CreateChallengeContext from "../../pages/challenges/challengeContext/CreateChallengeContext";
 
+/**
+ * Form to create a challenge object and invite other users to said challenge.
+ */
 function CreateChallengeForm() {
   const { createChallengeState, createChallengeDispatch } = useContext(
     CreateChallengeContext
@@ -24,18 +27,33 @@ function CreateChallengeForm() {
     challengeType
   } = createChallengeState;
 
-  const handleChange = event => {
+  /**
+   * Add the selected challengeType as the challenge challengeType.
+   *
+   * @param {Event} event onChange event.
+   */
+  const handleChallengeTypeSelectChange = event => {
     dispatchInputChange(createChallengeDispatch, event);
   };
 
-  const handleAddSelectedUser = e => {
+  /**
+   * Add the selected user to group of selectedUser.
+   *
+   * @param {Event} event onChange event.
+   */
+  const handleAddSelectedUser = event => {
     createChallengeDispatch({
       type: "handleSelectedUsers",
-      selectedUser: e.target.value
+      selectedUser: event.target.value
     });
   };
 
-  const createUserSelect = () => {
+  /**
+   * Create an array of option Elements of users to optionally be invited to the challenge.
+   *
+   * @return {Array} option elements each containing a user's email.
+   */
+  const createUserSelectOptions = () => {
     return allUsers.map(userEmail => (
       <option key={userEmail} data-testid={userEmail} value={userEmail}>
         {userEmail}
@@ -86,7 +104,7 @@ function CreateChallengeForm() {
           data-testid="challengeType"
           name="challengeType"
           value={challengeType}
-          onChange={handleChange}
+          onChange={handleChallengeTypeSelectChange}
         >
           <option value="sleep">Sleep</option>
           <option value="Water">Water</option>
@@ -107,7 +125,7 @@ function CreateChallengeForm() {
             value={selectedUsers}
             onChange={handleAddSelectedUser}
           >
-            {createUserSelect()}
+            {createUserSelectOptions()}
           </select>
         </div>
       ) : null}

@@ -9,7 +9,10 @@ import UserCreateDataFormInput from "./formElements/UserCreateDataFormInput";
 //context
 import UpdateActivityInputContext from "../../pages/activity/activityContext/UpdateActivityInputContext";
 
-function UpdatePointsForm(props) {
+/**
+ * Form to update a currently existing activity input object.
+ */
+function UpdatePointsForm() {
   const { updatePointsFormState, updateActivityInputDispatch } = useContext(
     UpdateActivityInputContext
   );

@@ -9,8 +9,9 @@ import SignUpContext from "../../pages/auth/authContext/SignUpContext";
 /**
  * Sign up Form for logging in the user.
  *
+ * @param dispatch dispatcher to dispatch signUpPage events
  */
-function SignUpForm({ state, dispatch }) {
+function SignUpForm({ dispatch }) {
   const { signUpState, signUpDispatch } = useContext(SignUpContext);
 
   const { email, password, password2, firstName, lastName } = signUpState;

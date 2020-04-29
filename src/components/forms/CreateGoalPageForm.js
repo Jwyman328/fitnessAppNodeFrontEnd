@@ -7,7 +7,10 @@ import FormRow from "../../components/forms/formElements/FormRow";
 import FormRowLabel from "../../components/forms/formElements/FormRowLabel";
 import FormContainer from "../../components/forms/formElements/FormContainer";
 
-function CreateGoalPageForm() {
+/**
+ * Form to create a goal.
+ */
+function CreateGoalForm() {
   const { CreateGoalPageState, CreateGoalPageDispatch } = useContext(
     CreateGoalPageContext
   );
@@ -67,4 +70,4 @@ function CreateGoalPageForm() {
     </FormContainer>
   );
 }
-export default CreateGoalPageForm;
+export default CreateGoalForm;
