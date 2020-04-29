@@ -10,11 +10,13 @@ import "../../home/home.scss";
 /**
  * Display bar graph for a specific  activity point input.
  *
- * @param {*} props.location.state.pointData -- individual point data for activity point input.
+ * @param {Object} pointData -- individual point data for activity point input.
  */
-function IndividualDailyPointGraph(props) {
-  const pointData = props.location.state.pointData;
-
+function IndividualDailyPointGraph({
+  location: {
+    state: { pointData }
+  }
+}) {
   const options = {
     chart: { type: "column" },
     title: {

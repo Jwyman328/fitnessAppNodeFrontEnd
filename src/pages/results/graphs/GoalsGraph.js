@@ -11,20 +11,24 @@ import GoalNavBar from "../../../components/navBars/goalNavBar";
 import useGlobalState from "../../../customHooks/customAuthHooks/useGlobalState";
 
 /**
- * Display Total points for goal vs. point goal in a graph.
+ * Display Total points for a goal vs. point goal in a graph.
+ *
+ * @param {String} goalStartDate    yyyy-mm-dd for start date of the goal
+ *  @param {String} goalEndDate     yyyy-mm-dd for end date of the goal
+ * @param {Number} pointGoalTotal   Point goal for the selected range of dates
  */
-function GoalsGraph(props) {
-  const goalStartDate = props.location.state.goalStartDate;
-  const goalEndDate = props.location.state.goalEndDate;
-  const pointGoalTotal = props.location.state.pointGoalTotal;
-
-  const [state, dispatch] = useReducer(goalsGraphReducer, {
+function GoalsGraph({
+  location: {
+    state: { goalStartDate, goalEndDate, pointGoalTotal }
+  }
+}) {
+  const [goalsGraphState, dispatch] = useReducer(goalsGraphReducer, {
     isError: false,
     isLoading: false,
     totalPointForDateRange: false
   });
 
-  const { totalPointForDateRange } = state;
+  const { totalPointForDateRange } = goalsGraphState;
 
   const { globalState } = useGlobalState();
 
@@ -39,8 +43,11 @@ function GoalsGraph(props) {
       goalEndDate
     );
   }, [globalState.token]);
-  // high charts graph options
-  const graphOptions = setGoalsGraphOptions(
+
+  /**
+   * Graph Goal graph configuration
+   */
+  const graphGoalConfiguration = setGoalsGraphOptions(
     totalPointForDateRange,
     pointGoalTotal,
     goalStartDate,
@@ -52,7 +59,10 @@ function GoalsGraph(props) {
       <GoalNavBar />
       <h2>Goal Graph</h2>
       <div>
-        <HighchartsReact highcharts={Highcharts} options={graphOptions} />
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={graphGoalConfiguration}
+        />
       </div>
     </div>
   );
