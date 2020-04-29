@@ -12,19 +12,10 @@ import { removeTimeFromChallengeDateValues } from "../../utils/helperFunctions";
 async function getFutureChallenges(dispatch, token) {
   dispatch({ type: "futureChallengesFetchAttempt" });
 
-  const config = {
-    data: { Authorization: `Bearer ${token}` },
-    headers: { Authorization: `Bearer ${token}` }
-  };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/futureChallenges/`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      config
+      { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedChallengeDateValues = removeTimeFromChallengeDateValues(
       response.data

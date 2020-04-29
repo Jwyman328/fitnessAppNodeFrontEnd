@@ -15,22 +15,19 @@ async function getfutureGoals(dispatch, token) {
     data: { Authorization: `Bearer ${token}` },
     headers: { Authorization: `Bearer ${token}` }
   };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
+
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/futureGoals/`,
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
-    const sanitizesGoalDateValues = removeTimeFromActivityPointDateValues(
-      response.data
-    );
+    const sanitizesGoalDateValues = removeTimeFromActivityPointDateValues();
+    console.log(sanitizesGoalDateValues, "here");
+
     dispatch({
       type: "addFutureGoals",
-      futureGoals: removeTimeFromActivityPointDateValues
+      futureGoals: sanitizesGoalDateValues
     });
   } catch (error) {
     dispatch({ type: "futureGoalsFetchError" });

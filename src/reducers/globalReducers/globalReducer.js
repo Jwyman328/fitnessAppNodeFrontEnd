@@ -2,8 +2,6 @@ import React from "react";
 
 /**
  * Global reducer accecting actions to alter the global state.
- * @param {*} state
- * @param {*} action
  */
 function globalReducer(state, action) {
   switch (action.type) {

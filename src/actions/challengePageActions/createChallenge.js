@@ -5,8 +5,8 @@ import axios from "axios";
  * Create a challenge  with a post request.
  *
  * Dispatch results of attempted post, either succesful or error.
- * @param {object} createChallengeFormState -- current state of challenge submission attempt.
- * @param {*} dispatch  -- dispatcher that sends an action object to the challengeReducer.
+ * @param {object} createChallengeFormState    current state of challenge submission attempt.
+ * @param {Function} dispatch                         dispatcher that sends an action object to the challengeReducer.
  */
 async function CreateChallenge(createChallengeFormState, dispatch, token) {
   const {
@@ -16,7 +16,8 @@ async function CreateChallenge(createChallengeFormState, dispatch, token) {
     challengeType,
     selectedUsers
   } = createChallengeFormState;
-  const createGoalInput = {
+
+  const createGoalInputCompatibleWithBackend = {
     startDate: challengeStartDate,
     endDate: challengeEndDate,
     title: title,
@@ -25,21 +26,17 @@ async function CreateChallenge(createChallengeFormState, dispatch, token) {
   };
 
   //post configureations with jwt token and input goal data
-  const config = {
-    data: createGoalInput,
+  const postRequestBodyConfig = {
+    data: createGoalInputCompatibleWithBackend,
     headers: { Authorization: `Bearer ${token}` }
   };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
+
   try {
     const response = await axios.post(
       `${process.env.REACT_APP_MAINURL}/challenge/`,
       { headers: { Authorization: `Bearer ${token}` } },
-      config
+      postRequestBodyConfig
     );
-    // if succesful dispatch success
     dispatch({ type: "createChallengeSuccess" });
   } catch (error) {
     dispatch({ type: "createChallengeError" });

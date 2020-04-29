@@ -15,10 +15,6 @@ async function getCurrentGoals(dispatch, token) {
     data: { Authorization: `Bearer ${token}` },
     headers: { Authorization: `Bearer ${token}` }
   };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/currentGoals/`,
@@ -28,6 +24,7 @@ async function getCurrentGoals(dispatch, token) {
     const sanitizesGoalDateValues = removeTimeFromActivityPointDateValues(
       response.data
     );
+    console.log(sanitizesGoalDateValues, "santa");
     dispatch({
       type: "addCurrentGoals",
       currentGoals: sanitizesGoalDateValues

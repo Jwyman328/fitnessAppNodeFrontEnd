@@ -5,8 +5,8 @@ import axios from "axios";
  * Login a currently existing user.
  *
  * Dispatch appropriate type depending on login attempt results.
- * @param {*} loginFormState -- current state on submit of logIn page.
- * @param {*} dispatch -- login useReducer dispatcher.
+ * @param {Object} loginFormState  current state on submit of logIn page.
+ * @param {Function} dispatch      login useReducer dispatcher.
  */
 async function loginUser(loginFormState, dispatch) {
   const { email, password } = loginFormState;
@@ -21,7 +21,6 @@ async function loginUser(loginFormState, dispatch) {
         headers: { "Content-Type": "application/json" }
       }
     );
-    // if succesful dispatch success
     const responseDataToken = await response.data.token;
     dispatch({ type: "loginSuccess", token: responseDataToken });
   } catch (error) {

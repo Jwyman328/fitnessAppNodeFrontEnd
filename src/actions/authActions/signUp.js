@@ -1,9 +1,5 @@
 import React from "react";
 import axios from "axios";
-// an action is just a function that returns an object
-// put up my mongo db server to heroku.
-//http://localhost:3001/
-//http://enigmatic-springs-36428.herokuapp.com
 
 /**
  * Create a user given the entered signup state.
@@ -30,7 +26,6 @@ async function signUpAction(signUpFormState, dispatch) {
           headers: { "Content-Type": "application/json" }
         }
       );
-      // if succesful dispatch success
       const responseDataToken = await response.data.token;
       dispatch({ type: "signUpSuccess", token: responseDataToken });
     } catch (error) {

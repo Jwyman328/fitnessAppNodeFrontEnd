@@ -11,19 +11,10 @@ import { removeTimeFromChallengeDateValues } from "../../utils/helperFunctions";
 async function getCurrentChallenges(dispatch, token) {
   dispatch({ type: "currentChallengesFetchAttempt" });
 
-  const config = {
-    data: { Authorization: `Bearer ${token}` },
-    headers: { Authorization: `Bearer ${token}` }
-  };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/currentChallenges/`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      config
+      { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedChallengeDateValues = removeTimeFromChallengeDateValues(
       response.data
@@ -33,7 +24,6 @@ async function getCurrentChallenges(dispatch, token) {
       currentChallenges: sanitizedChallengeDateValues
     });
   } catch (error) {
-    console.log(error);
     dispatch({ type: "currentChallengesFetchError" });
   }
 }

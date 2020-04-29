@@ -3,6 +3,18 @@ import axios from "axios";
 import getCurrentGoals from "../../../actions/currentFutureGoalsActions/getCurrentGoals";
 import getFutureGoals from "../../../actions/currentFutureGoalsActions/getFutureGoals";
 
+/**
+ * Display a row for a specific goal.
+ *
+ * Allow user to navigate to goal graph for specific goal.
+ * Allow user to delete specific goal.
+ *
+ * @param {Function}    dispatch    dispatcher to dispatch goal events.
+ * @param {String}      token       JWT token for http requests.
+ * @param {Object}      goalData    goalData for a specific goal.
+ * @param {Function}    history     function for routing to other pages.
+ * @param {Boolean}     isPastGoal  determining whether goal is a past goal or not.
+ */
 const currentGoalRow = (
   dispatch,
   token,
@@ -15,6 +27,12 @@ const currentGoalRow = (
     headers: { Authorization: `Bearer ${token}` }
   };
 
+  /**
+   * Delete a goal by id.
+   *
+   * After deletion, fetch current and future goals.
+   * @param {String} goalId id of the goal wanted to be deleted.
+   */
   const deleteGoal = async goalId => {
     const response = await axios.delete(
       `${process.env.REACT_APP_MAINURL}/totalPointGoal/${goalId}/`,
@@ -25,6 +43,9 @@ const currentGoalRow = (
     getCurrentGoals(dispatch, token);
   };
 
+  /**
+   * Navigate to goalsGraph page and pass specific goal data.
+   */
   const navigateToGraphGoal = () => {
     history.push("/GoalsGraph", {
       goalStartDate: goalData.goalStartDate,

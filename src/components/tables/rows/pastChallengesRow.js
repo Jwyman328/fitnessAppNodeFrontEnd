@@ -1,6 +1,7 @@
 import React from "react";
 /**
- * Create a display card for a challenge invitation
+ * Create a row for a challenge invitation
+ *
  * @param {Object} challengeInvitationData -- challenge invitation data
  */
 const PastChallengesRow = challengeInvitationData => {
