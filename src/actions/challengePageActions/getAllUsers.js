@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { createHttpRequestConfiguration } from "../../utils/httpRequestHelperFunctions";
 
 /**
  *  Get all users.
