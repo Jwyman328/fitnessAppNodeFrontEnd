@@ -1,10 +1,13 @@
 import React from "react";
 
-function AuthCardContainer(props) {
+/**
+ * Container card for all auth page cards.
+ *
+ * @param {Array} children all elements inside of the AuthCardContainer.
+ */
+function AuthCardContainer({ children }) {
   return (
-    <div className="containerRules smallCard login-opacity">
-      {props.children}
-    </div>
+    <div className="containerRules smallCard login-opacity">{children}</div>
   );
 }
 
