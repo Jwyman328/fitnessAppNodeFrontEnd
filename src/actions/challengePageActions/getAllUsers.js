@@ -12,13 +12,10 @@ import { createHttpRequestConfiguration } from "../../utils/httpRequestHelperFun
 async function GetAllUsers(dispatch, token) {
   dispatch({ type: "getAllUsersAttempt" });
 
-  const getRequestBodyConfig = null; //createHttpRequestConfiguration(token)
-
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/user/allUsers/`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      getRequestBodyConfig
+      { headers: { Authorization: `Bearer ${token}` } }
     );
     dispatch({ type: "getAllUsersSuccess", allUsers: response.data });
   } catch (error) {

@@ -10,19 +10,10 @@ import { removeTimeFromActivityPointDateValues } from "../../utils/helperFunctio
 async function getDailyPoints(dispatch, token) {
   dispatch({ type: "dailyPointsFetchAttempt" });
 
-  const config = {
-    data: { Authorization: `Bearer ${token}` },
-    headers: { Authorization: `Bearer ${token}` }
-  };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/allActivityPoints/mine/`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      config
+      { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedActivityPointValues = removeTimeFromActivityPointDateValues(
       response.data

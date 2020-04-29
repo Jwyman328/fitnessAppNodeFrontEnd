@@ -11,20 +11,14 @@ import { removeTimeFromGoalObjectDateValues } from "../../utils/helperFunctions"
 async function getCurrentGoals(dispatch, token) {
   dispatch({ type: "currentGoalsFetchAttempt" });
 
-  const config = {
-    data: { Authorization: `Bearer ${token}` },
-    headers: { Authorization: `Bearer ${token}` }
-  };
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/currentGoals/`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      config
+      { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizesGoalDateValues = removeTimeFromGoalObjectDateValues(
       response.data
     );
-    console.log(sanitizesGoalDateValues, "santa");
     dispatch({
       type: "addCurrentGoals",
       currentGoals: sanitizesGoalDateValues

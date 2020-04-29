@@ -11,19 +11,10 @@ import { removeTimeFromChallengeDateValues } from "../../utils/helperFunctions";
 async function getPastChallenges(dispatch, token) {
   dispatch({ type: "pastChallengesFetchAttempt" });
 
-  const config = {
-    data: { Authorization: `Bearer ${token}` },
-    headers: { Authorization: `Bearer ${token}` }
-  };
-  // specific header format is key:value
-  const bodyParameters = {
-    key: "value"
-  };
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_MAINURL}/pastChallenges/`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      config
+      { headers: { Authorization: `Bearer ${token}` } }
     );
 
     const sanitizedDatePastChallenges = removeTimeFromChallengeDateValues(

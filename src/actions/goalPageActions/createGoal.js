@@ -6,7 +6,7 @@ import axios from "axios";
  *
  * Dispatch results of attempted post, either succesful or error.
  * @param {object} createGoalFormState -- current state of goal submission attempt.
- * @param {*} dispatch  -- dispatcher that sends an action object to the goalReducer.
+ * @param {Function} dispatch  -- dispatcher that sends an action object to the goalReducer.
  */
 async function CreateGoal(createGoalFormState, dispatch, token) {
   const {
