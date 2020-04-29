@@ -39,7 +39,10 @@ function CreateChallengePage() {
     challengeReducer,
     challengeFormInitialState
   );
-  const { isSuccess, isError } = createChallengePageState;
+  const {
+    isSuccessCreateChallengeAttempt,
+    isErrorCreateChallengeAttempt
+  } = createChallengePageState;
 
   /**
    * Submit challenge state input to server to create a challenge.
@@ -74,12 +77,12 @@ function CreateChallengePage() {
           <SubmitDataButton handleSubmit={handleSubmit} />
 
           <ReturnSuccessMsgOnSuccess
-            isSuccess={isSuccess}
+            isSuccess={isSuccessCreateChallengeAttempt}
             successMsg="Challenge created successfully"
           />
 
           <ReturnErrorMsgOnError
-            isError={isError}
+            isError={isErrorCreateChallengeAttempt}
             errorMsg="Error creating challenge, please try again"
           />
         </UserCreateDataCardContainer>

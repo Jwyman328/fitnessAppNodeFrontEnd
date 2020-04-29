@@ -7,7 +7,7 @@ const loginPageInitialState = {
   token: "",
   isLoading: false,
   isLoggedIn: false,
-  isError: false
+  isErrorLoginAttempt: false
 };
 
 export default loginPageInitialState;

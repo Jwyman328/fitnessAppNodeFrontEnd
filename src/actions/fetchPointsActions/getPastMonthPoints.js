@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { sanitizeActivityPointDateValues } from "../../utils/helperFunctions";
+import { removeTimeFromActivityPointDateValues } from "../../utils/helperFunctions";
 import {
-  Last30Days,
+  getDatesForLast30Days,
   createMonthDatePointValue
 } from "../../utils/helperFunctions";
 /**
@@ -28,19 +28,19 @@ async function getTodaysPoints(dispatch, token) {
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
-    const sanitizedActivityPointValues = sanitizeActivityPointDateValues(
+    const sanitizedActivityPointValues = removeTimeFromActivityPointDateValues(
       response.data
     );
-    const pastMonthValues = Last30Days();
+    const pastThirtyDaysStrDateValues = getDatesForLast30Days();
     let arrayOfValuesWithDate = createMonthDatePointValue(
-      pastMonthValues,
+      pastThirtyDaysStrDateValues,
       sanitizedActivityPointValues
     );
 
     dispatch({
       type: "addPastMonthPointsDates",
-      pastMonthPoints: Object.values(pastMonthValues).reverse(),
-      pastMonthDates: Object.keys(pastMonthValues).reverse()
+      pastMonthPoints: Object.values(pastThirtyDaysStrDateValues).reverse(),
+      pastMonthDates: Object.keys(pastThirtyDaysStrDateValues).reverse()
     });
   } catch (error) {
     dispatch({ type: "todaysPointsFetchError" });

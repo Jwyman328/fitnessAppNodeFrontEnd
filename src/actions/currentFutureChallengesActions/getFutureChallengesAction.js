@@ -1,7 +1,7 @@
 //getPastChallenges
 import React from "react";
 import axios from "axios";
-import { sanitizeChallengeDateValues } from "../../utils/helperFunctions";
+import { removeTimeFromChallengeDateValues } from "../../utils/helperFunctions";
 
 /**
  * Fetch all future challenges.
@@ -26,7 +26,7 @@ async function getFutureChallenges(dispatch, token) {
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
-    const sanitizedChallengeDateValues = sanitizeChallengeDateValues(
+    const sanitizedChallengeDateValues = removeTimeFromChallengeDateValues(
       response.data
     );
     dispatch({

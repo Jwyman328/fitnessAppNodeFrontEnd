@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { sanitizeActivityPointDateValues } from "../../utils/helperFunctions";
+import { removeTimeFromActivityPointDateValues } from "../../utils/helperFunctions";
 
 /**
  * Fetch all daily point inputs.
@@ -25,7 +25,7 @@ async function getTodaysPoints(dispatch, token) {
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
-    const sanitizedActivityPointValues = sanitizeActivityPointDateValues(
+    const sanitizedActivityPointValues = removeTimeFromActivityPointDateValues(
       response.data
     );
     dispatch({

@@ -58,8 +58,13 @@ function handleSelectedUsers(selectedUsers, selectedUser) {
   return selectedUsers;
 }
 
-const sanitizeChallengeDateValues = responseData => {
-  const sanitizedChalllengeData = responseData.map(challenge => {
+/**
+ * Remove time portion (minute,seconds, etc.) from each challenge object start and end date.
+ *
+ * @param {Array} goalObjects array of goalObjects.
+ */
+const removeTimeFromChallengeDateValues = challengeObjects => {
+  const sanitizedChalllengeData = challengeObjects.map(challenge => {
     challenge.startDate = challenge.startDate.split("T")[0];
     challenge.endDate = challenge.endDate.split("T")[0];
     return challenge;
@@ -67,8 +72,13 @@ const sanitizeChallengeDateValues = responseData => {
   return sanitizedChalllengeData;
 };
 
-const sanitizeGoalDateValues = responseData => {
-  const sanitizedGoalData = responseData.map(goal => {
+/**
+ * Remove time portion (minute,seconds, etc.) from each goal object start and end date.
+ *
+ * @param {Array} goalObjects array of goalObjects.
+ */
+const removeTimeFromGoalObjectDateValues = goalObjects => {
+  const sanitizedGoalData = goalObjects.map(goal => {
     goal.goalStartDate = goal.goalStartDate.split("T")[0];
     goal.goalEndDate = goal.goalEndDate.split("T")[0];
     return goal;
@@ -76,18 +86,39 @@ const sanitizeGoalDateValues = responseData => {
   return sanitizedGoalData;
 };
 
-const sanitizeActivityPointDateValues = responseData => {
-  const sanitizedActivityPointData = responseData.map(activityPoint => {
-    activityPoint.date = activityPoint.date.split("T")[0];
-    return activityPoint;
-  });
+/**
+ * Remove time portion (minute,seconds, etc.) from each activityPoint date.
+ *
+ * @param   {Array} pastThirtyDaysActivityPointObjs array of past thirty days of activity point objects.
+ * @return  {Array}                                 array of past thirty days of activity point objects
+ *    without time (minute,seconds, etc.) portion of date.
+ */
+const removeTimeFromActivityPointDateValues = pastThirtyDaysActivityPointObjs => {
+  const sanitizedActivityPointData = pastThirtyDaysActivityPointObjs.map(
+    activityPoint => {
+      activityPoint.date = activityPoint.date.split("T")[0];
+      return activityPoint;
+    }
+  );
   return sanitizedActivityPointData;
 };
 
-const sanitizeSingleDateValue = dateValue => {
-  return dateValue.split("T")[0];
+/**
+ * Remove time portion (minute,seconds, etc.) from full date string value.
+ *
+ * @param   {String} dateStr date value in full string form.
+ * @return  {String}         str date value without time (minute,seconds, etc.) portion.
+ */
+const sanitizeSingleDateValue = dateStr => {
+  return dateStr.split("T")[0];
 };
 
+/**
+ * Return yyyy-mm-dd string of date object input.
+ *
+ * @param {Date} date Date object
+ * @return {String}   yyyy-mm-dd of inputted date.
+ */
 function formatDate(date) {
   var dd = date.getDate();
   var mm = date.getMonth() + 1;
@@ -102,7 +133,12 @@ function formatDate(date) {
   return date;
 }
 
-function Last30Days() {
+/**
+ * Create an array of 30 yyyy-mm-dd dates for the past 30 days.
+ *
+ * @return {Array} past 30 days in yyyy-mm-dd format.
+ */
+function getDatesForLast30Days() {
   let result = {};
   for (let i = 0; i < 30; i++) {
     let d = new Date();
@@ -112,21 +148,30 @@ function Last30Days() {
 
   return result;
 }
+
+/**
+ *
+ *
+ * @param {*} pastMonthValues
+ * @param {*} sanitizedActivityPointValues
+ */
 const createMonthDatePointValue = (
-  pastMonthValues,
+  pastThirtyDaysStrDateValues,
   sanitizedActivityPointValues
 ) => {
-  let arrayOfValuesWithDate = Object.keys(pastMonthValues).map(day => {
-    let tom = sanitizedActivityPointValues.map(pointValue => {
-      if (pointValue.date === day) {
-        pastMonthValues[day] = pointValue.totalPoints;
+  let arrayOfValuesWithDate = Object.keys(pastThirtyDaysStrDateValues).map(
+    day => {
+      let tom = sanitizedActivityPointValues.map(pointValue => {
+        if (pointValue.date === day) {
+          pastThirtyDaysStrDateValues[day] = pointValue.totalPoints;
+          return;
+        } else {
+          return;
+        }
         return;
-      } else {
-        return;
-      }
-      return;
-    });
-  });
+      });
+    }
+  );
 };
 
 export {
@@ -134,10 +179,10 @@ export {
   getGlobalDispatcher,
   dispatchInputChange,
   handleSelectedUsers,
-  sanitizeChallengeDateValues,
-  sanitizeGoalDateValues,
-  sanitizeActivityPointDateValues,
-  Last30Days,
+  removeTimeFromChallengeDateValues,
+  removeTimeFromGoalObjectDateValues,
+  removeTimeFromActivityPointDateValues,
+  getDatesForLast30Days,
   createMonthDatePointValue,
   sanitizeSingleDateValue
 };

@@ -39,7 +39,7 @@ function LoginPage() {
     loginReducer,
     loginFormInitialState
   );
-  const { token, isLoading, isLoggedIn, isError } = loginPageState;
+  const { token, isLoading, isLoggedIn, isErrorLoginAttempt } = loginPageState;
   useLoginUserOnToken(token);
 
   /**
@@ -69,7 +69,7 @@ function LoginPage() {
           <GuestUserLoginInfo />
 
           <ReturnErrorMsgOnError
-            isError={isError}
+            isError={isErrorLoginAttempt}
             errorMsg="Error on login, please try again"
           />
 
@@ -78,7 +78,7 @@ function LoginPage() {
           {isLoading ? (
             <LoadingMessage loadingText={"Loading"} />
           ) : (
-            <LoginForm state={loginPageState} dispatch={dispatch} />
+            <LoginForm />
           )}
           <SubmitDataButton handleSubmit={handleSubmit} />
         </AuthCardContainer>

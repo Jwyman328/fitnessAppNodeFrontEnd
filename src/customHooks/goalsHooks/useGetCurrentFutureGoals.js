@@ -4,6 +4,7 @@ import getFutureGoals from "../../actions/currentFutureGoalsActions/getFutureGoa
 
 /**
  * Fetch current and future goals and populate reducer with latest data.
+ *
  * @param {function} dispatch  -- dispatch function for current and future goals reducer
  * @param {string} token -- jwt token to make fetch request
  */
