@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import { withRouter } from "react-router-dom";
 
 import UpdateActivityInputReducer from "../../reducers/activityReducers/updateActivityInputReducer";
-import initialState from "../../initialState/updateActivityInputInitialState";
+import updateActivityInputInitialState from "../../initialState/updateActivityInputInitialState";
 import getActivityInput from "../../actions/updateActivityInputActions/getActivityInput";
 import updateActivityInput from "../../actions/updateActivityInputActions/updateActivityInputAction";
 import ResultsNavBar from "../../components/navBars/resultsNavBar";
@@ -37,7 +37,7 @@ function UpdateActivityInput({
 
   const [state, dispatch] = useReducer(
     UpdateActivityInputReducer,
-    initialState
+    updateActivityInputInitialState
   );
 
   // deconstruct reducer state

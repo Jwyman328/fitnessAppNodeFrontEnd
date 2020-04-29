@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const initialState = {
-    isError: false,
-    isLoading: false,
-    dailyPoints: [],
-}
+const viewResultsPageInitialState = {
+  isError: false,
+  isLoading: false,
+  dailyPoints: []
+};
 
-export default initialState;
+export default viewResultsPageInitialState;

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const initialState = {
-    isError: false,
-    isLoading: false,
-     todaysPoints: false,
-     pastMonthPoints: [],
-     pastMonthDates:[],
-}
+const homePageInitialState = {
+  isError: false,
+  isLoading: false,
+  todaysPoints: false,
+  pastMonthPoints: [],
+  pastMonthDates: []
+};
 
-export default initialState;
+export default homePageInitialState;

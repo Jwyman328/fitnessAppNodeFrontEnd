@@ -1,9 +1,9 @@
 import React, { createContext, useReducer } from "react";
 import globalReducer from "../reducers/globalReducers/globalReducer";
-import initialState from "../initialState/globalInitialState";
+import globalInitialState from "../initialState/globalInitialState";
 
 // initialize the store with initial global state.
-const store = createContext(initialState);
+const store = createContext(globalInitialState);
 const { Provider } = store;
 
 /**
@@ -14,7 +14,10 @@ const { Provider } = store;
  * @param {*} chldren - component to be wrapped in a global state.
  */
 const StateProvider = props => {
-  var [globalState, globalDispatch] = useReducer(globalReducer, initialState);
+  var [globalState, globalDispatch] = useReducer(
+    globalReducer,
+    globalInitialState
+  );
   // add ability to change global state with props
 
   globalState = props.globalState ? props.globalState : globalState;

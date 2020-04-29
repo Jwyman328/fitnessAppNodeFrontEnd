@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const initialState = {
-    isLoading: false,
-    isError:false,
-    pastChallenges:[],
-}
+const pastChallengePageInitialState = {
+  isLoading: false,
+  isError: false,
+  pastChallenges: []
+};
 
-export default initialState;
+export default pastChallengePageInitialState;

@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import initialState from "../../initialState/ViewResultsInitialState";
+import ViewResultsInitialState from "../../initialState/ViewResultsInitialState";
 import viewResultsReducer from "../../reducers/resultsReducers/viewResultsReducer";
 import getDailyPoints from "../../actions/viewResultsActions/getDailyPoints";
 import DailyPointsTable from "../../components/tables/DailyPointsTable";
@@ -18,8 +18,11 @@ import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 function ViewResultsTablePage() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(viewResultsReducer, initialState);
-  const { dailyPoints } = state;
+  const [ViewResultsState, dispatch] = useReducer(
+    viewResultsReducer,
+    ViewResultsInitialState
+  );
+  const { dailyPoints } = ViewResultsState;
 
   useEffect(() => {
     getDailyPoints(dispatch, globalState.token);

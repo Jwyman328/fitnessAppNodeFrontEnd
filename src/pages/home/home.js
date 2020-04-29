@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { createGraphData } from "../../utils/graphHelperFunctions";
-import initialState from "../../initialState/homePageInitialState";
+import homePageInitialState from "../../initialState/homePageInitialState";
 import homePageReducer from "../../reducers/homeReducers/homePageReducer";
 import getTodaysPoints from "../../actions/fetchPointsActions/fetchTodaysPoints";
 import getPastMonthPoints from "../../actions/fetchPointsActions/getPastMonthPoints";
@@ -19,7 +19,7 @@ import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 function HomePage() {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(homePageReducer, initialState);
+  const [state, dispatch] = useReducer(homePageReducer, homePageInitialState);
   const { todaysPoints, pastMonthPoints, pastMonthDates } = state;
 
   useEffect(() => {

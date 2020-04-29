@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 
 import pastGoalsReducer from "../../reducers/goalsReducer/pastGoalsReducer";
 
-import initialState from "../../initialState/pastGoalsState";
+import pastGoalsInitialState from "../../initialState/pastGoalsState";
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";
@@ -22,7 +22,7 @@ import useGetPastGoals from "../../customHooks/goalsHooks/useGetPastGoals";
 function PastGoalsPageTablePage({ history }) {
   const { globalState } = useGlobalState();
 
-  const [state, dispatch] = useReducer(pastGoalsReducer, initialState);
+  const [state, dispatch] = useReducer(pastGoalsReducer, pastGoalsInitialState);
 
   const { pastGoals } = state;
 

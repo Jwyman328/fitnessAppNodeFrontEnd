@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 
 import pendingChallengePageReducer from "../../reducers/challengeReducers/pendingChallengesPageReducer";
-import initialState from "../../initialState/pendingChallengesInitialState";
+import pendingChallengesInitialState from "../../initialState/pendingChallengesInitialState";
 import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInvitationActions/getAllPendingChallenges";
 import createPendingChallengeRows from "../../components/tables/rows/pendingChallengeRow";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
@@ -24,7 +24,7 @@ function PendingChallengesPage() {
   const { globalState } = useGlobalState();
   const [state, dispatch] = useReducer(
     pendingChallengePageReducer,
-    initialState
+    pendingChallengesInitialState
   );
   const {
     isLoading,
