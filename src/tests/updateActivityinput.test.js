@@ -15,35 +15,57 @@ import loginUserForTest from "./testUtils/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
 let element;
-describe.skip("mock successful update and fetch requests", () => {
+describe("mock successful update and fetch requests", () => {
   beforeEach(async () => {
     moxios.install();
-    moxios.stubRequest("https://enigmatic-springs-36428.herokuapp.com/user/login", {
-      status: 200,
-      response: { token: "mockToken" }
-    });
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`, {
-      status: 200,
-      response: activityPointData
-    });
-
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`, {
-      status: 200,
-      response: activityInputData
-    });
-
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`, {
-      status: 200
-    });
-    
-    element = render(<StateProvider globalState={{loggedIn:true, token:'myToken'}}>
-    <MemoryRouter initialEntries={["/IndividualActivityPointUpdate"]} > <UpdateActivityInput /></MemoryRouter> </StateProvider>)
-     const {getByTestId} = element;
-    }
-     
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      {
+        status: 200,
+        response: { token: "mockToken" }
+      }
+    );
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
+      {
+        status: 200,
+        response: activityPointData
+      }
     );
 
-    //from homepage navigate to update page
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
+      {
+        status: 200,
+        response: activityInputData
+      }
+    );
+
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
+      {
+        status: 200
+      }
+    );
+
+    element = render(
+      <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
+        <MemoryRouter
+          initialEntries={[
+            {
+              pathname: "/IndividualActivityPointUpdate",
+              state: { activityID: "1234567" }
+            }
+          ]}
+        >
+          <UpdateActivityInput />
+        </MemoryRouter>
+      </StateProvider>
+    );
+    const { getByTestId } = element;
+  });
+
+  //from homepage navigate to update page
 
   afterEach(() => {
     moxios.uninstall();
@@ -169,32 +191,44 @@ describe.skip("mock successful update and fetch requests", () => {
     );
     fireEvent.click(submitButton);
     const updateSuccessMsg = await waitForElement(() =>
-      getByTestId("updateSuccessMsg")
+      getByTestId("successMsg")
     );
-    expect(updateSuccessMsg.innerHTML).toBe("Update successful! ");
+    expect(updateSuccessMsg.innerHTML).toBe("Update successful!");
   });
 });
 
-describe.skip("mock fail fetch activity date request", () => {
+describe("mock fail fetch activity date request", () => {
   beforeEach(async () => {
     moxios.install();
-    moxios.stubRequest("https://enigmatic-springs-36428.herokuapp.com/user/login", {
-      status: 200,
-      response: { token: "mockToken" }
-    });
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`, {
-      status: 200,
-      response: activityPointData
-    });
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      {
+        status: 200,
+        response: { token: "mockToken" }
+      }
+    );
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
+      {
+        status: 200,
+        response: activityPointData
+      }
+    );
 
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`, {
-      status: 400,
-      response: activityInputData
-    });
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
+      {
+        status: 400,
+        response: activityInputData
+      }
+    );
 
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`, {
-      status: 200
-    });
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
+      {
+        status: 200
+      }
+    );
     element = render(
       <StateProvider>
         <App />
@@ -228,32 +262,44 @@ describe.skip("mock fail fetch activity date request", () => {
     );
     fireEvent.click(submitButton);
     const activityInputfetchError = await waitForElement(() =>
-      getByTestId("activityInputfetchError")
+      getByTestId("errorMsg")
     );
     expect(activityInputfetchError.innerHTML).toBe("Error fetching activity");
   });
 });
 
-describe.skip("mock fail update activity request", () => {
+describe("mock fail update activity request", () => {
   beforeEach(async () => {
     moxios.install();
-    moxios.stubRequest("https://enigmatic-springs-36428.herokuapp.com/user/login", {
-      status: 200,
-      response: { token: "mockToken" }
-    });
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`, {
-      status: 200,
-      response: activityPointData
-    });
+    moxios.stubRequest(
+      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      {
+        status: 200,
+        response: { token: "mockToken" }
+      }
+    );
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
+      {
+        status: 200,
+        response: activityPointData
+      }
+    );
 
-    moxios.stubOnce(`https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`, {
-      status: 200,
-      response: activityInputData
-    });
+    moxios.stubOnce(
+      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
+      {
+        status: 200,
+        response: activityInputData
+      }
+    );
 
-    moxios.stubRequest(`https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`, {
-      status: 400
-    });
+    moxios.stubRequest(
+      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
+      {
+        status: 400
+      }
+    );
     moxios.element = render(
       <StateProvider>
         <App />
@@ -285,9 +331,7 @@ describe.skip("mock fail update activity request", () => {
       getByTestId("submitButton")
     );
     fireEvent.click(submitButton);
-    const updateErrorMsg = await waitForElement(() =>
-      getByTestId("updateErrorMsg")
-    );
-    expect(updateErrorMsg.innerHTML).toBe("Error updating activity");
+    const updateErrorMsg = await waitForElement(() => getByTestId("errorMsg"));
+    expect(updateErrorMsg.innerHTML).toBe("Error fetching activity");
   });
 });
