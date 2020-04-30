@@ -14,6 +14,16 @@ import activityPointData from "./testUtils/testMockData/activityPointData";
 import loginUserForTest from "./testUtils/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
+//mock these
+let handleClickNavigationFunctions = jest.requireActual(
+  "../utils/tableHelperfunctions"
+);
+handleClickNavigationFunctions.navigateToDailyPointGraph = jest.fn();
+handleClickNavigationFunctions.navigateToUpdatePointInput = jest.fn();
+
+//return mock function
+const MockClickNavigation = jest.fn().mockReturnValue(true);
+
 let element;
 describe("mock point results fetch request success", () => {
   beforeEach(async () => {
@@ -55,7 +65,7 @@ describe("mock point results fetch request success", () => {
   });
 });
 
-describe.skip("mock point results fetch request success, start at home page to use withRouter successfully", () => {
+describe("mock point results fetch request success, start at home page to use withRouter successfully", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
@@ -68,6 +78,13 @@ describe.skip("mock point results fetch request success, start at home page to u
       { status: 200, response: activityPointData }
     );
 
+    handleClickNavigationFunctions.navigateToUpdatePointInput.mockImplementation(
+      MockClickNavigation
+    );
+    handleClickNavigationFunctions.navigateToUpdatePointInput.mockImplementation(
+      MockClickNavigation
+    );
+
     element = render(
       <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
         <MemoryRouter initialEntries={["/ViewResults"]}>
@@ -76,9 +93,12 @@ describe.skip("mock point results fetch request success, start at home page to u
         </MemoryRouter>{" "}
       </StateProvider>
     );
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
+    jest.clearAllMocks();
+
     moxios.uninstall();
   });
 
@@ -87,19 +107,18 @@ describe.skip("mock point results fetch request success, start at home page to u
 
     const graphButton = await waitForElement(() => getByTestId("graphButton"));
     fireEvent.click(graphButton);
-    const graphPageHeader = await waitForElement(() =>
-      getByTestId("graphPageHeader")
-    );
-    expect(graphPageHeader.innerHTML).toBe("Daily Point Graph");
+    expect(
+      handleClickNavigationFunctions.navigateToDailyPointGraph.mock.calls.length
+    ).toBe(1);
   });
   test("see update button navigates to individual update page", async () => {
     const { getByTestId } = element;
 
     const graphButton = await waitForElement(() => getByTestId("updateButton"));
     fireEvent.click(graphButton);
-    const graphPageHeader = await waitForElement(() =>
-      getByTestId("updatePageHeader")
-    );
-    expect(graphPageHeader.innerHTML).toBe("Update activity input");
+    expect(
+      handleClickNavigationFunctions.navigateToUpdatePointInput.mock.calls
+        .length
+    ).toBe(1);
   });
 });
