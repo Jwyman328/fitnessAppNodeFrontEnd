@@ -18,33 +18,12 @@ let element;
 describe("mock successful update and fetch requests", () => {
   beforeEach(async () => {
     moxios.install();
-    moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/login",
-      {
-        status: 200,
-        response: { token: "mockToken" }
-      }
-    );
-    moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
-      {
-        status: 200,
-        response: activityPointData
-      }
-    );
 
     moxios.stubRequest(
       `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
       {
         status: 200,
         response: activityInputData
-      }
-    );
-
-    moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
-      {
-        status: 200
       }
     );
 
@@ -200,20 +179,6 @@ describe("mock successful update and fetch requests", () => {
 describe("mock fail fetch activity date request", () => {
   beforeEach(async () => {
     moxios.install();
-    moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/login",
-      {
-        status: 200,
-        response: { token: "mockToken" }
-      }
-    );
-    moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
-      {
-        status: 200,
-        response: activityPointData
-      }
-    );
 
     moxios.stubRequest(
       `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
@@ -223,32 +188,21 @@ describe("mock fail fetch activity date request", () => {
       }
     );
 
-    moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
-      {
-        status: 200
-      }
-    );
     element = render(
-      <StateProvider>
-        <App />
+      <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
+        <MemoryRouter
+          initialEntries={[
+            {
+              pathname: "/IndividualActivityPointUpdate",
+              state: { activityID: "1234567" }
+            }
+          ]}
+        >
+          <UpdateActivityInput />
+        </MemoryRouter>
       </StateProvider>
     );
-
-    //from homepage navigate to update page
-    //from homepage navigate to update page
     const { getByTestId } = element;
-    loginUserForTest(getByTestId);
-
-    const resultsNavLink = await waitForElement(() =>
-      getByTestId("navigateViewResults")
-    );
-    fireEvent.click(resultsNavLink);
-
-    const updateButton = await waitForElement(() =>
-      getByTestId("updateButton")
-    );
-    fireEvent.click(updateButton);
   });
 
   afterEach(() => {
@@ -265,73 +219,5 @@ describe("mock fail fetch activity date request", () => {
       getByTestId("errorMsg")
     );
     expect(activityInputfetchError.innerHTML).toBe("Error fetching activity");
-  });
-});
-
-describe("mock fail update activity request", () => {
-  beforeEach(async () => {
-    moxios.install();
-    moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/login",
-      {
-        status: 200,
-        response: { token: "mockToken" }
-      }
-    );
-    moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/allActivityPoints/mine/`,
-      {
-        status: 200,
-        response: activityPointData
-      }
-    );
-
-    moxios.stubOnce(
-      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
-      {
-        status: 200,
-        response: activityInputData
-      }
-    );
-
-    moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/activityInput/1234567/`,
-      {
-        status: 400
-      }
-    );
-    moxios.element = render(
-      <StateProvider>
-        <App />
-      </StateProvider>
-    );
-
-    //from homepage navigate to update page
-    const { getByTestId } = element;
-    loginUserForTest(getByTestId);
-
-    const resultsNavLink = await waitForElement(() =>
-      getByTestId("navigateViewResults")
-    );
-    fireEvent.click(resultsNavLink);
-
-    const updateButton = await waitForElement(() =>
-      getByTestId("updateButton")
-    );
-    fireEvent.click(updateButton);
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
-  });
-
-  test("update activity  error message shows", async () => {
-    const { getByTestId } = element;
-    const submitButton = await waitForElement(() =>
-      getByTestId("submitButton")
-    );
-    fireEvent.click(submitButton);
-    const updateErrorMsg = await waitForElement(() => getByTestId("errorMsg"));
-    expect(updateErrorMsg.innerHTML).toBe("Error fetching activity");
   });
 });
