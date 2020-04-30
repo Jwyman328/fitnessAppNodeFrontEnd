@@ -5,7 +5,8 @@ import {
   render,
   fireEvent,
   waitForElement,
-  getByTestId
+  getByTestId,
+  wait
 } from "@testing-library/react";
 import CreateChallengePage from "../pages/challenges/CreateChallengePage";
 
@@ -29,6 +30,7 @@ describe("challenge inputs can accept data changes", () => {
     );
 
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   test("Challenge type default to total points", () => {
@@ -81,6 +83,7 @@ describe("mock getAllusers request returns mock users", () => {
     );
 
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
@@ -126,6 +129,7 @@ describe("mock create challenge request returns success", () => {
     );
 
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
@@ -158,6 +162,7 @@ describe("mock create challenge request returns error", () => {
     );
 
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
