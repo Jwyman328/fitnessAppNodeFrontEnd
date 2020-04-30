@@ -15,7 +15,6 @@ import {
   Redirect
 } from "react-router-dom";
 import renderWithRouter from "./testUtils/setUpTests";
-import renderWithRouter2 from "./testUtils/renderWithRouter";
 import App from "../App";
 import { createMemoryHistory } from "history";
 import { StateProvider } from "../store/globalStore";
@@ -33,7 +32,6 @@ jest.mock("../actions/authActions/loginUser", () => ({
 let element;
 describe("test login inputs", () => {
   beforeEach(() => {
-    // set up loginPage element
     element = renderWithRouter(<LoginPage />, "/");
   });
 
@@ -84,23 +82,15 @@ describe("mox form submit success", () => {
   });
 
   test("login user successfully", async () => {
-    // test entering username and password
-    // use StateProvider to provide global context
     const { container, getByTestId } = element;
-    // from landingPage navigate to loginPage
-
-    //enter password
     const passwordInput = getByTestId("passwordInput");
     fireEvent.change(passwordInput, {
       target: { value: "myExistingPassword" }
     });
-    //enter email
     const emailInput = getByTestId("emailInput");
     fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
-    //submit loginData
     const submitButton = getByTestId("submitButton");
     fireEvent.click(submitButton);
-    //check user is redirect to the homepage
     expect(MockLoginUserAction.mock.calls.length).toBe(1);
   });
 });

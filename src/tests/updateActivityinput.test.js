@@ -111,7 +111,6 @@ describe("mock successful update and fetch requests", () => {
     const date = await waitForElement(() => getByTestId("dateInput"));
     expect(date.value).toBe("2020-03-25");
   });
-  //test about changing input values, and then about success messages and error messages
 
   test("Change hours of sleep value", async () => {
     const { getByTestId } = element;

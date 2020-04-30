@@ -11,7 +11,6 @@ import {
   wait
 } from "@testing-library/react";
 import { Router } from "react-router-dom";
-import renderWithRouter from "./testUtils/setUpTests";
 import { createMemoryHistory } from "history";
 import homePage from "../pages/home/home";
 
@@ -54,7 +53,6 @@ describe("Test input onChange values", () => {
     const { getByTestId } = element;
     const emailInput = getByTestId("emailInput");
     fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
-    //const emailValue = await waitForElement(() => expect(emailInput.value).toBe('testEmail@gmail.com'))
     expect(emailInput.value).toBe("testEmail@gmail.com");
   });
   test("test onChange password input", async () => {
@@ -67,8 +65,6 @@ describe("Test input onChange values", () => {
 
 describe("Test signup request", () => {
   beforeEach(() => {
-    //element = renderWithRouter(<SignUpPage />)
-
     moxios.install();
     moxios.stubRequest(
       "https://enigmatic-springs-36428.herokuapp.com/user/create/",
@@ -95,18 +91,14 @@ describe("Test signup request", () => {
 
   test("create a user and be logged in", async () => {
     const { getByTestId, getByText } = element;
-    //enter an email
     const emailInput = getByTestId("emailInput");
     fireEvent.change(emailInput, { target: { value: "testEmail@gmail.com" } });
-    //enter both password
     const passwordInput = getByTestId("passwordInput");
     fireEvent.change(passwordInput, { target: { value: "testPassword" } });
     const passwordInput2 = getByTestId("passwordInput2");
     fireEvent.change(passwordInput2, { target: { value: "testPassword" } });
-    // sumbit data
     const signUpButton = getByTestId("submitButton");
     fireEvent.click(signUpButton);
-    // find evidence that in home page
     expect(MockSignUpUserAction.mock.calls.length).toBe(1);
   });
 });

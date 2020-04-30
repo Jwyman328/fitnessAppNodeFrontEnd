@@ -130,7 +130,6 @@ describe("mock pending challenge get request and update challenge status request
 
   test("update is loading message shows on change status to accept button click", async () => {
     const { getByTestId } = element;
-    //get button and click accept challenge invitation
     const acceptButton = await waitForElement(() =>
       getByTestId("acceptButton")
     );
