@@ -6,8 +6,8 @@ import {
   getByTestId
 } from "@testing-library/react";
 import moxios from "moxios";
-import InputPointsPage from "../pages/activity/inputPointsPage";
-import { StateProvider } from "../store/globalStore";
+import InputPointsPage from "../../pages/activity/inputPointsPage";
+import { StateProvider } from "../../store/globalStore";
 import { MemoryRouter } from "react-router-dom";
 
 let element;

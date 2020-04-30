@@ -1,6 +1,6 @@
 import React from "react";
 import moxios from "moxios";
-import { StateProvider } from "../store/globalStore";
+import { StateProvider } from "../../store/globalStore";
 import {
   render,
   fireEvent,
@@ -8,10 +8,10 @@ import {
   getByTestId,
   wait
 } from "@testing-library/react";
-import PastChallenges from "../pages/challenges/PastChallenges";
-import { pendingChallengeInitialInvitationData } from "./testUtils/testMockData/pendingChallengeInvitationData";
-import App from "../App";
-import loginUserForTest from "./testUtils/loginUserForTest";
+import PastChallenges from "../../pages/challenges/PastChallenges";
+import { pendingChallengeInitialInvitationData } from "../helper_functions_for_tests/testMockData/testMockDataPages/pendingChallengeInvitationData";
+import App from "../../App";
+import loginUserForTest from "../helper_functions_for_tests/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
 let element;

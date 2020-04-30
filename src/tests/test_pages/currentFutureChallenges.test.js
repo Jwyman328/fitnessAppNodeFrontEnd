@@ -1,6 +1,6 @@
 import React from "react";
 import moxios from "moxios";
-import { StateProvider } from "../store/globalStore";
+import { StateProvider } from "../../store/globalStore";
 import {
   render,
   fireEvent,
@@ -10,11 +10,11 @@ import {
   prettyDOM,
   getAllByTestId
 } from "@testing-library/react";
-import CurrentFutureChallenges from "../pages/challenges/CurrentFutureChallenges";
-import futureChallengeData from "./testUtils/testMockData/futureChallengeData";
-import currentChallengeData from "./testUtils/testMockData/currentChallengeData";
-import App from "../App";
-import loginUserForTest from "./testUtils/loginUserForTest";
+import CurrentFutureChallenges from "../../pages/challenges/CurrentFutureChallenges";
+import futureChallengeData from "../helper_functions_for_tests/testMockData/testMockDataPages/futureChallengeData";
+import currentChallengeData from "../helper_functions_for_tests/testMockData/testMockDataPages/currentChallengeData";
+import App from "../../App";
+import loginUserForTest from "../helper_functions_for_tests/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
 let element;

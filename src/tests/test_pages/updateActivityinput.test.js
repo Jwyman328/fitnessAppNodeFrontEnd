@@ -7,12 +7,12 @@ import {
   wait
 } from "@testing-library/react";
 import moxios from "moxios";
-import UpdateActivityInput from "../pages/activity/UpdateActivityInput";
-import { StateProvider } from "../store/globalStore";
-import activityInputData from "./testUtils/testMockData/activityInputData";
-import App from "../App";
-import activityPointData from "./testUtils/testMockData/activityPointData";
-import loginUserForTest from "./testUtils/loginUserForTest";
+import UpdateActivityInput from "../../pages/activity/UpdateActivityInput";
+import { StateProvider } from "../../store/globalStore";
+import activityInputData from "../helper_functions_for_tests/testMockData/testMockDataPages/activityInputData";
+import App from "../../App";
+import activityPointData from "../helper_functions_for_tests/testMockData/testMockDataPages/activityPointData";
+import loginUserForTest from "../helper_functions_for_tests/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
 let element;

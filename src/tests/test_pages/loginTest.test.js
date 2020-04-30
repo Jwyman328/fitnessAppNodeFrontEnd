@@ -6,7 +6,7 @@ import {
   getByTestId
 } from "@testing-library/react";
 import moxios from "moxios";
-import LoginPage from "../pages/auth/login";
+import LoginPage from "../../pages/auth/login";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,16 +14,16 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import renderWithRouter from "./testUtils/setUpTests";
-import App from "../App";
+import renderWithRouter from "../helper_functions_for_tests/setUpTests";
+import App from "../../App";
 import { createMemoryHistory } from "history";
-import { StateProvider } from "../store/globalStore";
+import { StateProvider } from "../../store/globalStore";
 import { MemoryRouter } from "react-router-dom";
-import loginUser from "../actions/authActions/loginUser";
+import loginUser from "../../actions/authActions/loginUser";
 
 //mocks
 const MockLoginUserAction = jest.fn();
-jest.mock("../actions/authActions/loginUser", () => ({
+jest.mock("../../actions/authActions/loginUser", () => ({
   __esModule: true,
   namedExport: jest.fn(),
   default: jest.fn()

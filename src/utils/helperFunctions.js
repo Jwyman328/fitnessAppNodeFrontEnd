@@ -184,5 +184,6 @@ export {
   removeTimeFromActivityPointDateValues,
   getDatesForLast30Days,
   createMonthDatePointValue,
-  sanitizeSingleDateValue
+  sanitizeSingleDateValue,
+  formatDate
 };

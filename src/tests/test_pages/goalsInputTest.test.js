@@ -1,8 +1,8 @@
 import React from "react";
 import moxios from "moxios";
-import CreateGoalPage from "../pages/goals/CreateGoalPage";
+import CreateGoalPage from "../../pages/goals/CreateGoalPage";
 //set up global context for tests
-import { StateProvider } from "../store/globalStore";
+import { StateProvider } from "../../store/globalStore";
 import {
   render,
   fireEvent,
@@ -10,8 +10,8 @@ import {
   getByTestId,
   wait
 } from "@testing-library/react";
-import App from "../App";
-import loginUserForTest from "./testUtils/loginUserForTest";
+import App from "../../App";
+import loginUserForTest from "../helper_functions_for_tests/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
 let element;

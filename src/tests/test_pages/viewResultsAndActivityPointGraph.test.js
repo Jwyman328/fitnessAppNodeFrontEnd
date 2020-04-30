@@ -6,17 +6,17 @@ import {
   waitForElement,
   wait
 } from "@testing-library/react";
-import ViewResults from "../pages/results/ViewResults";
-import App from "../App";
-import { StateProvider } from "../store/globalStore";
+import ViewResults from "../../pages/results/ViewResults";
+import App from "../../App";
+import { StateProvider } from "../../store/globalStore";
 import { BrowserRouter as Router } from "react-router-dom";
-import activityPointData from "./testUtils/testMockData/activityPointData";
-import loginUserForTest from "./testUtils/loginUserForTest";
+import activityPointData from "../helper_functions_for_tests/testMockData/testMockDataPages/activityPointData";
+import loginUserForTest from "../helper_functions_for_tests/loginUserForTest";
 import { MemoryRouter } from "react-router-dom";
 
 //mock these
 let handleClickNavigationFunctions = jest.requireActual(
-  "../utils/tableHelperfunctions"
+  "../../utils/tableHelperfunctions"
 );
 handleClickNavigationFunctions.navigateToDailyPointGraph = jest.fn();
 handleClickNavigationFunctions.navigateToUpdatePointInput = jest.fn();

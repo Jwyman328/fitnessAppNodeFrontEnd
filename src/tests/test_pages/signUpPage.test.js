@@ -2,8 +2,8 @@
 // import moxios
 import React from "react";
 import moxios from "moxios";
-import SignUpPage from "../pages/auth/signUp";
-import App from "../App";
+import SignUpPage from "../../pages/auth/signUp";
+import App from "../../App";
 import {
   render,
   fireEvent,
@@ -12,18 +12,18 @@ import {
 } from "@testing-library/react";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import homePage from "../pages/home/home";
+import homePage from "../../pages/home/home";
 
 //set up global context for tests
-import { StateProvider } from "../store/globalStore";
+import { StateProvider } from "../../store/globalStore";
 import { MemoryRouter } from "react-router-dom";
 
 //mock imports
-import signUpAction from "../actions/authActions/signUp";
+import signUpAction from "../../actions/authActions/signUp";
 
 //mocks
 const MockSignUpUserAction = jest.fn();
-jest.mock("../actions/authActions/signUp", () => ({
+jest.mock("../../actions/authActions/signUp", () => ({
   __esModule: true,
   namedExport: jest.fn(),
   default: jest.fn()
