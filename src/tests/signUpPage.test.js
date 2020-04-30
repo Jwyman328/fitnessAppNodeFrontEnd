@@ -4,7 +4,12 @@ import React from "react";
 import moxios from "moxios";
 import SignUpPage from "../pages/auth/signUp";
 import App from "../App";
-import { render, fireEvent, waitForElement } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  waitForElement,
+  wait
+} from "@testing-library/react";
 import { Router } from "react-router-dom";
 import renderWithRouter from "./testUtils/setUpTests";
 import { createMemoryHistory } from "history";
@@ -27,7 +32,7 @@ jest.mock("../actions/authActions/signUp", () => ({
 
 let element;
 describe("Test input onChange values", () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     element = render(
       <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
         <MemoryRouter initialEntries={["/signup"]}>

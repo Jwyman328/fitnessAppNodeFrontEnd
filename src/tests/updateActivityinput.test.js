@@ -3,7 +3,8 @@ import {
   render,
   fireEvent,
   waitForElement,
-  getByTestId
+  getByTestId,
+  wait
 } from "@testing-library/react";
 import moxios from "moxios";
 import UpdateActivityInput from "../pages/activity/UpdateActivityInput";
@@ -42,11 +43,12 @@ describe("mock successful update and fetch requests", () => {
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); // removes act() react testing library error.
   });
 
   //from homepage navigate to update page
 
-  afterEach(() => {
+  afterEach(async () => {
     moxios.uninstall();
   });
 
@@ -117,6 +119,7 @@ describe("mock successful update and fetch requests", () => {
       getByTestId("sleepHoursInput")
     );
     fireEvent.change(sleepHoursInput, { target: { value: 30 } });
+
     expect(sleepHoursInput.value).toBe("30");
   });
 

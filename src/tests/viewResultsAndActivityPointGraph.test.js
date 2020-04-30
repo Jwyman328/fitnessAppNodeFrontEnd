@@ -36,6 +36,7 @@ describe("mock point results fetch request success", () => {
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {

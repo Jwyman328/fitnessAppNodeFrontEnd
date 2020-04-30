@@ -19,7 +19,7 @@ import { MemoryRouter } from "react-router-dom";
 
 let element;
 describe("mock fetch current and future challenge request success", () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
       "https://enigmatic-springs-36428.herokuapp.com/currentChallenges/",
@@ -39,6 +39,7 @@ describe("mock fetch current and future challenge request success", () => {
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
@@ -80,6 +81,7 @@ describe("mock fetch current and future challenge request failure", () => {
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {

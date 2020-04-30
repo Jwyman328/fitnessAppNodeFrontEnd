@@ -31,6 +31,7 @@ describe("Mock pending challenge invitation get request success", () => {
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
@@ -85,6 +86,7 @@ describe("Mock pending challenge invitation get request fails", () => {
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
   afterEach(() => {
     moxios.uninstall();
@@ -119,6 +121,7 @@ describe("mock pending challenge get request and update challenge status request
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
@@ -160,6 +163,7 @@ describe("mock pending challenge get request success and update challenge status
       </StateProvider>
     );
     const { getByTestId } = element;
+    await wait(); //removes act() reac testing library error
   });
 
   afterEach(() => {
