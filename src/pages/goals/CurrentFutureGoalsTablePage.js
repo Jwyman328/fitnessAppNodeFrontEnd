@@ -38,7 +38,6 @@ function CurrentFutureGoalsTablePage({ history }) {
    * @return                CurrentGoalRow element.
    */
   const createGoalRow = goals => {
-    console.log(goals, "hello world");
     const goalRow = goals.map(goal => {
       return CurrentGoalRow(dispatch, globalState.token, goal, history);
     });

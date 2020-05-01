@@ -106,6 +106,13 @@ function App(props) {
         </Suspense>
         <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
           <Switch>
+            <Route exact path="/">
+              <LoginPage />
+            </Route>
+          </Switch>
+        </Suspense>
+        <Suspense fallback={<LoadingMessage loadingText="...Loading" />}>
+          <Switch>
             <Route exact path="/login">
               <LoginPage />
             </Route>
