@@ -1,13 +1,13 @@
-import InputPointReducer from "../../reducers/activityReducers/inputPointReducer";
+import InputPointReducer from "../../../reducers/activityReducers/inputPointReducer";
 //initial states
-import inputPointReducerInitialState from "../../initialState/pointInputInitialState";
+import inputPointReducerInitialState from "../../../initialState/pointInputInitialState";
 
 //mock final state
 import {
   inputPointSentFinalStateMock,
   inputPointSuccessFinalStateMock,
   inputPointIsErrorFinalStateMock
-} from "../helper_functions_for_tests/testMockData/testMockDataReducers/activityReducersMockData";
+} from "../../helper_functions_for_tests/testMockData/testMockDataReducers/activityReducerMockState/activityReducersMockData";
 
 test("activity reducer action inputPointSent matches mock inputPointSent state", () => {
   const inputPointSentState = InputPointReducer(inputPointReducerInitialState, {

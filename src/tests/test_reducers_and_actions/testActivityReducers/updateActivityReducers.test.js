@@ -1,5 +1,5 @@
-import updateActivityInputReducer from "../../reducers/activityReducers/updateActivityInputReducer";
-import updateActivityInputReducerInitialState from "../../initialState/updateActivityInputInitialState";
+import updateActivityInputReducer from "../../../reducers/activityReducers/updateActivityInputReducer";
+import updateActivityInputReducerInitialState from "../../../initialState/updateActivityInputInitialState";
 import {
   updateActivityInputFetchAttemptFinalStateMock,
   updateActivityInputFetchErrorStateMock,
@@ -7,7 +7,7 @@ import {
   updateAttemptFinalStateMock,
   updateErrorFinalStateMock,
   updateSuccessFinalStateMock
-} from "../helper_functions_for_tests/testMockData/testMockDataReducers/updateActivityInputMockFinalState";
+} from "../../helper_functions_for_tests/testMockData/testMockDataReducers/activityReducerMockState/updateActivityInputMockFinalState";
 
 test("updateActivityInputReducer action activityInputFetchAttempt returns correct state", () => {
   const updateFetchAttemptState = updateActivityInputReducer(

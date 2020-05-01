@@ -1,4 +1,4 @@
 // jest.config.js
 {
-    reporters: ["default", "jest-junit"],
-  }
+  reporters: ["default", "jest-junit"];
+}

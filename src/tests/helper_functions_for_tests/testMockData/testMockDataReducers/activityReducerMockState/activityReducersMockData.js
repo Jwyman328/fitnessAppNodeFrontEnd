@@ -1,6 +1,8 @@
+const today = new Date().toISOString().split("T")[0];
+
 const inputPointSentFinalStateMock = {
   cleanEating: false,
-  date: "2020-04-30",
+  date: today,
   isError: false,
   isLoading: true,
   isSuccess: false,
@@ -13,7 +15,7 @@ const inputPointSentFinalStateMock = {
 
 const inputPointSuccessFinalStateMock = {
   cleanEating: false,
-  date: "2020-04-30",
+  date: today,
   isError: false,
   isLoading: false,
   isSuccess: true,
@@ -26,7 +28,7 @@ const inputPointSuccessFinalStateMock = {
 
 const inputPointIsErrorFinalStateMock = {
   cleanEating: false,
-  date: "2020-04-30",
+  date: today,
   isError: true,
   isLoading: false,
   isSuccess: false,

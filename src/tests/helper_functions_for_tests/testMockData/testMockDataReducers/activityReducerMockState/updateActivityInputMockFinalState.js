@@ -1,7 +1,9 @@
+const today = new Date().toISOString().split("T")[0];
+
 const updateActivityInputFetchAttemptFinalStateMock = {
   activityInput: {
     cleanEating: false,
-    date: "2020-04-30",
+    date: today,
     hoursOfSleep: 0,
     steps: 0,
     water100Oz: false,
@@ -17,7 +19,7 @@ const updateActivityInputFetchAttemptFinalStateMock = {
 const updateActivityInputFetchErrorStateMock = {
   activityInput: {
     cleanEating: false,
-    date: "2020-04-30",
+    date: today,
     hoursOfSleep: 0,
     steps: 0,
     water100Oz: false,
@@ -41,7 +43,7 @@ const updateAddInputFinalStateMock = {
 const updateAttemptFinalStateMock = {
   activityInput: {
     cleanEating: false,
-    date: "2020-04-30",
+    date: today,
     hoursOfSleep: 0,
     steps: 0,
     water100Oz: false,
@@ -57,7 +59,7 @@ const updateAttemptFinalStateMock = {
 const updateErrorFinalStateMock = {
   activityInput: {
     cleanEating: false,
-    date: "2020-04-30",
+    date: today,
     hoursOfSleep: 0,
     steps: 0,
     water100Oz: false,
@@ -73,7 +75,7 @@ const updateErrorFinalStateMock = {
 const updateSuccessFinalStateMock = {
   activityInput: {
     cleanEating: false,
-    date: "2020-04-30",
+    date: today,
     hoursOfSleep: 0,
     steps: 0,
     water100Oz: false,
