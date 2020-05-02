@@ -9,7 +9,7 @@ import { Redirect, withRouter } from "react-router-dom";
 
 // state data
 import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";
-import loginFormInitialState from "../../initialState/loginInitialState";
+import loginFormInitialState from "../../initialState/auth_initial_state/loginInitialState";
 
 //card components
 import AuthCardContainer from "../../components/cardComponents/cardContainers/AuthCardContainer";

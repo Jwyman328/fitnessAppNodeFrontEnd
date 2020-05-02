@@ -6,7 +6,7 @@ import signUpAction from "../../actions/authActions/signUp";
 
 // state data
 import useLoginUserOnToken from "../../customHooks/customAuthHooks/useLogInUserOnToken";
-import signUpInitialState from "../../initialState/signUpInitialState";
+import signUpInitialState from "../../initialState/auth_initial_state/signUpInitialState";
 
 //context
 import SignUpContext from "./authContext/SignUpContext";

@@ -1,5 +1,5 @@
 import currentFutureGoalsReducer from "../../../reducers/goalsReducer/currentFutureGoalPageReducer";
-import currentFutureGoalsInitialState from "../../../initialState/currentFutureChallengesInitialState";
+import currentFutureGoalsInitialState from "../../../initialState/challenges_initial_state/currentFutureChallengesInitialState";
 import {
   currentGoalsFetchAttemptFinalStateMock,
   futureGoalsFetchAttemptFinalStateMock,

@@ -1,5 +1,5 @@
 import globalReducer from "../../../reducers/globalReducers/globalReducer";
-import globalReducerInitialState from "../../../initialState/globalInitialState";
+import globalReducerInitialState from "../../../initialState/global_initial_state/globalInitialState";
 import {
   loggedInMockFinalState,
   loggedOutMockFinalState

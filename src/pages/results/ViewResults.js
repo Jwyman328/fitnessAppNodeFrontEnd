@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import ViewResultsInitialState from "../../initialState/ViewResultsInitialState";
+import ViewResultsInitialState from "../../initialState/results_initial_state/ViewResultsInitialState";
 import viewResultsReducer from "../../reducers/resultsReducers/viewResultsReducer";
 import getDailyPoints from "../../actions/viewResultsActions/getDailyPoints";
 import DailyPointsTable from "../../components/tables/DailyPointsTable";

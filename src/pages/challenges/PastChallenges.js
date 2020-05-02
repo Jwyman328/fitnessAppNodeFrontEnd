@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 
 import pastChallengePageReducer from "../../reducers/challengeReducers/pastChallengePageReducer";
-import pastChallengeInitialState from "../../initialState/pastChallengeInitialState";
+import pastChallengeInitialState from "../../initialState/challenges_initial_state/pastChallengeInitialState";
 import getPastChallenges from "../../actions/pastChallengesActions/getPastChallenges";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import "../../components/tables/DailyPointsTable.css";

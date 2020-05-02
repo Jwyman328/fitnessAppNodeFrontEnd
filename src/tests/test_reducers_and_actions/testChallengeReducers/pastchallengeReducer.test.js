@@ -1,5 +1,5 @@
 import pastChallengePageReducer from "../../../reducers/challengeReducers/pastChallengePageReducer";
-import pastChallengeInitialState from "../../../initialState/pastChallengeInitialState";
+import pastChallengeInitialState from "../../../initialState/challenges_initial_state/pastChallengeInitialState";
 import {
   pastChallengesFetchAttemptFinalStateMock,
   pastChallengeFetchErrorFinalStateMock,

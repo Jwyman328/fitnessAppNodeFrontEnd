@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 
 import currentFutureChallengeReducer from "../../reducers/challengeReducers/currentFutureChallengePageReducer";
 
-import currentFutureChallengesInitialState from "../../initialState/currentFutureChallengesInitialState";
+import currentFutureChallengesInitialState from "../../initialState/challenges_initial_state/currentFutureChallengesInitialState";
 import getFutureChallenges from "../../actions/currentFutureChallengesActions/getFutureChallengesAction";
 import getCurrentChallenges from "../../actions/currentFutureChallengesActions/getCurrentChallengesAction";
 

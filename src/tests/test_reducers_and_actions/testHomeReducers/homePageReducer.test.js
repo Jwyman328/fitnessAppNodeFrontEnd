@@ -1,5 +1,5 @@
 import homePageReducer from "../../../reducers/homeReducers/homePageReducer";
-import homePageInitialState from "../../../initialState/homePageInitialState";
+import homePageInitialState from "../../../initialState/home_initial_state/homePageInitialState";
 import {
   addPointFinalStateMock,
   todaysPointsFetchAttemptFinalStateMock,

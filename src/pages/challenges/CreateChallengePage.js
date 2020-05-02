@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 
 //state
-import challengeFormInitialState from "../../initialState/challengeInitialState";
+import challengeFormInitialState from "../../initialState/challenges_initial_state/challengeInitialState";
 import CreateChallenge from "../../actions/challengePageActions/createChallenge";
 import challengeReducer from "../../reducers/challengeReducers/challengeReducer";
 

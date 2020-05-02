@@ -1,5 +1,5 @@
 import loginReducer from "../../../reducers/authReducers/loginReducer";
-import loginInitialState from "../../../initialState/loginInitialState";
+import loginInitialState from "../../../initialState/auth_initial_state/loginInitialState";
 import {
   loginAttemptFinalStateMock,
   loginSuccessFinalStateMock,

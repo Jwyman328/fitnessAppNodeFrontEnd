@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { createGraphData } from "../../utils/graphHelperFunctions";
-import homePageInitialState from "../../initialState/homePageInitialState";
+import homePageInitialState from "../../initialState/home_initial_state/homePageInitialState";
 import homePageReducer from "../../reducers/homeReducers/homePageReducer";
 import getTodaysPoints from "../../actions/fetchPointsActions/fetchTodaysPoints";
 import getPastMonthPoints from "../../actions/fetchPointsActions/getPastMonthPoints";

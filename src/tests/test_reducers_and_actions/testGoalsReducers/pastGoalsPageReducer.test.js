@@ -1,5 +1,5 @@
 import pastGoalsReducer from "../../../reducers/goalsReducer/pastGoalsReducer";
-import pastGoalPageInitialState from "../../../initialState/pastGoalsState";
+import pastGoalPageInitialState from "../../../initialState/goals_initial_state/pastGoalsState";
 import {
   pastGoalsFetchAttemptFinalStateMock,
   pastGoalsFetchErrorfinalStateMock,

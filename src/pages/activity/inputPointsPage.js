@@ -4,7 +4,7 @@ import React, { useReducer } from "react";
 import useGlobalState from "../../customHooks/customAuthHooks/useGlobalState";
 
 import inputPointReducer from "../../reducers/activityReducers/inputPointReducer";
-import inputPointInitialState from "../../initialState/pointInputInitialState";
+import inputPointInitialState from "../../initialState/activity_initial_state/pointInputInitialState";
 
 //css
 import "../form.scss";

@@ -1,5 +1,5 @@
 import goalReducer from "../../../reducers/goalsReducer/goalReducer";
-import pointGoalInitialState from "../../../initialState/pointGoalInitialState";
+import pointGoalInitialState from "../../../initialState/goals_initial_state/pointGoalInitialState";
 import {
   createGoalSuccessFinalStateMock,
   createGoallErrorFinalStateMock,

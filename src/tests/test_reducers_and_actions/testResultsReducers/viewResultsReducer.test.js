@@ -1,5 +1,5 @@
 import viewResultsReducer from "../../../reducers/resultsReducers/viewResultsReducer";
-import viewResultsPageInitialState from "../../../initialState/ViewResultsInitialState";
+import viewResultsPageInitialState from "../../../initialState/results_initial_state/ViewResultsInitialState";
 import {
   addDailyPointsFinalStateMock,
   dailyFetchAttemptFinalStateMock,

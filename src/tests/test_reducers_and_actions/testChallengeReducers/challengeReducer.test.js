@@ -1,5 +1,5 @@
 import challengeReducer from "../../../reducers/challengeReducers/challengeReducer";
-import challengeInitialState from "../../../initialState/challengeInitialState";
+import challengeInitialState from "../../../initialState/challenges_initial_state/challengeInitialState";
 import {
   createChallengeSuccessFinalStateMock,
   createChallengeErrorFinalStateMock,

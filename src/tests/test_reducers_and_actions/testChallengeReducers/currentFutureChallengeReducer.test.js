@@ -1,5 +1,5 @@
 import currentFutureChallengeReducer from "../../../reducers/challengeReducers/currentFutureChallengePageReducer";
-import currentFutureChallengeInitialState from "../../../initialState/currentFutureChallengesInitialState";
+import currentFutureChallengeInitialState from "../../../initialState/challenges_initial_state/currentFutureChallengesInitialState";
 import {
   currentChallengeFetchAttemptFinalStateMock,
   futureChallengeFetchAttemptFinalStateMock,

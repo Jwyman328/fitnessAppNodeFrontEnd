@@ -1,5 +1,5 @@
 import pendingChallengesReducer from "../../../reducers/challengeReducers/pendingChallengesPageReducer";
-import pendingChallengeReducerInitialState from "../../../initialState/pendingChallengesInitialState";
+import pendingChallengeReducerInitialState from "../../../initialState/challenges_initial_state/pendingChallengesInitialState";
 import {
   addPendingChallengeFinalStateMock,
   pendingChallengeFetchAttemptFinalStateMock,

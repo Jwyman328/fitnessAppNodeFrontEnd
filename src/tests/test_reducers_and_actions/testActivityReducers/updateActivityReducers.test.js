@@ -1,5 +1,5 @@
 import updateActivityInputReducer from "../../../reducers/activityReducers/updateActivityInputReducer";
-import updateActivityInputReducerInitialState from "../../../initialState/updateActivityInputInitialState";
+import updateActivityInputReducerInitialState from "../../../initialState/activity_initial_state/updateActivityInputInitialState";
 import {
   updateActivityInputFetchAttemptFinalStateMock,
   updateActivityInputFetchErrorStateMock,

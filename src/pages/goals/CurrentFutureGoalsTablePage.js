@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 
 import currentFutureGoalReducer from "../../reducers/goalsReducer/currentFutureGoalPageReducer";
 
-import currentFutureGoalsInitialState from "../../initialState/currentFutureGoalsInitialState";
+import currentFutureGoalsInitialState from "../../initialState/goals_initial_state/currentFutureGoalsInitialState";
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";

@@ -5,7 +5,7 @@ import goalReducer from "../../reducers/goalsReducer/goalReducer";
 import CreateGoal from "../../actions/goalPageActions/createGoal";
 
 //state
-import pointGoalFormInitialState from "../../initialState/pointGoalInitialState";
+import pointGoalFormInitialState from "../../initialState/goals_initial_state/pointGoalInitialState";
 
 //context
 import CreateGoalPageContext from "./GoalContext/CreateGoalPageContext";

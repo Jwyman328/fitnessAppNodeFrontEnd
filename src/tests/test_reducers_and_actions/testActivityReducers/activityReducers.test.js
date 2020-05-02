@@ -1,6 +1,6 @@
 import InputPointReducer from "../../../reducers/activityReducers/inputPointReducer";
 //initial states
-import inputPointReducerInitialState from "../../../initialState/pointInputInitialState";
+import inputPointReducerInitialState from "../../../initialState/activity_initial_state/pointInputInitialState";
 
 //mock final state
 import {

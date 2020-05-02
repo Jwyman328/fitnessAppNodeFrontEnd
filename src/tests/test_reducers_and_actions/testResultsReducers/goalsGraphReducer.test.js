@@ -1,5 +1,5 @@
 import goalsGraphReducer from "../../../reducers/resultsReducers/goalsGraphReducer";
-import pointGoalInitialState from "../../../initialState/pointGoalInitialState";
+import pointGoalInitialState from "../../../initialState/goals_initial_state/pointGoalInitialState";
 import {
   getTotalAccumulatedAttemptFinalStateMock,
   getTotalAccumulatedErrorFinalStateMock,

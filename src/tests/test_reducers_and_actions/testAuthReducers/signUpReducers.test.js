@@ -1,5 +1,5 @@
 import signupReducer from "../../../reducers/authReducers/signUpReducer";
-import signUpInitialState from "../../../initialState/signUpInitialState";
+import signUpInitialState from "../../../initialState/auth_initial_state/signUpInitialState";
 import {
   signUpAttemptFinalStateMock,
   signUpSuccessFinalStateMock,
