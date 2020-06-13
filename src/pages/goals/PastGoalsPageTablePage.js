@@ -6,7 +6,7 @@ import pastGoalsInitialState from "../../initialState/goals_initial_state/pastGo
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";
-import "../../components/tables/DailyPointsTable.css";
+import "../../components/tables/DailyPointsTable.scss";
 import PastGoalsHead from "../../components/tables/heads/pastGoalsHead";
 import GoalRows from "../../components/tables/rows/currentGoalRow";
 import { withRouter } from "react-router-dom";
@@ -44,7 +44,7 @@ function PastGoalsPageTablePage({ history }) {
       <h2>Past Goals</h2>
       <div>
         {pastGoals ? (
-          <Table className="tableContainer">
+          <Table className="table">
             <PastGoalsHead />
             <tbody>{createGoalRow(pastGoals)}</tbody>
           </Table>

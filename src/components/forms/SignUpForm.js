@@ -17,7 +17,7 @@ function SignUpForm({ dispatch }) {
   const { email, password, password2, firstName, lastName } = signUpState;
 
   return (
-    <form className="formContainer">
+    <form className="form">
       <AuthFormInput
         placeholder="email"
         type="text"

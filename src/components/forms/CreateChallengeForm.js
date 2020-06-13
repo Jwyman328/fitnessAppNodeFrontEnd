@@ -99,7 +99,7 @@ function CreateChallengeForm() {
       <FormRow>
         <FormRowLabel labelText="Catagory:" />
         <select
-          className="rowFormItem"
+          className="form__row__item"
           multiple={false}
           data-testid="challengeType"
           name="challengeType"
@@ -115,10 +115,10 @@ function CreateChallengeForm() {
       </FormRow>
 
       {allUsers ? (
-        <div className="rowForm">
-          <label className="rowFormItem">Invitees:</label>
+        <div className="form__row">
+          <label className="form__row__item">Invitees:</label>
           <select
-            className="rowFormItemInvitee"
+            className="form__row__item--invitee"
             multiple={true}
             data-testid="selectUsersInput"
             name="userEmails"

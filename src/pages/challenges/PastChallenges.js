@@ -4,7 +4,7 @@ import pastChallengePageReducer from "../../reducers/challengeReducers/pastChall
 import pastChallengeInitialState from "../../initialState/challenges_initial_state/pastChallengeInitialState";
 import getPastChallenges from "../../actions/pastChallengesActions/getPastChallenges";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
-import "../../components/tables/DailyPointsTable.css";
+import "../../components/tables/DailyPointsTable.scss";
 import ChallengeTable from "../../components/tables/fullTables/ChallengeTable";
 
 // custom hooks

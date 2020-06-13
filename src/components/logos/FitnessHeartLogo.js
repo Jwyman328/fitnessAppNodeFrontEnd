@@ -7,7 +7,9 @@ import logo from "../../logoMedia/fitness-outline.svg";
  * @param {String} logoPositionSide -- Side of the logo to alter css.
  */
 function FitnessHeartLogo({ logoPositionSide }) {
-  return <img className={`login-logo-${logoPositionSide}`} src={logo} />;
+  return (
+    <img className={`login-logo login-logo--${logoPositionSide}`} src={logo} />
+  );
 }
 
 export default FitnessHeartLogo;

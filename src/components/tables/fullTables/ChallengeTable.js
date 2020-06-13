@@ -23,7 +23,7 @@ function ChallengeTable({ challengeData }) {
 
   return (
     <div>
-      <Table className="tableContainer">
+      <Table className="table">
         <PastChallengeTableHead />
         <tbody>{createChallengeCards(challengeData)}</tbody>
       </Table>

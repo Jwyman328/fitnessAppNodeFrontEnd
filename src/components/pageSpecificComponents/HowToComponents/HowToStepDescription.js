@@ -10,7 +10,7 @@ import "../../../pages/informationBasedPages//Rules.scss";
 function HowToStepDescription({ descriptionText }) {
   return (
     <ul>
-      <li className="subDiscrip">{descriptionText}</li>
+      <li className="howTo__description">{descriptionText}</li>
     </ul>
   );
 }

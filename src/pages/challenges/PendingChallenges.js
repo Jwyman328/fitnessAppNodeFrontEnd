@@ -6,7 +6,7 @@ import getAllPendingChallengeInvitations from "../../actions/pendingChallengeInv
 import createPendingChallengeRows from "../../components/tables/rows/pendingChallengeRow";
 import ChallengeNavBar from "../../components/navBars/challengeNavBar";
 import { Table } from "react-bootstrap";
-import "../../components/tables/DailyPointsTable.css";
+import "../../components/tables/DailyPointsTable.scss";
 import PendingInvitationTableHead from "../../components/tables/heads/pendingInvitationsTableHead";
 
 // custom hooks
@@ -45,7 +45,7 @@ function PendingChallengesPage() {
 
       <div>
         {pendingChallenges.length > 0 ? (
-          <Table className="tableContainer">
+          <Table className="table">
             <PendingInvitationTableHead />
             <tbody>
               {pendingChallenges.map(challengeInvitation =>

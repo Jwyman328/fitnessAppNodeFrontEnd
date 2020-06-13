@@ -19,12 +19,12 @@ function AuthFormInput({
   dispatch
 }) {
   return (
-    <div className="formItem">
+    <div className="form__item">
       <label className="formTitle">
         <input
           placeholder={placeholder}
           size="25"
-          className="formInput"
+          className="form__input"
           type={type}
           name={name}
           onChange={event => handleAuthInputChange(event, dispatch)}

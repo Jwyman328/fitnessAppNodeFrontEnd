@@ -6,7 +6,7 @@ import currentFutureGoalsInitialState from "../../initialState/goals_initial_sta
 
 import GoalNavBar from "../../components/navBars/goalNavBar";
 import { Table } from "react-bootstrap";
-import "../../components/tables/DailyPointsTable.css";
+import "../../components/tables/DailyPointsTable.scss";
 import CurrentGoalsHead from "../../components/tables/heads/goalsHead";
 import CurrentGoalRow from "../../components/tables/rows/currentGoalRow";
 import { withRouter } from "react-router-dom";
@@ -50,7 +50,7 @@ function CurrentFutureGoalsTablePage({ history }) {
       <h2>Current Goals</h2>
       <div>
         {currentGoals ? (
-          <Table className="tableContainer">
+          <Table className="table">
             <CurrentGoalsHead />
             <tbody>{createGoalRow(currentGoals)}</tbody>
           </Table>
@@ -59,7 +59,7 @@ function CurrentFutureGoalsTablePage({ history }) {
       <div>
         <h2>Future Goals</h2>
         {futureGoals ? (
-          <Table className="tableContainer">
+          <Table className="table">
             <CurrentGoalsHead />
             <tbody>{createGoalRow(futureGoals)}</tbody>
           </Table>

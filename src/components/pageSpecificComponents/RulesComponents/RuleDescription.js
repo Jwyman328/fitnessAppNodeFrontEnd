@@ -6,7 +6,7 @@ import React from "react";
  * @param {String} descriptionText  description text to be displayed.
  */
 function RuleDescription({ descriptionText }) {
-  return <h4 className="ruleDiscrip">{descriptionText}</h4>;
+  return <h4 className="rule__description">{descriptionText}</h4>;
 }
 
 export default RuleDescription;

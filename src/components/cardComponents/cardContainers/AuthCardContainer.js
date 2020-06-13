@@ -7,7 +7,7 @@ import React from "react";
  */
 function AuthCardContainer({ children }) {
   return (
-    <div className="containerRules smallCard login-opacity">{children}</div>
+    <div className="containerRules card--small login-opacity">{children}</div>
   );
 }
 

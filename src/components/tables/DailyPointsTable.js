@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
-import "./DailyPointsTable.css";
+import "./DailyPointsTable.scss";
 import {
   navigateToDailyPointGraph,
   navigateToUpdatePointInput
@@ -19,14 +19,14 @@ function DailyPointsTable(props) {
    */
   const createRowFromData = individualPointData => {
     return (
-      <tr className="rowContainer" key={individualPointData._id}>
-        <td className="rowItem" data-testid="inputDate">
+      <tr className="table__row" key={individualPointData._id}>
+        <td className="table__item" data-testid="inputDate">
           {individualPointData.date}
         </td>
-        <td className="rowItem" data-testid="totalPoints">
+        <td className="table__item" data-testid="totalPoints">
           {individualPointData.totalPoints.toFixed(2)}
         </td>
-        <td className="rowItem">
+        <td className="table__item">
           <button
             className="rowButton"
             data-testid="updateButton"
@@ -37,7 +37,7 @@ function DailyPointsTable(props) {
             Update
           </button>
         </td>
-        <td className="rowItem">
+        <td className="table__item">
           <button
             className="rowButton"
             data-testid="graphButton"
@@ -64,10 +64,10 @@ function DailyPointsTable(props) {
   };
 
   return (
-    <div className="tableContainer">
-      <Table className="tableContainer">
+    <div className="table">
+      <Table className="table">
         <thead>
-          <tr className="rowContainer">
+          <tr className="table__row">
             <th>Date</th>
             <th>Total Points</th>
             <th>Update</th>

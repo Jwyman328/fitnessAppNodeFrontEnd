@@ -15,7 +15,7 @@ function HowTo() {
   return (
     <div className="rulePageContainer">
       <div className="containerRules">
-        <h1 className="mainTitle">How to: Fitness Challenge</h1>
+        <h1 className="howTo__title">How to: Fitness Challenge</h1>
 
         <HowToStepContainer>
           <HowToStepTitle titleText="Step 1: Create a User: ">

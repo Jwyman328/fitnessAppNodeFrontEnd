@@ -22,7 +22,7 @@ function UserCreateDataFormInput({
   return (
     <input
       size="15"
-      className="rowFormItem"
+      className="form__row__item"
       data-testid={dataTestid}
       name={name}
       type={type}

@@ -8,7 +8,7 @@ import challengeReducer from "../../reducers/challengeReducers/challengeReducer"
 import getAllUsers from "../../actions/challengePageActions/getAllUsers";
 
 //css
-import "./submitButton.css";
+import "./submitButton.scss";
 import "../form.scss";
 
 // general components

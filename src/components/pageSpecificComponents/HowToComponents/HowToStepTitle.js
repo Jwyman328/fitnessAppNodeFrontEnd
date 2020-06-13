@@ -10,7 +10,7 @@ import "../../../pages/informationBasedPages//Rules.scss";
  */
 function HowToStepTitle({ children, titleText }) {
   return (
-    <h2 className="subTitle">
+    <h2 className="howTo__subTitle">
       {titleText}
       {children}
     </h2>

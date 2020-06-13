@@ -24,20 +24,20 @@ const PendingChallengeInvitationCard = (
   };
 
   return (
-    <tr key={`${challengeInvitationData._id}`} className="rowContainer">
-      <td className="rowItem" data-testid="title">
+    <tr key={`${challengeInvitationData._id}`} className="table__row">
+      <td className="table__item" data-testid="title">
         {challengeInvitationData.title}
       </td>
-      <td className="rowItem" data-testid="challengeType">
+      <td className="table__item" data-testid="challengeType">
         {challengeInvitationData.challengeType}
       </td>
-      <td className="rowItem" data-testid="startDate">
+      <td className="table__item" data-testid="startDate">
         {challengeInvitationData.startDate}
       </td>
-      <td className="rowItem" data-testid="endDate">
+      <td className="table__item" data-testid="endDate">
         {challengeInvitationData.startDate}
       </td>
-      <td className="rowItem">
+      <td className="table__item">
         <button
           className="rowButton"
           data-testid="acceptButton"
@@ -46,7 +46,7 @@ const PendingChallengeInvitationCard = (
           Accept
         </button>
       </td>
-      <td className="rowItem">
+      <td className="table__item">
         <button
           className="rowButton"
           data-testid="rejectButton"

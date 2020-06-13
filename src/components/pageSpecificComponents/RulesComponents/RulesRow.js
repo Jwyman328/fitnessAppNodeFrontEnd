@@ -6,7 +6,7 @@ import React from "react";
  * @param {Array} children Elements inside of RulesRow.
  */
 function RulesRow({ children }) {
-  return <div className="rulesRow">{children}</div>;
+  return <div className="rules__row">{children}</div>;
 }
 
 export default RulesRow;

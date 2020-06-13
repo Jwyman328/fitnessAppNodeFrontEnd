@@ -6,7 +6,7 @@ import React from "react";
  * @param {Array} children Array of children elements to be displayed in the form container.
  */
 function FormRow({ children }) {
-  return <div className="rowForm">{children}</div>;
+  return <div className="form__row">{children}</div>;
 }
 
 export default FormRow;

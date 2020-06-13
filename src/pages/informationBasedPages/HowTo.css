@@ -29,7 +29,7 @@
   width: 70vw;
 }
 
-.mainTitle {
+.howTo__title {
   border: 3px;
   border-color: red;
   border-width: 0;
@@ -37,12 +37,12 @@
   border-style: dashed;
   flex-grow: 0;
 }
-.subTitle {
+.howTo__subTitle {
   align-self: flex-start;
   margin-left: 3%;
 }
 
-.subDiscrip {
+.howTo__description {
   margin-right: 5vw;
   margin-left: 5vw;
 }

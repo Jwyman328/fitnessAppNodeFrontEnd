@@ -14,7 +14,7 @@ function LoginForm() {
   const { email, password } = loginState;
 
   return (
-    <form className="formContainer">
+    <form className="form">
       <AuthFormInput
         placeholder="email"
         type="text"

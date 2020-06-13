@@ -55,18 +55,18 @@ const currentGoalRow = (
   };
 
   return (
-    <tr key={`${goalData._id}`} className="rowContainer">
-      <td className="rowItem" data-testid="pointGoal">
+    <tr key={`${goalData._id}`} className="table__row">
+      <td className="table__item" data-testid="pointGoal">
         {goalData.pointGoal}
       </td>
-      <td className="rowItem" data-testid="startDate">
+      <td className="table__item" data-testid="startDate">
         {goalData.goalStartDate}
       </td>
-      <td className="rowItem" data-testid="endDate">
+      <td className="table__item" data-testid="endDate">
         {goalData.goalEndDate}
       </td>
       {!isPastGoal ? (
-        <td className="rowItem">
+        <td className="table__item">
           <button
             className="rowButton"
             data-testid="delete"
@@ -76,7 +76,7 @@ const currentGoalRow = (
           </button>
         </td>
       ) : null}
-      <td className="rowItem">
+      <td className="table__item">
         <button
           className="rowButton"
           data-testid="graph"

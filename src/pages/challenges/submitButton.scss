@@ -17,18 +17,18 @@
   text-transform: uppercase;
   transition: all 0.2s;
   position: relative;
-}
 
-.submitButton:hover {
-  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-  background-color: #dfdfdf;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.803);
-}
+  &:hover {
+    background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    background-color: #dfdfdf;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.803);
+  }
 
-.submitButton:active {
-  position: relative;
-  top: 1px;
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.803);
+  &:active {
+    position: relative;
+    top: 1px;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.803);
+  }
 }

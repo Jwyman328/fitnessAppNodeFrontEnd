@@ -76,18 +76,30 @@ video {
   position: relative;
 }
 
-.smallCard {
+.card--small {
   max-width: 700px;
 }
 
 .login-opacity {
   opacity: 0.8;
 }
-.login-logo-left {
-  @include loginLogo(85%);
-}
-.login-logo-right {
-  @include loginLogo(none, 85%);
+
+.login-logo {
+  height: 50px;
+  position: absolute;
+  bottom: 80%;
+  left: none;
+  right: none;
+  animation-name: bounce;
+  animation-duration: 3s;
+
+  &--left {
+    left: 85%;
+  }
+
+  &--right {
+    right: 85%;
+  }
 }
 
 @keyframes bounce {
@@ -114,7 +126,7 @@ video {
   }
 }
 
-.rulesRow {
+.rules__row {
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -123,6 +135,6 @@ video {
   width: 65vw;
 }
 
-.ruleDiscrip {
+.rule__description {
   padding-left: 5px;
 }

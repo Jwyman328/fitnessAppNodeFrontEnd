@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "./App.css";
 import "./pages/form.scss";
 import "./pages/informationBasedPages/Rules.scss";
-import "./pages/challenges/submitButton.css";
+import "./pages/challenges/submitButton.scss";
 
 //Routing
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

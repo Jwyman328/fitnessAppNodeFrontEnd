@@ -6,7 +6,7 @@ import React from "react";
  * @param {Array} children Array of children elements to be displayed in the form container.
  */
 function FormContainer({ children }) {
-  return <form className="formContainer">{children}</form>;
+  return <form className="form">{children}</form>;
 }
 
 export default FormContainer;

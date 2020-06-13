@@ -6,7 +6,7 @@ import React from "react";
  * @param {String} labelText Text to be displayed as the label for a form element.
  */
 function FormRowLabel({ labelText }) {
-  return <label className="rowFormItem">{labelText}</label>;
+  return <label className="form__row__item">{labelText}</label>;
 }
 
 export default FormRowLabel;

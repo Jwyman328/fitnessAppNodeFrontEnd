@@ -1,0 +1,18 @@
+.table {
+  width: 100vw;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: black;
+  }
+
+  &__item {
+    flex: 1;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode";
+    font-size: 12;
+    color: black;
+    margin-top: 10px;
+  }
+}
