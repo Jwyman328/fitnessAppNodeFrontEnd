@@ -39,7 +39,7 @@ async function CreateInputPoint(inputPointFormState, dispatch, token) {
   };
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_MAINURL}/activityInput/`,
+      `${process.env.REACT_APP_MAINURL}/activityInputs/`,
       bodyParameters,
       config
     );
