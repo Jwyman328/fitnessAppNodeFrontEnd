@@ -26,7 +26,7 @@ describe("mock fetch current and future challenge request success", () => {
       { status: 200, response: currentChallengeData }
     );
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/futureChallenges/",
+      "https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/futureChallenges/",
       { status: 200, response: futureChallengeData }
     );
 
@@ -69,7 +69,7 @@ describe("mock fetch current and future challenge request failure", () => {
       { status: 400, response: currentChallengeData }
     );
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/futureChallenges/`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/futureChallenges/`,
       { status: 400, response: futureChallengeData }
     );
     element = render(
