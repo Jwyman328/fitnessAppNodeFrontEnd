@@ -14,7 +14,7 @@ async function loginUser(loginFormState, dispatch) {
   try {
     const loginData = { email: email, password: password };
     const response = await axios.post(
-      `${process.env.REACT_APP_MAINURL}/user/login`,
+      `${process.env.REACT_APP_MAINURL}/users/login`,
       {
         method: "POST",
         data: loginData,

@@ -70,7 +70,7 @@ describe("mock getAllusers request returns mock users", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/allUsers/",
+      "https://enigmatic-springs-36428.herokuapp.com/users/allUsers/",
       { status: 200, response: ["testEmail@gmail.com", "testEmail2@gmail.com"] }
     );
     element = render(

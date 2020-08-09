@@ -29,7 +29,7 @@ describe("mock point results fetch request success", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      "https://enigmatic-springs-36428.herokuapp.com/users/login",
       { status: 200, response: { token: "mockToken" } }
     );
     moxios.stubRequest(
@@ -69,7 +69,7 @@ describe("mock point results fetch request success, start at home page to use wi
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      "https://enigmatic-springs-36428.herokuapp.com/users/login",
       { status: 200, response: { token: "mockToken" } }
     );
 

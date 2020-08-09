@@ -19,7 +19,7 @@ async function signUpAction(signUpFormState, dispatch) {
     try {
       const signUpData = { email: email, password: password };
       const response = await axios.post(
-        `${process.env.REACT_APP_MAINURL}/user/`,
+        `${process.env.REACT_APP_MAINURL}/users/`,
         {
           method: "POST",
           data: signUpData,

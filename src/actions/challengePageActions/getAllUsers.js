@@ -13,7 +13,7 @@ async function GetAllUsers(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/user/allUsers/`,
+      `${process.env.REACT_APP_MAINURL}/users/allUsers/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     dispatch({ type: "getAllUsersSuccess", allUsers: response.data });

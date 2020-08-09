@@ -61,7 +61,7 @@ describe("mox form submit success", () => {
   beforeEach(() => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/login",
+      "https://enigmatic-springs-36428.herokuapp.com/users/login",
       { status: 200, response: { token: "mockToken" } }
     );
     loginUser.mockImplementation(MockLoginUserAction);
