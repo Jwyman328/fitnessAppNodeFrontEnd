@@ -66,10 +66,10 @@ describe("Test input onChange values", () => {
 describe("Test signup request", () => {
   beforeEach(() => {
     moxios.install();
-    moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/user/create/",
-      { status: 200, response: { token: "mockToken" } }
-    );
+    moxios.stubRequest("https://enigmatic-springs-36428.herokuapp.com/user/", {
+      status: 200,
+      response: { token: "mockToken" }
+    });
     //mock going to the next page
     signUpAction.mockImplementation(MockSignUpUserAction);
 
