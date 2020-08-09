@@ -14,7 +14,7 @@ async function getActivityInput(dispatch, token, activityInputId) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/activityInput/${activityInputId}/`,
+      `${process.env.REACT_APP_MAINURL}/activityInputs/${activityInputId}/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
