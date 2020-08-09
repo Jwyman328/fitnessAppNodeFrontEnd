@@ -33,7 +33,7 @@ async function CreateChallenge(createChallengeFormState, dispatch, token) {
 
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_MAINURL}/challenge/`,
+      `${process.env.REACT_APP_MAINURL}/challenges/`,
       { headers: { Authorization: `Bearer ${token}` } },
       postRequestBodyConfig
     );

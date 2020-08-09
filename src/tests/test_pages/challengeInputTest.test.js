@@ -116,7 +116,7 @@ describe("mock create challenge request returns success", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/challenge/",
+      "https://enigmatic-springs-36428.herokuapp.com/challenges/",
       { status: 200 }
     );
     element = render(
@@ -149,7 +149,7 @@ describe("mock create challenge request returns error", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/challenge/",
+      "https://enigmatic-springs-36428.herokuapp.com/challenges/",
       { status: 400 }
     );
     element = render(
