@@ -13,7 +13,7 @@ async function getCurrentChallenges(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/currentChallenges/`,
+      `${process.env.REACT_APP_MAINURL}/challengeInvitation/currentChallenges/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedChallengeDateValues = removeTimeFromChallengeDateValues(

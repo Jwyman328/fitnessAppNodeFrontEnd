@@ -19,7 +19,7 @@ describe("mock fetch past challenges request success", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/pastChallenges/`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pastChallenges/`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
 

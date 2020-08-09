@@ -13,7 +13,7 @@ async function getPastChallenges(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/pastChallenges/`,
+      `${process.env.REACT_APP_MAINURL}/challengeInvitation/pastChallenges/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 

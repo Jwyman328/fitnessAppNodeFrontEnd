@@ -104,7 +104,7 @@ describe("mock pending challenge get request and update challenge status request
     moxios.install();
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/${pendingChallengeInitialInvitationData._id}/`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     moxios.stubRequest(
@@ -146,7 +146,7 @@ describe("mock pending challenge get request success and update challenge status
     moxios.install();
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/updateChallengeStatus/${pendingChallengeInitialInvitationData._id}/`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/${pendingChallengeInitialInvitationData._id}/`,
       { status: 400 }
     );
     moxios.stubRequest(
