@@ -13,7 +13,7 @@ async function getTodaysPoints(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/todaysPoints/`,
+      `${process.env.REACT_APP_MAINURL}/activityPoints/today/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedActivityPointValues = removeTimeFromActivityPointDateValues(

@@ -33,7 +33,7 @@ describe("mock point results fetch request success", () => {
       { status: 200, response: { token: "mockToken" } }
     );
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/activityPoint/mine/`,
+      `https://enigmatic-springs-36428.herokuapp.com/activityPoints/`,
       { status: 200, response: activityPointData }
     );
 
@@ -74,7 +74,7 @@ describe("mock point results fetch request success, start at home page to use wi
     );
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/activityPoint/mine/`,
+      `https://enigmatic-springs-36428.herokuapp.com/activityPoints/`,
       { status: 200, response: activityPointData }
     );
 
