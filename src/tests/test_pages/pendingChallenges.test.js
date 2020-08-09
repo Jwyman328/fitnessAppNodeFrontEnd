@@ -19,7 +19,7 @@ describe("Mock pending challenge invitation get request success", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     element = render(
@@ -68,7 +68,7 @@ describe("Mock pending challenge invitation get request fails", () => {
     moxios.install();
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
       { status: 400, response: pendingChallengeInitialInvitationData }
     );
     element = render(
@@ -108,7 +108,7 @@ describe("mock pending challenge get request and update challenge status request
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
 
@@ -150,7 +150,7 @@ describe("mock pending challenge get request success and update challenge status
       { status: 400 }
     );
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/AllChallengeInvitation/myInvitations/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     element = render(
