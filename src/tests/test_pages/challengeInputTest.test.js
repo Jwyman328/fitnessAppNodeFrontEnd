@@ -69,10 +69,10 @@ describe("challenge inputs can accept data changes", () => {
 describe("mock getAllusers request returns mock users", () => {
   beforeEach(async () => {
     moxios.install();
-    moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/users/allUsers/",
-      { status: 200, response: ["testEmail@gmail.com", "testEmail2@gmail.com"] }
-    );
+    moxios.stubRequest("https://enigmatic-springs-36428.herokuapp.com/users/", {
+      status: 200,
+      response: ["testEmail@gmail.com", "testEmail2@gmail.com"]
+    });
     element = render(
       <StateProvider globalState={{ loggedIn: true, token: "myToken" }}>
         <MemoryRouter initialEntries={["/Challenges"]}>
