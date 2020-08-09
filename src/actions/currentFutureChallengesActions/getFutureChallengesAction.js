@@ -14,7 +14,7 @@ async function getFutureChallenges(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/challengeInvitation/futureChallenges/`,
+      `${process.env.REACT_APP_MAINURL}/challengeInvitations/futureChallenges/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedChallengeDateValues = removeTimeFromChallengeDateValues(

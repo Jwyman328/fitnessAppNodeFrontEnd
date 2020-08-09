@@ -19,7 +19,7 @@ describe("Mock pending challenge invitation get request success", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitations/pending`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     element = render(
@@ -68,7 +68,7 @@ describe("Mock pending challenge invitation get request fails", () => {
     moxios.install();
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitations/pending`,
       { status: 400, response: pendingChallengeInitialInvitationData }
     );
     element = render(
@@ -104,11 +104,11 @@ describe("mock pending challenge get request and update challenge status request
     moxios.install();
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/${pendingChallengeInitialInvitationData._id}/`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitations/${pendingChallengeInitialInvitationData._id}/`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitations/pending`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
 
@@ -146,11 +146,11 @@ describe("mock pending challenge get request success and update challenge status
     moxios.install();
 
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/${pendingChallengeInitialInvitationData._id}/`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitations/${pendingChallengeInitialInvitationData._id}/`,
       { status: 400 }
     );
     moxios.stubRequest(
-      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitation/pending`,
+      `https://enigmatic-springs-36428.herokuapp.com/challengeInvitations/pending`,
       { status: 200, response: pendingChallengeInitialInvitationData }
     );
     element = render(

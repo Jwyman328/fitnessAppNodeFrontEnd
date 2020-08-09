@@ -13,7 +13,7 @@ async function getAllPendingChallengeInvitations(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/challengeInvitation/pending`,
+      `${process.env.REACT_APP_MAINURL}/challengeInvitations/pending`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizedChallengeDateValues = removeTimeFromChallengeDateValues(

@@ -23,7 +23,7 @@ async function updateChallengeInvitationStatus(dispatch, token, id, newStatus) {
   };
   try {
     const response = await axios.patch(
-      `${process.env.REACT_APP_MAINURL}/challengeInvitation/${id}/`,
+      `${process.env.REACT_APP_MAINURL}/challengeInvitations/${id}/`,
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );
