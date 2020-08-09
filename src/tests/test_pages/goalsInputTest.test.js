@@ -80,7 +80,7 @@ describe("mock a success post request", () => {
     moxios.install();
 
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/totalPointGoal/",
+      "https://enigmatic-springs-36428.herokuapp.com/totalPointGoals/",
       { status: 200 }
     );
     element = render(
@@ -112,7 +112,7 @@ describe("error msg shows on bad request", () => {
   beforeEach(async () => {
     moxios.install();
     moxios.stubRequest(
-      "https://enigmatic-springs-36428.herokuapp.com/totalPointGoal/",
+      "https://enigmatic-springs-36428.herokuapp.com/totalPointGoals/",
       { status: 400 }
     );
 

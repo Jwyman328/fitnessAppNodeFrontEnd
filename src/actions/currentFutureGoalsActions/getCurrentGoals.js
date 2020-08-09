@@ -13,7 +13,7 @@ async function getCurrentGoals(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/currentGoals/`,
+      `${process.env.REACT_APP_MAINURL}/totalPointGoals/currentGoals/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const sanitizesGoalDateValues = removeTimeFromGoalObjectDateValues(

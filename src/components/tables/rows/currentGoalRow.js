@@ -35,7 +35,7 @@ const currentGoalRow = (
    */
   const deleteGoal = async goalId => {
     const response = await axios.delete(
-      `${process.env.REACT_APP_MAINURL}/totalPointGoal/${goalId}/`,
+      `${process.env.REACT_APP_MAINURL}/totalPointGoals/${goalId}/`,
       { headers: { Authorization: `Bearer ${token}` } },
       config
     );

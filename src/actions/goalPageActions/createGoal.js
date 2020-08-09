@@ -33,7 +33,7 @@ async function CreateGoal(createGoalFormState, dispatch, token) {
   };
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_MAINURL}/totalPointGoal/`,
+      `${process.env.REACT_APP_MAINURL}/totalPointGoals/`,
       bodyParameters,
       config
     );

@@ -13,7 +13,7 @@ async function getfutureGoals(dispatch, token) {
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/futureGoals/`,
+      `${process.env.REACT_APP_MAINURL}/totalPointGoals/futureGoals/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 

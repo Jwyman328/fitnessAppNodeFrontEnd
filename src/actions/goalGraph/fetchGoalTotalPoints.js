@@ -18,7 +18,7 @@ async function fetchGoalTotalPoints(
 
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_MAINURL}/goalPoints/${goalStartDate}/${goalEndDate}/`,
+      `${process.env.REACT_APP_MAINURL}/totalPointGoals/goalPoints/${goalStartDate}/${goalEndDate}/`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     dispatch({
